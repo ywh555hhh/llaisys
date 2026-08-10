@@ -1,4 +1,7 @@
 name: Build and test
+
+env:
+  HF_HUB_DISABLE_XET: "1"
 on:
   pull_request:
   push:
