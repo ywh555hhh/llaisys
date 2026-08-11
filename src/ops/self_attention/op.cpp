@@ -1,5 +1,9 @@
 #include "op.hpp"
 
+#ifdef ENABLE_NVIDIA_API
+#include "nvidia/self_attention_nvidia.hpp"
+#endif
+
 #include "../../utils.hpp"
 
 #include <algorithm>
@@ -83,6 +87,11 @@ void self_attention(tensor_t attn_val, tensor_t q, tensor_t k, tensor_t v, float
     CHECK_ARGUMENT(nkvh > 0 && nh % nkvh == 0, "Self-attention requires query heads to be a multiple of KV heads.");
     ASSERT(attn_val->isContiguous() && q->isContiguous() && k->isContiguous() && v->isContiguous(), "Self-attention: tensors must be contiguous.");
     if (attn_val->deviceType() != LLAISYS_DEVICE_CPU) {
+#ifdef ENABLE_NVIDIA_API
+        if (attn_val->deviceType() == LLAISYS_DEVICE_NVIDIA) {
+            return nvidia::self_attention(attn_val, q, k, v, scale);
+        }
+#endif
         EXCEPTION_UNSUPPORTED_DEVICE;
     }
     switch (attn_val->dtype()) {

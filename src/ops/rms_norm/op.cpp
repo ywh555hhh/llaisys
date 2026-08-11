@@ -1,5 +1,9 @@
 #include "op.hpp"
 
+#ifdef ENABLE_NVIDIA_API
+#include "nvidia/rms_norm_nvidia.hpp"
+#endif
+
 #include "../../utils.hpp"
 
 #include <algorithm>
@@ -54,6 +58,11 @@ void rms_norm(tensor_t out, tensor_t in, tensor_t weight, float eps) {
     CHECK_ARGUMENT(weight->shape()[0] == in->shape()[1], "RMSNorm weight shape mismatch.");
     ASSERT(out->isContiguous() && in->isContiguous() && weight->isContiguous(), "RMSNorm: tensors must be contiguous.");
     if (out->deviceType() != LLAISYS_DEVICE_CPU) {
+#ifdef ENABLE_NVIDIA_API
+        if (out->deviceType() == LLAISYS_DEVICE_NVIDIA) {
+            return nvidia::rms_norm(out, in, weight, eps);
+        }
+#endif
         EXCEPTION_UNSUPPORTED_DEVICE;
     }
     switch (out->dtype()) {

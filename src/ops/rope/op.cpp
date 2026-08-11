@@ -1,5 +1,9 @@
 #include "op.hpp"
 
+#ifdef ENABLE_NVIDIA_API
+#include "nvidia/rope_nvidia.hpp"
+#endif
+
 #include "../../utils.hpp"
 
 #include <algorithm>
@@ -61,6 +65,11 @@ void rope(tensor_t out, tensor_t in, tensor_t pos_ids, float theta) {
     CHECK_ARGUMENT(in->shape()[2] % 2 == 0, "RoPE head dimension must be even.");
     ASSERT(out->isContiguous() && in->isContiguous() && pos_ids->isContiguous(), "RoPE: tensors must be contiguous.");
     if (out->deviceType() != LLAISYS_DEVICE_CPU) {
+#ifdef ENABLE_NVIDIA_API
+        if (out->deviceType() == LLAISYS_DEVICE_NVIDIA) {
+            return nvidia::rope(out, in, pos_ids, theta);
+        }
+#endif
         EXCEPTION_UNSUPPORTED_DEVICE;
     }
     switch (out->dtype()) {

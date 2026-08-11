@@ -1,5 +1,9 @@
 #include "op.hpp"
 
+#ifdef ENABLE_NVIDIA_API
+#include "nvidia/linear_nvidia.hpp"
+#endif
+
 #include "../../utils.hpp"
 
 #include <algorithm>
@@ -64,6 +68,11 @@ void linear(tensor_t out, tensor_t in, tensor_t weight, tensor_t bias) {
     }
     ASSERT(out->isContiguous() && in->isContiguous() && weight->isContiguous() && (!bias || bias->isContiguous()), "Linear: tensors must be contiguous.");
     if (out->deviceType() != LLAISYS_DEVICE_CPU) {
+#ifdef ENABLE_NVIDIA_API
+        if (out->deviceType() == LLAISYS_DEVICE_NVIDIA) {
+            return nvidia::linear(out, in, weight, bias);
+        }
+#endif
         EXCEPTION_UNSUPPORTED_DEVICE;
     }
     switch (out->dtype()) {

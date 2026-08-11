@@ -1,5 +1,9 @@
 #include "op.hpp"
 
+#ifdef ENABLE_NVIDIA_API
+#include "nvidia/embedding_nvidia.hpp"
+#endif
+
 #include "../../utils.hpp"
 
 #include <algorithm>
@@ -51,6 +55,11 @@ void embedding(tensor_t out, tensor_t index, tensor_t weight) {
     CHECK_ARGUMENT(out->shape()[0] == index->shape()[0] && out->shape()[1] == weight->shape()[1], "Embedding output shape mismatch.");
     ASSERT(out->isContiguous() && index->isContiguous() && weight->isContiguous(), "Embedding: tensors must be contiguous.");
     if (out->deviceType() != LLAISYS_DEVICE_CPU) {
+#ifdef ENABLE_NVIDIA_API
+        if (out->deviceType() == LLAISYS_DEVICE_NVIDIA) {
+            return nvidia::embedding(out, index, weight);
+        }
+#endif
         EXCEPTION_UNSUPPORTED_DEVICE;
     }
     switch (out->dtype()) {

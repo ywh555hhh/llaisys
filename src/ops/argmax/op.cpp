@@ -1,5 +1,9 @@
 #include "op.hpp"
 
+#ifdef ENABLE_NVIDIA_API
+#include "nvidia/argmax_nvidia.hpp"
+#endif
+
 #include "../../utils.hpp"
 
 #include <algorithm>
@@ -50,6 +54,11 @@ void argmax(tensor_t max_idx, tensor_t max_val, tensor_t vals) {
     CHECK_ARGUMENT(vals->numel() > 0, "Argmax input must not be empty.");
     ASSERT(vals->isContiguous() && max_idx->isContiguous() && max_val->isContiguous(), "Argmax: tensors must be contiguous.");
     if (vals->deviceType() != LLAISYS_DEVICE_CPU) {
+#ifdef ENABLE_NVIDIA_API
+        if (vals->deviceType() == LLAISYS_DEVICE_NVIDIA) {
+            return nvidia::argmax(max_idx, max_val, vals);
+        }
+#endif
         EXCEPTION_UNSUPPORTED_DEVICE;
     }
     switch (vals->dtype()) {

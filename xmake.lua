@@ -97,6 +97,9 @@ target_end()
 
 target("llaisys")
     set_kind("shared")
+    if has_config("nv-gpu") then
+        add_nvidia_support()
+    end
     add_deps("llaisys-utils")
     add_deps("llaisys-device")
     add_deps("llaisys-core")
