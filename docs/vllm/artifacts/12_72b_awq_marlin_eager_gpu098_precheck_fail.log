@@ -1,0 +1,218 @@
+===== Qwen/Qwen2.5-72B-Instruct-AWQ 2026-08-12T08:31:47+08:00 =====
+Timestamp    Wed Aug 12 08:31:47 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  38C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
+|  No running processes found                                                    |
++--------------------------------------------------------------------------------+
+Downloading/resuming Qwen/Qwen2.5-72B-Instruct-AWQ to /data/models/Qwen2.5-72B-Instruct-AWQ
+Fetching 21 files:   0%|          | 0/21 [00:00<?, ?it/s]Fetching 21 files:   5%|▍         | 1/21 [00:05<01:40,  5.03s/it]Fetching 21 files:  33%|███▎      | 7/21 [06:54<14:22, 61.60s/it]Fetching 21 files:  52%|█████▏    | 11/21 [06:55<05:34, 33.42s/it]Fetching 21 files:  57%|█████▋    | 12/21 [07:06<04:32, 30.26s/it]Fetching 21 files:  67%|██████▋   | 14/21 [07:07<02:31, 21.69s/it]Fetching 21 files:  71%|███████▏  | 15/21 [08:47<03:30, 35.04s/it]Fetching 21 files: 100%|██████████| 21/21 [08:47<00:00, 25.13s/it]
+[32m✓ Downloaded[0m
+  path: /data/models/Qwen2.5-72B-Instruct-AWQ
+39G	/data/models/Qwen2.5-72B-Instruct-AWQ
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+INFO 08-12 08:40:55 [utils.py:238] non-default args: {'trust_remote_code': True, 'dtype': 'float16', 'max_model_len': 128, 'enable_prefix_caching': True, 'gpu_memory_utilization': 0.98, 'disable_log_stats': True, 'quantization': 'awq_marlin', 'enforce_eager': True, 'model': '/data/models/Qwen2.5-72B-Instruct-AWQ'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 08-12 08:40:55 [model.py:531] Resolved architecture: Qwen2ForCausalLM
+INFO 08-12 08:40:55 [model.py:1564] Using max model len 128
+INFO 08-12 08:40:56 [awq_marlin.py:164] The model is convertible to awq_marlin during runtime. Using awq_marlin kernel.
+WARNING 08-12 08:40:56 [model.py:627] Please export VLLM_ENFORCE_CUDA_GRAPH=1 to enable cuda graph. For now, cuda graph is not used and --enforce-eager is disabled ,we are trying to use cuda graph as the default mode
+INFO 08-12 08:40:56 [scheduler.py:231] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 08-12 08:40:56 [vllm.py:747] Asynchronous scheduling is enabled.
+WARNING 08-12 08:40:56 [vllm.py:781] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 08-12 08:40:56 [vllm.py:792] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 08-12 08:40:56 [vllm.py:957] Cudagraph is disabled under eager mode
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+(EngineCore_DP0 pid=44082) INFO 08-12 08:41:15 [core.py:101] Initializing a V1 LLM engine (v0.17.0) with config: model='/data/models/Qwen2.5-72B-Instruct-AWQ', speculative_config=None, tokenizer='/data/models/Qwen2.5-72B-Instruct-AWQ', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.float16, max_seq_len=128, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=awq_marlin, enforce_eager=True, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=/data/models/Qwen2.5-72B-Instruct-AWQ, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'splitting_ops': [], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore_DP0 pid=44082) INFO 08-12 08:41:16 [parallel_state.py:1418] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://172.23.0.5:39821 backend=nccl
+(EngineCore_DP0 pid=44082) INFO 08-12 08:41:16 [parallel_state.py:1740] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore_DP0 pid=44082) /usr/lib/python3.12/contextlib.py:191: ResourceWarning: Unclosed context <zmq.Context() at 0x7f8bf1c3b950>
+(EngineCore_DP0 pid=44082)   exc.__traceback__ = traceback
+(EngineCore_DP0 pid=44082) ResourceWarning: Enable tracemalloc to get the object allocation traceback
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279] EngineCore failed to start.
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279] Traceback (most recent call last):
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1269, in run_engine_core
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]     return func(*args, **kwargs)
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1013, in __init__
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]     super().__init__(
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 110, in __init__
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]     self.model_executor = executor_class(vllm_config)
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]     return func(*args, **kwargs)
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/abstract.py", line 103, in __init__
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]     self._init_executor()
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/uniproc_executor.py", line 48, in _init_executor
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]     self.driver_worker.init_device()
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]     self.worker.init_device()  # type: ignore
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]     ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]     return func(*args, **kwargs)
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 286, in init_device
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]     self.requested_memory = request_memory(init_snapshot, self.cache_config)
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/utils.py", line 413, in request_memory
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279]     raise ValueError(
+(EngineCore_DP0 pid=44082) ERROR 08-12 08:41:17 [core.py:1279] ValueError: Free memory on device cuda:0 (30.92/32.0 GiB) on startup is less than desired GPU memory utilization (0.98, 31.36 GiB). Decrease GPU memory utilization or reduce GPU memory used by other processes.
+(EngineCore_DP0 pid=44082) Process EngineCore_DP0:
+(EngineCore_DP0 pid=44082) Traceback (most recent call last):
+(EngineCore_DP0 pid=44082)   File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore_DP0 pid=44082)     self.run()
+(EngineCore_DP0 pid=44082)   File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+(EngineCore_DP0 pid=44082)     self._target(*self._args, **self._kwargs)
+(EngineCore_DP0 pid=44082)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1283, in run_engine_core
+(EngineCore_DP0 pid=44082)     raise e
+(EngineCore_DP0 pid=44082)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1269, in run_engine_core
+(EngineCore_DP0 pid=44082)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore_DP0 pid=44082)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=44082)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore_DP0 pid=44082)     return func(*args, **kwargs)
+(EngineCore_DP0 pid=44082)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=44082)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1013, in __init__
+(EngineCore_DP0 pid=44082)     super().__init__(
+(EngineCore_DP0 pid=44082)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 110, in __init__
+(EngineCore_DP0 pid=44082)     self.model_executor = executor_class(vllm_config)
+(EngineCore_DP0 pid=44082)                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=44082)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore_DP0 pid=44082)     return func(*args, **kwargs)
+(EngineCore_DP0 pid=44082)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=44082)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/abstract.py", line 103, in __init__
+(EngineCore_DP0 pid=44082)     self._init_executor()
+(EngineCore_DP0 pid=44082)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/uniproc_executor.py", line 48, in _init_executor
+(EngineCore_DP0 pid=44082)     self.driver_worker.init_device()
+(EngineCore_DP0 pid=44082)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/worker_base.py", line 326, in init_device
+(EngineCore_DP0 pid=44082)     self.worker.init_device()  # type: ignore
+(EngineCore_DP0 pid=44082)     ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=44082)   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore_DP0 pid=44082)     return func(*args, **kwargs)
+(EngineCore_DP0 pid=44082)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=44082)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 286, in init_device
+(EngineCore_DP0 pid=44082)     self.requested_memory = request_memory(init_snapshot, self.cache_config)
+(EngineCore_DP0 pid=44082)                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=44082)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/utils.py", line 413, in request_memory
+(EngineCore_DP0 pid=44082)     raise ValueError(
+(EngineCore_DP0 pid=44082) ValueError: Free memory on device cuda:0 (30.92/32.0 GiB) on startup is less than desired GPU memory utilization (0.98, 31.36 GiB). Decrease GPU memory utilization or reduce GPU memory used by other processes.
+(EngineCore_DP0 pid=44082) sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+[rank0]:[W812 08:41:18.937531401 ProcessGroupNCCL.cpp:1518] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+/data/src/vllm-mrv100-probe/scripts/run_model_scale_probe.py:149: ResourceWarning: Unclosed context <zmq.Context() at 0x7e7e006b80b0>
+  result.update({"ok": False, "error": repr(exc), "traceback": traceback.format_exc()})
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+{
+  "model_id": "Qwen/Qwen2.5-72B-Instruct-AWQ",
+  "model_dir": "/data/models/Qwen2.5-72B-Instruct-AWQ",
+  "args": {
+    "model_dir": "/data/models/Qwen2.5-72B-Instruct-AWQ",
+    "model_id": "Qwen/Qwen2.5-72B-Instruct-AWQ",
+    "out": "/data/src/vllm-mrv100-probe/artifacts/10_awq_marlin_eager_Qwen2.5-72B-Instruct-AWQ.json",
+    "max_model_len": 128,
+    "gpu_memory_utilization": 0.98,
+    "dtype": "float16",
+    "quantization": "awq_marlin",
+    "cuda_graph": false,
+    "enforce_eager": true,
+    "max_tokens": 8,
+    "batch_size": 1
+  },
+  "env": {
+    "VLLM_TARGET_DEVICE": "cuda",
+    "VLLM_ATTENTION_BACKEND": null,
+    "VLLM_WORKER_MULTIPROC_METHOD": "spawn",
+    "VLLM_ENFORCE_CUDA_GRAPH": null
+  },
+  "model_config": {
+    "architectures": [
+      "Qwen2ForCausalLM"
+    ],
+    "model_type": "qwen2",
+    "hidden_size": 8192,
+    "intermediate_size": 29696,
+    "num_hidden_layers": 80,
+    "num_attention_heads": 64,
+    "num_key_value_heads": 8,
+    "vocab_size": 152064,
+    "max_position_embeddings": 32768,
+    "torch_dtype": "float16"
+  },
+  "ixsmi_before": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Wed Aug 12 08:40:36 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  38C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n|  No running processes found                                                    |\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 68 MiB, 32700 MiB, 0 %, 1 %, 37 W, 38 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  },
+  "ok": false,
+  "error": "RuntimeError('Engine core initialization failed. See root cause above. Failed core proc(s): {}')",
+  "traceback": "Traceback (most recent call last):\n  File \"/data/src/vllm-mrv100-probe/scripts/run_model_scale_probe.py\", line 123, in main\n    llm = LLM(\n          ^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/llm.py\", line 379, in __init__\n    self.llm_engine = LLMEngine.from_engine_args(\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/llm_engine.py\", line 177, in from_engine_args\n    return cls(\n           ^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/llm_engine.py\", line 111, in __init__\n    self.engine_core = EngineCoreClient.make_client(\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 98, in make_client\n    return SyncMPClient(vllm_config, executor_class, log_stats)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py\", line 178, in sync_wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 734, in __init__\n    super().__init__(\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 569, in __init__\n    with launch_core_engines(\n  File \"/usr/lib/python3.12/contextlib.py\", line 144, in __exit__\n    next(self.gen)\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py\", line 951, in launch_core_engines\n    wait_for_engine_startup(\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py\", line 1010, in wait_for_engine_startup\n    raise RuntimeError(\nRuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}\n",
+  "ixsmi_after": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Wed Aug 12 08:41:26 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  38C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n|  No running processes found                                                    |\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 68 MiB, 32700 MiB, 0 %, 1 %, 37 W, 38 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  }
+}
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+Timestamp    Wed Aug 12 08:41:34 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  38C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
+|  No running processes found                                                    |
++--------------------------------------------------------------------------------+

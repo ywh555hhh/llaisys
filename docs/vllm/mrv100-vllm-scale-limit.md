@@ -62,12 +62,15 @@ and generate at all?"
 | Qwen2.5-14B-Instruct | 1024 | 1 | CUDA Graph | 73.5s | 19.5 | Pass |
 | Qwen2.5-32B-Instruct-AWQ | 512 | 1 | AWQ eager | 52.2s | 21.9 | Pass |
 | Qwen2.5-32B-Instruct-AWQ | 512 | 1 | AWQ Marlin + CUDA Graph | 59.2s | 22.9 | Pass |
+| Qwen2.5-72B-Instruct-AWQ | 128 | 1 | AWQ Marlin eager | N/A | N/A | Fail: CUDA OOM |
+| Qwen2.5-72B-Instruct-AWQ | 128 | 1 | AWQ eager | N/A | N/A | Fail: CUDA OOM |
 
 The strongest finding is that one MR-V100 32 GiB card can run
 `Qwen/Qwen2.5-14B-Instruct` through vLLM V1 with CUDA Graph enabled at 1024
 context, and can also run `Qwen/Qwen2.5-32B-Instruct-AWQ` at 512 context using
-quantized weights. The largest proven fp16/bfloat16 model is 14B. The largest
-proven quantized model is 32B-AWQ.
+quantized weights. A 72B-AWQ probe was downloaded and tested, but failed during
+model weight allocation with CUDA OOM. The largest proven fp16/bfloat16 model is
+14B. The largest proven no-offload quantized model is 32B-AWQ.
 
 The 14B run used:
 
@@ -85,7 +88,9 @@ The throughput numbers are not directly comparable across every row because the
 larger-model probes intentionally used smaller batches and shorter decode
 lengths. The meaningful comparison is the scaling trend and the fact that the
 runtime can still initialize, capture graphs, and generate tokens at 14B
-fp16/bfloat16 and 32B-AWQ.
+fp16/bfloat16 and 32B-AWQ. For 72B-AWQ, the important result is the negative
+boundary: the model directory downloaded successfully, but both AWQ Marlin and
+plain AWQ failed before generation.
 
 ## Interpretation
 
@@ -101,6 +106,10 @@ The scale ladder gives a useful mental model for this card:
 - 32B is viable as a quantization experiment. AWQ crossed the fp16 memory wall,
   and AWQ Marlin plus CUDA Graph provided a small repeat-decode improvement in
   this tiny probe.
+- 72B-AWQ is over the no-offload single-card limit in this setup. Lowering
+  context to 128 and output to 8 tokens did not help because the failure happens
+  while constructing quantized model weights, before KV cache or decode pressure
+  becomes the dominant issue.
 
 ## 32B quantization result
 
@@ -142,6 +151,50 @@ not yet a strong performance claim. The stronger result is compatibility:
 MR-V100/CoreX vLLM can load a 32B AWQ model, use FlashAttention, capture decode
 graphs, and generate tokens on one 32 GiB card.
 
+## 72B negative boundary
+
+To test whether 32B-AWQ was merely a conservative stopping point, the probe also
+downloaded `Qwen/Qwen2.5-72B-Instruct-AWQ`.
+
+```text
+local model size: 39 GiB
+max_model_len: 128
+batch_size: 1
+max_tokens: 8
+```
+
+The first run used `gpu_memory_utilization=0.98` and failed at vLLM's startup
+memory precheck:
+
+```text
+Free memory on device cuda:0 (30.92/32.0 GiB) on startup is less than desired
+GPU memory utilization (0.98, 31.36 GiB).
+```
+
+That failure alone was not enough to establish the model boundary, so two lower
+memory-utilization runs were tested at `gpu_memory_utilization=0.90`:
+
+```text
+quantization: awq_marlin
+result: CUDA OOM during model weight allocation
+
+quantization: awq
+result: CUDA OOM during model weight allocation
+```
+
+Both failed with the same key symptom:
+
+```text
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 232.00 MiB.
+GPU 0 has a total capacity of 32.00 GiB of which 136.00 MiB is free.
+Process ... has 31.79 GiB memory in use.
+```
+
+This is stronger evidence than a generic failed launch: vLLM reached model
+construction and exhausted the 32 GiB card while creating quantized linear-layer
+weights. Under the tested assumptions, without CPU offload or multi-card tensor
+parallelism, 72B-AWQ is not runnable on this MR-V100 card.
+
 ## Reproduce
 
 Run the fp16/bfloat16 scale ladder:
@@ -160,6 +213,22 @@ Run the AWQ Marlin + CUDA Graph variant:
 
 ```bash
 QUANTIZATION=awq_marlin MODE=cudagraph \
+  bash tools/vllm/run_mrv100_vllm_awq_probe.sh
+```
+
+Run the 72B-AWQ negative-boundary probes:
+
+```bash
+MODEL=Qwen/Qwen2.5-72B-Instruct-AWQ \
+LOCAL_DIR=/data/models/Qwen2.5-72B-Instruct-AWQ \
+QUANTIZATION=awq_marlin MODE=eager \
+MAX_MODEL_LEN=128 MAX_TOKENS=8 GPU_MEMORY_UTILIZATION=0.90 \
+  bash tools/vllm/run_mrv100_vllm_awq_probe.sh
+
+MODEL=Qwen/Qwen2.5-72B-Instruct-AWQ \
+LOCAL_DIR=/data/models/Qwen2.5-72B-Instruct-AWQ \
+QUANTIZATION=awq MODE=eager \
+MAX_MODEL_LEN=128 MAX_TOKENS=8 GPU_MEMORY_UTILIZATION=0.90 \
   bash tools/vllm/run_mrv100_vllm_awq_probe.sh
 ```
 
@@ -189,6 +258,13 @@ Important artifacts:
 10_scale_and_awq_summary.json
 10_awq_Qwen2.5-32B-Instruct-AWQ.log
 10_awq_marlin_cudagraph_Qwen2.5-32B-Instruct-AWQ.log
+11_scale_awq_72b_summary.json
+12_72b_awq_marlin_eager_gpu098_precheck_fail.json
+13_72b_awq_marlin_eager_gpu090_oom.json
+14_72b_awq_eager_gpu090_oom.json
+12_72b_awq_marlin_eager_gpu098_precheck_fail.log
+13_72b_awq_marlin_eager_gpu090_oom.log
+14_72b_awq_eager_gpu090_oom.log
 ```
 
 ## Resume framing
@@ -199,7 +275,9 @@ A compact project description:
 Ran a vLLM scale-limit study on Iluvatar MR-V100/CoreX, validating Qwen2.5
 0.5B/1.5B/3B/7B/14B offline inference on one 32 GiB card with CUDA Graph enabled,
 then crossing the fp16 memory wall with Qwen2.5-32B-Instruct-AWQ and comparing
-AWQ eager vs AWQ Marlin + CUDA Graph decode.
+AWQ eager vs AWQ Marlin + CUDA Graph decode; established 72B-AWQ as over the
+no-offload single-card limit via CUDA OOM evidence during quantized weight
+allocation.
 ```
 
 Stronger next steps:
@@ -209,4 +287,6 @@ Stronger next steps:
 2. Compare eager vs CUDA Graph on 3B/7B/14B with fixed prompt/output lengths.
 3. Add prefix-cache workloads with repeated long system prompts.
 4. Benchmark 32B-AWQ with longer decode lengths and controlled prompt lengths.
-5. Investigate cleanup warnings from vLLM/CoreX worker shutdown.
+5. Optionally test 72B with explicit CPU offload or tensor parallelism, but keep
+   that separate from the single-card no-offload limit.
+6. Investigate cleanup warnings from vLLM/CoreX worker shutdown.
