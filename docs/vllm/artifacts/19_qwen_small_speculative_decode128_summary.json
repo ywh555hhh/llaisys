@@ -1,0 +1,190 @@
+{
+  "label": "qwen_small_speculative_decode128_summary",
+  "date": "2026-08-12",
+  "device": "Iluvatar MR-V100 32 GiB / CoreX 4.4.0",
+  "vllm": "0.17.0",
+  "workloads": [
+    {
+      "label": "qwen3b_baseline_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen3b",
+      "concurrency": 1,
+      "success": "1/1",
+      "aggregate_output_tok_s": 48.584,
+      "ttft_p50_s": 0.446885,
+      "tpot_p50_ms": 17.194,
+      "total_p50_s": 2.630489
+    },
+    {
+      "label": "qwen3b_baseline_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen3b",
+      "concurrency": 4,
+      "success": "4/4",
+      "aggregate_output_tok_s": 198.656,
+      "ttft_p50_s": 0.166012,
+      "tpot_p50_ms": 18.936,
+      "total_p50_s": 2.568092
+    },
+    {
+      "label": "qwen3b_baseline_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen3b",
+      "concurrency": 8,
+      "success": "8/8",
+      "aggregate_output_tok_s": 375.69,
+      "ttft_p50_s": 0.209731,
+      "tpot_p50_ms": 19.736,
+      "total_p50_s": 2.71338
+    },
+    {
+      "label": "qwen3b_baseline_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen3b",
+      "concurrency": 16,
+      "success": "16/16",
+      "aggregate_output_tok_s": 674.917,
+      "ttft_p50_s": 0.335467,
+      "tpot_p50_ms": 21.143,
+      "total_p50_s": 3.019362
+    },
+    {
+      "label": "qwen3b_draft05b_spec_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen3b",
+      "concurrency": 1,
+      "success": "1/1",
+      "aggregate_output_tok_s": 0.0,
+      "ttft_p50_s": null,
+      "tpot_p50_ms": null,
+      "total_p50_s": 0.822803
+    },
+    {
+      "label": "qwen3b_draft05b_spec_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen3b",
+      "concurrency": 4,
+      "success": "0/4",
+      "aggregate_output_tok_s": 0.0,
+      "ttft_p50_s": null,
+      "tpot_p50_ms": null,
+      "total_p50_s": null
+    },
+    {
+      "label": "qwen3b_draft05b_spec_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen3b",
+      "concurrency": 8,
+      "success": "0/8",
+      "aggregate_output_tok_s": 0.0,
+      "ttft_p50_s": null,
+      "tpot_p50_ms": null,
+      "total_p50_s": null
+    },
+    {
+      "label": "qwen3b_draft05b_spec_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen3b",
+      "concurrency": 16,
+      "success": "0/16",
+      "aggregate_output_tok_s": 0.0,
+      "ttft_p50_s": null,
+      "tpot_p50_ms": null,
+      "total_p50_s": null
+    },
+    {
+      "label": "qwen05b_baseline_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen05b",
+      "concurrency": 1,
+      "success": "1/1",
+      "aggregate_output_tok_s": 68.686,
+      "ttft_p50_s": 0.370141,
+      "tpot_p50_ms": 11.716,
+      "total_p50_s": 1.858045
+    },
+    {
+      "label": "qwen05b_baseline_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen05b",
+      "concurrency": 4,
+      "success": "4/4",
+      "aggregate_output_tok_s": 302.747,
+      "ttft_p50_s": 0.14484,
+      "tpot_p50_ms": 12.097,
+      "total_p50_s": 1.676623
+    },
+    {
+      "label": "qwen05b_baseline_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen05b",
+      "concurrency": 8,
+      "success": "8/8",
+      "aggregate_output_tok_s": 598.389,
+      "ttft_p50_s": 0.110842,
+      "tpot_p50_ms": 12.504,
+      "total_p50_s": 1.697109
+    },
+    {
+      "label": "qwen05b_baseline_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen05b",
+      "concurrency": 16,
+      "success": "16/16",
+      "aggregate_output_tok_s": 1064.731,
+      "ttft_p50_s": 0.161625,
+      "tpot_p50_ms": 13.727,
+      "total_p50_s": 1.904097
+    },
+    {
+      "label": "qwen05b_selfdraft_spec_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen05b",
+      "concurrency": 1,
+      "success": "1/1",
+      "aggregate_output_tok_s": 2.121,
+      "ttft_p50_s": 0.454178,
+      "tpot_p50_ms": null,
+      "total_p50_s": 0.468157
+    },
+    {
+      "label": "qwen05b_selfdraft_spec_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen05b",
+      "concurrency": 4,
+      "success": "0/4",
+      "aggregate_output_tok_s": 0.0,
+      "ttft_p50_s": null,
+      "tpot_p50_ms": null,
+      "total_p50_s": null
+    },
+    {
+      "label": "qwen05b_selfdraft_spec_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen05b",
+      "concurrency": 8,
+      "success": "0/8",
+      "aggregate_output_tok_s": 0.0,
+      "ttft_p50_s": null,
+      "tpot_p50_ms": null,
+      "total_p50_s": null
+    },
+    {
+      "label": "qwen05b_selfdraft_spec_eager_random_prefix_decode128_c1_4_8_16",
+      "model": "qwen05b",
+      "concurrency": 16,
+      "success": "0/16",
+      "aggregate_output_tok_s": 0.0,
+      "ttft_p50_s": null,
+      "tpot_p50_ms": null,
+      "total_p50_s": null
+    }
+  ],
+  "findings": [
+    {
+      "experiment": "Qwen2.5-3B baseline eager",
+      "status": "passed",
+      "peak": "674.9 output tok/s at concurrency 16"
+    },
+    {
+      "experiment": "Qwen2.5-3B + Qwen2.5-0.5B draft_model",
+      "status": "failed after first request",
+      "root_cause": "draft hidden size 896 does not match target hidden size 2048 in vLLM EAGLE-like proposer"
+    },
+    {
+      "experiment": "Qwen2.5-0.5B baseline eager",
+      "status": "passed",
+      "peak": "1064.7 output tok/s at concurrency 16"
+    },
+    {
+      "experiment": "Qwen2.5-0.5B self draft_model",
+      "status": "failed after first request",
+      "root_cause": "CoreX ixformer vllm_paged_attention_mtp requires contiguous query"
+    }
+  ]
+}
