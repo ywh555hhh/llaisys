@@ -15,6 +15,8 @@ MAX_NUM_BATCHED_TOKENS=${MAX_NUM_BATCHED_TOKENS:-8192}
 PROMPT_TOKENS=${PROMPT_TOKENS:-64}
 MAX_TOKENS=${MAX_TOKENS:-32}
 PROMPT_MODE=${PROMPT_MODE:-shared}
+PREFIX_GROUPS=${PREFIX_GROUPS:-4}
+PREFIX_CACHING=${PREFIX_CACHING:-on}
 SEED=${SEED:-20260812}
 CONCURRENCY_LIST=${CONCURRENCY_LIST:-1,2,4}
 REQUESTS_PER_CONCURRENCY=${REQUESTS_PER_CONCURRENCY:-4}
@@ -52,6 +54,16 @@ if [ -n "$QUANTIZATION" ] && [ "$QUANTIZATION" != "none" ]; then
   QUANT_ARGS=(--quantization "$QUANTIZATION")
 fi
 
+PREFIX_CACHE_ARGS=()
+if [ "$PREFIX_CACHING" = "on" ]; then
+  PREFIX_CACHE_ARGS=(--enable-prefix-caching)
+elif [ "$PREFIX_CACHING" = "off" ]; then
+  PREFIX_CACHE_ARGS=(--no-enable-prefix-caching)
+else
+  echo "Unknown PREFIX_CACHING=$PREFIX_CACHING; expected on or off" >&2
+  exit 2
+fi
+
 SERVER_LOG="$WORK/logs/15_server_${LABEL}.log"
 BENCH_LOG="$WORK/logs/15_server_benchmark_${LABEL}.log"
 OUT="$WORK/artifacts/15_server_benchmark_${LABEL}.json"
@@ -81,6 +93,7 @@ setsid vllm serve "$MODEL_DIR" \
   "${QUANT_ARGS[@]}" \
   --max-num-seqs "$MAX_NUM_SEQS" \
   --max-num-batched-tokens "$MAX_NUM_BATCHED_TOKENS" \
+  "${PREFIX_CACHE_ARGS[@]}" \
   "${SPEC_ARGS[@]}" \
   "${MODE_ARGS[@]}" >> "$SERVER_LOG" 2>&1 &
 echo $! > "$PID_FILE"
@@ -113,6 +126,7 @@ python3 "$BENCH" \
   --prompt-tokens "$PROMPT_TOKENS" \
   --max-tokens "$MAX_TOKENS" \
   --prompt-mode "$PROMPT_MODE" \
+  --prefix-groups "$PREFIX_GROUPS" \
   --seed "$SEED" \
   --concurrency-list "$CONCURRENCY_LIST" \
   --requests-per-concurrency "$REQUESTS_PER_CONCURRENCY" \

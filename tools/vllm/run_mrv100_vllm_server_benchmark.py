@@ -73,6 +73,7 @@ def make_prompt(
     request_id: int,
     prompt_mode: str,
     seed: int,
+    prefix_groups: int,
 ) -> str:
     shared_seed = (
         "You are benchmarking vLLM serving on an Iluvatar MR-V100 accelerator. "
@@ -88,18 +89,47 @@ def make_prompt(
             f"Unique workload fingerprint {digest}. "
             "Discuss scheduler pressure, prefill cost, decode throughput, and latency. "
         )
+    elif prompt_mode == "grouped":
+        group_id = request_id % max(prefix_groups, 1)
+        group_digest = hashlib.sha256(f"{seed}:group:{group_id}".encode("utf-8")).hexdigest()
+        request_digest = hashlib.sha256(f"{seed}:request:{request_id}".encode("utf-8")).hexdigest()
+        shared_prefix = (
+            "You are serving a multi-turn agent session on an Iluvatar MR-V100 accelerator. "
+            f"Session group {group_id} has shared radix prefix {group_digest}. "
+            "The shared prefix contains system instructions, retrieved documents, routing policy, "
+            "and a stable conversation memory that should be reusable across requests. "
+        )
+        unique_tail = (
+            f"This specific request has unique tail fingerprint {request_digest}. "
+            "Discuss prefix-cache reuse, TTFT, prefill savings, decode throughput, and scheduler pressure. "
+        )
+        while len(tokenizer.encode(shared_prefix + unique_tail, add_special_tokens=False)) < target_prompt_tokens:
+            digest = hashlib.sha256(f"{seed}:group:{group_id}:{len(shared_prefix)}".encode("utf-8")).hexdigest()
+            shared_prefix += (
+                f"Reusable session evidence {digest[:16]} {digest[16:32]} {digest[32:48]} {digest[48:]}. "
+                "This sentence is part of the shared group prefix and is identical for requests in the same session group. "
+            )
+        return f"{shared_prefix}{unique_tail}\nRequest id: {request_id}. Answer in one compact paragraph."
     else:
         raise ValueError(f"unknown prompt_mode={prompt_mode!r}")
     while len(tokenizer.encode(text, add_special_tokens=False)) < target_prompt_tokens:
         if prompt_mode == "shared":
             text += shared_seed
-        else:
+        elif prompt_mode == "random":
             digest = hashlib.sha256(f"{seed}:{request_id}:{len(text)}".encode("utf-8")).hexdigest()
             text += (
                 f"Segment {digest[:16]} {digest[16:32]} {digest[32:48]} {digest[48:]}. "
                 "Keep this request-specific context distinct from other concurrent prompts. "
             )
     return f"{text}\nRequest id: {request_id}. Answer in one compact paragraph."
+
+
+def prompt_group_id(request_id: int, prompt_mode: str, prefix_groups: int) -> int | None:
+    if prompt_mode == "shared":
+        return 0
+    if prompt_mode == "grouped":
+        return request_id % max(prefix_groups, 1)
+    return None
 
 
 async def request_once(
@@ -110,6 +140,7 @@ async def request_once(
     prompt: str,
     max_tokens: int,
     request_id: int,
+    prompt_group: int | None,
 ) -> dict[str, Any]:
     payload = {
         "model": model,
@@ -175,6 +206,7 @@ async def request_once(
             tpot_s = decode_s / (output_tokens - 1)
     return {
         "request_id": request_id,
+        "prompt_group": prompt_group,
         "ok": status == 200 and error is None,
         "status": status,
         "error": error,
@@ -200,14 +232,16 @@ async def run_concurrency(
     requests_total: int,
     prompt_mode: str,
     seed: int,
+    prefix_groups: int,
 ) -> dict[str, Any]:
     url = f"{base_url.rstrip('/')}/completions"
     connector = aiohttp.TCPConnector(limit=max(concurrency, 1))
     timeout = aiohttp.ClientTimeout(total=None, sock_connect=30)
     prompts = [
-        make_prompt(tokenizer, prompt_tokens, i, prompt_mode, seed)
+        make_prompt(tokenizer, prompt_tokens, i, prompt_mode, seed, prefix_groups)
         for i in range(requests_total)
     ]
+    prompt_groups = [prompt_group_id(i, prompt_mode, prefix_groups) for i in range(requests_total)]
     started = time.perf_counter()
     results: list[dict[str, Any]] = []
     async with aiohttp.ClientSession(connector=connector, timeout=timeout) as session:
@@ -224,6 +258,7 @@ async def run_concurrency(
                         prompts[next_id],
                         max_tokens,
                         next_id,
+                        prompt_groups[next_id],
                     )
                 )
                 active.add(task)
@@ -260,7 +295,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--concurrency-list", default="1,2,4")
     p.add_argument("--requests-per-concurrency", type=int, default=4)
     p.add_argument("--label", default="server_benchmark")
-    p.add_argument("--prompt-mode", choices=["shared", "random"], default="shared")
+    p.add_argument("--prompt-mode", choices=["shared", "random", "grouped"], default="shared")
+    p.add_argument("--prefix-groups", type=int, default=4)
     p.add_argument("--seed", type=int, default=20260812)
     return p.parse_args()
 
@@ -276,6 +312,7 @@ async def async_main() -> None:
         "tokenizer_dir": args.tokenizer_dir,
         "prompt_tokens_target": args.prompt_tokens,
         "prompt_mode": args.prompt_mode,
+        "prefix_groups": args.prefix_groups if args.prompt_mode == "grouped" else None,
         "seed": args.seed,
         "max_tokens": args.max_tokens,
         "concurrency_list": concurrencies,
@@ -296,6 +333,7 @@ async def async_main() -> None:
                 requests_total,
                 args.prompt_mode,
                 args.seed,
+                args.prefix_groups,
             )
             result["workloads"].append(workload)
     finally:
