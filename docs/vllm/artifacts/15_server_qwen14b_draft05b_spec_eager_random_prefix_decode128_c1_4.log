@@ -1,0 +1,81 @@
+===== starting vLLM server 2026-08-12T10:27:32+08:00 =====
+Timestamp    Wed Aug 12 10:27:32 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  37C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
+|  No running processes found                                                    |
++--------------------------------------------------------------------------------+
+server pid 58043
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+(APIServer pid=58043) INFO 08-12 10:27:52 [utils.py:302] 
+(APIServer pid=58043) INFO 08-12 10:27:52 [utils.py:302]        █     █     █▄   ▄█
+(APIServer pid=58043) INFO 08-12 10:27:52 [utils.py:302]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.17.0
+(APIServer pid=58043) INFO 08-12 10:27:52 [utils.py:302]   █▄█▀ █     █     █     █  model   /data/models/Qwen2.5-14B-Instruct
+(APIServer pid=58043) INFO 08-12 10:27:52 [utils.py:302]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=58043) INFO 08-12 10:27:52 [utils.py:302] 
+(APIServer pid=58043) INFO 08-12 10:27:52 [utils.py:238] non-default args: {'model_tag': '/data/models/Qwen2.5-14B-Instruct', 'host': '127.0.0.1', 'model': '/data/models/Qwen2.5-14B-Instruct', 'max_model_len': 512, 'enforce_eager': True, 'served_model_name': ['qwen14b'], 'gpu_memory_utilization': 0.95, 'max_num_batched_tokens': 4096, 'max_num_seqs': 4, 'speculative_config': {'method': 'draft_model', 'model': '/data/models/Qwen2.5-0.5B-Instruct', 'num_speculative_tokens': 4, 'max_model_len': 512}}
+(APIServer pid=58043) INFO 08-12 10:27:52 [model.py:531] Resolved architecture: Qwen2ForCausalLM
+(APIServer pid=58043) INFO 08-12 10:27:52 [model.py:1564] Using max model len 512
+(APIServer pid=58043) WARNING 08-12 10:27:52 [model.py:627] Please export VLLM_ENFORCE_CUDA_GRAPH=1 to enable cuda graph. For now, cuda graph is not used and --enforce-eager is disabled ,we are trying to use cuda graph as the default mode
+(APIServer pid=58043) INFO 08-12 10:27:52 [model.py:531] Resolved architecture: Qwen2ForCausalLM
+(APIServer pid=58043) INFO 08-12 10:27:52 [model.py:1564] Using max model len 32768
+(APIServer pid=58043) Traceback (most recent call last):
+(APIServer pid=58043)   File "/usr/local/bin/vllm", line 6, in <module>
+(APIServer pid=58043)     sys.exit(main())
+(APIServer pid=58043)              ^^^^^^
+(APIServer pid=58043)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 73, in main
+(APIServer pid=58043)     args.dispatch_function(args)
+(APIServer pid=58043)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/serve.py", line 112, in cmd
+(APIServer pid=58043)     uvloop.run(run_server(args))
+(APIServer pid=58043)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+(APIServer pid=58043)     return __asyncio.run(
+(APIServer pid=58043)            ^^^^^^^^^^^^^^
+(APIServer pid=58043)   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+(APIServer pid=58043)     return runner.run(main)
+(APIServer pid=58043)            ^^^^^^^^^^^^^^^^
+(APIServer pid=58043)   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+(APIServer pid=58043)     return self._loop.run_until_complete(task)
+(APIServer pid=58043)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=58043)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=58043)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=58043)     return await main
+(APIServer pid=58043)            ^^^^^^^^^^
+(APIServer pid=58043)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 471, in run_server
+(APIServer pid=58043)     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+(APIServer pid=58043)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 490, in run_server_worker
+(APIServer pid=58043)     async with build_async_engine_client(
+(APIServer pid=58043)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=58043)     return await anext(self.gen)
+(APIServer pid=58043)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=58043)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 96, in build_async_engine_client
+(APIServer pid=58043)     async with build_async_engine_client_from_engine_args(
+(APIServer pid=58043)   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=58043)     return await anext(self.gen)
+(APIServer pid=58043)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=58043)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 122, in build_async_engine_client_from_engine_args
+(APIServer pid=58043)     vllm_config = engine_args.create_engine_config(usage_context=usage_context)
+(APIServer pid=58043)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=58043)   File "/usr/local/lib/python3.12/dist-packages/vllm/engine/arg_utils.py", line 1729, in create_engine_config
+(APIServer pid=58043)     speculative_config = self.create_speculative_config(
+(APIServer pid=58043)                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=58043)   File "/usr/local/lib/python3.12/dist-packages/vllm/engine/arg_utils.py", line 1443, in create_speculative_config
+(APIServer pid=58043)     return SpeculativeConfig(**self.speculative_config)
+(APIServer pid=58043)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=58043)   File "/usr/local/lib/python3.12/dist-packages/pydantic/_internal/_dataclasses.py", line 121, in __init__
+(APIServer pid=58043)     s.__pydantic_validator__.validate_python(ArgsKwargs(args, kwargs), self_instance=s)
+(APIServer pid=58043) pydantic_core._pydantic_core.ValidationError: 1 validation error for SpeculativeConfig
+(APIServer pid=58043)   Value error, Target and draft model should have the same vocabulary size. Target model vocab_size=152064. Draft model vocab_size=151936. Using models with different tokenizers can cause out-of-bounds errors during speculative decoding. [type=value_error, input_value=ArgsKwargs((), {'method':..., _api_process_rank=0)}), input_type=ArgsKwargs]
+(APIServer pid=58043)     For further information visit https://errors.pydantic.dev/2.12/v/value_error
+server exited before readiness

@@ -19,6 +19,7 @@ SEED=${SEED:-20260812}
 CONCURRENCY_LIST=${CONCURRENCY_LIST:-1,2,4}
 REQUESTS_PER_CONCURRENCY=${REQUESTS_PER_CONCURRENCY:-4}
 LABEL=${LABEL:-qwen32b_awq_marlin_cudagraph_server}
+SPECULATIVE_CONFIG=${SPECULATIVE_CONFIG:-}
 
 mkdir -p "$WORK/logs" "$WORK/artifacts" "$WORK/scripts"
 
@@ -39,6 +40,16 @@ elif [ "$MODE" = "eager" ]; then
 else
   echo "Unknown MODE=$MODE; expected cudagraph or eager" >&2
   exit 2
+fi
+
+SPEC_ARGS=()
+if [ -n "$SPECULATIVE_CONFIG" ]; then
+  SPEC_ARGS=(--speculative-config "$SPECULATIVE_CONFIG")
+fi
+
+QUANT_ARGS=()
+if [ -n "$QUANTIZATION" ] && [ "$QUANTIZATION" != "none" ]; then
+  QUANT_ARGS=(--quantization "$QUANTIZATION")
 fi
 
 SERVER_LOG="$WORK/logs/15_server_${LABEL}.log"
@@ -67,9 +78,10 @@ setsid vllm serve "$MODEL_DIR" \
   --served-model-name "$MODEL_NAME" \
   --max-model-len "$MAX_MODEL_LEN" \
   --gpu-memory-utilization "$GPU_MEMORY_UTILIZATION" \
-  --quantization "$QUANTIZATION" \
+  "${QUANT_ARGS[@]}" \
   --max-num-seqs "$MAX_NUM_SEQS" \
   --max-num-batched-tokens "$MAX_NUM_BATCHED_TOKENS" \
+  "${SPEC_ARGS[@]}" \
   "${MODE_ARGS[@]}" >> "$SERVER_LOG" 2>&1 &
 echo $! > "$PID_FILE"
 

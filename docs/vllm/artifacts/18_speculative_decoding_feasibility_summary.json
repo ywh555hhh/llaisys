@@ -1,0 +1,63 @@
+{
+  "label": "mrv100_speculative_decoding_feasibility_summary",
+  "date": "2026-08-12",
+  "device": "Iluvatar MR-V100 32 GiB / CoreX 4.4.0",
+  "vllm": "0.17.0",
+  "findings": [
+    {
+      "experiment": "qwen32b_awq_marlin_ngram_spec_cudagraph",
+      "status": "startup_failed",
+      "root_cause": "ixformer vllm_paged_attention_mtp requires contiguous query during CUDA Graph capture"
+    },
+    {
+      "experiment": "qwen32b_awq_marlin_ngram_spec_eager",
+      "status": "runtime_failed_after_first_request",
+      "root_cause": "same ixformer vllm_paged_attention_mtp contiguous-query assertion during request execution"
+    },
+    {
+      "experiment": "qwen14b_draft05b_spec_eager",
+      "status": "config_rejected",
+      "root_cause": "target/draft vocab mismatch: 14B vocab_size=152064, 0.5B vocab_size=151936"
+    },
+    {
+      "experiment": "qwen14b_baseline_eager",
+      "status": "passed",
+      "root_cause": null
+    }
+  ],
+  "qwen_vocab_sizes": {
+    "Qwen2.5-0.5B-Instruct": 151936,
+    "Qwen2.5-1.5B-Instruct": 151936,
+    "Qwen2.5-3B-Instruct": 151936,
+    "Qwen2.5-7B-Instruct": 152064,
+    "Qwen2.5-14B-Instruct": 152064,
+    "Qwen2.5-32B-Instruct-AWQ": 152064,
+    "Qwen2.5-72B-Instruct-AWQ": 152064
+  },
+  "qwen14b_baseline": [
+    {
+      "concurrency": 1,
+      "success": "1/1",
+      "aggregate_output_tok_s": 18.928,
+      "ttft_p50_s": 0.511078,
+      "tpot_p50_ms": 49.186,
+      "total_p50_s": 6.757672
+    },
+    {
+      "concurrency": 4,
+      "success": "4/4",
+      "aggregate_output_tok_s": 69.63,
+      "ttft_p50_s": 0.485128,
+      "tpot_p50_ms": 54.025,
+      "total_p50_s": 7.34292
+    },
+    {
+      "concurrency": 8,
+      "success": "8/8",
+      "aggregate_output_tok_s": 135.195,
+      "ttft_p50_s": 0.60114,
+      "tpot_p50_ms": 54.795,
+      "total_p50_s": 7.556729
+    }
+  ]
+}
