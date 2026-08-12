@@ -106,6 +106,9 @@ The scale ladder gives a useful mental model for this card:
 - 32B is viable as a quantization experiment. AWQ crossed the fp16 memory wall,
   and AWQ Marlin plus CUDA Graph provided a small repeat-decode improvement in
   this tiny probe.
+- 32B-AWQ also works in OpenAI-compatible server mode. A separate serving
+  benchmark measured concurrency 1-16 with 100% request success and up to 255.8
+  output tok/s on this shared-prefix workload.
 - 72B-AWQ is over the no-offload single-card limit in this setup. Lowering
   context to 128 and output to 8 tokens did not help because the failure happens
   while constructing quantized model weights, before KV cache or decode pressure
@@ -216,6 +219,21 @@ QUANTIZATION=awq_marlin MODE=cudagraph \
   bash tools/vllm/run_mrv100_vllm_awq_probe.sh
 ```
 
+Run the OpenAI-compatible serving benchmark:
+
+```bash
+LABEL=qwen32b_awq_marlin_cg_full_curve_r2 \
+CONCURRENCY_LIST=1,2,4,8,16 \
+REQUESTS_PER_CONCURRENCY=2 \
+PROMPT_TOKENS=64 \
+MAX_TOKENS=32 \
+MAX_NUM_SEQS=16 \
+MAX_NUM_BATCHED_TOKENS=8192 \
+MODE=cudagraph \
+QUANTIZATION=awq_marlin \
+  bash tools/vllm/run_mrv100_vllm_server_benchmark.sh
+```
+
 Run the 72B-AWQ negative-boundary probes:
 
 ```bash
@@ -265,6 +283,8 @@ Important artifacts:
 12_72b_awq_marlin_eager_gpu098_precheck_fail.log
 13_72b_awq_marlin_eager_gpu090_oom.log
 14_72b_awq_eager_gpu090_oom.log
+15_server_benchmark_qwen32b_awq_marlin_cg_full_curve_r2.json
+16_server_benchmark_qwen32b_awq_marlin_full_curve_summary.json
 ```
 
 ## Resume framing
@@ -277,16 +297,16 @@ Ran a vLLM scale-limit study on Iluvatar MR-V100/CoreX, validating Qwen2.5
 then crossing the fp16 memory wall with Qwen2.5-32B-Instruct-AWQ and comparing
 AWQ eager vs AWQ Marlin + CUDA Graph decode; established 72B-AWQ as over the
 no-offload single-card limit via CUDA OOM evidence during quantized weight
-allocation.
+allocation; benchmarked 32B-AWQ serving through the OpenAI-compatible API up to
+concurrency 16 with 100% success.
 ```
 
 Stronger next steps:
 
-1. Add OpenAI-compatible server benchmarks with TTFT, TPOT, ITL, p50/p95/p99,
-   and concurrency.
+1. Add random-prefix serving benchmarks to separate prefix-cache effects from
+   raw scheduler throughput.
 2. Compare eager vs CUDA Graph on 3B/7B/14B with fixed prompt/output lengths.
-3. Add prefix-cache workloads with repeated long system prompts.
-4. Benchmark 32B-AWQ with longer decode lengths and controlled prompt lengths.
-5. Optionally test 72B with explicit CPU offload or tensor parallelism, but keep
+3. Benchmark 32B-AWQ with longer decode lengths and controlled prompt lengths.
+4. Optionally test 72B with explicit CPU offload or tensor parallelism, but keep
    that separate from the single-card no-offload limit.
-6. Investigate cleanup warnings from vLLM/CoreX worker shutdown.
+5. Investigate cleanup warnings from vLLM/CoreX worker shutdown.
