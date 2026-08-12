@@ -1,0 +1,98 @@
+{
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "model_dir": "/data/models/Qwen2.5-1.5B-Instruct",
+  "args": {
+    "model_dir": "/data/models/Qwen2.5-1.5B-Instruct",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "out": "/data/src/vllm-mrv100-probe/artifacts/08_scale_Qwen2.5-1.5B-Instruct.json",
+    "max_model_len": 2048,
+    "gpu_memory_utilization": 0.8,
+    "cuda_graph": true,
+    "enforce_eager": false,
+    "max_tokens": 64,
+    "batch_size": 4
+  },
+  "env": {
+    "VLLM_TARGET_DEVICE": "cuda",
+    "VLLM_ATTENTION_BACKEND": null,
+    "VLLM_WORKER_MULTIPROC_METHOD": "spawn",
+    "VLLM_ENFORCE_CUDA_GRAPH": "1"
+  },
+  "model_config": {
+    "architectures": [
+      "Qwen2ForCausalLM"
+    ],
+    "model_type": "qwen2",
+    "hidden_size": 1536,
+    "intermediate_size": 8960,
+    "num_hidden_layers": 28,
+    "num_attention_heads": 12,
+    "num_key_value_heads": 2,
+    "vocab_size": 151936,
+    "max_position_embeddings": 32768,
+    "torch_dtype": "bfloat16"
+  },
+  "ixsmi_before": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Tue Aug 11 23:09:18 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  35C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n|  No running processes found                                                    |\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 68 MiB, 32700 MiB, 0 %, 1 %, 37 W, 35 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  },
+  "ok": true,
+  "timing_s": {
+    "import": 13.469467610120773,
+    "load": 35.55840568244457,
+    "generate_total": 1.4972967356443405,
+    "total": 50.525170028209686
+  },
+  "runs": {
+    "warm": {
+      "elapsed_s": 0.7917807698249817,
+      "input_tokens": 100,
+      "output_tokens": 256,
+      "output_tok_s": 323.3218205799406,
+      "sample": "1 seconds inference time for a 1024-token input. To achieve this, you can use a smaller model or a more efficient model architecture. Additionally, consider optimizing the model's parameters or using a different model va"
+    },
+    "repeat": {
+      "elapsed_s": 0.7051478251814842,
+      "input_tokens": 100,
+      "output_tokens": 256,
+      "output_tok_s": 363.044443814477,
+      "sample": "1 seconds inference time for a 1024-token input. To achieve this, you can use a smaller model or a more efficient model architecture. Additionally, consider optimizing the model's parameters or using a different model va"
+    }
+  },
+  "ixsmi_after": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Tue Aug 11 23:10:09 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  37C   P0       62W / 150W   | 68MiB / 32768MiB     | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n|  No running processes found                                                    |\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 68 MiB, 32700 MiB, 0 %, 1 %, 62 W, 36 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  }
+}
