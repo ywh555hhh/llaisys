@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import hashlib
 import json
 import statistics
 import subprocess
@@ -66,15 +67,38 @@ def summarize(values: list[float]) -> dict[str, float | None]:
     }
 
 
-def make_prompt(tokenizer: Any, target_prompt_tokens: int, request_id: int) -> str:
-    seed = (
+def make_prompt(
+    tokenizer: Any,
+    target_prompt_tokens: int,
+    request_id: int,
+    prompt_mode: str,
+    seed: int,
+) -> str:
+    shared_seed = (
         "You are benchmarking vLLM serving on an Iluvatar MR-V100 accelerator. "
         "Give a concise systems insight about inference throughput, KV cache, "
         "CUDA Graph, quantization, and latency tradeoffs. "
     )
-    text = seed
+    if prompt_mode == "shared":
+        text = shared_seed
+    elif prompt_mode == "random":
+        digest = hashlib.sha256(f"{seed}:{request_id}".encode("utf-8")).hexdigest()
+        text = (
+            "You are benchmarking a single request with a mostly unique prefix. "
+            f"Unique workload fingerprint {digest}. "
+            "Discuss scheduler pressure, prefill cost, decode throughput, and latency. "
+        )
+    else:
+        raise ValueError(f"unknown prompt_mode={prompt_mode!r}")
     while len(tokenizer.encode(text, add_special_tokens=False)) < target_prompt_tokens:
-        text += seed
+        if prompt_mode == "shared":
+            text += shared_seed
+        else:
+            digest = hashlib.sha256(f"{seed}:{request_id}:{len(text)}".encode("utf-8")).hexdigest()
+            text += (
+                f"Segment {digest[:16]} {digest[16:32]} {digest[32:48]} {digest[48:]}. "
+                "Keep this request-specific context distinct from other concurrent prompts. "
+            )
     return f"{text}\nRequest id: {request_id}. Answer in one compact paragraph."
 
 
@@ -174,11 +198,16 @@ async def run_concurrency(
     max_tokens: int,
     concurrency: int,
     requests_total: int,
+    prompt_mode: str,
+    seed: int,
 ) -> dict[str, Any]:
     url = f"{base_url.rstrip('/')}/completions"
     connector = aiohttp.TCPConnector(limit=max(concurrency, 1))
     timeout = aiohttp.ClientTimeout(total=None, sock_connect=30)
-    prompts = [make_prompt(tokenizer, prompt_tokens, i) for i in range(requests_total)]
+    prompts = [
+        make_prompt(tokenizer, prompt_tokens, i, prompt_mode, seed)
+        for i in range(requests_total)
+    ]
     started = time.perf_counter()
     results: list[dict[str, Any]] = []
     async with aiohttp.ClientSession(connector=connector, timeout=timeout) as session:
@@ -231,6 +260,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--concurrency-list", default="1,2,4")
     p.add_argument("--requests-per-concurrency", type=int, default=4)
     p.add_argument("--label", default="server_benchmark")
+    p.add_argument("--prompt-mode", choices=["shared", "random"], default="shared")
+    p.add_argument("--seed", type=int, default=20260812)
     return p.parse_args()
 
 
@@ -244,6 +275,8 @@ async def async_main() -> None:
         "base_url": args.base_url,
         "tokenizer_dir": args.tokenizer_dir,
         "prompt_tokens_target": args.prompt_tokens,
+        "prompt_mode": args.prompt_mode,
+        "seed": args.seed,
         "max_tokens": args.max_tokens,
         "concurrency_list": concurrencies,
         "requests_per_concurrency": args.requests_per_concurrency,
@@ -261,6 +294,8 @@ async def async_main() -> None:
                 args.max_tokens,
                 concurrency,
                 requests_total,
+                args.prompt_mode,
+                args.seed,
             )
             result["workloads"].append(workload)
     finally:

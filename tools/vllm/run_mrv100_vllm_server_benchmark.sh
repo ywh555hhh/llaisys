@@ -14,6 +14,8 @@ MAX_NUM_SEQS=${MAX_NUM_SEQS:-8}
 MAX_NUM_BATCHED_TOKENS=${MAX_NUM_BATCHED_TOKENS:-8192}
 PROMPT_TOKENS=${PROMPT_TOKENS:-64}
 MAX_TOKENS=${MAX_TOKENS:-32}
+PROMPT_MODE=${PROMPT_MODE:-shared}
+SEED=${SEED:-20260812}
 CONCURRENCY_LIST=${CONCURRENCY_LIST:-1,2,4}
 REQUESTS_PER_CONCURRENCY=${REQUESTS_PER_CONCURRENCY:-4}
 LABEL=${LABEL:-qwen32b_awq_marlin_cudagraph_server}
@@ -98,6 +100,8 @@ python3 "$BENCH" \
   --out "$OUT" \
   --prompt-tokens "$PROMPT_TOKENS" \
   --max-tokens "$MAX_TOKENS" \
+  --prompt-mode "$PROMPT_MODE" \
+  --seed "$SEED" \
   --concurrency-list "$CONCURRENCY_LIST" \
   --requests-per-concurrency "$REQUESTS_PER_CONCURRENCY" \
   --label "$LABEL" 2>&1 | tee "$BENCH_LOG"
