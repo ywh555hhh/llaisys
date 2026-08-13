@@ -9,6 +9,12 @@
 
 LLAISYS (Let's Learn AI SYStem) is an educational project that aims to provide a platform for new and future AI engineers to learn how to build AI systems from scratch. LLAISYS consists of assignments that help students learn and build the basic modules, followed by a project stage in which qualified students contribute to the InfiniLM inference engine. LLAISYS uses C++ as primary programming language for system backend, and is compiled into shared libraries exposing C language APIs. Frontend codes are written in Python which calls these APIs to provide more convenient testing and interaction with other architectures such as PyTorch.
 
+## Fork Notes
+
+This fork also preserves MR-V100/CoreX vLLM experiment notes, raw benchmark
+artifacts, remote shutdown snapshots, and reproduction scripts. Start from
+[`docs/README.md`](docs/README.md).
+
 ### Project Structure Overview
 
 - `\include`: directory that contains of the header files which defines all the C APIs exposed by the shared library. (Functions declarations start with `__export`)
