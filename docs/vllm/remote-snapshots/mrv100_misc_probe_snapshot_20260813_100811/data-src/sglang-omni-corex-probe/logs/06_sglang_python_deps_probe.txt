@@ -1,0 +1,665 @@
+=== sglang requires metadata ===
+## sglang 0.5.16
+aiohttp
+anthropic>=0.20.0
+apache-tvm-ffi==0.1.11
+av; sys_platform == "linux" and (platform_machine == "aarch64" or platform_machine == "arm64" or platform_machine == "armv7l")
+blobfile==3.0.0
+build
+compressed-tensors
+cuda-python>=13.0
+datasets
+decord2; sys_platform == "linux" and (platform_machine == "aarch64" or platform_machine == "arm64" or platform_machine == "armv7l")
+distro
+easydict
+einops
+fastapi
+flash-attn-4>=4.0.0b18
+flashinfer_python[cu13]==0.6.14
+gguf
+helion==0.2.6
+humming-kernels[cu13]==0.1.10
+interegular
+IPython
+kernels<0.15,>=0.14.1
+llguidance<2.0.0,>=1.7.6
+mistral_common>=1.11.5
+modelscope
+msgspec
+ninja
+numba==0.65.1
+numpy
+nvidia-cutlass-dsl[cu13]==4.6.0
+nvidia-mathdx==25.6.0
+nvidia-ml-py
+openai==2.6.1
+openai-harmony==0.0.4
+orjson
+outlines==0.1.11
+packaging
+partial_json_parser
+pillow
+prometheus-client>=0.20.0
+psutil
+py-spy
+pybase64
+pydantic
+python-multipart
+pyzmq>=25.1.2
+quack-kernels>=0.6.1
+requests
+scipy
+sentencepiece
+setproctitle
+sgl-deep-gemm==0.1.4.post1
+sglang-kernel==0.4.5
+smg-grpc-servicer>=0.5.0
+soundfile==0.13.1
+tiktoken
+tilelang==0.1.11
+timm==1.0.16
+tokenspeed_mla==0.1.8
+torch==2.11.0
+torch_memory_saver>=0.0.9.post1
+torchao==0.17.0
+torchaudio==2.11.0
+torchcodec==0.11.1; sys_platform != "linux" or (sys_platform == "linux" and platform_machine != "aarch64" and platform_machine != "arm64" and platform_machine != "armv7l")
+torchvision
+tqdm
+transformers==5.12.1
+uvicorn
+uvloop
+watchfiles
+xgrammar==0.2.1
+zstandard
+checkpoint-engine==0.1.2; extra == "checkpoint-engine"
+runai-model-streamer[azure,gcs,s3]>=0.15.7; extra == "runai"
+addict==2.4.0; extra == "diffusion"
+av==16.1.0; extra == "diffusion"
+cache-dit==1.3.0; extra == "diffusion"
+cloudpickle==3.1.2; extra == "diffusion"
+diffusers==0.37.0; extra == "diffusion"
+imageio==2.36.0; extra == "diffusion"
+imageio-ffmpeg==0.5.1; extra == "diffusion"
+moviepy>=2.0.0; extra == "diffusion"
+msgpack; extra == "diffusion"
+nvidia-modelopt; extra == "diffusion"
+opencv-python-headless==4.10.0.84; extra == "diffusion"
+PyYAML==6.0.1; extra == "diffusion"
+remote-pdb==2.1.0; extra == "diffusion"
+runai_model_streamer>=0.15.7; extra == "diffusion"
+scikit-image==0.25.2; extra == "diffusion"
+st_attn==0.0.7; (platform_machine != "aarch64" and platform_machine != "arm64") and extra == "diffusion"
+trimesh>=4.0.0; extra == "diffusion"
+vsa==0.0.4; (platform_machine != "aarch64" and platform_machine != "arm64") and extra == "diffusion"
+websockets; extra == "diffusion"
+xatlas; extra == "diffusion"
+ray[default]>=2.55.1; extra == "ray"
+opentelemetry-api; extra == "tracing"
+opentelemetry-exporter-otlp; extra == "tracing"
+opentelemetry-exporter-otlp-proto-grpc; extra == "tracing"
+opentelemetry-sdk; extra == "tracing"
+granian>=2.6.0; extra == "http2"
+fastokens<0.2.0,>=0.1.1; extra == "fastokens"
+accelerate; extra == "test"
+addict; extra == "test"
+auto-round>=0.13.1; extra == "test"
+bitsandbytes; extra == "test"
+pymupdf; extra == "test"
+diff-cover; extra == "test"
+expecttest; extra == "test"
+granian>=2.6.0; extra == "test"
+jsonlines; extra == "test"
+lm-eval[api]>=0.4.9.2; extra == "test"
+matplotlib; extra == "test"
+antlr4-python3-runtime==4.9.3; extra == "test"
+pandas; extra == "test"
+parameterized; extra == "test"
+peft>=0.18.0; extra == "test"
+polars; extra == "test"
+pytest; extra == "test"
+pytest-cov; extra == "test"
+sentence_transformers; extra == "test"
+sglang[fastokens]; extra == "test"
+tabulate; extra == "test"
+sglang[test]; extra == "dev"
+sglang[diffusion]; extra == "all"
+sglang[http2]; extra == "all"
+sglang[tracing]; extra == "all"
+## sglang-omni 0.1.1
+pyzmq>=25.0.0
+msgpack>=1.0.0
+msgspec
+numpy>=1.24.0
+pydantic>=2.0.0
+PyYAML>=6.0
+pybase64>=1.4.0
+torch==2.11.0
+torchvision==0.26.0
+accelerate>=0.27.0
+transformers==5.12.1
+safetensors>=0.4.3
+pillow>=10.0.0
+huggingface-hub[hf_xet]>=0.36.0
+datasets>=2.14.0
+fastapi>=0.110.0
+uvicorn>=0.23.0
+sglang==0.5.16
+flash-attn-4>=4.0.0b18
+kernels<0.15,>=0.14.1
+nixl-cu13>=1.1.0
+mooncake-transfer-engine-cuda13>=0.3.10
+logger
+httpx
+xxhash>=3.0.0
+av>=16.1.0
+qwen-vl-utils==0.0.11
+numba==0.65.1
+librosa>=0.11.0
+pandas
+tabulate
+typer>=0.9.0
+openai==2.6.1
+openai-harmony==0.0.4
+soundfile>=0.12.0
+mistral_common[audio]>=1.11.0
+silero-vad>=5.1
+onnxruntime>=1.17
+websockets>=12.0
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+jiwer
+zhon>=2.0.2
+scipy>=1.10.0
+openai-whisper==20250625
+s3prl>=0.4.18
+tiktoken
+hydra-core
+omegaconf
+torchaudio==2.11.0
+torchcodec==0.11.1
+gradio>=4.0.0
+dots.tts==0.2.1
+diffusers==0.37.0
+x-transformers
+nemo_text_processing==1.2.0
+llama-cpp-python==0.3.34; extra == "audar-tts"
+neucodec==0.0.6; extra == "audar-tts"
+=== install selected sglang python deps no torch/gpu ===
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Collecting orjson
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/2a/56/d54152b67b63a0b3e556cfc549d6ce84f74d7f425ddeadc6c8a74d913da7/orjson-3.11.9-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (134 kB)
+Requirement already satisfied: aiohttp in /usr/local/corex-4.4.0/lib64/python3/dist-packages (3.13.3)
+Collecting aiohttp
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/bd/ff/cb36724e8c8d17f90ada567a9ff3efe1d6e9b549fba697a242aece180f21/aiohttp-3.14.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 93.8 MB/s  0:00:00
+Collecting aiofiles
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/bc/8a/340a1555ae33d7354dbca4faa54948d76d89a27ceef032c8c3bc661d003e/aiofiles-25.1.0-py3-none-any.whl (14 kB)
+Requirement already satisfied: psutil in /usr/local/lib/python3.10/site-packages (7.2.2)
+Requirement already satisfied: requests in /usr/local/lib/python3.10/site-packages (2.32.5)
+Collecting requests
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl (73 kB)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.10/site-packages (4.67.3)
+Collecting tqdm
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/f9/1c/01bfd571a64e7f270e6bab5e33777debe0edc56759233ce84f27dec92d14/tqdm-4.70.0-py3-none-any.whl (80 kB)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/site-packages (26.0)
+Collecting packaging
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl (129 kB)
+Collecting setproctitle
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/0e/f8/17bda581c517678260e6541b600eeb67745f53596dc077174141ba2f6702/setproctitle-1.3.7-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (31 kB)
+Collecting uvloop
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/b3/f6/21657bb3beb5f8c57ce8be3b83f653dd7933c2fd00545ed1b092d464799a/uvloop-0.22.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.7/3.7 MB 96.0 MB/s  0:00:00
+Requirement already satisfied: lark in /usr/local/lib/python3.10/site-packages (1.3.1)
+Requirement already satisfied: cloudpickle in /usr/local/lib/python3.10/site-packages (2.2.1)
+Collecting cloudpickle
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/88/39/799be3f2f0f38cc727ee3b4f1445fe6d5e4133064ec2e4115069418a5bb6/cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Collecting cachetools
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/e4/d8/767faeda872075724b95dd675466a645f1b92aadcdcf2d1429dcfd76c176/cachetools-7.1.7-py3-none-any.whl (16 kB)
+Requirement already satisfied: prometheus-client in /usr/local/lib/python3.10/site-packages (0.25.0)
+Collecting prometheus-client
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/eb/a3/b69efbf4143b5b9859b977770bbbabcc2796b702fa69dc40271e45cd5a56/prometheus_client-0.26.0-py3-none-any.whl (64 kB)
+Collecting python-multipart
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/e1/04/e8135ebd1ad02c56ec633277529b2602ff99ff634be76cdba5744cf554fd/python_multipart-0.0.32-py3-none-any.whl (30 kB)
+Collecting partial-json-parser
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/42/32/658973117bf0fd82a24abbfb94fe73a5e86216e49342985e10acce54775a/partial_json_parser-0.2.1.1.post7-py3-none-any.whl (10 kB)
+Collecting py-cpuinfo
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/e0/a9/023730ba63db1e494a271cb018dcd361bd2c917ba7004c3e49d5daf795a2/py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+Collecting einops
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/2a/09/f8d8f8f31e4483c10a906437b4ce31bdf3d6d417b73fe33f1a8b59e34228/einops-0.8.2-py3-none-any.whl (65 kB)
+Collecting decord
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/11/79/936af42edf90a7bd4e41a6cac89c913d4b47fa48a26b042d5129a9242ee3/decord-0.6.0-py3-none-manylinux2010_x86_64.whl (13.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.6/13.6 MB 35.7 MB/s  0:00:00
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /usr/local/corex-4.4.0/lib64/python3/dist-packages (from aiohttp) (2.6.1)
+Requirement already satisfied: aiosignal>=1.4.0 in /usr/local/corex-4.4.0/lib64/python3/dist-packages (from aiohttp) (1.4.0)
+Requirement already satisfied: async-timeout<6.0,>=4.0 in /usr/local/lib/python3.10/site-packages (from aiohttp) (5.0.1)
+Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.10/site-packages (from aiohttp) (23.2.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/corex-4.4.0/lib64/python3/dist-packages (from aiohttp) (1.8.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/corex-4.4.0/lib64/python3/dist-packages (from aiohttp) (6.7.1)
+Requirement already satisfied: propcache>=0.2.0 in /usr/local/corex-4.4.0/lib64/python3/dist-packages (from aiohttp) (0.4.1)
+Requirement already satisfied: typing_extensions>=4.4 in /usr/local/lib/python3.10/site-packages (from aiohttp) (4.16.0)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/corex-4.4.0/lib64/python3/dist-packages (from aiohttp) (1.22.0)
+Requirement already satisfied: idna>=2.0 in /usr/local/lib/python3.10/site-packages (from yarl<2.0,>=1.17.0->aiohttp) (3.11)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.10/site-packages (from requests) (3.4.4)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.10/site-packages (from requests) (1.26.20)
+Requirement already satisfied: certifi>=2023.5.7 in /usr/local/lib/python3.10/site-packages (from requests) (2026.2.25)
+Requirement already satisfied: numpy>=1.14.0 in /usr/local/lib/python3.10/site-packages (from decord) (1.26.4)
+Installing collected packages: py-cpuinfo, uvloop, tqdm, setproctitle, requests, python-multipart, prometheus-client, partial-json-parser, packaging, orjson, einops, decord, cloudpickle, cachetools, aiofiles, aiohttp
+  Attempting uninstall: tqdm
+    Found existing installation: tqdm 4.67.3
+    Uninstalling tqdm-4.67.3:
+      Successfully uninstalled tqdm-4.67.3
+  Attempting uninstall: requests
+    Found existing installation: requests 2.32.5
+    Uninstalling requests-2.32.5:
+      Successfully uninstalled requests-2.32.5
+  Attempting uninstall: prometheus-client
+    Found existing installation: prometheus_client 0.25.0
+    Uninstalling prometheus_client-0.25.0:
+      Successfully uninstalled prometheus_client-0.25.0
+  Attempting uninstall: packaging
+    Found existing installation: packaging 26.0
+    Uninstalling packaging-26.0:
+      Successfully uninstalled packaging-26.0
+  Attempting uninstall: cloudpickle
+    Found existing installation: cloudpickle 2.2.1
+    Uninstalling cloudpickle-2.2.1:
+      Successfully uninstalled cloudpickle-2.2.1
+  Attempting uninstall: aiohttp
+    Found existing installation: aiohttp 3.13.3
+    Uninstalling aiohttp-3.13.3:
+      Successfully uninstalled aiohttp-3.13.3
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+sglang 0.5.16 requires anthropic>=0.20.0, which is not installed.
+sglang 0.5.16 requires apache-tvm-ffi==0.1.11, which is not installed.
+sglang 0.5.16 requires blobfile==3.0.0, which is not installed.
+sglang 0.5.16 requires build, which is not installed.
+sglang 0.5.16 requires compressed-tensors, which is not installed.
+sglang 0.5.16 requires distro, which is not installed.
+sglang 0.5.16 requires easydict, which is not installed.
+sglang 0.5.16 requires flash-attn-4>=4.0.0b18, which is not installed.
+sglang 0.5.16 requires flashinfer_python[cu13]==0.6.14, which is not installed.
+sglang 0.5.16 requires gguf, which is not installed.
+sglang 0.5.16 requires helion==0.2.6, which is not installed.
+sglang 0.5.16 requires humming-kernels[cu13]==0.1.10, which is not installed.
+sglang 0.5.16 requires interegular, which is not installed.
+sglang 0.5.16 requires kernels<0.15,>=0.14.1, which is not installed.
+sglang 0.5.16 requires llguidance<2.0.0,>=1.7.6, which is not installed.
+sglang 0.5.16 requires mistral_common>=1.11.5, which is not installed.
+sglang 0.5.16 requires modelscope, which is not installed.
+sglang 0.5.16 requires ninja, which is not installed.
+sglang 0.5.16 requires numba==0.65.1, which is not installed.
+sglang 0.5.16 requires nvidia-cutlass-dsl[cu13]==4.6.0, which is not installed.
+sglang 0.5.16 requires nvidia-mathdx==25.6.0, which is not installed.
+sglang 0.5.16 requires nvidia-ml-py, which is not installed.
+sglang 0.5.16 requires openai==2.6.1, which is not installed.
+sglang 0.5.16 requires openai-harmony==0.0.4, which is not installed.
+sglang 0.5.16 requires outlines==0.1.11, which is not installed.
+sglang 0.5.16 requires py-spy, which is not installed.
+sglang 0.5.16 requires quack-kernels>=0.6.1, which is not installed.
+sglang 0.5.16 requires sentencepiece, which is not installed.
+sglang 0.5.16 requires sgl-deep-gemm==0.1.4.post1, which is not installed.
+sglang 0.5.16 requires sglang-kernel==0.4.5, which is not installed.
+sglang 0.5.16 requires smg-grpc-servicer>=0.5.0, which is not installed.
+sglang 0.5.16 requires soundfile==0.13.1, which is not installed.
+sglang 0.5.16 requires tiktoken, which is not installed.
+sglang 0.5.16 requires tilelang==0.1.11, which is not installed.
+sglang 0.5.16 requires timm==1.0.16, which is not installed.
+sglang 0.5.16 requires tokenspeed_mla==0.1.8, which is not installed.
+sglang 0.5.16 requires torch_memory_saver>=0.0.9.post1, which is not installed.
+sglang 0.5.16 requires torchao==0.17.0, which is not installed.
+sglang 0.5.16 requires torchcodec==0.11.1; sys_platform != "linux" or (sys_platform == "linux" and platform_machine != "aarch64" and platform_machine != "arm64" and platform_machine != "armv7l"), which is not installed.
+sglang 0.5.16 requires watchfiles, which is not installed.
+sglang 0.5.16 requires xgrammar==0.2.1, which is not installed.
+sglang 0.5.16 requires zstandard, which is not installed.
+sglang-omni 0.1.1 requires av>=16.1.0, which is not installed.
+sglang-omni 0.1.1 requires diffusers==0.37.0, which is not installed.
+sglang-omni 0.1.1 requires dots.tts==0.2.1, which is not installed.
+sglang-omni 0.1.1 requires flash-attn-4>=4.0.0b18, which is not installed.
+sglang-omni 0.1.1 requires gradio>=4.0.0, which is not installed.
+sglang-omni 0.1.1 requires hydra-core, which is not installed.
+sglang-omni 0.1.1 requires jiwer, which is not installed.
+sglang-omni 0.1.1 requires kernels<0.15,>=0.14.1, which is not installed.
+sglang-omni 0.1.1 requires librosa>=0.11.0, which is not installed.
+sglang-omni 0.1.1 requires logger, which is not installed.
+sglang-omni 0.1.1 requires mistral_common[audio]>=1.11.0, which is not installed.
+sglang-omni 0.1.1 requires mooncake-transfer-engine-cuda13>=0.3.10, which is not installed.
+sglang-omni 0.1.1 requires msgpack>=1.0.0, which is not installed.
+sglang-omni 0.1.1 requires nemo_text_processing==1.2.0, which is not installed.
+sglang-omni 0.1.1 requires nixl-cu13>=1.1.0, which is not installed.
+sglang-omni 0.1.1 requires numba==0.65.1, which is not installed.
+sglang-omni 0.1.1 requires omegaconf, which is not installed.
+sglang-omni 0.1.1 requires onnxruntime>=1.17, which is not installed.
+sglang-omni 0.1.1 requires openai==2.6.1, which is not installed.
+sglang-omni 0.1.1 requires openai-harmony==0.0.4, which is not installed.
+sglang-omni 0.1.1 requires openai-whisper==20250625, which is not installed.
+sglang-omni 0.1.1 requires pytest-asyncio>=0.21.0, which is not installed.
+sglang-omni 0.1.1 requires qwen-vl-utils==0.0.11, which is not installed.
+sglang-omni 0.1.1 requires s3prl>=0.4.18, which is not installed.
+sglang-omni 0.1.1 requires silero-vad>=5.1, which is not installed.
+sglang-omni 0.1.1 requires soundfile>=0.12.0, which is not installed.
+sglang-omni 0.1.1 requires tiktoken, which is not installed.
+sglang-omni 0.1.1 requires torchcodec==0.11.1, which is not installed.
+sglang-omni 0.1.1 requires x-transformers, which is not installed.
+sglang-omni 0.1.1 requires zhon>=2.0.2, which is not installed.
+huggingface-hub 1.27.0 requires click<9.0.0,>=8.4.2, but you have click 8.3.1 which is incompatible.
+matplotlib 3.10.8 requires pyparsing>=3, but you have pyparsing 2.4.7 which is incompatible.
+sagemaker 2.199.0 requires cloudpickle==2.2.1, but you have cloudpickle 3.1.2 which is incompatible.
+sagemaker 2.199.0 requires fastapi==0.95.2, but you have fastapi 0.141.1 which is incompatible.
+sglang 0.5.16 requires cuda-python>=13.0, but you have cuda-python 11.8.0+corex.4.4.0 which is incompatible.
+sglang 0.5.16 requires torch==2.11.0, but you have torch 2.7.1+corex.4.4.0 which is incompatible.
+sglang 0.5.16 requires torchaudio==2.11.0, but you have torchaudio 2.7.1+corex.4.4.0 which is incompatible.
+sglang 0.5.16 requires transformers==5.12.1, but you have transformers 5.15.0 which is incompatible.
+sglang-omni 0.1.1 requires torch==2.11.0, but you have torch 2.7.1+corex.4.4.0 which is incompatible.
+sglang-omni 0.1.1 requires torchaudio==2.11.0, but you have torchaudio 2.7.1+corex.4.4.0 which is incompatible.
+sglang-omni 0.1.1 requires torchvision==0.26.0, but you have torchvision 0.22.1+corex.4.4.0 which is incompatible.
+sglang-omni 0.1.1 requires transformers==5.12.1, but you have transformers 5.15.0 which is incompatible.
+sglang-omni 0.1.1 requires uvicorn>=0.23.0, but you have uvicorn 0.22.0 which is incompatible.
+datasets 4.5.0 requires dill<0.4.1,>=0.3.0, but you have dill 0.4.1 which is incompatible.
+datasets 4.5.0 requires fsspec[http]<=2025.10.0,>=2023.1.0, but you have fsspec 2026.7.0 which is incompatible.
+datasets 4.5.0 requires multiprocess<0.70.19, but you have multiprocess 0.70.19 which is incompatible.
+igie 0.18.2+corex.4.4.0 requires opencv-python==4.6.0.66, but you have opencv-python 4.9.0.80 which is incompatible.
+torchdebug 0.2.0+corex.4.4.0 requires pandas<2.3.3,>2.0, but you have pandas 2.3.3 which is incompatible.
+Successfully installed aiofiles-25.1.0 aiohttp-3.14.3 cachetools-7.1.7 cloudpickle-3.1.2 decord-0.6.0 einops-0.8.2 orjson-3.11.9 packaging-26.3 partial-json-parser-0.2.1.1.post7 prometheus-client-0.26.0 py-cpuinfo-9.0.0 python-multipart-0.0.32 requests-2.34.2 setproctitle-1.3.7 tqdm-4.70.0 uvloop-0.22.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 25.2 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+=== iterative import probes ===
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'triton'
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1002, in _find_and_load_unlocked
+KeyError: 'sglang'
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+KeyError: 'sglang'
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+KeyError: 'sglang'
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+KeyError: 'sglang'
+sglang FAIL ModuleNotFoundError No module named 'triton'
+sglang.srt OK None
+sglang.srt.server_args FAIL KeyError 'sglang'
+sglang.srt.entrypoints.http_server FAIL KeyError 'sglang'
+sglang.srt.managers.scheduler FAIL KeyError 'sglang'
+sglang.srt.layers.attention FAIL KeyError 'sglang'
+=== sgl-omni config help ===
+Ignore import error when loading sglang_omni.models.qwen3_omni.config: No module named 'triton'
+                                                                                
+ Usage: sgl-omni config [OPTIONS] COMMAND [ARGS]...                             
+                                                                                
+ View and export the pipeline configuration for local editing                   
+                                                                                
+╭─ Options ────────────────────────────────────────────────────────────────────╮
+│ --help          Show this message and exit.                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ Commands ───────────────────────────────────────────────────────────────────╮
+│ view    View the model's pipeline configuration.                             │
+│ export  Export the default pipeline configuration to a YAML file.            │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+=== sgl-omni serve help ===
+Ignore import error when loading sglang_omni.models.qwen3_omni.config: No module named 'triton'
+                                                                                
+ Usage: sgl-omni serve [OPTIONS]                                                
+                                                                                
+ Serve the pipeline.                                                            
+                                                                                
+╭─ Options ────────────────────────────────────────────────────────────────────╮
+│ --model-path                  <str>                  The Hugging Face model  │
+│                                                      ID or the path to the   │
+│                                                      model directory.        │
+│                                                      Required unless         │
+│                                                      --config provides       │
+│                                                      model_path.             │
+│ --config                      <str>                  Path to a pipeline      │
+│                                                      config file.            │
+│ --text-only                                          Use thinker-only        │
+│                                                      pipeline (1 GPU, no     │
+│                                                      talker/speech output).  │
+│ --colocate                                           Run Qwen speech with    │
+│                                                      GPU stages colocated on │
+│                                                      one GPU.                │
+│ --isolate-stage               <str>                  Run this                │
+│                                                      model-supported stage   │
+│                                                      in a dedicated process. │
+│                                                      Repeat the flag to      │
+│                                                      isolate multiple        │
+│                                                      stages. When omitted,   │
+│                                                      preserve the model's    │
+│                                                      declared process        │
+│                                                      topology. Shorthand for │
+│                                                      --stage-process         │
+│                                                      STAGE=STAGE.            │
+│ --stage-process               STAGE=PROCESS          Read left to right:     │
+│                                                      place STAGE in PROCESS. │
+│                                                      Repeat the flag with    │
+│                                                      one process name to     │
+│                                                      colocate several stages │
+│                                                      in it. Use this instead │
+│                                                      of --isolate-stage for  │
+│                                                      grouped topologies.     │
+│ --host                        <str>                  Server bind address     │
+│                                                      (default: 0.0.0.0).     │
+│                                                      [default: 0.0.0.0]      │
+│ --port                        <int>                  Server bind port        │
+│                                                      (default: 8000).        │
+│                                                      [default: 8000]         │
+│ --model-name                  <str>                  Model name for          │
+│                                                      /v1/models (default:    │
+│                                                      pipeline name).         │
+│ --allowed-local-media…        <str>                  Directory allowed for   │
+│                                                      file:// media           │
+│                                                      references in TTS       │
+│                                                      requests. Local file    │
+│                                                      references are disabled │
+│                                                      when this is omitted.   │
+│ --allowed-media-domai…        <str>                  Restrict remote media   │
+│                                                      references to this      │
+│                                                      domain. Repeat the flag │
+│                                                      to allow multiple       │
+│                                                      domains. When omitted,  │
+│                                                      remote HTTP(S)          │
+│                                                      references from any     │
+│                                                      public host are         │
+│                                                      allowed.                │
+│ --tts-batch-max-items         <int>                  Maximum number of items │
+│                                                      accepted by             │
+│                                                      /v1/audio/speech/batch. │
+│                                                      [default: 32]           │
+│ --mem-fraction-static         <float>                Set SGLang              │
+│                                                      mem_fraction_static for │
+│                                                      supported SGLang AR     │
+│                                                      stages. If omitted,     │
+│                                                      SGLang chooses the      │
+│                                                      value automatically.    │
+│ --thinker-mem-fractio…        <float>                Set SGLang              │
+│                                                      mem_fraction_static for │
+│                                                      the thinker stage.      │
+│                                                      Overrides               │
+│                                                      --mem-fraction-static   │
+│                                                      for thinker.            │
+│ --talker-mem-fraction…        <float>                Set SGLang              │
+│                                                      mem_fraction_static for │
+│                                                      supported talker AR     │
+│                                                      stages. Overrides       │
+│                                                      --mem-fraction-static   │
+│                                                      for talker.             │
+│ --encoder-mem-reserve         <float>                Subtract this fraction  │
+│                                                      from SGLang's           │
+│                                                      auto-picked Qwen        │
+│                                                      thinker                 │
+│                                                      mem_fraction_static for │
+│                                                      colocated external      │
+│                                                      encoders. Valid only    │
+│                                                      when thinker            │
+│                                                      mem_fraction_static is  │
+│                                                      not explicitly pinned.  │
+│ --cpu-offload-gb,--cp…        <int>                  Set SGLang              │
+│                                                      cpu_offload_gb for the  │
+│                                                      thinker stage.          │
+│ --quantization                <str>                  Set SGLang quantization │
+│                                                      mode for the thinker    │
+│                                                      stage.                  │
+│ --log-level                   <debug|info|warning|e  Log level (default:     │
+│                               rror|critical>         info).                  │
+│                                                      [default: info]         │
+│ --thinker-tp-size,--t…        <int>                  Set tensor parallel     │
+│                                                      size for thinker stage. │
+│ --thinker-gpus,--thin…        <str>                  GPU ids for thinker TP  │
+│                                                      ranks, e.g. '0,1' or    │
+│                                                      '[0, 1]'.               │
+│ --image-encoder-tp-si…        <int>                  Set tensor parallel     │
+│                                                      size for image_encoder  │
+│                                                      stage.                  │
+│ --image-encoder-gpus,…        <str>                  GPU ids for             │
+│                                                      image_encoder TP ranks, │
+│                                                      e.g. '4,5' or '[4, 5]'. │
+│ --talker-gpu,--talker…        <int>                  Override GPU id for     │
+│                                                      supported talker stage. │
+│ --code2wav-gpu,--code…        <int>                  Override GPU id for     │
+│                                                      supported code2wav      │
+│                                                      stage.                  │
+│ --thinker-cuda-graph,…        <str>                  CUDA graph mode for     │
+│                                                      thinker stage:          │
+│                                                      default|on|off.         │
+│                                                      [default: default]      │
+│ --talker-cuda-graph,-…        <str>                  CUDA graph mode for     │
+│                                                      supported SGLang talker │
+│                                                      stage: default|on|off.  │
+│                                                      [default: default]      │
+│ --talker-partial-star…        <str>                  Partial-start mode for  │
+│                                                      the Qwen3-Omni talker   │
+│                                                      stage: default|on|off.  │
+│                                                      When on, the talker     │
+│                                                      begins audio generation │
+│                                                      from a partial thinker  │
+│                                                      text stream instead of  │
+│                                                      waiting for the full    │
+│                                                      text. 'default' uses    │
+│                                                      the pipeline config     │
+│                                                      default.                │
+│                                                      [default: default]      │
+│ --thinker-torch-compi…        <str>                  torch.compile mode for  │
+│                                                      thinker stage:          │
+│                                                      default|on|off.         │
+│                                                      [default: default]      │
+│ --talker-torch-compil…        <str>                  torch.compile mode for  │
+│                                                      supported SGLang talker │
+│                                                      stage: default|on|off.  │
+│                                                      [default: default]      │
+│ --thinker-torch-compi…        <int>                  Override                │
+│                                                      torch_compile_max_bs    │
+│                                                      for thinker stage.      │
+│ --talker-torch-compil…        <int>                  Override                │
+│                                                      torch_compile_max_bs    │
+│                                                      for supported SGLang    │
+│                                                      talker stage.           │
+│ --enable-realtime,--e…                               Mount the OpenAI        │
+│                                                      Realtime WebSocket      │
+│                                                      endpoint at             │
+│                                                      /v1/realtime.           │
+│ --decode-mode,--decod…        <str>                  Decode execution mode   │
+│                                                      for the supported       │
+│                                                      generation stage:       │
+│                                                      async|sync. Omit this   │
+│                                                      flag to use the         │
+│                                                      model-specific pipeline │
+│                                                      default. Async mode     │
+│                                                      enables one-step        │
+│                                                      lookahead, which can    │
+│                                                      overlap the previous    │
+│                                                      step's host-side        │
+│                                                      collect with the next   │
+│                                                      GPU forward. Available  │
+│                                                      for Higgs TTS,          │
+│                                                      MOSS-TTS-Local,         │
+│                                                      MOSS-Transcribe-Diariz… │
+│                                                      Fun-ASR, and Qwen3-ASR. │
+│ --async-lookahead-min…        <int>                  Decode batches smaller  │
+│                                                      than this bypass async  │
+│                                                      lookahead and run       │
+│                                                      synchronously (fast     │
+│                                                      path). Model default: 1 │
+│                                                      for Qwen3-ASR and 2 for │
+│                                                      other supported models. │
+│ --thinker-max-running…        <int range> [x>=1]     Override SGLang thinker │
+│                                                      stage                   │
+│                                                      max_running_requests.   │
+│                                                      Omit to use the         │
+│                                                      pipeline config         │
+│                                                      default.                │
+│ --prefill-coalesce-re…        <int>                  Hold prefill admission  │
+│                                                      until this many         │
+│                                                      requests are waiting    │
+│                                                      (or the oldest has      │
+│                                                      waited                  │
+│                                                      --prefill-coalesce-wai… │
+│                                                      amortizing the per-step │
+│                                                      host cost. The gate     │
+│                                                      engages at >= 2; 0      │
+│                                                      disables (default), and │
+│                                                      1 is likewise a no-op   │
+│                                                      (logs a warning).       │
+│                                                      Available for Higgs     │
+│                                                      TTS, MOSS-TTS-Local,    │
+│                                                      MOSS-Transcribe-Diariz… │
+│                                                      Fun-ASR, Qwen3-ASR, and │
+│                                                      the Qwen3-Omni thinker. │
+│ --prefill-coalesce-wa…        <float>                Upper bound on the      │
+│                                                      extra                   │
+│                                                      time-to-first-token a   │
+│                                                      queued request pays for │
+│                                                      prefill coalescing.     │
+│                                                      Default 60.             │
+│ --max-running-request…        <int range> [x>=1]     Override SGLang         │
+│                                                      generation stage        │
+│                                                      max_running_requests.   │
+│                                                      Omit to use the         │
+│                                                      pipeline config         │
+│                                                      default.                │
+│ --max-total-tokens,--…        <int range> [x>=1]     Cap the SGLang          │
+│                                                      generation-stage KV     │
+│                                                      pool to an exact token  │
+│                                                      count. Values above the │
+│                                                      profiled capacity do    │
+│                                                      not increase it.        │
+│ --cuda-graph-max-bs,-…        <int range> [x>=1]     Override SGLang         │
+│                                                      generation stage        │
+│                                                      cuda_graph_max_bs. Omit │
+│                                                      to use the pipeline     │
+│                                                      config default.         │
+│ --help                                               Show this message and   │
+│                                                      exit.                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+

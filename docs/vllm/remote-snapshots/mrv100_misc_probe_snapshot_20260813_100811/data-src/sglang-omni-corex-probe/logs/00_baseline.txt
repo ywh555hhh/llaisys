@@ -1,0 +1,31 @@
+b4bc82272198
+Tue Aug 11 08:18:26 EDT 2026
+Linux b4bc82272198 5.4.0-148-generic #165-Ubuntu SMP Tue Apr 18 08:53:12 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+Timestamp    Tue Aug 11 08:18:26 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  38C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
+|  No running processes found                                                    |
++--------------------------------------------------------------------------------+
+clang version 18.1.8 (4.4.0 862f87fe94c5eaa2928bda965ed6abb85a25eb7c)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/local/corex/bin
+-rwxr-xr-x 1 root root 194 Feb 11 10:48 /usr/local/corex/bin/nvcc
+python 3.10.18 (main, Jul 31 2025, 03:42:07) [GCC 9.4.0]
+torch 2.7.1
+torch_cuda 10.2
+cuda_available True
+device_count 1
+device_name Iluvatar MR-V100

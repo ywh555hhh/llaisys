@@ -1,0 +1,136 @@
+=== pin secondary versions to project-compatible ranges ===
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Collecting pydantic-core==2.46.4
+  Using cached pydantic_core-2.46.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+ERROR: Ignored the following yanked versions: 0.12.0, 0.20.4
+ERROR: Could not find a version that satisfies the requirement tokenizers==0.23.0 (from versions: 0.0.2, 0.0.3, 0.0.4, 0.0.5, 0.0.6, 0.0.7, 0.0.8, 0.0.9, 0.0.10, 0.0.11, 0.0.12, 0.0.13, 0.1.0, 0.1.1, 0.2.0, 0.2.1, 0.3.0, 0.4.0, 0.4.1, 0.4.2, 0.5.0, 0.5.1, 0.5.2, 0.6.0, 0.7.0rc4, 0.7.0rc5, 0.7.0rc6, 0.7.0rc7, 0.7.0, 0.8.0.dev0, 0.8.0.dev1, 0.8.0.dev2, 0.8.0rc1, 0.8.0rc2, 0.8.0rc3, 0.8.0rc4, 0.8.0, 0.8.1rc1, 0.8.1rc2, 0.8.1, 0.9.0.dev0, 0.9.0.dev1, 0.9.0.dev2, 0.9.0.dev3, 0.9.0.dev4, 0.9.0rc1, 0.9.0rc2, 0.9.0, 0.9.1, 0.9.2, 0.9.3, 0.9.4, 0.10.0rc1, 0.10.0, 0.10.1, 0.10.2, 0.10.3, 0.11.0, 0.11.1, 0.11.2, 0.11.3, 0.11.4, 0.11.5, 0.11.6, 0.12.1, 0.13.0, 0.13.1, 0.13.2, 0.13.3, 0.14.0, 0.14.1, 0.15.0, 0.15.1, 0.15.2, 0.19.0, 0.19.1, 0.20.0, 0.20.1, 0.20.2, 0.20.3, 0.20.4rc0, 0.21.0rc0, 0.21.0, 0.21.1rc0, 0.21.1, 0.21.2rc0, 0.21.2, 0.21.4, 0.22.0, 0.22.1rc0, 0.22.1, 0.22.2rc0, 0.22.2, 0.23.0rc0, 0.23.1rc0, 0.23.1)
+ERROR: No matching distribution found for tokenizers==0.23.0
+=== venv import baseline pin retry ===
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+ImportError: tokenizers>=0.22.0,<=0.23.0 is required for a normal functioning of this module, but found tokenizers==0.23.1.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+SystemError: The installed pydantic-core version (2.48.0) is incompatible with the current pydantic version, which requires 2.46.4. If you encounter this error, make sure that you haven't upgraded pydantic-core manually.
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'IPython'
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'IPython'
+python /data/src/sglang-omni-corex-probe/venv-transformers512/bin/python
+torch OK 2.7.1 /usr/local/corex/lib64/python3/dist-packages/torch/__init__.py
+transformers FAIL ImportError tokenizers>=0.22.0,<=0.23.0 is required for a normal functioning of this module, but found tokenizers==0.23.1.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+tokenizers OK 0.23.1 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/tokenizers/__init__.py
+pydantic FAIL SystemError The installed pydantic-core version (2.48.0) is incompatible with the current pydantic version, which requires 2.46.4. If you encounter this error, make sure that you haven't upgraded pydantic-core manually.
+sglang FAIL ModuleNotFoundError No module named 'IPython'
+sglang_omni OK 0.1.1 /data/src/sglang-omni-corex-probe/repo/sglang_omni/__init__.py
+triton OK 3.7.1 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/triton/__init__.py
+IPython FAIL ModuleNotFoundError No module named 'IPython'
+=== targeted qwen3_asr registration pin retry ===
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+ModuleNotFoundError: No module named 'IPython'
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1002, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 945, in _find_spec
+KeyError: 'sglang'
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+SystemError: The installed pydantic-core version (2.48.0) is incompatible with the current pydantic version, which requires 2.46.4. If you encounter this error, make sure that you haven't upgraded pydantic-core manually.
+sglang.srt.configs.qwen3_asr FAIL ModuleNotFoundError No module named 'IPython'
+sglang.srt.entrypoints.http_server FAIL KeyError 'sglang'
+sglang_omni.models.qwen3_asr.engine_builder FAIL SystemError The installed pydantic-core version (2.48.0) is incompatible with the current pydantic version, which requires 2.46.4. If you encounter this error, make sure that you haven't upgraded pydantic-core manually.
+=== venv sgl-omni check-gpu pin retry ===
+Traceback (most recent call last):
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/bin/sgl-omni", line 3, in <module>
+    from sglang_omni.cli import app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/__init__.py", line 4, in <module>
+    from .config import config_app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/config.py", line 9, in <module>
+    from sglang_omni.config.manager import resolve_config_cls_for_model_path
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/__init__.py", line 2, in <module>
+    from sglang_omni.config.placement import (
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/placement.py", line 11, in <module>
+    from sglang_omni.config.runtime import reject_untyped_total_gpu_memory_fraction
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/runtime.py", line 10, in <module>
+    from sglang_omni.config.schema import PipelineConfig, StageConfig
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/schema.py", line 8, in <module>
+    from pydantic import BaseModel, ConfigDict, Field
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic/__init__.py", line 8, in <module>
+    _ensure_pydantic_core_version()
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic/version.py", line 94, in _ensure_pydantic_core_version
+    raise SystemError(
+SystemError: The installed pydantic-core version (2.48.0) is incompatible with the current pydantic version, which requires 2.46.4. If you encounter this error, make sure that you haven't upgraded pydantic-core manually.
+=== venv serve Qwen3-ASR pin retry ===
+Traceback (most recent call last):
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/bin/sgl-omni", line 3, in <module>
+    from sglang_omni.cli import app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/__init__.py", line 4, in <module>
+    from .config import config_app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/config.py", line 9, in <module>
+    from sglang_omni.config.manager import resolve_config_cls_for_model_path
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/__init__.py", line 2, in <module>
+    from sglang_omni.config.placement import (
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/placement.py", line 11, in <module>
+    from sglang_omni.config.runtime import reject_untyped_total_gpu_memory_fraction
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/runtime.py", line 10, in <module>
+    from sglang_omni.config.schema import PipelineConfig, StageConfig
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/schema.py", line 8, in <module>
+    from pydantic import BaseModel, ConfigDict, Field
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic/__init__.py", line 8, in <module>
+    _ensure_pydantic_core_version()
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic/version.py", line 94, in _ensure_pydantic_core_version
+    raise SystemError(
+SystemError: The installed pydantic-core version (2.48.0) is incompatible with the current pydantic version, which requires 2.46.4. If you encounter this error, make sure that you haven't upgraded pydantic-core manually.

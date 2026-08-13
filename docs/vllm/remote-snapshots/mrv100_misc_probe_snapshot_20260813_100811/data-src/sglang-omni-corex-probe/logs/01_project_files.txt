@@ -1,0 +1,8 @@
+./README.md
+./benchmarks/README.md
+./docs/README.md
+./docs/requirements.txt
+./examples/README.md
+./playground/README.md
+./pyproject.toml
+./tests/README.md

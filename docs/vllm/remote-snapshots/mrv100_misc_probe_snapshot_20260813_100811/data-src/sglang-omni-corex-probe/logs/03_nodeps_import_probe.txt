@@ -1,0 +1,437 @@
+=== package tree top ===
+sglang_omni/__init__.py
+sglang_omni/cli/__init__.py
+sglang_omni/cli/__main__.py
+sglang_omni/cli/check_gpu.py
+sglang_omni/cli/config.py
+sglang_omni/cli/serve.py
+sglang_omni/client/__init__.py
+sglang_omni/client/audio.py
+sglang_omni/client/client.py
+sglang_omni/client/types.py
+sglang_omni/comm/__init__.py
+sglang_omni/comm/data_ref.py
+sglang_omni/comm/engine.py
+sglang_omni/comm/router.py
+sglang_omni/comm/stage_io.py
+sglang_omni/config/__init__.py
+sglang_omni/config/manager.py
+sglang_omni/config/placement.py
+sglang_omni/config/process_overrides.py
+sglang_omni/config/runtime.py
+sglang_omni/config/schema.py
+sglang_omni/config/topology.py
+sglang_omni/diagnostics/__init__.py
+sglang_omni/diagnostics/gpu.py
+sglang_omni/http/__init__.py
+sglang_omni/http/admin_auth.py
+sglang_omni/http/favicon.py
+sglang_omni/model_runner/__init__.py
+sglang_omni/model_runner/_hidden_capture.py
+sglang_omni/model_runner/base.py
+sglang_omni/model_runner/ming_thinker_model_runner.py
+sglang_omni/model_runner/model_worker.py
+sglang_omni/model_runner/prefill_inputs.py
+sglang_omni/model_runner/sglang_execution.py
+sglang_omni/model_runner/sglang_model_runner.py
+sglang_omni/model_runner/thinker_model_runner.py
+sglang_omni/model_runner/weight_checker.py
+sglang_omni/models/__init__.py
+sglang_omni/models/arkasr/__init__.py
+sglang_omni/models/arkasr/audio_lengths.py
+sglang_omni/models/arkasr/audio_tower.py
+sglang_omni/models/arkasr/config.py
+sglang_omni/models/arkasr/configuration_arkasr.py
+sglang_omni/models/arkasr/engine_builder.py
+sglang_omni/models/arkasr/request_builders.py
+sglang_omni/models/arkasr/sglang_model.py
+sglang_omni/models/arkasr/stages.py
+sglang_omni/models/audar_tts/README.md
+sglang_omni/models/audar_tts/__init__.py
+sglang_omni/models/audar_tts/config.py
+sglang_omni/models/audar_tts/payload_types.py
+sglang_omni/models/audar_tts/protocol.py
+sglang_omni/models/audar_tts/request_builders.py
+sglang_omni/models/audar_tts/stages.py
+sglang_omni/models/dots_tts/__init__.py
+sglang_omni/models/dots_tts/codec.py
+sglang_omni/models/dots_tts/config.py
+sglang_omni/models/dots_tts/engine_builder.py
+sglang_omni/models/dots_tts/flow_head.py
+sglang_omni/models/dots_tts/hf_config.py
+sglang_omni/models/dots_tts/model_runner.py
+sglang_omni/models/dots_tts/payload_types.py
+sglang_omni/models/dots_tts/request_builders.py
+sglang_omni/models/dots_tts/sglang_model.py
+sglang_omni/models/dots_tts/stages.py
+sglang_omni/models/dots_tts/tail.py
+sglang_omni/models/dots_tts/vocoder.py
+sglang_omni/models/fishaudio_s2_pro/README.md
+sglang_omni/models/fishaudio_s2_pro/__init__.py
+sglang_omni/models/fishaudio_s2_pro/bootstrap.py
+sglang_omni/models/fishaudio_s2_pro/config.py
+sglang_omni/models/fishaudio_s2_pro/engine_builder.py
+sglang_omni/models/fishaudio_s2_pro/model_runner.py
+sglang_omni/models/fishaudio_s2_pro/payload_types.py
+sglang_omni/models/fishaudio_s2_pro/request_builders.py
+sglang_omni/models/fishaudio_s2_pro/routing.py
+sglang_omni/models/fishaudio_s2_pro/sglang_model.py
+sglang_omni/models/fishaudio_s2_pro/stages.py
+sglang_omni/models/fishaudio_s2_pro/streaming_vocoder.py
+sglang_omni/models/fishaudio_s2_pro/tokenizer.py
+sglang_omni/models/fun_asr/__init__.py
+sglang_omni/models/fun_asr/config.py
+sglang_omni/models/fun_asr/configuration_fun_asr.py
+sglang_omni/models/fun_asr/encoder_cuda_graph.py
+sglang_omni/models/fun_asr/encoder_service.py
+sglang_omni/models/fun_asr/engine_builder.py
+sglang_omni/models/fun_asr/request_builders.py
+sglang_omni/models/fun_asr/sglang_model.py
+sglang_omni/models/fun_asr/stages.py
+sglang_omni/models/higgs_tts/__init__.py
+sglang_omni/models/higgs_tts/audio_codec.py
+sglang_omni/models/higgs_tts/config.py
+sglang_omni/models/higgs_tts/engine_builder.py
+sglang_omni/models/higgs_tts/hf_config.py
+sglang_omni/models/higgs_tts/model.py
+sglang_omni/models/higgs_tts/model_runner.py
+sglang_omni/models/higgs_tts/modeling.py
+sglang_omni/models/higgs_tts/payload_types.py
+sglang_omni/models/higgs_tts/request_builders.py
+sglang_omni/models/higgs_tts/rollout_trace.py
+sglang_omni/models/higgs_tts/sampler.py
+sglang_omni/models/higgs_tts/stages.py
+sglang_omni/models/higgs_tts/text_tokenizer.py
+sglang_omni/models/higgs_tts/utils.py
+sglang_omni/models/higgs_tts/vocoder_scheduler.py
+sglang_omni/models/higgs_tts/weight_loader.py
+sglang_omni/models/llada2_uni/__init__.py
+sglang_omni/models/llada2_uni/bootstrap.py
+sglang_omni/models/llada2_uni/config.py
+sglang_omni/models/llada2_uni/merge.py
+sglang_omni/models/llada2_uni/payload_types.py
+sglang_omni/models/llada2_uni/request_builders.py
+sglang_omni/models/llada2_uni/stages.py
+sglang_omni/models/ming_omni/__init__.py
+sglang_omni/models/ming_omni/bootstrap.py
+sglang_omni/models/ming_omni/config.py
+sglang_omni/models/ming_omni/configuration.py
+sglang_omni/models/ming_omni/hf_config.py
+sglang_omni/models/ming_omni/io.py
+sglang_omni/models/ming_omni/registration.py
+sglang_omni/models/ming_omni/stages.py
+sglang_omni/models/ming_omni/thinker.py
+sglang_omni/models/ming_omni/tp_utils.py
+sglang_omni/models/ming_tts/__init__.py
+sglang_omni/models/ming_tts/audio_config.py
+sglang_omni/models/ming_tts/audio_decode.py
+sglang_omni/models/ming_tts/config.py
+sglang_omni/models/ming_tts/engine_builder.py
+sglang_omni/models/ming_tts/engine_io.py
+sglang_omni/models/ming_tts/flow_matching.py
+sglang_omni/models/ming_tts/hf_config.py
+sglang_omni/models/ming_tts/model_runner.py
+sglang_omni/models/ming_tts/payload_types.py
+sglang_omni/models/ming_tts/prompt_builder.py
+sglang_omni/models/ming_tts/reference_encode.py
+sglang_omni/models/ming_tts/request_builders.py
+sglang_omni/models/ming_tts/sglang_model.py
+sglang_omni/models/ming_tts/stages.py
+sglang_omni/models/ming_tts/tokenizer.py
+sglang_omni/models/ming_tts/weight_loading.py
+sglang_omni/models/model_capabilities.py
+sglang_omni/models/moss_transcribe_diarize/__init__.py
+sglang_omni/models/moss_transcribe_diarize/config.py
+sglang_omni/models/moss_transcribe_diarize/encoder_cuda_graph.py
+sglang_omni/models/moss_transcribe_diarize/encoder_service.py
+sglang_omni/models/moss_transcribe_diarize/engine_builder.py
+sglang_omni/models/moss_transcribe_diarize/hf_config.py
+sglang_omni/models/moss_transcribe_diarize/request_builders.py
+sglang_omni/models/moss_transcribe_diarize/sglang_model.py
+sglang_omni/models/moss_transcribe_diarize/stages.py
+sglang_omni/models/moss_tts/__init__.py
+sglang_omni/models/moss_tts/audio_tokenizer.py
+sglang_omni/models/moss_tts/config.py
+sglang_omni/models/moss_tts/delay_pattern.py
+sglang_omni/models/moss_tts/engine_builder.py
+sglang_omni/models/moss_tts/hf_loading.py
+sglang_omni/models/moss_tts/model_runner.py
+sglang_omni/models/moss_tts/payload_types.py
+sglang_omni/models/moss_tts/request_builders.py
+sglang_omni/models/moss_tts/sampler.py
+=== readme quickstart snippets ===
+README.md:2:<img src="https://raw.githubusercontent.com/sgl-project/sglang-omni/main/docs/_static/image/sgl-omni-logo.svg" alt="logo" width="400"></img>
+README.md:32:- [2026/08] 🚀 SGLang-Omni **v0.1.1** is on [PyPI](https://pypi.org/project/sglang-omni/). Install with `uv pip install "sglang-omni==0.1.1"`. \[[Installation](https://sgl-project.github.io/sglang-omni/get_started/installation.html)\] \[[Release notes](https://sgl-project.github.io/sglang-omni/get_started/release_notes.html)\]
+README.md:35:- [2026/06] 🔥 Higgs Audio v3 TTS for real-time, controllable speech. \[[Blog](https://lmsys.org/blog/2026-06-04-higgs-audio-v3-tts/)\] \[[Cookbook](https://sgl-project.github.io/sglang-omni/cookbook/higgs_tts.html)\]
+README.md:39:SGLang-Omni is a multi-stage serving runtime for omni, speech, and TTS models. Its design target is multi-stage decoding: generation split across heterogeneous stages with different compute patterns, dependency structures, and resource needs. SGLang-Omni owns the pipeline topology, stage lifecycle, inter-stage transport, model-family integration layer, and OpenAI-compatible serving surface, while composing with [SGLang](https://github.com/sgl-project/sglang) for high-performance autoregressive scheduling and model execution where applicable.
+README.md:41:- **Multi-stage runtime**: SGLang-Omni models generation as coordinated stages: preprocessing, encoders, autoregressive engines, talkers, decoders, vocoders, and aggregators.
+README.md:46:## What SGLang-Omni Serves
+README.md:48:- **Omni chat and speech**: [Qwen3-Omni](https://sgl-project.github.io/sglang-omni/cookbook/qwen3_omni.html), [Ming-Omni](https://sgl-project.github.io/sglang-omni/cookbook/ming_omni.html) — multimodal in, text/audio out.
+README.md:49:- **Speech generation**: [Higgs Audio v3](https://sgl-project.github.io/sglang-omni/cookbook/higgs_tts.html), [MOSS-TTS](https://sgl-project.github.io/sglang-omni/cookbook/moss_tts.html), [MOSS-TTS Local](https://sgl-project.github.io/sglang-omni/cookbook/moss_tts_local.html), [Fish Speech S2-Pro](https://sgl-project.github.io/sglang-omni/cookbook/fishaudio_s2_pro.html), [Qwen3-TTS](https://sgl-project.github.io/sglang-omni/cookbook/qwen3_tts.html), [Voxtral TTS](https://sgl-project.github.io/sglang-omni/cookbook/voxtral_tts.html), [Ming-Omni-TTS](https://sgl-project.github.io/sglang-omni/cookbook/ming_tts.html), [dots.tts](https://sgl-project.github.io/sglang-omni/cookbook/dots_tts.html), [ZONOS2](https://sgl-project.github.io/sglang-omni/cookbook/zonos2.html) — `/v1/audio/speech`, batch, streaming, uploaded voices.
+README.md:50:- **Audio transcription and diarization**: [Qwen3-ASR](https://sgl-project.github.io/sglang-omni/cookbook/qwen3_asr.html), [Fun-ASR](https://sgl-project.github.io/sglang-omni/cookbook/fun_asr.html), [ARK-ASR](https://sgl-project.github.io/sglang-omni/cookbook/arkasr.html), [MOSS-Transcribe-Diarize](https://sgl-project.github.io/sglang-omni/cookbook/moss_transcribe_diarize.html) via `/v1/audio/transcriptions`. MOSS-TD supports speaker labels and timestamps (`response_format=verbose_json`).
+README.md:53:Additional model guides, including experimental and research-oriented paths, are available in the [Cookbook](https://sgl-project.github.io/sglang-omni/cookbook/).
+README.md:57:- [Installation](https://sgl-project.github.io/sglang-omni/get_started/installation.html)
+README.md:59:- [Qwen3-Omni usage](https://sgl-project.github.io/sglang-omni/basic_usage/qwen3_omni.html)
+README.md:60:- [Qwen3-ASR cookbook](https://sgl-project.github.io/sglang-omni/cookbook/qwen3_asr.html)
+README.md:67:SGLang-Omni welcomes contributors working on inference systems, kernels, scheduling, inter-stage communication, model runners and cache efficiency, model integration, benchmarking, production deployment. Join the [SGLang Slack](https://slack.sglang.io) or read the [developer reference](https://sgl-project.github.io/sglang-omni/developer_reference/main.html).
+README.md:69:Organizations interested in supporting SGLang-Omni, TTS, or omni model serving can contact Chenyang Zhao at [zhaochenyang@lmsys.org](mailto:zhaochenyang@lmsys.org).
+README.md:73:SGLang-Omni builds on the SGLang ecosystem and on open model work from the TTS, speech, and omni-model communities. We thank the model teams, systems contributors, and partner organizations helping make open multimodal serving faster, more reliable, and easier to extend.
+docs/basic_usage/omni_router.md:4:fronts multiple complete Omni V1 API servers and exposes one OpenAI-compatible
+docs/basic_usage/omni_router.md:7:Use the router when you launch more than one `sgl-omni serve` process and want
+docs/basic_usage/omni_router.md:19:sgl-omni-router
+docs/basic_usage/omni_router.md:21:  +-- sgl-omni serve worker A
+docs/basic_usage/omni_router.md:22:  +-- sgl-omni serve worker B
+docs/basic_usage/omni_router.md:25:Each worker is a complete Omni V1 HTTP server. The router does not load model
+docs/basic_usage/omni_router.md:32:For a local homogeneous pool, `sgl-omni-router` can start the worker replicas
+docs/basic_usage/omni_router.md:36:sgl-omni-router \
+docs/basic_usage/omni_router.md:39:  --launcher-config examples/configs/qwen3_omni_router.yaml \
+docs/basic_usage/omni_router.md:52:  model_path: Qwen/Qwen3-Omni-30B-A3B-Instruct
+docs/basic_usage/omni_router.md:53:  model_name: qwen3-omni
+docs/basic_usage/omni_router.md:58:  worker_extra_args: "--config examples/configs/qwen3_omni_colocated_h20.yaml --colocate"
+docs/basic_usage/omni_router.md:64:servers started with `sgl-omni serve`; they are not partial
+docs/basic_usage/omni_router.md:69:`num_gpus_per_worker` controls automatic GPU grouping. The default Qwen3-Omni
+docs/basic_usage/omni_router.md:71:GPU through `examples/configs/qwen3_omni_colocated_h20.yaml`. With
+docs/basic_usage/omni_router.md:76:Use `examples/configs/qwen3_omni_colocated_h200.yaml` instead for single-H200
+docs/basic_usage/omni_router.md:81:`worker_gpu_ids: ["0", "1"]` for two one-GPU colocated Qwen3-Omni workers. Use
+docs/basic_usage/omni_router.md:85:Use `worker_extra_args` for public Omni V1 serve options that are specific to
+docs/basic_usage/omni_router.md:87:`--text-only`. These arguments are passed to `sgl-omni serve`
+docs/basic_usage/omni_router.md:93:speech or audio-output support:
+docs/basic_usage/omni_router.md:98:  model_path: Qwen/Qwen3-Omni-30B-A3B-Instruct
+docs/basic_usage/omni_router.md:99:  model_name: qwen3-omni
+docs/basic_usage/omni_router.md:107:    - audio_input
+docs/basic_usage/omni_router.md:108:    - video_input
+docs/basic_usage/omni_router.md:115:For short audio-input / text-output MMSU-style workloads, use the fused
+docs/basic_usage/omni_router.md:116:text-path Qwen3-Omni config instead of the default speech-colocated worker:
+docs/basic_usage/omni_router.md:121:  model_path: Qwen/Qwen3-Omni-30B-A3B-Instruct
+docs/basic_usage/omni_router.md:122:  model_name: qwen3-omni
+docs/basic_usage/omni_router.md:125:  worker_extra_args: "--config examples/configs/qwen3_omni_mmsu.yaml --text-only"
+docs/basic_usage/omni_router.md:131:## Launch Worker Servers Manually
+docs/basic_usage/omni_router.md:134:Qwen3-Omni speech workers on different GPUs and ports:
+docs/basic_usage/omni_router.md:137:CUDA_VISIBLE_DEVICES=0 sgl-omni serve \
+docs/basic_usage/omni_router.md:138:  --model-path Qwen/Qwen3-Omni-30B-A3B-Instruct \
+docs/basic_usage/omni_router.md:139:  --model-name qwen3-omni \
+docs/basic_usage/omni_router.md:140:  --config examples/configs/qwen3_omni_colocated_h20.yaml \
+docs/basic_usage/omni_router.md:147:CUDA_VISIBLE_DEVICES=1 sgl-omni serve \
+docs/basic_usage/omni_router.md:148:  --model-path Qwen/Qwen3-Omni-30B-A3B-Instruct \
+docs/basic_usage/omni_router.md:149:  --model-name qwen3-omni \
+docs/basic_usage/omni_router.md:150:  --config examples/configs/qwen3_omni_colocated_h20.yaml \
+docs/basic_usage/omni_router.md:165:sgl-omni-router \
+docs/basic_usage/omni_router.md:182:| `--host` | `0.0.0.0` | Host interface for the router HTTP server. |
+docs/basic_usage/omni_router.md:183:| `--port` | `8000` | Port for the router HTTP server. |
+docs/basic_usage/omni_router.md:185:| `--worker-config` | not set | JSON file that defines workers and optional per-worker model/capability metadata. |
+docs/basic_usage/omni_router.md:188:| `--model` | not set | Model name assigned to every worker when using `--worker-urls`. Do not use with `--worker-config`. |
+docs/basic_usage/omni_router.md:191:| `--max-connections` | auto: `128 x workers`, capped at `4096` | Admission bound: maximum concurrent in-flight model requests before the router fast-rejects with `503`. The upstream connection pool is sized to at least this value. Explicit values below `64 x workers` log an under-feed warning. |
+docs/basic_usage/omni_router.md:198:| `--voice-owner-worker-url` | first worker with `speech` and `audio_input` | Single-process mode only. Worker that owns uploaded TTS voices. Voice management and synthesis requests that use uploaded voices stay on this worker. Without such an owner, built-in voices can still route to eligible speech workers, but voice management is unavailable. |
+docs/basic_usage/omni_router.md:213:`--worker-config`. Use `--worker-config` when workers serve different models or
+docs/basic_usage/omni_router.md:221:      "model": "qwen3-omni",
+docs/basic_usage/omni_router.md:222:      "capabilities": ["chat", "image_input", "video_input"]
+docs/basic_usage/omni_router.md:226:      "model": "qwen3-omni",
+docs/basic_usage/omni_router.md:227:      "capabilities": ["chat", "audio_input", "audio_output", "speech"]
+docs/basic_usage/omni_router.md:236:sgl-omni-router \
+docs/basic_usage/omni_router.md:252:curl -s http://127.0.0.1:8008/v1/models
+docs/basic_usage/omni_router.md:267:- `GET /v1/models`: merged model list from routable workers.
+docs/basic_usage/omni_router.md:272:is the same OpenAI-compatible schema used by each worker server.
+docs/basic_usage/omni_router.md:281:    "model": "qwen3-omni",
+docs/basic_usage/omni_router.md:298:    "model": "qwen3-omni",
+docs/basic_usage/omni_router.md:305:The router preserves the original request body. For ordinary JSON requests, it
+docs/basic_usage/omni_router.md:316:  -d '{"url":"http://127.0.0.1:8013","model":"qwen3-omni"}'
+docs/basic_usage/omni_router.md:363:- `audio_input`
+docs/basic_usage/omni_router.md:364:- `video_input`
+docs/basic_usage/omni_router.md:365:- `audio_output`
+docs/basic_usage/omni_router.md:372:- `audios`, `audio_inputs`, or audio message parts require `audio_input`
+docs/basic_usage/omni_router.md:373:- `videos`, `video`, or video message parts require `video_input`
+docs/basic_usage/omni_router.md:374:- `modalities: ["audio"]` or `audio` output fields require `audio_output`
+docs/basic_usage/omni_router.md:375:- `/v1/audio/speech` and `/v1/audio/speech/batch` require `speech`;
+docs/basic_usage/omni_router.md:376:  `/v1/audio/speech` also requires `streaming` when `stream: true` (batch speech
+docs/basic_usage/omni_router.md:378:- speech requests using `ref_audio` or audio-bearing `references` also require
+docs/basic_usage/omni_router.md:379:  `audio_input`
+docs/basic_usage/omni_router.md:380:- `/v1/audio/speech/stream` WebSocket sessions require `speech` and `streaming`,
+docs/basic_usage/omni_router.md:381:  plus `audio_input` when configured with reference audio
+docs/basic_usage/omni_router.md:382:- `/v1/audio/voices` management and synthesis using an uploaded voice require
+docs/basic_usage/omni_router.md:383:  the owner worker, which has both `speech` and `audio_input`
+docs/basic_usage/omni_router.md:385:Register narrower worker capabilities only when a worker cannot serve one of
+docs/basic_usage/omni_router.md:400:`audio_input` capabilities becomes the owner and remains the owner for that
+docs/basic_usage/omni_router.md:420:`GET /v1/audio/voices?names_only=true` response rather than transferring stored
+docs/basic_usage/omni_router.md:424:of complete Omni V1 replicas, no extra headers are needed. With mixed models,
+docs/basic_usage/omni_router.md:425:provide a model hint. With mixed worker capabilities, provide a capability hint
+docs/basic_usage/omni_router.md:428:- `X-SGLang-Omni-Route-Model`: requested model for mixed-model pools
+docs/basic_usage/omni_router.md:430:  `image_input`, `audio_input`, `video_input`, `audio_output`, or `streaming`
+docs/basic_usage/omni_router.md:436:requires `audio_input`; it never weakens capability selection at the size
+docs/basic_usage/omni_router.md:462:The router bounds its concurrent work. Once `--max-connections` in-flight model
+docs/basic_usage/omni_router.md:463:requests are being relayed, additional model requests are rejected immediately,
+docs/basic_usage/omni_router.md:501:Request Timeout`, and `500 Internal Server Error`, are counted as per-request
+docs/basic_usage/omni_router.md:516:For a source checkout without installed console scripts, verify the module entry
+docs/basic_usage/omni_router.md:520:python -m sglang_omni_router.serve --help
+docs/basic_usage/omni_router.md:569:  python -m sglang_omni_router.serve \
+docs/basic_usage/omni_router.md:596:  relay the model routes (`/generate`, `/v1/chat/completions`,
+docs/basic_usage/omni_router.md:597:  `/v1/audio/speech`, `/v1/audio/transcriptions`).
+docs/basic_usage/omni_router.md:602:  admin key; `/v1/models`, `/live`, and `/ready` are answered by the DP
+docs/basic_usage/omni_router.md:627:  `degraded` while some DPs are missing and `503` only when nothing can serve.
+docs/basic_usage/omni_router.md:642:share one core; keep model workers and benchmark clients on other cores (or
+docs/basic_usage/omni_router.md:657:| Model request: `413`, `message=payload too large` | The request body exceeds `--max-payload-size`. | Reduce the request size or, after checking memory and concurrency impact, raise the configured limit. |
+docs/basic_usage/omni_router.md:658:| Large JSON model request: `400` requiring a route-hint header | JSON bodies larger than 1 MiB are not fully parsed, so the Router cannot infer the model or capabilities needed to select from a mixed worker pool. | Set the header named in the error message, such as `x-sglang-omni-route-model` or `x-sglang-omni-route-capabilities`; see [Routing Behavior](#routing-behavior). |
+docs/basic_usage/omni_router.md:659:| Model request: `400`, `message` names a route-hint header | A route-hint header is malformed or disagrees with the JSON body: an empty value, an unsupported capability, or a value that conflicts with the body's `model` or `stream`. | Read the message; it names the offending header. The rejection log records the same message in `reason=`, with spaces replaced by underscores. |
+docs/basic_usage/omni_router.md:660:| Model request: `503`, `type=overloaded_error`, `Retry-After: 1` | Router admission is full. | Back off and inspect `inflight`, `max_inflight`, and `rejected_total` in `/health`. |
+docs/basic_usage/omni_router.md:661:| Model request: `503`, `message=no eligible upstream` | No routable worker matches the request. | Check worker routability, model, and capabilities. |
+docs/basic_usage/omni_router.md:662:| Model request: `503` with `X-SGLang-Omni-Worker` | The selected worker returned `503`. | Inspect that worker's logs and `/health` endpoint. |
+docs/basic_usage/omni_router.md:668:Selection failures contain `reason=no_eligible_upstream` plus the inferred model
+docs/basic_usage/omni_router.md:676:For model requests that select a single worker, a `502` with
+docs/basic_usage/omni_router.md:687:This distinction does not apply to `/v1/models` or administrative broadcast
+docs/basic_usage/omni_router.md:727:`model` and `capabilities` in `/workers`; see
+docs/basic_usage/omni_router.md:731:Model filtering applies only when at least one candidate worker advertises a
+docs/basic_usage/omni_router.md:732:`model`. Do not clear model metadata to work around a mismatch: if no candidate
+docs/basic_usage/omni_router.md:733:advertises a model, the Router stops filtering by model.
+docs/basic_usage/qwen3_omni.md:1:# Omni Model Usage
+docs/basic_usage/qwen3_omni.md:3:This guide uses [Qwen3-Omni](https://huggingface.co/Qwen/Qwen3-Omni-30B-A3B-Instruct) as an example omni model with SGLang-Omni and the OpenAI-compatible API. Qwen3-Omni supports multi-modal input (text, image, audio) and can produce text-only or text + audio output depending on the mode.
+docs/basic_usage/qwen3_omni.md:7:Install `sglang-omni` by following [Installation](../get_started/installation.md).
+docs/basic_usage/qwen3_omni.md:11:Text-only mode runs the thinker pipeline on a single GPU. It accepts multi-modal input (text, image, audio) and produces text output only.
+docs/basic_usage/qwen3_omni.md:13:### Launch the Server
+docs/basic_usage/qwen3_omni.md:16:sgl-omni serve \
+docs/basic_usage/qwen3_omni.md:17:  --model-path Qwen/Qwen3-Omni-30B-A3B-Instruct \
+docs/basic_usage/qwen3_omni.md:22:For MMSU-style audio-input / text-output benchmarks with short requests, use
+docs/basic_usage/qwen3_omni.md:27:sgl-omni serve \
+docs/basic_usage/qwen3_omni.md:28:  --model-path Qwen/Qwen3-Omni-30B-A3B-Instruct \
+docs/basic_usage/qwen3_omni.md:29:  --config examples/configs/qwen3_omni_mmsu.yaml \
+docs/basic_usage/qwen3_omni.md:44:    "model": "qwen3-omni",
+docs/basic_usage/qwen3_omni.md:60:        "model": "qwen3-omni",
+docs/basic_usage/qwen3_omni.md:72:### Audio and Image Input
+docs/basic_usage/qwen3_omni.md:74:Send an audio file together with an image. The audio contains the spoken question ("How many cars are there in the picture?") and the model answers based on both inputs.
+docs/basic_usage/qwen3_omni.md:76:> **Note:** Set `"content": ""` (empty string) on the user message when all semantic content comes from audio, video, or images rather than text.
+docs/basic_usage/qwen3_omni.md:84:    "model": "qwen3-omni",
+docs/basic_usage/qwen3_omni.md:87:    "audios": ["tests/data/query_to_cars.wav"],
+docs/basic_usage/qwen3_omni.md:101:        "model": "qwen3-omni",
+docs/basic_usage/qwen3_omni.md:104:        "audios": ["tests/data/query_to_cars.wav"],
+docs/basic_usage/qwen3_omni.md:114:### Video and Audio Input
+docs/basic_usage/qwen3_omni.md:116:Send a video with a spoken audio question. The model watches the video, hears the question, and responds with text.
+docs/basic_usage/qwen3_omni.md:118:The Video-AMME CI benchmark uses this same modality combination: video input
+docs/basic_usage/qwen3_omni.md:128:    "model": "qwen3-omni",
+docs/basic_usage/qwen3_omni.md:130:    "videos": ["tests/data/draw.mp4"],
+docs/basic_usage/qwen3_omni.md:131:    "audios": ["tests/data/query_to_draw.wav"],
+docs/basic_usage/qwen3_omni.md:145:        "model": "qwen3-omni",
+docs/basic_usage/qwen3_omni.md:147:        "videos": ["tests/data/draw.mp4"],
+docs/basic_usage/qwen3_omni.md:148:        "audios": ["tests/data/query_to_draw.wav"],
+docs/basic_usage/qwen3_omni.md:161:both text (from the thinker) and audio (from the talker) output.
+docs/basic_usage/qwen3_omni.md:163:### Launch the Server
+docs/basic_usage/qwen3_omni.md:168:sgl-omni serve \
+docs/basic_usage/qwen3_omni.md:169:  --model-path Qwen/Qwen3-Omni-30B-A3B-Instruct \
+docs/basic_usage/qwen3_omni.md:170:  --config examples/configs/qwen3_omni_colocated_h20.yaml \
+docs/basic_usage/qwen3_omni.md:175:Use `examples/configs/qwen3_omni_colocated_h200.yaml` on single-H200 workers.
+docs/basic_usage/qwen3_omni.md:177:Exact-shape CUDA Graph replay is enabled by default for Qwen3-Omni Code2Wav.
+docs/basic_usage/qwen3_omni.md:191:budget before loading the model.
+docs/basic_usage/qwen3_omni.md:201:python examples/run_omni.py qwen3-speech-server \
+docs/basic_usage/qwen3_omni.md:202:  --model-path Qwen/Qwen3-Omni-30B-A3B-Instruct \
+=== dependency availability before install ===
+torch OK 2.7.1
+torchvision OK 0.22.1
+torchaudio OK 2.7.1+8485d5c
+sglang FAIL ModuleNotFoundError No module named 'sglang'
+flash_attn FAIL ModuleNotFoundError No module named 'flash_attn'
+kernels FAIL ModuleNotFoundError No module named 'kernels'
+nixl FAIL ModuleNotFoundError No module named 'nixl'
+mooncake FAIL ModuleNotFoundError No module named 'mooncake'
+transformers OK 5.15.0
+fastapi OK 0.95.2
+uvicorn OK 0.22.0
+msgspec FAIL ModuleNotFoundError No module named 'msgspec'
+pyzmq FAIL ModuleNotFoundError No module named 'pyzmq'
+pydantic OK 1.10.26
+PIL OK 10.3.0
+safetensors OK 0.8.0
+datasets OK 4.5.0
+librosa FAIL ModuleNotFoundError No module named 'librosa'
+av FAIL ModuleNotFoundError No module named 'av'
+qwen_vl_utils FAIL ModuleNotFoundError No module named 'qwen_vl_utils'
+numba FAIL ModuleNotFoundError No module named 'numba'
+openai FAIL ModuleNotFoundError No module named 'openai'
+soundfile FAIL ModuleNotFoundError No module named 'soundfile'
+mistral_common FAIL ModuleNotFoundError No module named 'mistral_common'
+onnxruntime OK 1.17.1
+websockets FAIL ModuleNotFoundError No module named 'websockets'
+whisper FAIL ModuleNotFoundError No module named 'whisper'
+s3prl FAIL ModuleNotFoundError No module named 's3prl'
+tiktoken FAIL ModuleNotFoundError No module named 'tiktoken'
+hydra FAIL ModuleNotFoundError No module named 'hydra'
+omegaconf FAIL ModuleNotFoundError No module named 'omegaconf'
+torchcodec FAIL ModuleNotFoundError No module named 'torchcodec'
+gradio FAIL ModuleNotFoundError No module named 'gradio'
+diffusers FAIL ModuleNotFoundError No module named 'diffusers'
+=== pip install -e no deps ===
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Obtaining file:///data/src/sglang-omni-corex-probe/repo
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: sglang-omni
+  Building editable for sglang-omni (pyproject.toml): started
+  Building editable for sglang-omni (pyproject.toml): finished with status 'done'
+  Created wheel for sglang-omni: filename=sglang_omni-0.1.1-0.editable-py3-none-any.whl size=10576 sha256=13853d3a6cf1c00aa3592668845582776252bcbeb0acbd98a705ab78997a3df2
+  Stored in directory: /tmp/pip-ephem-wheel-cache-o1zyp6l_/wheels/d2/49/52/2a04711d13c01e3071594817030f83521fd081355de90149eb
+Successfully built sglang-omni
+Installing collected packages: sglang-omni
+Successfully installed sglang-omni-0.1.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 25.2 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+=== import probes after install ===
+Ignore import error when loading sglang_omni.models.ming_omni: No module named 'msgspec'
+Ignore import error when loading sglang_omni.models.qwen3_omni.config: No module named 'sglang'
+Ignore import error when loading sglang_omni.models.zonos2.config: No module named 'msgspec'
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+ImportError: cannot import name 'AliasChoices' from 'pydantic' (/usr/local/lib/python3.10/site-packages/pydantic/__init__.cpython-310-x86_64-linux-gnu.so)
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+ImportError: cannot import name 'field_validator' from 'pydantic' (/usr/local/lib/python3.10/site-packages/pydantic/__init__.cpython-310-x86_64-linux-gnu.so)
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+ModuleNotFoundError: No module named 'sglang'
+sglang_omni OK /data/src/sglang-omni-corex-probe/repo/sglang_omni/__init__.py
+sglang_omni.cli FAIL ImportError cannot import name 'AliasChoices' from 'pydantic' (/usr/local/lib/python3.10/site-packages/pydantic/__init__.cpython-310-x86_64-linux-gnu.so)
+sglang_omni_router FAIL ImportError cannot import name 'field_validator' from 'pydantic' (/usr/local/lib/python3.10/site-packages/pydantic/__init__.cpython-310-x86_64-linux-gnu.so)
+sglang FAIL ModuleNotFoundError No module named 'sglang'
+=== console help probes ===
+Ignore import error when loading sglang_omni.models.ming_omni: No module named 'msgspec'
+Ignore import error when loading sglang_omni.models.qwen3_omni.config: No module named 'sglang'
+Ignore import error when loading sglang_omni.models.zonos2.config: No module named 'msgspec'
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "/usr/local/lib/python3.10/runpy.py", line 146, in _get_module_details
+    return _get_module_details(pkg_main_name, error)
+  File "/usr/local/lib/python3.10/runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/__init__.py", line 5, in <module>
+    from .serve import serve as _serve
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/serve.py", line 22, in <module>
+    from sglang_omni.serve.protocol import DEFAULT_TTS_BATCH_MAX_ITEMS
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/serve/protocol.py", line 11, in <module>
+    from pydantic import AliasChoices, BaseModel, ConfigDict, Field, model_validator
+ImportError: cannot import name 'AliasChoices' from 'pydantic' (/usr/local/lib/python3.10/site-packages/pydantic/__init__.cpython-310-x86_64-linux-gnu.so)
+Ignore import error when loading sglang_omni.models.ming_omni: No module named 'msgspec'
+Ignore import error when loading sglang_omni.models.qwen3_omni.config: No module named 'sglang'
+Ignore import error when loading sglang_omni.models.zonos2.config: No module named 'msgspec'
+Traceback (most recent call last):
+  File "/usr/local/bin/sgl-omni", line 3, in <module>
+    from sglang_omni.cli import app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/__init__.py", line 5, in <module>
+    from .serve import serve as _serve
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/serve.py", line 22, in <module>
+    from sglang_omni.serve.protocol import DEFAULT_TTS_BATCH_MAX_ITEMS
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/serve/protocol.py", line 11, in <module>
+    from pydantic import AliasChoices, BaseModel, ConfigDict, Field, model_validator
+ImportError: cannot import name 'AliasChoices' from 'pydantic' (/usr/local/lib/python3.10/site-packages/pydantic/__init__.cpython-310-x86_64-linux-gnu.so)

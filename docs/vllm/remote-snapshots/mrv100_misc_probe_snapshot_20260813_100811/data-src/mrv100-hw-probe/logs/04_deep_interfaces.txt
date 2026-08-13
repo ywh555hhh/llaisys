@@ -1,0 +1,1520 @@
+=== corex tree high level ===
+=== corex include candidates ===
+=== corex library candidates ===
+=== library names matching ix/cuda/core/rt/ml ===
+=== python modules under corex dist-packages ===
+## path /usr/local/corex/lib64/python3/dist-packages
+Cython
+PIL
+_multiprocess
+_pytest
+_yaml
+aiohappyeyeballs
+aiosignal
+annotated_doc
+anyio
+async_timeout
+attr
+attrs
+cairo
+certifi
+charset_normalizer
+click
+cloudpickle
+coloredlogs
+cuda
+cv2
+cython
+datasets
+dateutil
+decorator
+dill
+et_xmlfile
+exceptiongroup
+filelock
+flatbuffers
+frozenlist
+fsspec
+functorch
+gi
+graphviz
+h11
+hf_xet
+httpcore
+httpx
+huggingface_hub
+humanfriendly
+idna
+iniconfig
+isympy
+ixrt
+jinja2
+markdown_it
+markupsafe
+mdurl
+ml_dtypes
+mpmath
+multidict
+multiprocess
+networkx
+numpy
+onnx
+onnxruntime
+openpyxl
+packaging
+pandas
+pluggy
+propcache
+psutil
+py
+pyarrow
+pygments
+pygtkcompat
+pyixstream
+pytest
+pytz
+pyximport
+quiver
+requests
+rich
+scipy
+shellingham
+six
+sympy
+tabulate
+tensorrt
+tomli
+torch
+torch_cluster
+torch_quiver
+torch_scatter
+torch_sparse
+torchaudio
+torchdebug
+torchgen
+torchvision
+torio
+tornado
+tqdm
+tvm
+typer
+typing_extensions
+tzdata
+xxhash
+yaml
+yarl
+zipp
+count 100
+## path /usr/local/lib/python3.10/site-packages
+Crypto
+IPython
+OpenGL
+PIL
+__editable___sglang_omni_0_1_1_finder
+_argon2_cffi_bindings
+_cffi_backend
+_distutils_hack
+_multiprocess
+_pytest
+_soundfile
+_soundfile_data
+_yaml
+absl
+accelerate
+aiofiles
+aiohttp
+annotated_doc
+annotated_types
+annoy
+antlr4
+anyio
+argon2
+arrow
+asttokens
+astunparse
+async_lru
+async_timeout
+attr
+attrs
+awscli
+babel
+bcrypt
+bleach
+blinker
+bokeh
+boto3
+botocore
+bs4
+cachetools
+catkin_pkg
+certifi
+cffi
+charset_normalizer
+clang
+click
+cloudpickle
+colorama
+comm
+contourpy
+coverage
+cpuinfo
+cryptography
+cv2
+cycler
+dateutil
+debugpy
+decorator
+decord
+defusedxml
+dill
+distro
+dns
+docker
+docs_raw
+docutils
+easydict
+einops
+eventlet
+exceptiongroup
+executing
+fastapi
+fastjsonschema
+filelock
+flask
+fontTools
+fqdn
+fsspec
+gast
+gethostname
+gevent
+gguf
+greenlet
+grpc
+gunicorn
+gym
+h11
+h5py
+hf_xet
+httpcore
+httpx
+huggingface_hub
+hydra
+idna
+imageio
+importlib_metadata
+iniconfig
+inotify_simple
+interegular
+invoke
+ipykernel
+ipykernel_launcher
+ipywidgets
+isoduration
+isympy
+itsdangerous
+jedi
+jinja2
+jmespath
+json5
+jsonpointer
+jsonschema
+jsonschema_specifications
+jupyter
+jupyter_client
+jupyter_console
+jupyter_core
+jupyter_events
+jupyter_lsp
+jupyter_server
+jupyter_server_terminals
+jupyterlab
+jupyterlab_language_pack_zh_CN
+jupyterlab_pygments
+jupyterlab_server
+jupyterlab_widgets
+keras
+kiwisolver
+lark
+lazy_loader
+markdown
+markdown_it
+markupsafe
+matplotlib
+matplotlib_inline
+mdurl
+minio
+mistune
+msgpack
+msgspec
+multipart
+multiprocess
+nacl
+namex
+nbclient
+nbconvert
+nbformat
+nest_asyncio
+netifaces
+networkx
+notebook
+notebook_shim
+numpy
+omegaconf
+opt_einsum
+optree
+orjson
+overrides
+packaging
+pandas
+pandocfilters
+paramiko
+parso
+partial_json_parser
+pasta
+pathos
+pexpect
+pip
+pkg_resources
+platformdirs
+pluggy
+pox
+pp
+ppft
+prometheus_client
+prompt_toolkit
+psutil
+ptyprocess
+pure_eval
+py
+pyasn1
+pybase64
+pycparser
+pydantic
+pydantic_core
+pydevd_plugins
+pygame
+pyglet
+pygments
+pylab
+pyparsing
+pytest
+pytest_cov
+python_multipart
+pythonjsonlogger
+pytz
+pywt
+redis
+referencing
+regex
+requests
+retrying
+rfc3339_validator
+rfc3986_validator
+rfc3987_syntax
+rich
+rl_coach
+rospkg
+rpds
+rsa
+s3transfer
+safetensors
+sagemaker
+sagemaker_training
+schema
+scipy
+send2trash
+sentencepiece
+setproctitle
+setuptools
+sglang
+shapely
+shellingham
+six
+skimage
+smdebug_rulesconfig
+soundfile
+soupsieve
+stack_data
+starlette
+sympy
+tabulate
+tblib
+telegraf
+tensorboard
+tensorboard_data_server
+tensorflow
+tensorflow_io_gcs_filesystem
+tensorflow_probability
+termcolor
+terminado
+tests
+tf_keras
+tifffile
+tiktoken
+tinycss2
+tokenizers
+tomli
+tornado
+tqdm
+traitlets
+transformers
+tree
+triton
+typer
+typing_extensions
+typing_inspection
+tzdata
+uri_template
+urllib3
+uvicorn
+uvloop
+wcwidth
+webcolors
+webencodings
+websocket
+websockets
+werkzeug
+wheel
+widgetsnbextension
+wrapt
+xxhash
+xyzservices
+yaml
+zipp
+zmq
+count 276
+=== loaded modules and modinfo iluvatar ===
+iluvatar              966656  119 itr_peer_mem_drv
+mlx5_ib               393216  0
+ib_uverbs             139264  2 rdma_ucm,mlx5_ib
+ib_core               348160  9 rdma_cm,ib_ipoib,iw_cm,ib_umad,itr_peer_mem_drv,rdma_ucm,ib_uverbs,mlx5_ib,ib_cm
+vfio_mdev              16384  0
+mdev                   24576  1 vfio_mdev
+mlx5_core            1691648  1 mlx5_ib
+pci_hyperv_intf        16384  1 mlx5_core
+mlxdevm               172032  1 mlx5_core
+auxiliary              16384  2 mlx5_ib,mlx5_core
+tls                    73728  3 mlx5_core
+mlxfw                  28672  1 mlx5_core
+psample                20480  1 mlx5_core
+mlx_compat             65536  12 rdma_cm,ib_ipoib,mlxdevm,iw_cm,auxiliary,ib_umad,ib_core,rdma_ucm,ib_uverbs,mlx5_ib,ib_cm,mlx5_core
+modinfo: ERROR: Module alias iluvatar not found.
+=== udev/device node details ===
+  File: /dev/iluvatar3
+  Size: 0         	Blocks: 0          IO Block: 4096   character special file
+Device: 10000fh/1048591d	Inode: 13          Links: 1     Device type: ed,3
+Access: (0666/crw-rw-rw-)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2026-08-11 03:51:09.405036129 -0400
+Modify: 2026-08-11 03:51:09.405036129 -0400
+Change: 2026-08-11 03:51:09.405036129 -0400
+ Birth: -
+/data/src/mrv100-hw-probe/deep_interfaces_step4.sh: line 31: udevadm: command not found
+=== ioctl-ish strings in ixsmi and libs ===
+libixml.so
+nvmlGpmSampleGet
+ixmlDeviceGetComputeAllProcesses_v2
+nvmlDeviceGetActiveVgpus
+nvmlDeviceGetViolationStatus
+nvmlDeviceGetSupportedVgpus
+nvmlDeviceGetName
+ixmlDeviceGetJpuUtilization
+nvmlDeviceSetComputeMode
+nvmlInit
+ixmlDeviceGetDvfsCapability
+nvmlVgpuInstanceGetEncoderSessions
+ixmlDeviceSetResetStatus
+nvmlDeviceGetTemperatureThreshold
+ixmlDeviceGetThermalViolationCounter
+nvmlVgpuInstanceGetAccountingStats
+nvmlSystemGetTopologyGpuSet
+getDeviceVgpuPids
+ixmlDeviceGetVpuState
+ixmlDeviceGetBoardTemperature
+nvmlDeviceGetCreatableVgpus
+nvmlVgpuInstanceSetEncoderCapacity
+ixmlDeviceGetDvfsMode
+nvmlDeviceGetComputeRunningProcesses
+nvmlGpmQueryIfStreamingEnabled
+nvmlDeviceGetPciInfo
+ixmlDeviceGetCeMask
+nvmlDeviceGetCurrPcieLinkGeneration
+nvmlDeviceSetApplicationsClocks
+nvmlVgpuInstanceGetAccountingMode
+nvmlDeviceGetNvLinkRemoteDeviceType
+nvmlDeviceGetEccMode
+nvmlDeviceGetCurrentClocksThrottleReasons
+nvmlVgpuInstanceGetType
+_Z23sysfs_pci_get_BandwidthPKcPf
+ixmlDeviceGetBoardPowerLimit
+nvmlDeviceOnSameBoard
+nvmlDeviceGetVirtualizationMode
+nvmlDeviceSetPowerManagementLimit
+nvmlDeviceGetPowerManagementLimit
+nvmlVgpuInstanceGetMdevUUID
+nvmlDeviceGetTopologyNearestGpus
+nvmlGetVgpuVersion
+ixmlDeviceGetGpuSn
+nvmlDeviceGetHandleByIndex_v2
+nvmlVgpuTypeGetName
+nvmlDeviceResetGpuLockedClocks
+nvmlSystemGetCudaDriverVersion_v2
+ixmlDeviceGetMem1V2Temperature
+nvmlDeviceGetTopologyCommonAncestor
+nvmlDeviceGetClock
+nvmlDeviceGetVgpuUtilization
+ixmlDeviceGetComputeAllProcesses
+ixmlDeviceGetMemVoltage
+ixmlDeviceGetHealth
+ixmlDeviceGetPcieBridgeTree
+nvmlDeviceGetPerformanceState
+ixmlDeviceGetFirmwareVersion
+nvmlDeviceGetCpuAffinityWithinScope
+nvmlDeviceGetComputeMode
+ixmlDeviceGetIxLinkMaxPortNum
+nvmlVgpuInstanceGetVmDriverVersion
+nvmlVgpuTypeGetGpuInstanceProfileId
+nvmlVgpuInstanceGetEncoderStats
+nvmlDeviceGetEnforcedPowerLimit
+ixmlDeviceClearInvalidProcesses
+ixmlDeviceGetResetStatus
+nvmlDeviceGetUUID
+ixmlDeviceGetMemPhy
+nvmlVgpuInstanceGetUUID
+nvmlVgpuInstanceGetGpuInstanceId
+ixmlDeviceGetIxLinkInfo
+nvmlShutdown
+nvmlDeviceGetPowerUsage
+nvmlDeviceGetGridLicensableFeatures_v3
+ixmlDeviceGetGPUVoltage
+nvmlDeviceGetMultiGpuBoard
+ixmlDeviceGetDoubleBitEccCounter
+nvmlVgpuTypeGetDeviceID
+nvmlDeviceGetDecoderUtilization
+nvmlDeviceGetHostVgpuMode
+ixmlDeviceGetBoardPosition
+nvmlDeviceGetMinorNumber
+nvmlDeviceGetFanSpeed
+nvmlVgpuInstanceGetEccMode
+nvmlGpmSetStreamingEnabled
+ixmlDeviceSetCeMask
+ixmlDeviceReset
+nvmlDeviceGetNvLinkRemotePciInfo_v2
+nvmlVgpuInstanceGetGpuPciId
+nvmlVgpuTypeGetClass
+nvmlDeviceGetPcieThroughput
+nvmlVgpuInstanceGetVmID
+ixmlVgpuInstanceGetMemoryInfo
+nvmlDeviceGetBoardId
+nvmlGpmMetricsGet
+nvmlDeviceGetProcessUtilization
+nvmlDeviceGetThermalSettings
+nvmlDeviceGetMaxPcieLinkWidth
+ixmlDeviceGetManufactureDate
+nvmlVgpuInstanceGetAccountingPids
+nvmlDeviceGetUtilizationRates
+nvmlDeviceGetMemoryAffinity
+nvmlDeviceGetNvLinkCapability
+ixmlDeviceGetVpuUtilization
+nvmlDeviceGetVgpuProcessUtilization
+nvmlDeviceGetMaxClockInfo
+nvmlDeviceGetNvLinkState
+ixmlDeviceGetIxLinkUncorrectableAER
+nvmlGpmSampleAlloc
+ixmlDeviceGetBoardPn
+nvmlDeviceSetGpuLockedClocks
+ixmlDeviceGetSingleBitEccCounter
+nvmlVgpuInstanceClearAccountingPids
+ixmlDeviceGetIxLinkNodeId
+nvmlDeviceGetPowerState
+nvmlDeviceGetClockInfo
+nvmlDeviceGetMaxPcieLinkGeneration
+nvmlSystemGetDriverVersion
+nvmlDeviceGetTemperature
+ixmlDeviceSetDvfsMode
+nvmlVgpuTypeGetMaxInstancesPerVm
+nvmlDeviceGetPowerManagementDefaultLimit
+nvmlDeviceGetSerial
+nvmlVgpuTypeGetLicense
+ixmlDeviceGetVcoreTemperature
+nvmlDeviceGetMemoryInfo
+nvmlErrorString
+nvmlVgpuInstanceGetEncoderCapacity
+nvmlDeviceGetCount_v2
+ixmlVgpuInstanceGetVmName
+nvmlDeviceGetP2PStatus
+nvmlVgpuTypeGetMaxInstances
+nvmlDeviceGetIndex
+ixmlDeviceGetBoardPowerDefaultLimit
+nvmlDeviceGetEncoderUtilization
+ixmlDeviceGetHBMTemperature
+nvmlDeviceGetCurrPcieLinkWidth
+ixmlDeviceGetHardwareVersion
+ixmlDeviceGetBoardSn
+ixmlDeviceGetVddVoltage
+_Z20get_device_numa_nodePKc
+_Z7ixmllogPKcz
+ixmlDeviceGetVoltageViolationCounter
+nvmlSetVgpuVersion
+ixmlDeviceGetBoardPowerUsage
+nvmlSystemGetNVMLVersion
+nvmlDeviceGetHandleByPciBusId_v2
+nvmlDeviceGetBoardPartNumber
+nvmlDeviceGetCudaComputeCapability
+readlink
+Requires -i switch to target specific device. Requires root. There can't be any applications using
+this particular device (e.g. CUDA application, graphics application like X server, monitoring
+Requires root. There can't be any applications using this particular device 
+Specifies maximum power management limit in watts.
+The -n commland line argument should not be used in conjunction with -p 
+--pl, --power-limit
+Some devices and/or environments don't support all possible information.
+Redirect query output to the specified file in place of the deault stdout.
+Produce XML output in place of the default human-readable format. These are
+Use with -x. Embed the DTD in the XML output.
+Display only selected information: MEMORY, UTILIZATION, ECC,
+TEMPERATURE, POWER, CLOCK, COMPUTE, PIDS, PERFORMANCE.
+Flags can be combined with comma e.g. "MEMORY,ECC".
+-q, --query
+-x, --xml-format
+Information about GPU. Pass comma separated list of properties you want to query.
+e.g. --query-gpu=pci.bus_id,pci.device_id --format=csv. Call --help-query-gpu for more info.
+List of currently active compute processes. Pass comma separated list of properties you want to query.
+e.g. --query-compute-apps=pid,name --format=csv. Call --help-query-compute-apps for more info.
+--help-query-compute-apps info.
+--query-gpu
+--help-query-gpu info.
+--help-query-gpu
+--query-compute-apps
+--help-query-compute-apps
+Specify -q/--query and -x/--xml-format to run an XML query
+--display/-d flags can not be combined with -x/--xml-format flags
+ixlink
+p - Power Usage and Temperature 
+v - Power and Thermal Violations 
+t - PCIe Rx and Tx Throughput 
+    PCIe TX                 = 5
+    PCIe RX                 = 6
+    IXLink Total RX         = 7
+    IXLink Total TX         = 8
+    IXLink L0-L5 RX         = 9,11,13,15,17,19
+    IXLink L0-L5 TX         = 10,12,14,16,18,20
+Display bus tree for all devices.
+separated values for more than one device 
+   0 = a single PCIe switch on a dual GPU board
+   1 = a single PCIe switch
+   2 = multiple PCIe switches
+   3 = a PCIe host bridge
+   4 = an on-CPU interconnect link between PCIe host bridges
+   5 = an SMP interconnect link between NUMA nodes
+Used in conjunction with -i which must be a single device ID.
+Used in conjunction with -i which must be a pair of device IDs.
+   n - p2p ixlink capability
+Limit a command to a specific link. Without this flag, all link information is displayed.
+=== ixsys help and strings hints ===
+
+usage: ixsys [<args>] [application] [<application args>]
+args:
+        -h, --help
+           Print this help message and exit.
+
+        -v, --version
+           Display the version info.
+
+        -o, --output <file>
+           Output trace filename.
+           The trace file with specified filename will always be overwritten.
+
+        -t, --trace <tracer>[,<tracer>...]
+           Select the API(s) to trace. Possible values are 'cuda', 'osrt', 'nvtx', 'cudnn', 'cuinfer', 'video', 'raw_syscalls', 'mem', 'power',
+               'temperature', 'cuda_api', 'cuda_device', 'cuda_memcpy', 'cuda_memset', 'cuda_kernel', 'cuda_memcpy_p2p', 'proc_kthread'.
+           Multiple APIs can be selected, separated by commas only (no spaces).
+           If 'raw_syscalls' is assigned, 'osrt' must be assigned too.
+           If 'proc_kthread' is assigned, 'osrt' must be assigned too.
+           If 'power' or 'temperature' is assigned,  at least one of the 'cuda', 'cuda_device', 'cuda_memcpy', 'cuda_memset', 'cuda_kernel',
+               'cuda_memcpy_p2p' must be assigned too.
+           To reduce trace file, only focus on some traces, 'cuda_api', 'cuda_device', 'cuda_memcpy', 'cuda_memset', 'cuda_kernel',
+               'cuda_memcpy_p2p' can be used instead of 'cuda'.
+               'cuda' includes 'cuda_api' and 'cuda_device',
+               'cuda_device' includes 'cuda_memcpy', 'cuda_memset', 'cuda_kernel', 'cuda_memcpy_p2p'.
+
+        -d, --deferred_trace <seconds>
+           Defer some seconds to trace. Possible values are in [1, 2^32 - 1].
+           -d 10 means starting trace 10 seconds after obeserved application start.
+
+        -l, --limited_trace <seconds>
+           Limit trace time. Possible values are in [1, 2^32 - 1].
+           -l 10 means stoping trace 10 seconds after trace start.
+
+        -f, --filter_ftrace_syscalls <microseconds>
+           Try to filter out ftrace syscalls which duration are less than setting minimum duration. This can reduce the size of trace file.
+           Possible values are in [0, 1000000]. Default value is 1000.
+           -f 0 means do not filter out.
+
+        -c, --callstack
+           Enable callstack with default params 'kernel:false' 'frequency:1000', note that sudo permission is required.
+            --kernel <true|false>
+               To choose whether include kernel frames for callstack.
+            --frequency <value>
+               The frequency of sampling frequency for callstack.
+               Minimum supported frequency is '1' (Hz).
+               Maximum supproted frequency is '10000' (Hz).
+               Default is '1000' (Hz).
+
+        --devices, TEXT
+            Change the scope of subsequent "cuda", "mem", "power", "temperature", "osrt", "nvtx", "cudnn", "cuinfer", "video", "raw_syscalls"
+            and "proc_kthread" options.
+            Allowed values:
+                all - change scope to all valid devices (default).
+                comma-separated physical device IDs - change scope to specified devices.
+            Note: The IDs is physical device IDs.
+
+        --profile-from-start, TEXT:{off,on}
+            Enable/disable profiling cuda data from the start of the application.
+            If 'profile-from-start' is set to disable profiling from start,  '-t cuda*' must be assigned too.
+            If it's disabled, the application can use {cu,cuda}Profiler{Start,Stop}
+            to turn on/off profiling. Allowed values:
+                on - enable profiling from start (default)
+                off - disable profiling from start
+
+        --gpu-metrics-device
+           Collect GPU Metrics from specified devices.
+           The option argument must be 'none' or one of GPU IDs reported by '--gpu-metrics-device help' switch.
+           Default is 'none'. System scope.
+
+        --gpu-metrics-frequency
+           Specify GPU Metrics sampling frequency.
+           Minimum supported frequency is '10' (Hz).
+           Maximum supported frequency is '200000' (Hz).
+           Default is '500'. System scope.
+           Note: Due to current hardware limitation, the sampling performance is poor. The default value is recommended
+
+        --gpu-metrics-set
+           Specify metric set for GPU Metrics sampling.
+           The option argument must be one of indices reported by '--gpu-metrics-set help' switch.
+           Default is the first metric set that supports selected GPU. System scope.
+           Users can customize by setting the IXSYS_USER_DEFINED_METRIC_SET environment variable.
+
+        --nic-metrics
+           Possible values are 'true' or 'false'.
+           Collect metrics from NIC/HCA devices.
+           Default is 'false'.
+
+        --event-sync
+           Possible values are 'true' or 'false'.
+           Collect synchronize information with cudaEventRecord and cudaStreamWaitEvent.
+           If 'event-sync' is set to true, gpu activities must be traced.
+           Default is 'false'.
+
+        --target-processes-filter TEXT
+            Set the comma separated expressions to filter which processes are profiled.
+                <process name> Set the process name to filter. Regex matched processes are profiled.
+
+        --print-kernel-args
+            Enable to display kernel names with its arguments.
+
+        --print-api-summary
+            Print a summary of CUDA runtime/driver API calls.
+            Must select the cuda_api to trace ('-t cuda_api' or '-t cuda').
+            All print-api/gpu-summary/trace can be used in combination.
+            Note: If only printing the profiling data without saving the trace, only 'profile-from-start' and 'target-processes-filter' can be set.
+
+        --print-api-trace
+            Print CUDA runtime/driver API trace.
+            Must select the cuda_api to trace ('-t cuda_api' or '-t cuda').
+            All print-api/gpu-summary/trace can be used in combination.
+            Note: If only printing the profiling data without saving the trace, only 'profile-from-start' and 'target-processes-filter' can be set.
+
+        --print-gpu-summary
+            Print a summary of the activities on the GPU (including CUDA kernels and memcpy's/memset's).
+            Must select the cuda_device to trace ('-t cuda_device' or '-t cuda').
+            All print-api/gpu-summary/trace can be used in combination.
+            Note: If only printing the profiling data without saving the trace, only 'profile-from-start' and 'target-processes-filter' can be set.
+
+        --print-gpu-trace
+            Print individual kernel invocations (including CUDA memcpy's/memset's) and sort them in chronological order.
+            Must select the cuda_device to trace ('-t cuda_device' or '-t cuda').
+            All print-api/gpu-summary/trace can be used in combination.
+            Note: If only printing the profiling data without saving the trace, only 'profile-from-start' and 'target-processes-filter' can be set.
+
+        --sessions-list
+            Display any existing profiling sessions.
+
+ptrace
+cuda_device
+cuda_kernel
+cujpegEncoderOutPutRelease
+nvjpegBufferDeviceCreate
+nvjpegBufferDeviceDestroy
+nvjpegBufferDeviceRetrieve
+nvjpegDecodeJpegDevice
+nvjpegGetDeviceMemoryPadding
+nvjpegGetPinnedMemoryPadding
+nvjpegSetDeviceMemoryPadding
+nvjpegSetPinnedMemoryPadding
+nvjpegStateAttachDeviceBuffer
+cuinferArrangeAttenOutputI8II8O
+cuinferCustomGemmDeviceParamInit
+cuInferReshapeAndCacheKernelV3
+cujpegEncodeRetrieveBitstreamDeviceBatched
+nvjpegDecodeJpegTransferToDevice
+nvjpegDecodeParamsSetOutputFormat
+linux.ftrace
+.perfetto.protos.TraceConfig
+MEMORY
+trace_config
+traceConfig
+convert_to_legacy_json
+convertToLegacyJson
+json_agent_label_filter
+jsonAgentLabelFilter"A
+FtraceConfig
+ftrace_events
+ftraceEvents
+atrace_categories
+atraceCategories
+atrace_apps
+atraceApps
+20.perfetto.protos.FtraceConfig.CompactSchedConfigR
+VulkanMemoryConfig
+track_driver_memory_usage
+trackDriverMemoryUsage
+track_device_memory_usage
+trackDeviceMemoryUsage"
+output
+2%.perfetto.protos.ConsoleConfig.OutputR
+output
+Output
+OUTPUT_UNSPECIFIED
+OUTPUT_STDOUT
+OUTPUT_STDERR
+min_anonymous_memory_kb
+minAnonymousMemoryKb
+max_heapprofd_memory_kb
+maxHeapprofdMemoryKb
+min_anonymous_memory_kb
+minAnonymousMemoryKb
+tracepoint
+2&.perfetto.protos.PerfEvents.TracepointH
+tracepoint
+Tracepoint
+max_daemon_memory_kb
+maxDaemonMemoryKb
+kernel_frames
+kernelFrames
+kernel_frames
+kernelFrames
+trace_duration_ms
+traceDurationMs
+ftrace_config
+.perfetto.protos.FtraceConfigB
+ftraceConfig
+vulkan_memory_config
+2#.perfetto.protos.VulkanMemoryConfigB
+vulkanMemoryConfig
+TraceConfig
+2).perfetto.protos.TraceConfig.BufferConfigR
+2'.perfetto.protos.TraceConfig.DataSourceR
+2..perfetto.protos.TraceConfig.BuiltinDataSourceR
+22.perfetto.protos.TraceConfig.LockdownModeOperationR
+2+.perfetto.protos.TraceConfig.ProducerConfigR	producers
+2+.perfetto.protos.TraceConfig.StatsdMetadataR
+output_path
+outputPath
+2/.perfetto.protos.TraceConfig.GuardrailOverridesR
+notify_traceur
+notifyTraceur
+2*.perfetto.protos.TraceConfig.TriggerConfigR
+23.perfetto.protos.TraceConfig.IncrementalStateConfigR
+2,.perfetto.protos.TraceConfig.CompressionTypeR
+21.perfetto.protos.TraceConfig.IncidentReportConfigR
+2*.perfetto.protos.TraceConfig.StatsdLoggingR
+trace_uuid_msb
+traceUuidMsb
+trace_uuid_lsb
+traceUuidLsb
+trace_filter
+2(.perfetto.protos.TraceConfig.TraceFilterR
+traceFilter
+24.perfetto.protos.TraceConfig.BufferConfig.FillPolicyR
+disable_trace_config
+disableTraceConfig
+primary_trace_clock
+primaryTraceClock
+26.perfetto.protos.TraceConfig.TriggerConfig.TriggerModeR
+22.perfetto.protos.TraceConfig.TriggerConfig.TriggerR
+TraceFilter
+LID_KERNEL
+MEMINFO_KERNEL_STACK
+VMSTAT_NR_KERNEL_STACK
+!VMSTAT_NR_KERNEL_MISC_RECLAIMABLE
+N3fmt2v719basic_memory_bufferIcLm500ESaIcEEE
+N3fmt2v719basic_memory_bufferIjLm32ESaIjEEE
+N3fmt2v719basic_memory_bufferIcLm250ESaIcEEE
+/tmp/traced-c-
+/tmp/traced-p-
+/tmp/power_trace-
+/tmp/temperature_trace-
+/tmp/nic_trace-
+/power_trace
+/temperature_trace
+/nic_trace
+Try 'ixsys --help' for more information.
+The -h or --help parameter was used incorrectly!
+usage: "ixsys -h" or "ixsys --help"
+The "--gpu-metrics-device help" parameter was used incorrectly!
+usage: ixsys --gpu-metrics-device help
+The "--gpu-metrics-set help" parameter was used incorrectly!
+usage: ixsys --gpu-metrics-set help
+The print-gpu/api-summary/trace parameter was used incorrectly!
+Try 'ixsys --help' for more information.
+        -h, --help
+           Print this help message and exit.
+        -o, --output <file>
+           Output trace filename.
+           The trace file with specified filename will always be overwritten.
+        -t, --trace <tracer>[,<tracer>...]
+           Select the API(s) to trace. Possible values are 'cuda', 'osrt', 'nvtx', 'cudnn', 'cuinfer', 'video', 'raw_syscalls', 'mem', 'power',
+               'temperature', 'cuda_api', 'cuda_device', 'cuda_memcpy', 'cuda_memset', 'cuda_kernel', 'cuda_memcpy_p2p', 'proc_kthread'.
+           If 'power' or 'temperature' is assigned,  at least one of the 'cuda', 'cuda_device', 'cuda_memcpy', 'cuda_memset', 'cuda_kernel',
+           To reduce trace file, only focus on some traces, 'cuda_api', 'cuda_device', 'cuda_memcpy', 'cuda_memset', 'cuda_kernel',
+               'cuda' includes 'cuda_api' and 'cuda_device',
+               'cuda_device' includes 'cuda_memcpy', 'cuda_memset', 'cuda_kernel', 'cuda_memcpy_p2p'.
+        -d, --deferred_trace <seconds>
+           Defer some seconds to trace. Possible values are in [1, 2^32 - 1].
+           -d 10 means starting trace 10 seconds after obeserved application start.
+        -l, --limited_trace <seconds>
+           Limit trace time. Possible values are in [1, 2^32 - 1].
+           -l 10 means stoping trace 10 seconds after trace start.
+        -f, --filter_ftrace_syscalls <microseconds>
+           Try to filter out ftrace syscalls which duration are less than setting minimum duration. This can reduce the size of trace file.
+           Enable callstack with default params 'kernel:false' 'frequency:1000', note that sudo permission is required.
+            --kernel <true|false>
+               To choose whether include kernel frames for callstack.
+        --devices, TEXT
+                all - change scope to all valid devices (default).
+                comma-separated physical device IDs - change scope to specified devices.
+            Note: The IDs is physical device IDs.
+        --profile-from-start, TEXT:{off,on}
+            If 'profile-from-start' is set to disable profiling from start,  '-t cuda*' must be assigned too.
+            If it's disabled, the application can use {cu,cuda}Profiler{Start,Stop}
+        --gpu-metrics-device
+           Collect GPU Metrics from specified devices.
+           The option argument must be 'none' or one of GPU IDs reported by '--gpu-metrics-device help' switch.
+        --gpu-metrics-frequency
+           Specify GPU Metrics sampling frequency.
+        --gpu-metrics-set
+           Specify metric set for GPU Metrics sampling.
+           The option argument must be one of indices reported by '--gpu-metrics-set help' switch.
+           Default is the first metric set that supports selected GPU. System scope.
+           Users can customize by setting the IXSYS_USER_DEFINED_METRIC_SET environment variable.
+        --nic-metrics
+           Collect metrics from NIC/HCA devices.
+           If 'event-sync' is set to true, gpu activities must be traced.
+            Set the comma separated expressions to filter which processes are profiled.
+                <process name> Set the process name to filter. Regex matched processes are profiled.
+        --print-kernel-args
+            Enable to display kernel names with its arguments.
+            Must select the cuda_api to trace ('-t cuda_api' or '-t cuda').
+            All print-api/gpu-summary/trace can be used in combination.
+            Note: If only printing the profiling data without saving the trace, only 'profile-from-start' and 'target-processes-filter' can be set.
+        --print-api-trace
+            Print CUDA runtime/driver API trace.
+            Must select the cuda_api to trace ('-t cuda_api' or '-t cuda').
+            All print-api/gpu-summary/trace can be used in combination.
+            Note: If only printing the profiling data without saving the trace, only 'profile-from-start' and 'target-processes-filter' can be set.
+            Print a summary of the activities on the GPU (including CUDA kernels and memcpy's/memset's).
+            Must select the cuda_device to trace ('-t cuda_device' or '-t cuda').
+            All print-api/gpu-summary/trace can be used in combination.
+            Note: If only printing the profiling data without saving the trace, only 'profile-from-start' and 'target-processes-filter' can be set.
+        --print-gpu-trace
+            Print individual kernel invocations (including CUDA memcpy's/memset's) and sort them in chronological order.
+            Must select the cuda_device to trace ('-t cuda_device' or '-t cuda').
+            All print-api/gpu-summary/trace can be used in combination.
+            Note: If only printing the profiling data without saving the trace, only 'profile-from-start' and 'target-processes-filter' can be set.
+Illegal --trace argument '%s' 
+Error: ixsys doesn't support to trace power or temperature in VGPU mode.
+Illegal --trace argument, 'raw_syscalls' must be used with 'osrt'. 
+Illegal --trace argument, 'proc_kthread' must be used with 'osrt'. 
+Illegal --trace argument, 'power' or 'temperature' must be used with at least one of the 'cuda', 'cuda_device', 'cuda_memcpy', 'cuda_memset', 'cuda_kernel', 'cuda_memcpy_p2p'. 
+METRIC_DEVICES
+METRIC_FREQUENCY
+Failed to configure the METRIC_SET environment variable.
+Failed to configure the METRIC_DEVICES environment variable.
+Failed to configure the METRIC_FREQUENCY environment variable.
+IXSYS_TRACE_SELECTION
+IXSYS_PROFILE_FROM_START
+IXSYS_TRACE_DEVICES
+CUDA_PROFILE_KERNEL_ARGS
+Failed to configure the IXSYS_TRACE_SELECTION environment variable.
+Failed to configure the IXSYS_PROFILE_FROM_START environment variable.
+Failed to configure the IXSYS_TRACE_DEVICES environment variable.
+Failed to configure the CUDA_PROFILE_KERNEL_ARGS environment variable.
+config_trace_nvml_env
+Find {} devices
+Cannot find any ml library controled devices!
+Exit the trace_nvml_loop!
+config_trace_nic_env
+nvmlDeviceGetHandleByIndex_v2
+ixmlDeviceGetInternalVersion
+Failed to execute nvmlDeviceGetHandleByIndex_v2 ret = {} !
+Failed to execute ixmlDeviceGetInternalVersion ret = {} !
+Before syncefd::metric_get_sync_msg
+After syncefd::metric_get_sync_msg
+ftrace_->EnableTracing() ret {}
+ftrace_->SetEventPid({}) ret {}
+trace_nvml_pid = [{}]
+trace_nic_pid = [{}]
+trace_metric_pid = [{}]
+PrepareTraceConfig
+====== ixsysParams::PrepareTraceConfig Done
+        trace_cuda = true
+        trace_cuda = false
+        trace_cuda_api = true
+        trace_osrt = true
+        trace_osrt = false
+        trace_nvtx = true
+        trace_nvtx = false
+        trace_cudnn = true
+        trace_cudnn = false
+        trace_cuinfer = true
+        trace_cuinfer = false
+        trace_video = true
+=== ucx info relevant ===
+# Library version: 1.18.0
+# Library path: /usr/local/corex/lib64/libucs.so.0
+# API headers version: 1.18.0
+# Git branch 'release/4.4', revision 3485a38
+# Configured with: --enable-shared --disable-static --disable-doxygen-doc --enable-optimizations --enable-devel-headers --with-cuda=/home/corex/sw_home/local/corex --with-verbs --without-rocm --without-go --disable-cma --enable-assertions --prefix /home/corex/sw_home/local/corex --enable-mt --enable-gtest --with-gdrcopy=/home/corex/sw_home/local/corex
+#
+# Memory domain: self
+#     Component: self
+#             register: unlimited, cost: 0 nsec
+#           remote key: 0 bytes
+#           rkey_ptr is supported
+#         memory types: host (access,reg_nonblock,reg,cache)
+#
+#      Transport: self
+#         Device: memory
+#           Type: loopback
+#  System device: <unknown>
+#
+#      capabilities:
+#            bandwidth: 0.00/ppn + 19360.00 MB/sec
+#              latency: 0 nsec
+#             overhead: 10 nsec
+#            put_short: <= 4294967295
+#            put_bcopy: unlimited
+#            get_bcopy: unlimited
+#             am_short: <= 8K
+#             am_bcopy: <= 8K
+#               domain: cpu
+#           atomic_add: 32, 64 bit
+#           atomic_and: 32, 64 bit
+#            atomic_or: 32, 64 bit
+#           atomic_xor: 32, 64 bit
+#          atomic_fadd: 32, 64 bit
+#          atomic_fand: 32, 64 bit
+#           atomic_for: 32, 64 bit
+#          atomic_fxor: 32, 64 bit
+#          atomic_swap: 32, 64 bit
+#         atomic_cswap: 32, 64 bit
+#           connection: to iface
+#      device priority: 0
+#     device num paths: 1
+#              max eps: inf
+#       device address: 0 bytes
+#        iface address: 8 bytes
+#       error handling: ep_check
+#
+#
+# Memory domain: tcp
+#     Component: tcp
+#             register: unlimited, cost: 0 nsec
+#           remote key: 0 bytes
+#         memory types: host (access,reg_nonblock,reg,cache)
+#
+#      Transport: tcp
+#         Device: eth0
+#           Type: network
+#  System device: <unknown>
+#
+#      capabilities:
+#            bandwidth: 1131.64/ppn + 0.00 MB/sec
+#              latency: 5258 nsec
+#             overhead: 50000 nsec
+#            put_zcopy: <= 18446744073709551590, up to 6 iov
+#  put_opt_zcopy_align: <= 1
+#        put_align_mtu: <= 0
+#             am_short: <= 8K
+#             am_bcopy: <= 8K
+#             am_zcopy: <= 64K, up to 6 iov
+#   am_opt_zcopy_align: <= 1
+#         am_align_mtu: <= 0
+#            am header: <= 8037
+#           connection: to ep, to iface
+#      device priority: 0
+#     device num paths: 1
+#              max eps: 256
+#       device address: 6 bytes
+#        iface address: 2 bytes
+#           ep address: 10 bytes
+#       error handling: peer failure, ep_check, keepalive
+#
+#      Transport: tcp
+#         Device: lo
+#           Type: network
+#  System device: <unknown>
+#
+#      capabilities:
+#            bandwidth: 11.91/ppn + 0.00 MB/sec
+#              latency: 10960 nsec
+#             overhead: 50000 nsec
+#            put_zcopy: <= 18446744073709551590, up to 6 iov
+#  put_opt_zcopy_align: <= 1
+#        put_align_mtu: <= 0
+#             am_short: <= 8K
+#             am_bcopy: <= 8K
+#             am_zcopy: <= 64K, up to 6 iov
+#   am_opt_zcopy_align: <= 1
+#         am_align_mtu: <= 0
+#            am header: <= 8037
+#           connection: to ep, to iface
+#      device priority: 1
+#     device num paths: 1
+#              max eps: 256
+#       device address: 18 bytes
+#        iface address: 2 bytes
+#           ep address: 10 bytes
+#       error handling: peer failure, ep_check, keepalive
+#
+#
+# Connection manager: tcp
+#      max_conn_priv: 2064 bytes
+#
+# Memory domain: sysv
+#     Component: sysv
+#             allocate: unlimited
+#           remote key: 12 bytes
+#           rkey_ptr is supported
+#         memory types: host (access,alloc,cache)
+#
+#      Transport: sysv
+#         Device: memory
+#           Type: intra-node
+#  System device: <unknown>
+#
+#      capabilities:
+#            bandwidth: 0.00/ppn + 15360.00 MB/sec
+#              latency: 80 nsec
+#             overhead: 10 nsec
+#            put_short: <= 4294967295
+#            put_bcopy: unlimited
+#            get_bcopy: unlimited
+#             am_short: <= 100
+#             am_bcopy: <= 8256
+#               domain: cpu
+#           atomic_add: 32, 64 bit
+#           atomic_and: 32, 64 bit
+#            atomic_or: 32, 64 bit
+#           atomic_xor: 32, 64 bit
+#          atomic_fadd: 32, 64 bit
+#          atomic_fand: 32, 64 bit
+#           atomic_for: 32, 64 bit
+#          atomic_fxor: 32, 64 bit
+#          atomic_swap: 32, 64 bit
+#         atomic_cswap: 32, 64 bit
+#           connection: to iface
+#      device priority: 0
+#     device num paths: 1
+#              max eps: inf
+#       device address: 16 bytes
+#        iface address: 8 bytes
+#       error handling: ep_check
+#
+#
+# Memory domain: posix
+#     Component: posix
+#             allocate: <= 16G
+#           remote key: 32 bytes
+#           rkey_ptr is supported
+#         memory types: host (access,alloc,cache)
+#
+#      Transport: posix
+#         Device: memory
+#           Type: intra-node
+#  System device: <unknown>
+#
+#      capabilities:
+#            bandwidth: 0.00/ppn + 15360.00 MB/sec
+#              latency: 80 nsec
+#             overhead: 10 nsec
+#            put_short: <= 4294967295
+#            put_bcopy: unlimited
+#            get_bcopy: unlimited
+#             am_short: <= 100
+#             am_bcopy: <= 8256
+#               domain: cpu
+#           atomic_add: 32, 64 bit
+#           atomic_and: 32, 64 bit
+#            atomic_or: 32, 64 bit
+#           atomic_xor: 32, 64 bit
+#          atomic_fadd: 32, 64 bit
+#          atomic_fand: 32, 64 bit
+#           atomic_for: 32, 64 bit
+#          atomic_fxor: 32, 64 bit
+#          atomic_swap: 32, 64 bit
+#         atomic_cswap: 32, 64 bit
+#           connection: to iface
+#      device priority: 0
+#     device num paths: 1
+#              max eps: inf
+#       device address: 16 bytes
+#        iface address: 16 bytes
+#       error handling: ep_check
+#
+#
+# Memory domain: cuda_cpy
+#     Component: cuda_cpy
+#             allocate: unlimited
+#             register: unlimited, cost: 0 nsec
+#         memory types: host (reg), cuda (access,alloc,reg,detect), cuda-managed (access,alloc,reg,cache,detect)
+#
+#      Transport: cuda_copy
+#         Device: cuda
+#           Type: accelerator
+#  System device: <unknown>
+#
+#      capabilities:
+#            bandwidth: 10000.00/ppn + 0.00 MB/sec
+#              latency: 8000 nsec
+#             overhead: 0 nsec
+#            put_short: <= 4294967295
+#            put_zcopy: unlimited, up to 1 iov
+#  put_opt_zcopy_align: <= 1
+#        put_align_mtu: <= 1
+#            get_short: <= 4294967295
+#            get_zcopy: unlimited, up to 1 iov
+#  get_opt_zcopy_align: <= 1
+#        get_align_mtu: <= 1
+#           connection: to iface
+#      device priority: 0
+#     device num paths: 1
+#              max eps: inf
+#       device address: 0 bytes
+#        iface address: 8 bytes
+#       error handling: none
+#
+#
+# Memory domain: cuda_ipc
+#     Component: cuda_ipc
+#             register: unlimited, cost: 0 nsec
+#           remote key: 112 bytes
+#           memory invalidation is supported
+#         memory types: cuda (access,reg,cache)
+#
+#      Transport: cuda_ipc
+#         Device: cuda
+#           Type: intra-node
+#  System device: <unknown>
+#
+#      capabilities:
+#            bandwidth: 250000.00/ppn + 0.00 MB/sec
+#              latency: 1000 nsec
+#             overhead: 7000 nsec
+#            put_zcopy: unlimited, up to 1 iov
+#  put_opt_zcopy_align: <= 1
+#        put_align_mtu: <= 1
+#            get_zcopy: <= 0, up to 1 iov
+#  get_opt_zcopy_align: <= 1
+#        get_align_mtu: <= 1
+#           connection: to iface
+#      device priority: 0
+#     device num paths: 1
+#              max eps: inf
+#       device address: 8 bytes
+#        iface address: 4 bytes
+#       error handling: peer failure
+#
+#
+# Memory domain: gdr_copy
+#     Component: gdr_copy
+#             register: unlimited, cost: 0 nsec
+#           remote key: 24 bytes
+#         memory types: cuda (access,reg)
+#
+#      Transport: gdr_copy
+#         Device: cuda
+#           Type: accelerator
+=== dump selected CUDA attrs to json ===
+{
+  "cuDeviceGet": {
+    "dev": "<CUdevice 0>",
+    "err": "CUresult.CUDA_SUCCESS"
+  },
+  "cuInit": "(<CUresult.CUDA_SUCCESS: 0>,)",
+  "driver_attributes": {
+    "CU_DEVICE_ATTRIBUTE_ASYNC_ENGINE_COUNT": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_CAN_FLUSH_REMOTE_WRITES": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_CAN_MAP_HOST_MEMORY": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_CAN_TEX2D_GATHER": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_CAN_USE_64_BIT_STREAM_MEM_OPS": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_CAN_USE_64_BIT_STREAM_MEM_OPS_V2": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_CAN_USE_HOST_POINTER_FOR_REGISTERED_MEM": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_CAN_USE_STREAM_MEM_OPS": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_CAN_USE_STREAM_WAIT_VALUE_NOR": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_CAN_USE_STREAM_WAIT_VALUE_NOR_V2": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_CLOCK_RATE": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1500000
+    },
+    "CU_DEVICE_ATTRIBUTE_CLUSTER_LAUNCH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_COMPUTE_CAPABILITY_MAJOR": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 7
+    },
+    "CU_DEVICE_ATTRIBUTE_COMPUTE_CAPABILITY_MINOR": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_COMPUTE_MODE": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_COMPUTE_PREEMPTION_SUPPORTED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_CONCURRENT_KERNELS": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_CONCURRENT_MANAGED_ACCESS": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_COOPERATIVE_LAUNCH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_COOPERATIVE_MULTI_DEVICE_LAUNCH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_DEFERRED_MAPPING_CUDA_ARRAY_SUPPORTED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_DIRECT_MANAGED_MEM_ACCESS_FROM_HOST": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_DMA_BUF_SUPPORTED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_ECC_ENABLED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_GENERIC_COMPRESSION_SUPPORTED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_GLOBAL_L1_CACHE_SUPPORTED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_GLOBAL_MEMORY_BUS_WIDTH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 2048
+    },
+    "CU_DEVICE_ATTRIBUTE_GPU_DIRECT_RDMA_FLUSH_WRITES_OPTIONS": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_GPU_DIRECT_RDMA_SUPPORTED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_GPU_DIRECT_RDMA_WITH_CUDA_VMM_SUPPORTED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_GPU_DIRECT_RDMA_WRITES_ORDERING": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_GPU_OVERLAP": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_HANDLE_TYPE_POSIX_FILE_DESCRIPTOR_SUPPORTED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_HANDLE_TYPE_WIN32_HANDLE_SUPPORTED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_HANDLE_TYPE_WIN32_KMT_HANDLE_SUPPORTED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_HOST_NATIVE_ATOMIC_SUPPORTED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_HOST_REGISTER_SUPPORTED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_INTEGRATED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_KERNEL_EXEC_TIMEOUT": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_L2_CACHE_SIZE": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 16777216
+    },
+    "CU_DEVICE_ATTRIBUTE_LOCAL_L1_CACHE_SUPPORTED": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 1
+    },
+    "CU_DEVICE_ATTRIBUTE_MANAGED_MEMORY": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAX": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE1D_LAYERED_LAYERS": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE1D_LAYERED_WIDTH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE1D_WIDTH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_HEIGHT": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_LAYERED_HEIGHT": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_LAYERED_LAYERS": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_LAYERED_WIDTH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_WIDTH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE3D_DEPTH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE3D_HEIGHT": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE3D_WIDTH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACECUBEMAP_LAYERED_LAYERS": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACECUBEMAP_LAYERED_WIDTH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACECUBEMAP_WIDTH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_LAYERED_LAYERS": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_LAYERED_WIDTH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_LINEAR_WIDTH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_MIPMAPPED_WIDTH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_WIDTH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_GATHER_HEIGHT": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_GATHER_WIDTH": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_HEIGHT": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_LAYERED_HEIGHT": {
+      "err": "CUresult.CUDA_SUCCESS",
+      "value": 0
+    },
+    "CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_LAYERED_LAYERS"

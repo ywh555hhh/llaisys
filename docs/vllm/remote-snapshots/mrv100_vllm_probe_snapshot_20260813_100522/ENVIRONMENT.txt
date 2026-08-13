@@ -1,0 +1,137 @@
+# Selected environment
+2026-08-13T10:05:22+08:00
+
+## OS
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+
+## kernel
+Linux bbdc80d04b9c 5.4.0-148-generic #165-Ubuntu SMP Tue Apr 18 08:53:12 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+
+## CPU
+Architecture:                    x86_64
+CPU op-mode(s):                  32-bit, 64-bit
+Address sizes:                   39 bits physical, 48 bits virtual
+Byte Order:                      Little Endian
+CPU(s):                          112
+On-line CPU(s) list:             0-111
+Vendor ID:                       GenuineIntel
+Model name:                      Intel(R) Xeon(R) Platinum 8358P CPU @ 2.60GHz
+CPU family:                      6
+Model:                           142
+Thread(s) per core:              2
+Core(s) per socket:              28
+Socket(s):                       2
+Stepping:                        10
+CPU(s) scaling MHz:              26%
+CPU max MHz:                     3100.0000
+CPU min MHz:                     800.0000
+BogoMIPS:                        3984.00
+Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp
+Virtualization:                  VT-x
+L1d cache:                       2.6 MiB (56 instances)
+L1i cache:                       1.8 MiB (56 instances)
+L2 cache:                        70 MiB (56 instances)
+L3 cache:                        84 MiB (2 instances)
+NUMA node(s):                    2
+NUMA node0 CPU(s):               0-27,56-83
+NUMA node1 CPU(s):               28-55,84-111
+Vulnerability Itlb multihit:     Not affected
+Vulnerability L1tf:              Not affected
+Vulnerability Mds:               Not affected
+Vulnerability Meltdown:          Not affected
+Vulnerability Mmio stale data:   Mitigation; Clear CPU buffers; SMT vulnerable
+Vulnerability Retbleed:          Not affected
+Vulnerability Spec store bypass: Mitigation; Speculative Store Bypass disabled via prctl and seccomp
+Vulnerability Spectre v1:        Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:        Mitigation; Enhanced IBRS, IBPB conditional, RSB filling, PBRSB-eIBRS SW sequence
+Vulnerability Srbds:             Not affected
+Vulnerability Tsx async abort:   Not affected
+
+## disks
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          30G  223M   30G   1% /
+/dev/loop16     196G  110G   76G  60% /data
+
+## GPU
+Timestamp    Thu Aug 13 10:05:25 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  38C   P0       38W / 150W   | 68MiB / 32768MiB     | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
+|  No running processes found                                                    |
++--------------------------------------------------------------------------------+
+
+index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]
+0, Iluvatar MR-V100, 32768 MiB, 68 MiB, 32700 MiB, 0 %, 1 %, 38 W, 38 C, 1500 MHz, 1600 MHz
+
+## Python/vLLM
+Python 3.12.3
+/usr/bin/python3
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+0.17.0+corex.20260515140109
+Name: vllm
+Version: 0.17.0+corex.20260515140109
+Summary: A high-throughput and memory-efficient inference and serving engine for LLMs
+Home-page: https://github.com/vllm-project/vllm
+Author: vLLM Team
+Author-email: 
+License: Apache-2.0
+Location: /usr/local/lib/python3.12/dist-packages
+Requires: aiohttp, anthropic, blake3, cachetools, cbor2, cloudpickle, compressed-tensors, depyf, diskcache, einops, fastapi, filelock, gguf, grpcio, grpcio-reflection, ijson, kaldi-native-fbank, lark, llguidance, lm-format-enforcer, mcp, mistral_common, model-hosting-container-standards, msgspec, ninja, numba, numpy, openai, openai-harmony, opencv-python-headless, opentelemetry-api, opentelemetry-exporter-otlp, opentelemetry-sdk, opentelemetry-semantic-conventions-ai, outlines_core, partial-json-parser, pillow, prometheus-fastapi-instrumentator, prometheus_client, protobuf, psutil, py-cpuinfo, pybase64, pydantic, python-json-logger, pyyaml, pyzmq, ray, regex, requests, sentencepiece, setproctitle, setuptools, six, tiktoken, tokenizers, tqdm, transformers, typing_extensions, watchfiles, xgrammar
+Required-by: 
+---
+Name: torch
+Version: 2.7.1+corex.4.4.0
+Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+Home-page: https://pytorch.org/
+Author: PyTorch Team
+Author-email: packages@pytorch.org
+License: BSD-3-Clause
+Location: /usr/local/lib/python3.12/dist-packages
+Requires: filelock, fsspec, jinja2, networkx, setuptools, sympy, typing-extensions
+Required-by: accelerate, autoawq, bitsandbytes, compressed-tensors, conformer, DistVAE, doclayout_yolo, ema-pytorch, encodec, f5-tts, FlagEmbedding, flash_attn, k2, lightning, mamba_ssm, openai-whisper, optimum, peft, pytorch-lightning, rotary-embedding-torch, sentence-transformers, thop, tilelang, timm, torch-einops-utils, torchaudio, torchdata, torchdiffeq, torchmetrics, torchvision, ultralytics, ultralytics-thop, vocos, x-transformers, xformers, xgrammar, xinference, yunchang
+---
+Name: transformers
+Version: 5.0.0
+Summary: Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.
+Home-page: https://github.com/huggingface/transformers
+Author: The Hugging Face team (past and future) with the help of all our contributors (https://github.com/huggingface/transformers/graphs/contributors)
+Author-email: transformers@huggingface.co
+License: Apache 2.0 License
+Location: /usr/local/lib/python3.12/dist-packages
+Requires: filelock, huggingface-hub, numpy, packaging, pyyaml, regex, safetensors, tokenizers, tqdm, typer-slim
+Required-by: autoawq, compressed-tensors, DistVAE, evalscope, f5-tts, FlagEmbedding, mamba_ssm, ms_swift, optimum, peft, sentence-transformers, transformers-stream-generator, trl, vllm, xfuser, xgrammar
+---
+Name: xformers
+Version: 0.0.26.post1+corex.4.4.0
+Summary: XFormers: A collection of composable Transformer building blocks.
+Home-page: https://facebookresearch.github.io/xformers/
+Author: Facebook AI Research
+Author-email: oncall+xformers@xmail.facebook.com
+License: 
+Location: /usr/local/lib/python3.12/dist-packages
+Requires: numpy, torch
+Required-by: 

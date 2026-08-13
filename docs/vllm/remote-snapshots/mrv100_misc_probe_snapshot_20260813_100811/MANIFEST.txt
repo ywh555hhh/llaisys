@@ -1,0 +1,54 @@
+# MR-V100 misc remote snapshot
+2026-08-13T10:08:11+08:00
+
+## source roots
+/data/src/mrv100-hw-probe
+/data/src/sglang-omni-corex-probe/{logs,reports}
+/data/src/llaisys/{docs,reports,tools,scripts}
+/data/src/*.sh probe scripts
+
+## counts
+40
+720K	/tmp/mrv100_misc_probe_snapshot_20260813_100811
+
+## file tree
+./MANIFEST.txt
+./data-src/llaisys/docs/hardware/iluvatar-mrv100-corex-hardware-research.md
+./data-src/llaisys/docs/hardware/mrv100_cuda_device_attributes.json
+./data-src/llaisys/reports/assignment4_iluvatar_mrv100_ivcore.md
+./data-src/llaisys/reports/assignment4_nvidia_4090d.md
+./data-src/llaisys/scripts/format.py
+./data-src/llaisys/tools/__pycache__/probe_mrv100_hardware.cpython-310.pyc
+./data-src/llaisys/tools/probe_mrv100_hardware.py
+./data-src/mrv100-hw-probe/artifacts/cuda_device_attributes.json
+./data-src/mrv100-hw-probe/deep_interfaces_step4.sh
+./data-src/mrv100-hw-probe/logs/01_system_interfaces.txt
+./data-src/mrv100-hw-probe/logs/02_programming_interfaces.txt
+./data-src/mrv100-hw-probe/logs/03_bandwidth_flops_microbench.txt
+./data-src/mrv100-hw-probe/logs/04_deep_interfaces.txt
+./data-src/mrv100-hw-probe/reports/mrv100_hardware_interfaces_report.md
+./data-src/sglang-omni-corex-probe/logs/00_baseline.txt
+./data-src/sglang-omni-corex-probe/logs/01_project_files.txt
+./data-src/sglang-omni-corex-probe/logs/02_pyproject_head.txt
+./data-src/sglang-omni-corex-probe/logs/03_nodeps_import_probe.txt
+./data-src/sglang-omni-corex-probe/logs/04_selected_deps_probe.txt
+./data-src/sglang-omni-corex-probe/logs/05_check_gpu_sglang_probe.txt
+./data-src/sglang-omni-corex-probe/logs/06_sglang_python_deps_probe.txt
+./data-src/sglang-omni-corex-probe/logs/07_serve_attempt_probe.txt
+./data-src/sglang-omni-corex-probe/logs/08_serve_attempt_probe2.txt
+./data-src/sglang-omni-corex-probe/logs/09_targeted_import_probe.txt
+./data-src/sglang-omni-corex-probe/logs/10_triton_serve_probe.txt
+./data-src/sglang-omni-corex-probe/logs/11_venv_transformers512_probe.txt
+./data-src/sglang-omni-corex-probe/logs/12_venv_transformers512_fixdeps_probe.txt
+./data-src/sglang-omni-corex-probe/logs/13_venv_transformers512_pinfix_probe.txt
+./data-src/sglang-omni-corex-probe/logs/14_venv_transformers512_splitfix_probe.txt
+./data-src/sglang-omni-corex-probe/logs/15_venv_transformers512_pathfix_probe.txt
+./data-src/sglang-omni-corex-probe/logs/clone_shallow.log
+./data-src/sglang-omni-corex-probe/logs/tarball_download.log
+./data-src/sglang-omni-corex-probe/reports/community_issue_draft.md
+./data-src/sglang-omni-corex-probe/reports/sglang_omni_iluvatar_mrv100_corex_compat.md
+./top-level-scripts/deep_mrv100_repo_recon.sh
+./top-level-scripts/probe_mrv100_interfaces_step1.sh
+./top-level-scripts/probe_mrv100_interfaces_step2.sh
+./top-level-scripts/probe_mrv100_interfaces_step3.sh
+./top-level-scripts/write_mrv100_research_to_llaisys.sh

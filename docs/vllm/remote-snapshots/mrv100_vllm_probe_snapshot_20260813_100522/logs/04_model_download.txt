@@ -1,0 +1,20 @@
+## download model
+2026-08-11T22:11:26+08:00
+MODEL=Qwen/Qwen2.5-0.5B-Instruct
+OUT=/data/models/Qwen2.5-0.5B-Instruct
+HF_ENDPOINT=https://hf-mirror.com
+[32m✓ Downloaded[0m
+  path: /data/models/Qwen2.5-0.5B-Instruct
+
+## model files
+954M	/data/models/Qwen2.5-0.5B-Instruct
+/data/models/Qwen2.5-0.5B-Instruct/.gitattributes	1519 bytes
+/data/models/Qwen2.5-0.5B-Instruct/LICENSE	11343 bytes
+/data/models/Qwen2.5-0.5B-Instruct/README.md	4917 bytes
+/data/models/Qwen2.5-0.5B-Instruct/config.json	659 bytes
+/data/models/Qwen2.5-0.5B-Instruct/generation_config.json	242 bytes
+/data/models/Qwen2.5-0.5B-Instruct/merges.txt	1671839 bytes
+/data/models/Qwen2.5-0.5B-Instruct/model.safetensors	988097824 bytes
+/data/models/Qwen2.5-0.5B-Instruct/tokenizer.json	7031645 bytes
+/data/models/Qwen2.5-0.5B-Instruct/tokenizer_config.json	7305 bytes
+/data/models/Qwen2.5-0.5B-Instruct/vocab.json	2776833 bytes

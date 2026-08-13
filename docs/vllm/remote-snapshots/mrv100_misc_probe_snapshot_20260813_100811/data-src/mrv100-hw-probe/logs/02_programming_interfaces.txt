@@ -1,0 +1,971 @@
+=== ixsmi query field helps ===
+List of valid properties to query for the switch "--query-gpu=":
+
+"timestamp"
+The timestamp of when the query was made in format "YYYY/MM/DD HH:MM:SS".
+
+"driver_version"
+The version of the installed Iluvatar driver. This is an alphanumeric string.
+
+"cuda_version"
+The version of the CUDA driver. This is an alphanumeric string.
+
+"count"
+The number of Iluvatar GPUs in the system.
+
+"name" or "gpu_name"
+The official product name of the GPU. This is an alphanumeric string.
+
+"serial" or "gpu_serial"
+This number matches the serial number physically printed on each board. It is a globally unique immutable alphanumeric value.
+
+"uuid" or "gpu_uuid"
+This value is the globally unique immutable alphanumeric identifier of the GPU. It does not correspond to any physical label on the board.
+
+"minor_number"
+The minor number for the device is such that the Iluvatar device node file for each GPU will have the form /dev/iluvatar[minor number].
+
+"vbios_version"
+The BIOS of the GPU board.
+
+"multigpu_board"
+On multi-GPU board will set MultiGPU to a non-zero value.
+
+"board_id"
+The unique board ID is generated based on the pcie slot connected to the card.
+
+"gpu_position"
+Indicates the position of the GPU on the multi-GPU board.
+
+"part_number"
+This number indicates the product model number.
+
+"virt.gpu_virt_mode"
+The virtualization mode corresponding to the GPU.
+
+"virt.host_vgpu_mode"
+If SR-IOV host operation is supported on a vGPU supported device.
+
+"pci.bus_id" or "gpu_bus_id"
+PCI bus id as "domain:bus:device.function", in hex.
+
+"pci.domain"
+PCI domain number, in hex.
+
+"pci.bus"
+PCI bus number, in hex.
+
+"pci.device"
+PCI device number, in hex.
+
+"pci.device_id"
+PCI vendor device id, in hex.
+
+"pci.sub_device_id"
+PCI Sub System id, in hex.
+
+"pcie.link.gen.current"
+The current PCI-E link generation.
+
+"pcie.link.gen.max"
+The maximum PCI-E link generation possible with this GPU and system configuration. For example, if the GPU supports a higher PCIe generation than the system supports then this reports the system PCIe generation.
+
+"pcie.link.width.current"
+The current PCI-E link width.
+
+"pcie.link.width.max"
+The maximum PCI-E link width possible with this GPU and system configuration. For example, if the GPU supports a higher PCIe generation than the system supports then this reports the system PCIe generation.
+
+"pcie.tx.throughput"
+Throughput of TX in PCIe lane of GPU. Represent PCIe utilization information.
+
+"pcie.rx.throughput"
+Throughput of RX in PCIe lane of GPU. Represent PCIe utilization information.
+
+"index"
+Zero based index of the GPU. Can change at each boot.
+
+"fan.speed"
+The fan speed value is the percent of the product's maximum noise tolerance fan speed that the device's fan is currently intended to run at.
+
+"memory.total"
+Total installed GPU memory.
+
+"memory.used"
+Total memory allocated by active contexts.
+
+"memory.free"
+Total free memory.
+
+"utilization.gpu"
+Percent of current GPU compute capability usage.
+
+"utilization.memory"
+Percent of current GPU memory usage.
+
+"utilization.encoder"
+Percent of current GPU video encoders usage.
+
+"utilization.decoder"
+Percent of current GPU video decoders usage.
+
+"ecc.mode.current"
+The ECC mode that the GPU is currently operating under.
+
+"ecc.mode.pending"
+The ECC mode that the GPU will operate under after the next reboot.
+
+"ecc.errors.single_bit_ecc"
+Whether a single bit ECC error occured on the device.
+
+"ecc.errors.double_bit_ecc"
+Whether a double bit ECC error occured on the device.
+
+"temperature.gpu"
+Core GPU temperature. in degrees C.
+
+"temperature.vcore"
+GPU VCORE temperature. in degrees C.
+
+"temperature.mem1v2"
+GPU MEM1V2 temperature. in degrees C.
+
+"temperature.shutdown"
+GPU shutdown temperature. in degrees C.
+
+"temperature.slowdown"
+GPU slowdown temperature. in degrees C.
+
+"temperature.max_operating"
+GPU max operating temperature. in degrees C.
+
+"temperature.memory"
+HBM memory temperature. in degrees C.
+
+"gpu.power.draw"
+The last measured power draw for the GPU, in watts.
+
+"gpu.current.power.limit"
+The gpu current power limit in watts.
+
+"gpu.default.power.limit"
+The gpu default power limit in watts.
+
+"board.power.draw"
+The last measured power draw for the entire board, in watts.
+
+"board.current.power.limit"
+The board current power limit in watts.
+
+"board.default.power.limit"
+The board default power limit in watts.
+
+"clocks.current.sm" or "clocks.sm"
+Current frequency of SM (Streaming Multiprocessor) clock.
+
+"clocks.current.memory" or "clocks.mem"
+Current frequency of memory clock.
+
+"clocks.max.sm"
+Maximum frequency of SM (Streaming Multiprocessor) clock.
+
+"clocks.max.memory" or "clocks.max.mem"
+Maximum frequency of memory clock.
+
+"compute_mode"
+The compute mode flag indicates whether individual or multiple compute applications may run on the GPU.
+"Default" means multiple contexts are allowed per device.
+"Exclusive_Process" means only one context is allowed per device, usable from multiple threads at a time.
+"Prohibited" means no contexts are allowed per device (no compute apps).
+
+"pstate"
+The current performance state for the GPU. Iluvatar only have working/idle status, so just show "P0".
+
+
+List of valid properties to query for the switch "--query-compute-apps=":
+
+Section about Active Compute Processes properties
+List of processes having compute context on the device.
+
+"timestamp"
+The timestamp of when the query was made in format "YYYY/MM/DD HH:MM:SS".
+
+"gpu_name"
+The official product name of the GPU. This is an alphanumeric string. For all products.
+
+"gpu_bus_id"
+PCI bus id as "domain:bus:device.function", in hex.
+
+"gpu_serial"
+This number matches the serial number physically printed on each board. It is a globally unique immutable alphanumeric value.
+
+"gpu_uuid"
+This value is the globally unique immutable alphanumeric identifier of the GPU. It does not correspond to any physical label on the board.
+
+"pid"
+Process ID of the compute application
+
+"process_name" or "name"
+Process Name
+
+"used_gpu_memory" or "used_memory"
+Amount memory used on the device by the context.
+
+=== ixsmi filtered query ===
+Field "power.draw" is not a valid field to query.
+
+=== ixsmi topology ===
+Displays device/system topology. "ixsmi topo -h" for more information.
+Usage: /usr/local/corex/bin/ixsmi topo [OPTIONS]
+
+Options:
+  -h,--help                   Print this help message and exit.
+                              
+  -m,--matrix                 Display the GPUDirect communication matrix for the system.
+                              
+  --mp,--matrix_pci           Display the GPUDirect communication matrix for the system (PCI Only).
+                              
+  -t,--tree                   Display bus tree for all devices.
+                              
+  -B,--infiniBand             Display infiniBand/RoCE in the topo structure, Must be used in conjuction with -t.
+                              
+  -i,--id TEXT                Enumeration index, PCI bus ID or UUID. Provide comma 
+                              separated values for more than one device 
+                              Must be used in conjuction with -n or -p.
+                              
+  -c,--cpu TEXT               CPU number for which to display all GPUs with an affinity.
+                              
+  -n,--nearest_gpus TEXT      Display the nearest GPUs for a given traversal path.
+                                 0 = a single PCIe switch on a dual GPU board
+                                 1 = a single PCIe switch
+                                 2 = multiple PCIe switches
+                                 3 = a PCIe host bridge
+                                 4 = an on-CPU interconnect link between PCIe host bridges
+                                 5 = an SMP interconnect link between NUMA nodes
+                              Used in conjunction with -i which must be a single device ID.
+                              
+  -p,--gpu_path               Display the most direct path traversal for a pair of GPUs.
+                              Used in conjunction with -i which must be a pair of device IDs.
+                              
+  --p2p,--p2pstatus TEXT      Displays the p2p status between the GPUs of a given p2p capability
+                                 r - p2p read capability
+                                 w - p2p write capability
+                                 n - p2p ixlink capability
+                                 a - p2p atomics capability
+                              
+
+        [4mGPU0[0m    [4mNIC0[0m    [4mCPU Affinity[0m     [4mNUMA Affinity[0m    
+GPU0     X      SYS     0-27,56-83       0
+NIC0    SYS      X      
+
+Legend:
+  X    = Self
+  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)
+  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node
+  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)
+  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)
+  PIX  = Connection traversing at most a single PCIe bridge
+  INTE = Connection traversing at most a single on-board PCIe bridge
+  IX#  = Connection traversing a bonded set of # IXLinks
+NIC Legend:
+  NIC0: mlx5_0
+
+        [4mGPU0[0m    [4mNIC0[0m    [4mCPU Affinity[0m     [4mNUMA Affinity[0m    
+GPU0     X      SYS     0-27,56-83       0
+NIC0    SYS      X      
+
+Legend:
+  X    = Self
+  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)
+  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node
+  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)
+  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)
+  PIX  = Connection traversing at most a single PCIe bridge
+  INTE = Connection traversing at most a single on-board PCIe bridge
+  IX#  = Connection traversing a bonded set of # IXLinks
+NIC Legend:
+  NIC0: mlx5_0
+
+=== ixsmi ixlink ===
+Displays device ixlink information. "ixsmi ixlink -h" for more information.
+Usage: /usr/local/corex/bin/ixsmi ixlink [OPTIONS]
+
+Options:
+  -h,--help                   Print this help message and exit
+                              
+  -i,--id TEXT                Specify the index, PCI bus ID, or UUID of one or more GPUs
+                              
+  -l,--link TEXT              Limit a command to a specific link. Without this flag, all link information is displayed.
+                              
+  -s,--status                 Display link state (active/inactive).
+                              
+  -c,--capabilities           Display link capabilities.
+                              
+  -p,--pcibusid               Display remote device PCI bus ID and link port for a link.
+                              
+  -e,--error                  Display Advanced Error Reporting for a link.
+                              
+
+No device supported for ixlink
+=== ixsmi dmon one sample ===
+# gpu    pwr  gtemp  mtemp     sm    mem    enc    dec    jpu   mclk   pclk
+# Idx      W      C      C      %      %      %      %      %    MHz    MHz
+    0     37     35     34      0      1      0      0      -   1600   1500
+    0     37     35     34      0      1      0      0      0   1600   1500
+=== ixsys / ixkn-cli help ===
+
+usage: ixsys [<args>] [application] [<application args>]
+args:
+        -h, --help
+           Print this help message and exit.
+
+        -v, --version
+           Display the version info.
+
+        -o, --output <file>
+           Output trace filename.
+           The trace file with specified filename will always be overwritten.
+
+        -t, --trace <tracer>[,<tracer>...]
+           Select the API(s) to trace. Possible values are 'cuda', 'osrt', 'nvtx', 'cudnn', 'cuinfer', 'video', 'raw_syscalls', 'mem', 'power',
+               'temperature', 'cuda_api', 'cuda_device', 'cuda_memcpy', 'cuda_memset', 'cuda_kernel', 'cuda_memcpy_p2p', 'proc_kthread'.
+           Multiple APIs can be selected, separated by commas only (no spaces).
+           If 'raw_syscalls' is assigned, 'osrt' must be assigned too.
+           If 'proc_kthread' is assigned, 'osrt' must be assigned too.
+           If 'power' or 'temperature' is assigned,  at least one of the 'cuda', 'cuda_device', 'cuda_memcpy', 'cuda_memset', 'cuda_kernel',
+               'cuda_memcpy_p2p' must be assigned too.
+           To reduce trace file, only focus on some traces, 'cuda_api', 'cuda_device', 'cuda_memcpy', 'cuda_memset', 'cuda_kernel',
+               'cuda_memcpy_p2p' can be used instead of 'cuda'.
+               'cuda' includes 'cuda_api' and 'cuda_device',
+               'cuda_device' includes 'cuda_memcpy', 'cuda_memset', 'cuda_kernel', 'cuda_memcpy_p2p'.
+
+        -d, --deferred_trace <seconds>
+           Defer some seconds to trace. Possible values are in [1, 2^32 - 1].
+           -d 10 means starting trace 10 seconds after obeserved application start.
+
+        -l, --limited_trace <seconds>
+           Limit trace time. Possible values are in [1, 2^32 - 1].
+           -l 10 means stoping trace 10 seconds after trace start.
+
+        -f, --filter_ftrace_syscalls <microseconds>
+           Try to filter out ftrace syscalls which duration are less than setting minimum duration. This can reduce the size of trace file.
+           Possible values are in [0, 1000000]. Default value is 1000.
+           -f 0 means do not filter out.
+
+        -c, --callstack
+           Enable callstack with default params 'kernel:false' 'frequency:1000', note that sudo permission is required.
+            --kernel <true|false>
+               To choose whether include kernel frames for callstack.
+            --frequency <value>
+               The frequency of sampling frequency for callstack.
+               Minimum supported frequency is '1' (Hz).
+               Maximum supproted frequency is '10000' (Hz).
+               Default is '1000' (Hz).
+
+        --devices, TEXT
+            Change the scope of subsequent "cuda", "mem", "power", "temperature", "osrt", "nvtx", "cudnn", "cuinfer", "video", "raw_syscalls"
+            and "proc_kthread" options.
+            Allowed values:
+                all - change scope to all valid devices (default).
+                comma-separated physical device IDs - change scope to specified devices.
+            Note: The IDs is physical device IDs.
+
+        --profile-from-start, TEXT:{off,on}
+            Enable/disable profiling cuda data from the start of the application.
+            If 'profile-from-start' is set to disable profiling from start,  '-t cuda*' must be assigned too.
+            If it's disabled, the application can use {cu,cuda}Profiler{Start,Stop}
+            to turn on/off profiling. Allowed values:
+                on - enable profiling from start (default)
+                off - disable profiling from start
+
+        --gpu-metrics-device
+           Collect GPU Metrics from specified devices.
+           The option argument must be 'none' or one of GPU IDs reported by '--gpu-metrics-device help' switch.
+           Default is 'none'. System scope.
+
+        --gpu-metrics-frequency
+           Specify GPU Metrics sampling frequency.
+           Minimum supported frequency is '10' (Hz).
+           Maximum supported frequency is '200000' (Hz).
+           Default is '500'. System scope.
+           Note: Due to current hardware limitation, the sampling performance is poor. The default value is recommended
+
+        --gpu-metrics-set
+           Specify metric set for GPU Metrics sampling.
+           The option argument must be one of indices reported by '--gpu-metrics-set help' switch.
+           Default is the first metric set that supports selected GPU. System scope.
+           Users can customize by setting the IXSYS_USER_DEFINED_METRIC_SET environment variable.
+
+        --nic-metrics
+           Possible values are 'true' or 'false'.
+           Collect metrics from NIC/HCA devices.
+           Default is 'false'.
+
+        --event-sync
+           Possible values are 'true' or 'false'.
+           Collect synchronize information with cudaEventRecord and cudaStreamWaitEvent.
+           If 'event-sync' is set to true, gpu activities must be traced.
+           Default is 'false'.
+
+        --target-processes-filter TEXT
+            Set the comma separated expressions to filter which processes are profiled.
+                <process name> Set the process name to filter. Regex matched processes are profiled.
+
+        --print-kernel-args
+            Enable to display kernel names with its arguments.
+
+        --print-api-summary
+            Print a summary of CUDA runtime/driver API calls.
+            Must select the cuda_api to trace ('-t cuda_api' or '-t cuda').
+            All print-api/gpu-summary/trace can be used in combination.
+            Note: If only printing the profiling data without saving the trace, only 'profile-from-start' and 'target-processes-filter' can be set.
+
+        --print-api-trace
+            Print CUDA runtime/driver API trace.
+            Must select the cuda_api to trace ('-t cuda_api' or '-t cuda').
+            All print-api/gpu-summary/trace can be used in combination.
+            Note: If only printing the profiling data without saving the trace, only 'profile-from-start' and 'target-processes-filter' can be set.
+
+        --print-gpu-summary
+            Print a summary of the activities on the GPU (including CUDA kernels and memcpy's/memset's).
+            Must select the cuda_device to trace ('-t cuda_device' or '-t cuda').
+            All print-api/gpu-summary/trace can be used in combination.
+            Note: If only printing the profiling data without saving the trace, only 'profile-from-start' and 'target-processes-filter' can be set.
+
+        --print-gpu-trace
+            Print individual kernel invocations (including CUDA memcpy's/memset's) and sort them in chronological order.
+            Must select the cuda_device to trace ('-t cuda_device' or '-t cuda').
+            All print-api/gpu-summary/trace can be used in combination.
+            Note: If only printing the profiling data without saving the trace, only 'profile-from-start' and 'target-processes-filter' can be set.
+
+        --sessions-list
+            Display any existing profiling sessions.
+
+IXplorer Kernel Analyzer CLI, ixkn-cli
+Usage: /usr/local/corex/bin/ixkn-cli [OPTIONS] [cuda-app] [app-args]
+
+Positionals:
+  cuda-app TEXT               cuda-app
+  app-args TEXT               cuda-app-arguments
+
+Options:
+  -h,--help                   Print this help message and exit
+  --list-sets                 List all section sets.
+  --set TEXT                  Identifier of section set to collect.
+                              If not specified, the default set is collected.
+                              Use "--list-sets" to get a list of available sets.
+  --list-sections             List all sections.
+  --section TEXT              Identifier of section to collect.
+                              Multiple identifier separated by comma can be specified.
+                              Use "--section all" to collect all sections.
+                              Use "--list-sections" to get a list of available sections.
+  --profile-child-processes   Profile the application and all child processes launched
+                              by it.
+  -k,--kernel-name TEXT       Set the regex to use for matching the kernel name.
+                              The syntax is as follows:
+                              	<kernel name>
+                              Limit scope to given kernel name. The kernel name can be given by
+                              part of the full kernel name, or by a regular expression to match
+                              the full kernel name. 
+  --kernel-id TEXT            Set the identifier to use for matching the kernel to profile. The identifier is 
+                              of the format 'context-id:stream-id:kernel-name:correlation_id'.
+                              Skip entries that shouldn't be matched, e.g. use '::foobar:2' to match the 
+                              kernel with correlation_id is '2' and name contains 'foobar' in any context or stream.
+                              Use ':7:foo:' to match any kernel in stream 7 and name contains 'foo'.
+                              
+  --devices TEXT              Set the GPU devices to enable profiling on.
+                              Allowed values:
+                              	all - change scope to all valid devices (default)
+                              	comma - separated device IDs - change scope to specified devices
+                              
+  --page TEXT                 Select report page to output:
+                                details: sections and rules
+                                source: source code.
+                              
+  --print-source TEXT         Select source view:
+                                IR
+                                cuda
+                                assembly
+                                cuda,assembly
+                              
+  --resolve-source-file TEXT  Set a comma separated list of file paths to consider when resolving files for 
+                              	the source output.
+  --import-source TEXT        If available from -g, correlated CUDA source files are permanently
+                              imported into the report. Allowed values :
+                              	on/off
+                              	yes/no
+  -c,--launch-count TEXT      Limit the number of profiled kernel launches. 
+                              The count is only incremented for launches that match the kernel filters. 
+                              
+  -s,--launch-skip TEXT       Set the number of kernel launches to skip before starting to profile kernels 
+                              The number takes into account only launches that match the kernel filters 
+                              
+  --filter-mode TEXT:{global,per-gpu}
+                              Set the filtering mode for kernel launches. Available modes:
+                              	global - Apply provided launch filters on kernel launches collectively.(default) 
+                              	per-gpu - Apply provided launch filters on kernel launches separately on each device.
+                              	          Effective launch filters for this mode are --launch-count and --launch-skip 
+                              
+  --kill TEXT:{off,on}        Terminate the target application when the each application requested --launch-count was profiled.
+                              This flag need valid --launch-count set. default set is 'off'
+                              Allowed values:
+                              	 on/off.
+                              
+  --print-kernel-args         Display kernel names with its arguments.
+                              
+  --target-processes-filter TEXT
+                              Set the comma separated expressions to filter which processes are profiled.
+                              	 <process name> Set the process name to filter. Regex matched processes are profiled.
+                              
+  --replay-mode TEXT:{application,kernel}
+                              Choose replay mode used when not all events/metrics can be
+                              collected in a single run. Allowed values:
+                              	  kernel - each kernel invocation is replayed (default)
+                              	  application - the entire application is replayed.This mode
+                              			requires deterministic program execution.
+                              
+  --profile-from-start TEXT:{off,on}
+                              Set if application should be profiled from its start. Allowed values:
+                              	on  - enable profiling from start(default)
+                              	off - disable profiling from start.
+                              
+  --disable-profiler-start-stop
+                              Disable profiler start/stop. When enabled, cu(da)ProfilerStart/Stop API calls are ignored.
+                              
+  --csv                       Use comma-separated values in the output.
+  --quiet                     Suppress all ixkn-cli output.
+  -o,--export-profile TEXT Excludes: --import-profile
+                              Export the result file which can be imported later by IXKN-CLI.
+                              	"%q{<ENV>}" in the file name string is replaced
+                              with the value of the environment variable " < ENV >". If the
+                              environment variable is not set it's an error.
+                              	"%h" in the file name string is replaced with the
+                              hostname of the system.
+                              	"%%" in the file name string is replaced with "%".
+                              	Any other character following "%" is illegal.
+                              By default, this option disables any profiling information.
+                              
+  -f,--force-overwrite        Force overwriting all output files (any existing files will
+                              be overwritten). Default is false, not force-overwrite.
+                              
+  -i,--import-profile TEXT:FILE Excludes: --export-profile
+                              Import a result profile from a previous run.
+                              
+  -v,--version                Print version information of this tool.
+
+=== torch and cuda runtime props ===
+python 3.10.18 (main, Jul 31 2025, 03:42:07) [GCC 9.4.0]
+torch.version 2.7.1
+torch.version.cuda 10.2
+cuda_available True
+device_count 1
+torch_device_properties_repr _CudaDeviceProperties(name='Iluvatar MR-V100', major=7, minor=1, total_memory=32768MB, multi_processor_count=16, uuid=75401a56-2224-5257-8e2c-8f6dac7c37bc, L2_cache_size=16MB)
+torch_prop L2_cache_size 16777216
+torch_prop async_engine_count 1
+torch_prop gcnArchName 'Iluvatar MR-V100'
+torch_prop is_integrated 0
+torch_prop is_multi_gpu_board 0
+torch_prop major 7
+torch_prop max_threads_per_multi_processor 8192
+torch_prop minor 1
+torch_prop multi_processor_count 16
+torch_prop name 'Iluvatar MR-V100'
+torch_prop regs_per_multiprocessor 262144
+torch_prop shared_memory_per_block 131072
+torch_prop shared_memory_per_block_optin 0
+torch_prop shared_memory_per_multiprocessor 131072
+torch_prop total_memory 34359738368
+torch_prop warp_size 64
+torch_capability (7, 1)
+torch_name Iluvatar MR-V100
+torch_mem_get_info (34141634560, 34359738368)
+--- cuda-python cudart ---
+cudaGetDeviceCount cudaError_t.cudaSuccess 1
+raw_cudaGetDeviceProperties_type <class 'tuple'> (<cudaError_t.cudaSuccess: 0>, name : Iluvatar MR-V100
+uuid :
+    bytes : 75401a56222452578e2c8f6dac7c37bc
+luid : 0000000000000000
+luidDeviceNodeMask : 0
+totalGlobalMem : 34359738368
+sharedMemPerBlock : 131072
+regsPerBlock : 262144
+warpSize : 64
+memPitch : 2147483647
+maxThreadsPerBlock : 4096
+maxThreadsDim : [4096, 4096, 256]
+maxGridSize : [2147483647, 65535, 65535]
+clockRate : 1500000
+totalConstMem : 16384
+major : 7
+minor : 1
+textureAlignment : 0
+texturePitchAlignment : 0
+deviceOverlap : 1
+multiProcessorCount : 16
+kernelExecTimeoutEnabled : 1
+integrated : 0
+canMapHostMemory : 1
+computeMode : 0
+maxTexture1D : 0
+maxTexture1DMipmap : 0
+maxTexture1DLinear : 0
+maxTexture2D : [0, 0]
+maxTexture2DMipmap : [0, 0]
+maxTexture2DLinear : [0, 0, 0]
+maxTexture2DGather : [0, 0]
+maxTexture3D : [0, 0, 0]
+maxTexture3DAlt : [0, 0, 0]
+maxTextureCubemap : 0
+maxTexture1DLayered : [0, 0]
+maxTexture2DLayered : [0, 0, 0]
+maxTextureCubemapLayered : [0, 0]
+maxSurface1D : 0
+maxSurface2D : [0, 0]
+maxSurface3D : [0, 0, 0]
+maxSurface1DLayered : [0, 0]
+maxSurface2DLayered : [0, 0, 0]
+maxSurfaceCubemap : 0
+maxSurfaceCubemapLayered : [0, 0]
+surfaceAlignment : 0
+concurrentKernels : 1
+ECCEnabled : 1
+pciBusID : 21
+pciDeviceID : 0
+pciDomainID : 0
+tccDriver : 0
+asyncEngineCount : 1
+unifiedAddressing : 1
+memoryClockRate : 1600000
+memoryBusWidth : 2048
+l2CacheSize : 16777216
+persistingL2CacheMaxSize : 0
+maxThreadsPerMultiProcessor : 8192
+streamPrioritiesSupported : 0
+globalL1CacheSupported : 1
+localL1CacheSupported : 1
+sharedMemPerMultiprocessor : 131072
+regsPerMultiprocessor : 262144
+managedMemory : 0
+isMultiGpuBoard : 0
+multiGpuBoardGroupID : 3
+hostNativeAtomicSupported : 1
+singleToDoublePrecisionPerfRatio : 0
+pageableMemoryAccess : 1
+concurrentManagedAccess : 0
+computePreemptionSupported : 0
+canUseHostPointerForRegisteredMem : 1
+cooperativeLaunch : 0
+cooperativeMultiDeviceLaunch : 0
+sharedMemPerBlockOptin : 131072
+pageableMemoryAccessUsesHostPageTables : 0
+directManagedMemAccessFromHost : 0
+maxBlocksPerMultiProcessor : 0
+accessPolicyMaxWindowSize : 0
+reservedSharedMemPerBlock : 0)
+device 0 err cudaError_t.cudaSuccess
+cudart_prop ECCEnabled 1
+cudart_prop accessPolicyMaxWindowSize 0
+cudart_prop asyncEngineCount 1
+cudart_prop canMapHostMemory 1
+cudart_prop canUseHostPointerForRegisteredMem 1
+cudart_prop clockRate 1500000
+cudart_prop computeMode 0
+cudart_prop computePreemptionSupported 0
+cudart_prop concurrentKernels 1
+cudart_prop concurrentManagedAccess 0
+cudart_prop cooperativeLaunch 0
+cudart_prop cooperativeMultiDeviceLaunch 0
+cudart_prop deviceOverlap 1
+cudart_prop directManagedMemAccessFromHost 0
+cudart_prop globalL1CacheSupported 1
+cudart_prop hostNativeAtomicSupported 1
+cudart_prop integrated 0
+cudart_prop isMultiGpuBoard 0
+cudart_prop kernelExecTimeoutEnabled 1
+cudart_prop l2CacheSize 16777216
+cudart_prop localL1CacheSupported 1
+cudart_prop luid ''
+cudart_prop luidDeviceNodeMask 0
+cudart_prop major 7
+cudart_prop managedMemory 0
+cudart_prop maxBlocksPerMultiProcessor 0
+cudart_prop maxGridSize [2147483647, 65535, 65535]
+cudart_prop maxSurface1D 0
+cudart_prop maxSurface1DLayered [0, 0]
+cudart_prop maxSurface2D [0, 0]
+cudart_prop maxSurface2DLayered [0, 0, 0]
+cudart_prop maxSurface3D [0, 0, 0]
+cudart_prop maxSurfaceCubemap 0
+cudart_prop maxSurfaceCubemapLayered [0, 0]
+cudart_prop maxTexture1D 0
+cudart_prop maxTexture1DLayered [0, 0]
+cudart_prop maxTexture1DLinear 0
+cudart_prop maxTexture1DMipmap 0
+cudart_prop maxTexture2D [0, 0]
+cudart_prop maxTexture2DGather [0, 0]
+cudart_prop maxTexture2DLayered [0, 0, 0]
+cudart_prop maxTexture2DLinear [0, 0, 0]
+cudart_prop maxTexture2DMipmap [0, 0]
+cudart_prop maxTexture3D [0, 0, 0]
+cudart_prop maxTexture3DAlt [0, 0, 0]
+cudart_prop maxTextureCubemap 0
+cudart_prop maxTextureCubemapLayered [0, 0]
+cudart_prop maxThreadsDim [4096, 4096, 256]
+cudart_prop maxThreadsPerBlock 4096
+cudart_prop maxThreadsPerMultiProcessor 8192
+cudart_prop memPitch 2147483647
+cudart_prop memoryBusWidth 2048
+cudart_prop memoryClockRate 1600000
+cudart_prop minor 1
+cudart_prop multiGpuBoardGroupID 3
+cudart_prop multiProcessorCount 16
+cudart_prop name 'Iluvatar MR-V100'
+cudart_prop pageableMemoryAccess 1
+cudart_prop pageableMemoryAccessUsesHostPageTables 0
+cudart_prop pciBusID 21
+cudart_prop pciDeviceID 0
+cudart_prop pciDomainID 0
+cudart_prop persistingL2CacheMaxSize 0
+cudart_prop regsPerBlock 262144
+cudart_prop regsPerMultiprocessor 262144
+cudart_prop reservedSharedMemPerBlock 0
+cudart_prop sharedMemPerBlock 131072
+cudart_prop sharedMemPerBlockOptin 131072
+cudart_prop sharedMemPerMultiprocessor 131072
+cudart_prop singleToDoublePrecisionPerfRatio 0
+cudart_prop streamPrioritiesSupported 0
+cudart_prop surfaceAlignment 0
+cudart_prop tccDriver 0
+cudart_prop textureAlignment 0
+cudart_prop texturePitchAlignment 0
+cudart_prop totalConstMem 16384
+cudart_prop totalGlobalMem 34359738368
+cudart_prop unifiedAddressing 1
+cudart_prop warpSize 64
+--- cuda-python driver attributes ---
+cuInit (<CUresult.CUDA_SUCCESS: 0>,)
+cuDeviceGet CUresult.CUDA_SUCCESS <CUdevice 0>
+cu_attr CU_DEVICE_ATTRIBUTE_ASYNC_ENGINE_COUNT (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_CAN_FLUSH_REMOTE_WRITES (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_CAN_MAP_HOST_MEMORY (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_CAN_TEX2D_GATHER (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_CAN_USE_64_BIT_STREAM_MEM_OPS (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_CAN_USE_64_BIT_STREAM_MEM_OPS_V2 (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_CAN_USE_HOST_POINTER_FOR_REGISTERED_MEM (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_CAN_USE_STREAM_MEM_OPS (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_CAN_USE_STREAM_WAIT_VALUE_NOR (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_CAN_USE_STREAM_WAIT_VALUE_NOR_V2 (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_CLOCK_RATE (<CUresult.CUDA_SUCCESS: 0>, 1500000)
+cu_attr CU_DEVICE_ATTRIBUTE_CLUSTER_LAUNCH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_COMPUTE_CAPABILITY_MAJOR (<CUresult.CUDA_SUCCESS: 0>, 7)
+cu_attr CU_DEVICE_ATTRIBUTE_COMPUTE_CAPABILITY_MINOR (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_COMPUTE_MODE (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_COMPUTE_PREEMPTION_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_CONCURRENT_KERNELS (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_CONCURRENT_MANAGED_ACCESS (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_COOPERATIVE_LAUNCH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_COOPERATIVE_MULTI_DEVICE_LAUNCH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_DEFERRED_MAPPING_CUDA_ARRAY_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_DIRECT_MANAGED_MEM_ACCESS_FROM_HOST (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_DMA_BUF_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_ECC_ENABLED (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_GENERIC_COMPRESSION_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_GLOBAL_L1_CACHE_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_GLOBAL_MEMORY_BUS_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 2048)
+cu_attr CU_DEVICE_ATTRIBUTE_GPU_DIRECT_RDMA_FLUSH_WRITES_OPTIONS (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_GPU_DIRECT_RDMA_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_GPU_DIRECT_RDMA_WITH_CUDA_VMM_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_GPU_DIRECT_RDMA_WRITES_ORDERING (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_GPU_OVERLAP (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_HANDLE_TYPE_POSIX_FILE_DESCRIPTOR_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_HANDLE_TYPE_WIN32_HANDLE_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_HANDLE_TYPE_WIN32_KMT_HANDLE_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_HOST_NATIVE_ATOMIC_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_HOST_REGISTER_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_INTEGRATED (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_KERNEL_EXEC_TIMEOUT (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_L2_CACHE_SIZE (<CUresult.CUDA_SUCCESS: 0>, 16777216)
+cu_attr CU_DEVICE_ATTRIBUTE_LOCAL_L1_CACHE_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_MANAGED_MEMORY (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE1D_LAYERED_LAYERS (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE1D_LAYERED_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE1D_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_HEIGHT (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_LAYERED_HEIGHT (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_LAYERED_LAYERS (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_LAYERED_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE3D_DEPTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE3D_HEIGHT (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE3D_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACECUBEMAP_LAYERED_LAYERS (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACECUBEMAP_LAYERED_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACECUBEMAP_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_LAYERED_LAYERS (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_LAYERED_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_LINEAR_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_MIPMAPPED_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_GATHER_HEIGHT (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_GATHER_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_HEIGHT (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_LAYERED_HEIGHT (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_LAYERED_LAYERS (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_LAYERED_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_LINEAR_HEIGHT (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_LINEAR_PITCH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_LINEAR_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_MIPMAPPED_HEIGHT (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_MIPMAPPED_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE3D_DEPTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE3D_DEPTH_ALTERNATE (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE3D_HEIGHT (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE3D_HEIGHT_ALTERNATE (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE3D_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE3D_WIDTH_ALTERNATE (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURECUBEMAP_LAYERED_LAYERS (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURECUBEMAP_LAYERED_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURECUBEMAP_WIDTH (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_ACCESS_POLICY_WINDOW_SIZE (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_BLOCKS_PER_MULTIPROCESSOR (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_BLOCK_DIM_X (<CUresult.CUDA_SUCCESS: 0>, 4096)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_BLOCK_DIM_Y (<CUresult.CUDA_SUCCESS: 0>, 4096)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_BLOCK_DIM_Z (<CUresult.CUDA_SUCCESS: 0>, 256)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_GRID_DIM_X (<CUresult.CUDA_SUCCESS: 0>, 2147483647)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_GRID_DIM_Y (<CUresult.CUDA_SUCCESS: 0>, 65535)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_GRID_DIM_Z (<CUresult.CUDA_SUCCESS: 0>, 65535)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_PERSISTING_L2_CACHE_SIZE (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_PITCH (<CUresult.CUDA_SUCCESS: 0>, 2147483647)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_REGISTERS_PER_BLOCK (<CUresult.CUDA_SUCCESS: 0>, 262144)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_REGISTERS_PER_MULTIPROCESSOR (<CUresult.CUDA_SUCCESS: 0>, 262144)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_SHARED_MEMORY_PER_BLOCK (<CUresult.CUDA_SUCCESS: 0>, 131072)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_SHARED_MEMORY_PER_BLOCK_OPTIN (<CUresult.CUDA_SUCCESS: 0>, 131072)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_SHARED_MEMORY_PER_MULTIPROCESSOR (<CUresult.CUDA_SUCCESS: 0>, 131072)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_THREADS_PER_BLOCK (<CUresult.CUDA_SUCCESS: 0>, 4096)
+cu_attr CU_DEVICE_ATTRIBUTE_MAX_THREADS_PER_MULTIPROCESSOR (<CUresult.CUDA_SUCCESS: 0>, 8192)
+cu_attr CU_DEVICE_ATTRIBUTE_MEMORY_CLOCK_RATE (<CUresult.CUDA_SUCCESS: 0>, 1600000)
+cu_attr CU_DEVICE_ATTRIBUTE_MEMORY_POOLS_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_MEMPOOL_SUPPORTED_HANDLE_TYPES (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_MULTIPROCESSOR_COUNT (<CUresult.CUDA_SUCCESS: 0>, 16)
+cu_attr CU_DEVICE_ATTRIBUTE_MULTI_GPU_BOARD (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_MULTI_GPU_BOARD_GROUP_ID (<CUresult.CUDA_SUCCESS: 0>, 3)
+cu_attr CU_DEVICE_ATTRIBUTE_PAGEABLE_MEMORY_ACCESS (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_PAGEABLE_MEMORY_ACCESS_USES_HOST_PAGE_TABLES (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_PCI_BUS_ID (<CUresult.CUDA_SUCCESS: 0>, 21)
+cu_attr CU_DEVICE_ATTRIBUTE_PCI_DEVICE_ID (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_PCI_DOMAIN_ID (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_READ_ONLY_HOST_REGISTER_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_RESERVED_SHARED_MEMORY_PER_BLOCK (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_SINGLE_TO_DOUBLE_PRECISION_PERF_RATIO (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_SPARSE_CUDA_ARRAY_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_STREAM_PRIORITIES_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_SURFACE_ALIGNMENT (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_TCC_DRIVER (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_TEXTURE_ALIGNMENT (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_TEXTURE_PITCH_ALIGNMENT (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_TIMELINE_SEMAPHORE_INTEROP_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 0)
+cu_attr CU_DEVICE_ATTRIBUTE_TOTAL_CONSTANT_MEMORY (<CUresult.CUDA_SUCCESS: 0>, 16384)
+cu_attr CU_DEVICE_ATTRIBUTE_UNIFIED_ADDRESSING (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_VIRTUAL_ADDRESS_MANAGEMENT_SUPPORTED (<CUresult.CUDA_SUCCESS: 0>, 1)
+cu_attr CU_DEVICE_ATTRIBUTE_WARP_SIZE (<CUresult.CUDA_SUCCESS: 0>, 64)
+=== host memory/disk topology ===
+              total        used        free      shared  buff/cache   available
+Mem:           32Gi       3.2Gi        28Gi          0B          0B        28Gi
+Swap:            0B          0B          0B
+Filesystem     Type     Size  Used Avail Use% Mounted on
+overlay        overlay   30G  4.0G   27G  14% /
+/dev/loop16    ext4     196G  1.5G  185G   1% /data
+overlay        overlay   30G  4.0G   27G  14% /
+NAME    MODEL                                      SIZE TYPE MOUNTPOINT    FSTYPE ROTA TRAN
+loop0                                             92.2M loop                         1 
+loop1                                               30G loop                         0 
+loop2                                              1.4T loop                         0 
+loop3                                             50.1M loop                         1 
+loop4                                             63.8M loop                         1 
+loop5                                              200G loop                         0 
+loop6                                             63.8M loop                         1 
+loop7                                              800G loop                         0 
+loop8                                               30G loop                         0 
+loop9                                              200G loop                         0 
+loop10                                             200G loop                         0 
+loop11                                             200G loop                         0 
+loop12                                             200G loop                         0 
+loop13                                             200G loop                         0 
+loop14                                             200G loop                         0 
+loop15                                             400G loop                         0 
+loop16                                             200G loop /data                   0 
+loop17                                             200G loop                         0 
+loop18                                              30G loop                         0 
+loop19                                              30G loop                         0 
+loop20                                             200G loop                         0 
+loop21                                              30G loop                         0 
+loop22                                            50.1M loop                         1 
+loop23                                             200G loop                         0 
+loop24                                              30G loop                         0 
+loop25                                              30G loop                         0 
+loop26                                              30G loop                         0 
+loop27                                            92.2M loop                         1 
+loop28                                              30G loop                         0 
+loop29                                              30G loop                         0 
+loop30                                              30G loop                         0 
+loop31                                              30G loop                         0 
+loop32                                              30G loop                         0 
+loop33                                              30G loop                         0 
+loop34                                              30G loop                         0 
+loop35                                             200G loop                         0 
+loop36                                             200G loop                         0 
+loop37                                              30G loop                         0 
+loop38                                              30G loop                         0 
+loop39                                             200G loop                         0 
+loop40                                              30G loop                         0 
+loop41                                              30G loop                         0 
+loop42                                              30G loop                         0 
+loop43                                              30G loop                         0 
+loop44                                              30G loop                         0 
+loop45                                             200G loop                         0 
+loop46                                              30G loop                         0 
+sda     MR9361-8i                                446.6G disk                         1 
+|-sda1                                             1.1G part                         1 
+|-sda2                                               2G part                         1 
+`-sda3                                           443.6G part                         1 
+nvme0n1 INTEL SSDPE2KX040T8                        3.7T disk /etc/hostname           0 nvme
+Architecture:                    x86_64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+Address sizes:                   39 bits physical, 48 bits virtual
+CPU(s):                          112
+On-line CPU(s) list:             0-111
+Thread(s) per core:              2
+Core(s) per socket:              28
+Socket(s):                       2
+NUMA node(s):                    2
+Vendor ID:                       GenuineIntel
+CPU family:                      6
+Model:                           142
+Model name:                      Intel(R) Xeon(R) Platinum 8358P CPU @ 2.60GHz
+Stepping:                        10
+CPU MHz:                         1992.000
+CPU max MHz:                     3100.0000
+CPU min MHz:                     800.0000
+BogoMIPS:                        3984.00
+Virtualization:                  VT-x
+L1d cache:                       2.6 MiB
+L1i cache:                       1.8 MiB
+L2 cache:                        70 MiB
+L3 cache:                        84 MiB
+NUMA node0 CPU(s):               0-27,56-83
+NUMA node1 CPU(s):               28-55,84-111
+Vulnerability Itlb multihit:     Not affected
+Vulnerability L1tf:              Not affected
+Vulnerability Mds:               Not affected
+Vulnerability Meltdown:          Not affected
+Vulnerability Mmio stale data:   Mitigation; Clear CPU buffers; SMT vulnerable
+Vulnerability Retbleed:          Not affected
+Vulnerability Spec store bypass: Mitigation; Speculative Store Bypass disabled via prctl and seccomp
+Vulnerability Spectre v1:        Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:        Mitigation; Enhanced IBRS, IBPB conditional, RSB filling, PBRSB-eIBRS SW sequence
+Vulnerability Srbds:             Not affected
+Vulnerability Tsx async abort:   Not affected
+Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp

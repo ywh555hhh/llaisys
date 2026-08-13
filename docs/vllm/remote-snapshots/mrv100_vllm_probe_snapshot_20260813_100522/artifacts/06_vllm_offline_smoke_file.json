@@ -1,0 +1,29 @@
+{
+  "model": "/data/models/Qwen2.5-0.5B-Instruct",
+  "env": {
+    "VLLM_TARGET_DEVICE": "cuda",
+    "VLLM_ATTENTION_BACKEND": null,
+    "VLLM_USE_V1": null,
+    "VLLM_WORKER_MULTIPROC_METHOD": "spawn",
+    "VLLM_ENFORCE_CUDA_GRAPH": null
+  },
+  "ok": true,
+  "timing_s": {
+    "import": 13.781142204999924,
+    "load": 35.59383178502321,
+    "generate": 0.6581538170576096,
+    "total": 50.033127807080746
+  },
+  "outputs": [
+    {
+      "prompt": "用一句话解释 vLLM 的 PagedAttention。",
+      "text": " PagedAttention 是一种特殊的注意力机制，它在处理大规模文本数据时，通过分页的方式，将注意力分配到不同的部分，从而提高模型",
+      "finish_reason": "length"
+    },
+    {
+      "prompt": "What is the main bottleneck in LLM decode?",
+      "text": " I am trying to understand the main bottleneck in LLM decode. I have read that the main bottleneck is the model size. However, I am not sure if",
+      "finish_reason": "length"
+    }
+  ]
+}

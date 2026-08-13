@@ -1,0 +1,677 @@
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+{
+  "label": "qwen05b_baseline_eager_random_prefix_decode128_c1_4_8_16",
+  "model": "qwen05b",
+  "base_url": "http://127.0.0.1:8000/v1",
+  "tokenizer_dir": "/data/models/Qwen2.5-0.5B-Instruct",
+  "prompt_tokens_target": 256,
+  "prompt_mode": "random",
+  "seed": 20260812,
+  "max_tokens": 128,
+  "concurrency_list": [
+    1,
+    4,
+    8,
+    16
+  ],
+  "requests_per_concurrency": 1,
+  "ixsmi_before": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Wed Aug 12 10:54:15 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  35C   P0       38W / 150W   | 32200MiB / 32768MiB  | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 32200 MiB, 568 MiB, 0 %, 99 %, 38 W, 35 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  },
+  "workloads": [
+    {
+      "concurrency": 1,
+      "requests_total": 1,
+      "elapsed_s": 1.863565132021904,
+      "ok_count": 1,
+      "error_count": 0,
+      "aggregate_output_tok_s": 68.6855521175825,
+      "aggregate_total_tok_s": 240.39943241153875,
+      "ttft_s": {
+        "count": 1,
+        "mean": 0.3701409697532654,
+        "p50": 0.3701409697532654,
+        "p90": 0.3701409697532654,
+        "p95": 0.3701409697532654,
+        "p99": 0.3701409697532654,
+        "min": 0.3701409697532654,
+        "max": 0.3701409697532654
+      },
+      "total_s": {
+        "count": 1,
+        "mean": 1.8580452352762222,
+        "p50": 1.8580452352762222,
+        "p90": 1.8580452352762222,
+        "p95": 1.8580452352762222,
+        "p99": 1.8580452352762222,
+        "min": 1.8580452352762222,
+        "max": 1.8580452352762222
+      },
+      "tpot_s": {
+        "count": 1,
+        "mean": 0.011715781618290998,
+        "p50": 0.011715781618290998,
+        "p90": 0.011715781618290998,
+        "p95": 0.011715781618290998,
+        "p99": 0.011715781618290998,
+        "min": 0.011715781618290998,
+        "max": 0.011715781618290998
+      },
+      "per_request": [
+        {
+          "request_id": 0,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 320,
+          "output_tokens": 128,
+          "ttft_s": 0.3701409697532654,
+          "total_s": 1.8580452352762222,
+          "decode_s": 1.4879042655229568,
+          "tpot_s": 0.011715781618290998,
+          "output_tok_s": 68.88960374582655,
+          "raw_events": 127,
+          "sample": " The given request is for a single request with a mostly unique prefix of \"unique\". This request has a high probability of being processed by the scheduler due to its uniqueness. The scheduler will prioritize this request based on its impor"
+        }
+      ]
+    },
+    {
+      "concurrency": 4,
+      "requests_total": 4,
+      "elapsed_s": 1.6878791600465775,
+      "ok_count": 4,
+      "error_count": 0,
+      "aggregate_output_tok_s": 302.74679141479464,
+      "aggregate_total_tok_s": 1055.7627833682272,
+      "ttft_s": {
+        "count": 4,
+        "mean": 0.14203580655157566,
+        "p50": 0.14483993873000145,
+        "p90": 0.14545262530446051,
+        "p95": 0.1455653417855501,
+        "p99": 0.1456555149704218,
+        "min": 0.13278529047966003,
+        "max": 0.1456780582666397
+      },
+      "total_s": {
+        "count": 4,
+        "mean": 1.6769843716174364,
+        "p50": 1.6766227446496487,
+        "p90": 1.6815201878547668,
+        "p95": 1.6821813590824606,
+        "p99": 1.6827102960646152,
+        "min": 1.6718494668602943,
+        "max": 1.682842530310154
+      },
+      "tpot_s": {
+        "count": 4,
+        "mean": 0.012110224366723493,
+        "p50": 0.01209742376419503,
+        "p90": 0.012175387291079639,
+        "p95": 0.012187552661585513,
+        "p99": 0.012197284957990209,
+        "min": 0.01204633190641253,
+        "max": 0.012199718032091383
+      },
+      "per_request": [
+        {
+          "request_id": 0,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 320,
+          "output_tokens": 128,
+          "ttft_s": 0.13278529047966003,
+          "total_s": 1.6718494668602943,
+          "decode_s": 1.5390641763806343,
+          "tpot_s": 0.012118615562052239,
+          "output_tok_s": 76.56191692926869,
+          "raw_events": 128,
+          "sample": " The given request is for a single request with a mostly unique prefix of \"unique\". This request has a high probability of being processed by the scheduler due to its uniqueness. The scheduler will prioritize this request based on its impor"
+        },
+        {
+          "request_id": 1,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 127,
+          "ttft_s": 0.1456780582666397,
+          "total_s": 1.682842530310154,
+          "decode_s": 1.5371644720435143,
+          "tpot_s": 0.012199718032091383,
+          "output_tok_s": 75.46754833715394,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked for its performance on a specific workload that has a high probability of generating unique prefixes. The workload is characterized by a large number of requests per second (NPRS) and a low average response"
+        },
+        {
+          "request_id": 2,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 0.14492661505937576,
+          "total_s": 1.674810767173767,
+          "decode_s": 1.5298841521143913,
+          "tpot_s": 0.01204633190641253,
+          "output_tok_s": 76.42654472301919,
+          "raw_events": 128,
+          "sample": " The request is for a single request that has a mostly unique prefix of \"ed59fb96132c6c88\". This request requires a high level of scheduling pressure due to the large number of requests expected to be processed concurrently. The prefill cos"
+        },
+        {
+          "request_id": 3,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 0.14475326240062714,
+          "total_s": 1.6784347221255302,
+          "decode_s": 1.533681459724903,
+          "tpot_s": 0.01207623196633782,
+          "output_tok_s": 76.2615300509893,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked against a single request with a mostly unique prefix, which has a high probability of causing significant load on the system. The workload is expected to be relatively simple and straightforward, making it "
+        }
+      ]
+    },
+    {
+      "concurrency": 8,
+      "requests_total": 8,
+      "elapsed_s": 1.7095896676182747,
+      "ok_count": 8,
+      "error_count": 0,
+      "aggregate_output_tok_s": 598.3892037819804,
+      "aggregate_total_tok_s": 2091.1450669800392,
+      "ttft_s": {
+        "count": 8,
+        "mean": 0.10905235353857279,
+        "p50": 0.11084192246198654,
+        "p90": 0.11140434741973877,
+        "p95": 0.1115025483071804,
+        "p99": 0.11158110901713372,
+        "min": 0.09588903933763504,
+        "max": 0.11160074919462204
+      },
+      "total_s": {
+        "count": 8,
+        "mean": 1.6962957559153438,
+        "p50": 1.697108667343855,
+        "p90": 1.7043341994285583,
+        "p95": 1.7050926759839058,
+        "p99": 1.7056994572281838,
+        "min": 1.6842861473560333,
+        "max": 1.7058511525392532
+      },
+      "tpot_s": {
+        "count": 8,
+        "mean": 0.012510403438307482,
+        "p50": 0.012504330623572268,
+        "p90": 0.012577483275039929,
+        "p95": 0.012600078790636828,
+        "p99": 0.012618155203114345,
+        "min": 0.012424562038399103,
+        "max": 0.012622674306233725
+      },
+      "per_request": [
+        {
+          "request_id": 0,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 320,
+          "output_tokens": 128,
+          "ttft_s": 0.09588903933763504,
+          "total_s": 1.6842861473560333,
+          "decode_s": 1.5883971080183983,
+          "tpot_s": 0.012507063842664553,
+          "output_tok_s": 75.99658775376882,
+          "raw_events": 128,
+          "sample": " The given request is for a single request with a mostly unique prefix of \"unique\". This request has a high probability of being processed by the scheduler due to its uniqueness. The scheduler will prioritize this request based on its impor"
+        },
+        {
+          "request_id": 1,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 127,
+          "ttft_s": 0.11160074919462204,
+          "total_s": 1.7020577117800713,
+          "decode_s": 1.5904569625854492,
+          "tpot_s": 0.012622674306233725,
+          "output_tok_s": 74.61556627664463,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked for its performance on a specific workload that has a high probability of generating unique prefixes. The workload is characterized by a large number of requests per second (NPRS) and a low average response"
+        },
+        {
+          "request_id": 2,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 0.11132017523050308,
+          "total_s": 1.6990230455994606,
+          "decode_s": 1.5877028703689575,
+          "tpot_s": 0.01250159740447998,
+          "output_tok_s": 75.33741248038115,
+          "raw_events": 128,
+          "sample": " The request is for a single request that has a mostly unique prefix of \"ed59fb96132c6c88\". This request requires a high level of scheduling pressure due to the large number of requests expected to be processed concurrently. The prefill cos"
+        },
+        {
+          "request_id": 3,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 0.11071338504552841,
+          "total_s": 1.6886327639222145,
+          "decode_s": 1.577919378876686,
+          "tpot_s": 0.012424562038399103,
+          "output_tok_s": 75.80096912409323,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked against a single request with a mostly unique prefix, which has a high probability of causing significant load on the system. The workload is expected to be relatively simple and straightforward, making it "
+        },
+        {
+          "request_id": 4,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 311,
+          "output_tokens": 128,
+          "ttft_s": 0.1111263707280159,
+          "total_s": 1.703684076666832,
+          "decode_s": 1.592557705938816,
+          "tpot_s": 0.01253982445621115,
+          "output_tok_s": 75.13130031151388,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked against the given workload fingerprint. The workload has a high level of uniqueness, which may indicate that it requires more resources to process. The scheduler pressure is moderate, as indicated by the lo"
+        },
+        {
+          "request_id": 5,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 335,
+          "output_tokens": 128,
+          "ttft_s": 0.11097045987844467,
+          "total_s": 1.7058511525392532,
+          "decode_s": 1.5948806926608086,
+          "tpot_s": 0.012558115690242587,
+          "output_tok_s": 75.03585515621627,
+          "raw_events": 128,
+          "sample": " The given request is for a single request with a mostly unique prefix of \"6a90a6693703151d33df2e92568e2219e2d0729152e520170f4962ee1d247d9f\". This request has a high probability of being processed by the scheduler due to its uniqueness. The"
+        },
+        {
+          "request_id": 6,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 324,
+          "output_tokens": 128,
+          "ttft_s": 0.11044759303331375,
+          "total_s": 1.691636860370636,
+          "decode_s": 1.5811892673373222,
+          "tpot_s": 0.012450309191632458,
+          "output_tok_s": 75.66635783282432,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked against the scheduler pressure, which is measured by the number of requests that need to be processed before they can be scheduled for execution. The prefill cost is calculated based on the frequency at whi"
+        },
+        {
+          "request_id": 7,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 311,
+          "output_tokens": 128,
+          "ttft_s": 0.11035105586051941,
+          "total_s": 1.6951942890882492,
+          "decode_s": 1.5848432332277298,
+          "tpot_s": 0.012479080576596297,
+          "output_tok_s": 75.5075691464511,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked against the given workload fingerprint, which includes a unique prefix of \"dd8eea26f285635171c9621e364170b636c5e6577cc171eb5797b625b6faee50\". This workload has a high degree of uniqueness, indicating that i"
+        }
+      ]
+    },
+    {
+      "concurrency": 16,
+      "requests_total": 16,
+      "elapsed_s": 1.9225511774420738,
+      "ok_count": 16,
+      "error_count": 0,
+      "aggregate_output_tok_s": 1064.731084414358,
+      "aggregate_total_tok_s": 3712.254884936626,
+      "ttft_s": {
+        "count": 16,
+        "mean": 0.1603844636119902,
+        "p50": 0.1616254635155201,
+        "p90": 0.16240495070815086,
+        "p95": 0.1625633928924799,
+        "p99": 0.16280315108597276,
+        "min": 0.14171218127012253,
+        "max": 0.162863090634346
+      },
+      "total_s": {
+        "count": 16,
+        "mean": 1.9033388528041542,
+        "p50": 1.904096718877554,
+        "p90": 1.9161364063620567,
+        "p95": 1.9179297145456076,
+        "p99": 1.919069416448474,
+        "min": 1.8808430656790733,
+        "max": 1.9193543419241905
+      },
+      "tpot_s": {
+        "count": 16,
+        "mean": 0.01373080285899844,
+        "p50": 0.013727463662406458,
+        "p90": 0.013814393284283286,
+        "p95": 0.013822473512273135,
+        "p99": 0.013829006521603253,
+        "min": 0.013584789798015685,
+        "max": 0.013830639773935784
+      },
+      "per_request": [
+        {
+          "request_id": 0,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 320,
+          "output_tokens": 128,
+          "ttft_s": 0.14171218127012253,
+          "total_s": 1.8808430656790733,
+          "decode_s": 1.7391308844089508,
+          "tpot_s": 0.013693943971724023,
+          "output_tok_s": 68.0545880385751,
+          "raw_events": 128,
+          "sample": " The given request is for a single request with a mostly unique prefix of \"unique\". This request has a high probability of being processed by the scheduler due to its uniqueness. The scheduler will prioritize this request based on its impor"
+        },
+        {
+          "request_id": 1,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 127,
+          "ttft_s": 0.1623002290725708,
+          "total_s": 1.891169212758541,
+          "decode_s": 1.7288689836859703,
+          "tpot_s": 0.013721182410206114,
+          "output_tok_s": 67.15422350533737,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked for its performance on a specific workload that has a high probability of generating unique prefixes. The workload is characterized by a large number of requests per second (NPRS) and a low average response"
+        },
+        {
+          "request_id": 2,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 0.162863090634346,
+          "total_s": 1.9193543419241905,
+          "decode_s": 1.7564912512898445,
+          "tpot_s": 0.013830639773935784,
+          "output_tok_s": 66.6890928913509,
+          "raw_events": 128,
+          "sample": " The request is for a single request that has a mostly unique prefix of \"ed59fb96132c6c88\". This request requires a high level of scheduling pressure due to the large number of requests expected to be processed concurrently. The prefill cos"
+        },
+        {
+          "request_id": 3,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 0.1624634936451912,
+          "total_s": 1.9120143800973892,
+          "decode_s": 1.749550886452198,
+          "tpot_s": 0.013775991231907071,
+          "output_tok_s": 66.94510320235158,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked against a single request with a mostly unique prefix, which has a high probability of causing significant load on the system. The workload is expected to be relatively simple and straightforward, making it "
+        },
+        {
+          "request_id": 4,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 311,
+          "output_tokens": 128,
+          "ttft_s": 0.1619424745440483,
+          "total_s": 1.8995280116796494,
+          "decode_s": 1.737585537135601,
+          "tpot_s": 0.013681775882957489,
+          "output_tok_s": 67.38516053091344,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked against the given workload fingerprint. The workload has a high level of uniqueness, which may indicate that it requires more resources to process. The scheduler pressure is moderate, as indicated by the lo"
+        },
+        {
+          "request_id": 5,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 335,
+          "output_tokens": 128,
+          "ttft_s": 0.16234640777111053,
+          "total_s": 1.9174548387527466,
+          "decode_s": 1.755108430981636,
+          "tpot_s": 0.013819751425052252,
+          "output_tok_s": 66.75515762512592,
+          "raw_events": 128,
+          "sample": " The given request is for a single request with a mostly unique prefix of \"6a90a6693703151d33df2e92568e2219e2d0729152e520170f4962ee1d247d9f\". This request has a high probability of being processed by the scheduler due to its uniqueness. The"
+        },
+        {
+          "request_id": 6,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 324,
+          "output_tokens": 128,
+          "ttft_s": 0.16159944236278534,
+          "total_s": 1.8933353498578072,
+          "decode_s": 1.7317359074950218,
+          "tpot_s": 0.013635715807047416,
+          "output_tok_s": 67.60556179844897,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked against the scheduler pressure, which is measured by the number of requests that need to be processed before they can be scheduled for execution. The prefill cost is calculated based on the frequency at whi"
+        },
+        {
+          "request_id": 7,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 311,
+          "output_tokens": 128,
+          "ttft_s": 0.16190918534994125,
+          "total_s": 1.9082497209310532,
+          "decode_s": 1.746340535581112,
+          "tpot_s": 0.013750712878591432,
+          "output_tok_s": 67.07717475129387,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked against the given workload fingerprint, which includes a unique prefix of \"dd8eea26f285635171c9621e364170b636c5e6577cc171eb5797b625b6faee50\". This workload has a high degree of uniqueness, indicating that i"
+        },
+        {
+          "request_id": 8,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 312,
+          "output_tokens": 128,
+          "ttft_s": 0.16167885810136795,
+          "total_s": 1.9012527838349342,
+          "decode_s": 1.7395739257335663,
+          "tpot_s": 0.013697432486091073,
+          "output_tok_s": 67.32403028587117,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked against the given workload fingerprint of 032b31bbe7c63783901d53f054ddb12aacfbfbc13be1ba8d57ee11b0a2fa19b7. The workload is primarily unique, meaning it has no common prefix or suffix that can be used to id"
+        },
+        {
+          "request_id": 9,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 321,
+          "output_tokens": 128,
+          "ttft_s": 0.16165148466825485,
+          "total_s": 1.9125495627522469,
+          "decode_s": 1.750898078083992,
+          "tpot_s": 0.013786599040031433,
+          "output_tok_s": 66.9263701672662,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked against a single request with a mostly unique prefix, which has a high probability of causing significant load on the system. The workload is primarily focused on decoding data, with a focus on specific cha"
+        },
+        {
+          "request_id": 10,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 0.16136732697486877,
+          "total_s": 1.9055529311299324,
+          "decode_s": 1.7441856041550636,
+          "tpot_s": 0.013733744914606801,
+          "output_tok_s": 67.17210417456106,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked against a single request with a mostly unique prefix, which has a high probability of causing significant load on the system. The workload fingerprint indicates that the request is likely to be processed by"
+        },
+        {
+          "request_id": 11,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 325,
+          "output_tokens": 128,
+          "ttft_s": 0.1606045812368393,
+          "total_s": 1.8858728855848312,
+          "decode_s": 1.725268304347992,
+          "tpot_s": 0.013584789798015685,
+          "output_tok_s": 67.87307934612237,
+          "raw_events": 128,
+          "sample": " The given request is for a single request with a mostly unique prefix of \"b37ce166a9e609c14ec7a99187579acdddc4f4c43f6932ae50757f33c125dd43\". This request has a high probability of being processed by the scheduler due to its uniqueness. The"
+        },
+        {
+          "request_id": 12,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 319,
+          "output_tokens": 128,
+          "ttft_s": 0.1612885743379593,
+          "total_s": 1.913599669933319,
+          "decode_s": 1.7523110955953598,
+          "tpot_s": 0.013797725162168187,
+          "output_tok_s": 66.8896436444621,
+          "raw_events": 128,
+          "sample": " The request is being benchmarked against a single request with a mostly unique prefix, which has a high probability of causing significant load on the system. The workload fingerprint indicates that the request is likely to be processed by"
+        },
+        {
+          "request_id": 13,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 314,
+          "output_tokens": 128,
+          "ttft_s": 0.1606416031718254,
+          "total_s": 1.89518640935421,
+          "decode_s": 1.7345448061823845,
+          "tpot_s": 0.013657833119546334,
+          "output_tok_s": 67.53953034288398,
+          "raw_events": 128,
+          "sample": " The given request is a single request with a mostly unique prefix of \"13\". This indicates that the request has a specific identifier or sequence number. In the context of benchmarking, identifying the uniqueness of the request helps in und"
+        },
+        {
+          "request_id": 14,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 316,
+          "output_tokens": 128,
+          "ttft_s": 0.16107051074504852,
+          "total_s": 1.9148179739713669,
+          "decode_s": 1.7537474632263184,
+          "tpot_s": 0.013809035143514318,
+          "output_tok_s": 66.84708507019374,
+          "raw_events": 128,
+          "sample": " The given request is for a single request with a mostly unique prefix of \"e03a3ba0d21f1044\". This request has a high probability of being processed by the scheduler due to its uniqueness. The scheduler will prioritize this request based on"
+        },
+        {
+          "request_id": 15,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 314,
+          "output_tokens": 128,
+          "ttft_s": 0.16071197390556335,
+          "total_s": 1.9026405066251755,
+          "decode_s": 1.7419285327196121,
+          "tpot_s": 0.013715972698579623,
+          "output_tok_s": 67.27492637431601,
+          "raw_events": 128,
+          "sample": " The given request is for a single request with a mostly unique prefix of \"fc7fb56372fe0ec2\". This request has a high probability of being processed by the scheduler due to its uniqueness. The scheduler will prioritize this request based on"
+        }
+      ]
+    }
+  ],
+  "ixsmi_after": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Wed Aug 12 10:54:22 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  37C   P0       54W / 150W   | 32264MiB / 32768MiB  | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 32264 MiB, 504 MiB, 0 %, 99 %, 53 W, 36 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  }
+}
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+Timestamp    Wed Aug 12 10:54:25 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  35C   P0       37W / 150W   | 32264MiB / 32768MiB  | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
++--------------------------------------------------------------------------------+

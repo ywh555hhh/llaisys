@@ -1,0 +1,86 @@
+## vllm offline smoke
+2026-08-11T22:15:37+08:00
+MODEL=/data/models/Qwen2.5-0.5B-Instruct
+
+Timestamp    Tue Aug 11 22:15:37 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  34C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
+|  No running processes found                                                    |
++--------------------------------------------------------------------------------+
+
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+INFO 08-11 22:15:55 [utils.py:238] non-default args: {'trust_remote_code': True, 'dtype': 'float16', 'max_model_len': 1024, 'gpu_memory_utilization': 0.45, 'disable_log_stats': True, 'enforce_eager': True, 'model': '/data/models/Qwen2.5-0.5B-Instruct'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 08-11 22:16:22 [model.py:531] Resolved architecture: Qwen2ForCausalLM
+WARNING 08-11 22:16:22 [model.py:1902] Casting torch.bfloat16 to torch.float16.
+INFO 08-11 22:16:22 [model.py:1564] Using max model len 1024
+WARNING 08-11 22:16:22 [model.py:627] Please export VLLM_ENFORCE_CUDA_GRAPH=1 to enable cuda graph. For now, cuda graph is not used and --enforce-eager is disabled ,we are trying to use cuda graph as the default mode
+INFO 08-11 22:16:22 [scheduler.py:231] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 08-11 22:16:22 [vllm.py:747] Asynchronous scheduling is enabled.
+WARNING 08-11 22:16:22 [vllm.py:781] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 08-11 22:16:22 [vllm.py:792] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 08-11 22:16:22 [vllm.py:957] Cudagraph is disabled under eager mode
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python3.12/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/spawn.py", line 131, in _main
+    prepare(preparation_data)
+  File "/usr/lib/python3.12/multiprocessing/spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/usr/lib/python3.12/multiprocessing/spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 285, in run_path
+  File "<frozen runpy>", line 254, in _get_code_from_file
+FileNotFoundError: [Errno 2] No such file or directory: '/root/<stdin>'
+<stdin>:17: ResourceWarning: Unclosed context <zmq.Context() at 0x7e20d4b27ef0>
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<stdin>:19: ResourceWarning: unclosed file <_io.TextIOWrapper name='/data/src/vllm-mrv100-probe/artifacts/05_vllm_offline_smoke.json' mode='w' encoding='utf-8'>
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+{
+  "model": "/data/models/Qwen2.5-0.5B-Instruct",
+  "env": {
+    "VLLM_TARGET_DEVICE": "cuda",
+    "VLLM_ATTENTION_BACKEND": null,
+    "VLLM_USE_V1": null,
+    "VLLM_WORKER_MULTIPROC_METHOD": "spawn"
+  },
+  "ok": false,
+  "error": "RuntimeError(\"Engine core initialization failed. See root cause above. Failed core proc(s): {'EngineCore_DP0': 1}\")",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/llm.py\", line 379, in __init__\n    self.llm_engine = LLMEngine.from_engine_args(\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/llm_engine.py\", line 177, in from_engine_args\n    return cls(\n           ^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/llm_engine.py\", line 111, in __init__\n    self.engine_core = EngineCoreClient.make_client(\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 98, in make_client\n    return SyncMPClient(vllm_config, executor_class, log_stats)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py\", line 178, in sync_wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 734, in __init__\n    super().__init__(\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 569, in __init__\n    with launch_core_engines(\n  File \"/usr/lib/python3.12/contextlib.py\", line 144, in __exit__\n    next(self.gen)\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py\", line 951, in launch_core_engines\n    wait_for_engine_startup(\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py\", line 1010, in wait_for_engine_startup\n    raise RuntimeError(\nRuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {'EngineCore_DP0': 1}\n"
+}
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+Timestamp    Tue Aug 11 22:16:32 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  34C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
+|  No running processes found                                                    |
++--------------------------------------------------------------------------------+

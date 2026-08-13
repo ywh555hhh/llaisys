@@ -1,0 +1,396 @@
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+{
+  "label": "qwen32b_awq_marlin_cg_c8_16",
+  "model": "qwen32b-awq",
+  "base_url": "http://127.0.0.1:8000/v1",
+  "tokenizer_dir": "/data/models/Qwen2.5-32B-Instruct-AWQ",
+  "prompt_tokens_target": 64,
+  "max_tokens": 32,
+  "concurrency_list": [
+    8,
+    16
+  ],
+  "requests_per_concurrency": 8,
+  "ixsmi_before": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Wed Aug 12 09:06:20 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  42C   P0       38W / 150W   | 31688MiB / 32768MiB  | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 31688 MiB, 1080 MiB, 0 %, 97 %, 38 W, 42 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  },
+  "workloads": [
+    {
+      "concurrency": 8,
+      "requests_total": 8,
+      "elapsed_s": 2.2783736288547516,
+      "ok_count": 8,
+      "error_count": 0,
+      "aggregate_output_tok_s": 112.36085107282473,
+      "aggregate_total_tok_s": 459.9772340793763,
+      "ttft_s": {
+        "count": 8,
+        "mean": 0.7370072538033128,
+        "p50": 0.7430531904101372,
+        "p90": 0.7445919908583164,
+        "p95": 0.7449268747121096,
+        "p99": 0.7451947817951441,
+        "min": 0.6920620426535606,
+        "max": 0.7452617585659027
+      },
+      "total_s": {
+        "count": 8,
+        "mean": 2.2716028969734907,
+        "p50": 2.2717959880828857,
+        "p90": 2.273932211101055,
+        "p95": 2.2740310952067375,
+        "p99": 2.274110202491283,
+        "min": 2.2688574343919754,
+        "max": 2.27412997931242
+      },
+      "tpot_s": {
+        "count": 8,
+        "mean": 0.049503085263554125,
+        "p50": 0.04931748442111476,
+        "p90": 0.0498128505243409,
+        "p95": 0.05033860899988682,
+        "p99": 0.05075921578032355,
+        "min": 0.04925113555885131,
+        "max": 0.050864367475432735
+      },
+      "per_request": [
+        {
+          "request_id": 0,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.6920620426535606,
+          "total_s": 2.2688574343919754,
+          "decode_s": 1.5767953917384148,
+          "tpot_s": 0.050864367475432735,
+          "output_tok_s": 14.104015314023284,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        },
+        {
+          "request_id": 1,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.7452617585659027,
+          "total_s": 2.2738474532961845,
+          "decode_s": 1.5285856947302818,
+          "tpot_s": 0.04930921595904135,
+          "output_tok_s": 14.073063676110984,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        },
+        {
+          "request_id": 2,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.7443049475550652,
+          "total_s": 2.2724034413695335,
+          "decode_s": 1.5280984938144684,
+          "tpot_s": 0.049293499800466725,
+          "output_tok_s": 14.082006485923213,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        },
+        {
+          "request_id": 3,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.7439017668366432,
+          "total_s": 2.27412997931242,
+          "decode_s": 1.5302282124757767,
+          "tpot_s": 0.049362200402444406,
+          "output_tok_s": 14.071315312273908,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        },
+        {
+          "request_id": 4,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.7432173117995262,
+          "total_s": 2.2707680836319923,
+          "decode_s": 1.5275507718324661,
+          "tpot_s": 0.04927583134943439,
+          "output_tok_s": 14.09214804041874,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        },
+        {
+          "request_id": 5,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.7428890690207481,
+          "total_s": 2.2725121080875397,
+          "decode_s": 1.5296230390667915,
+          "tpot_s": 0.04934267867957392,
+          "output_tok_s": 14.081333114185249,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        },
+        {
+          "request_id": 6,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.742330938577652,
+          "total_s": 2.2691161409020424,
+          "decode_s": 1.5267852023243904,
+          "tpot_s": 0.04925113555885131,
+          "output_tok_s": 14.10240728677688,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        },
+        {
+          "request_id": 7,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.7420901954174042,
+          "total_s": 2.271188534796238,
+          "decode_s": 1.5290983393788338,
+          "tpot_s": 0.04932575288318818,
+          "output_tok_s": 14.089539247727364,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        }
+      ]
+    },
+    {
+      "concurrency": 16,
+      "requests_total": 8,
+      "elapsed_s": 1.7595963701605797,
+      "ok_count": 8,
+      "error_count": 0,
+      "aggregate_output_tok_s": 145.48791094439324,
+      "aggregate_total_tok_s": 595.5911354286097,
+      "ttft_s": {
+        "count": 8,
+        "mean": 0.2151911836117506,
+        "p50": 0.22139770910143852,
+        "p90": 0.22208409681916236,
+        "p95": 0.22222090475261214,
+        "p99": 0.2223303510993719,
+        "min": 0.17052064836025238,
+        "max": 0.22235771268606186
+      },
+      "total_s": {
+        "count": 8,
+        "mean": 1.7510474948212504,
+        "p50": 1.7511767745018005,
+        "p90": 1.7548816323280334,
+        "p95": 1.7556469984352587,
+        "p99": 1.756259291321039,
+        "min": 1.7445157617330551,
+        "max": 1.7564123645424843
+      },
+      "tpot_s": {
+        "count": 8,
+        "mean": 0.0495437519745,
+        "p50": 0.04939423393337958,
+        "p90": 0.049883666610525505,
+        "p95": 0.0503288512628886,
+        "p99": 0.05068499898477909,
+        "min": 0.04922014979585525,
+        "max": 0.0507740359152517
+      },
+      "per_request": [
+        {
+          "request_id": 0,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.17052064836025238,
+          "total_s": 1.7445157617330551,
+          "decode_s": 1.5739951133728027,
+          "tpot_s": 0.0507740359152517,
+          "output_tok_s": 18.343199128341624,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        },
+        {
+          "request_id": 1,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.22235771268606186,
+          "total_s": 1.754225604236126,
+          "decode_s": 1.531867891550064,
+          "tpot_s": 0.04941509327580852,
+          "output_tok_s": 18.24166739028663,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        },
+        {
+          "request_id": 2,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.22196683287620544,
+          "total_s": 1.7497604936361313,
+          "decode_s": 1.5277936607599258,
+          "tpot_s": 0.04928366647612664,
+          "output_tok_s": 18.288217225376737,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        },
+        {
+          "request_id": 3,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.22184789180755615,
+          "total_s": 1.7564123645424843,
+          "decode_s": 1.5345644727349281,
+          "tpot_s": 0.049502079765642845,
+          "output_tok_s": 18.21895623487908,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        },
+        {
+          "request_id": 4,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.221563883125782,
+          "total_s": 1.7521384954452515,
+          "decode_s": 1.5305746123194695,
+          "tpot_s": 0.049373374590950626,
+          "output_tok_s": 18.263396462771166,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        },
+        {
+          "request_id": 5,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.22123153507709503,
+          "total_s": 1.7470561787486076,
+          "decode_s": 1.5258246436715126,
+          "tpot_s": 0.04922014979585525,
+          "output_tok_s": 18.31652604492728,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        },
+        {
+          "request_id": 6,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.2211042195558548,
+          "total_s": 1.7502150535583496,
+          "decode_s": 1.5291108340024948,
+          "tpot_s": 0.04932615593556435,
+          "output_tok_s": 18.28346747157787,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        },
+        {
+          "request_id": 7,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 99,
+          "output_tokens": 32,
+          "ttft_s": 0.22093674540519714,
+          "total_s": 1.7540560066699982,
+          "decode_s": 1.533119261264801,
+          "tpot_s": 0.04945546004080003,
+          "output_tok_s": 18.243431155171983,
+          "raw_events": 32,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which"
+        }
+      ]
+    }
+  ],
+  "ixsmi_after": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Wed Aug 12 09:06:24 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  52C   P0       137W / 150W  | 31692MiB / 32768MiB  | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 31692 MiB, 1076 MiB, 0 %, 97 %, 135 W, 50 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  }
+}
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+Timestamp    Wed Aug 12 09:06:27 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  44C   P0       40W / 150W   | 31692MiB / 32768MiB  | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
++--------------------------------------------------------------------------------+

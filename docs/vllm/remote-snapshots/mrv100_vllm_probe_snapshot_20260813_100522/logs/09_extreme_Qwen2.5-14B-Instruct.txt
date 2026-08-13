@@ -1,0 +1,229 @@
+===== Qwen/Qwen2.5-14B-Instruct 2026-08-12T08:04:38+08:00 =====
+Timestamp    Wed Aug 12 08:04:38 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  39C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
+|  No running processes found                                                    |
++--------------------------------------------------------------------------------+
+Downloading/resuming Qwen/Qwen2.5-14B-Instruct to /data/models/Qwen2.5-14B-Instruct
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Still waiting to acquire lock on /data/models/Qwen2.5-14B-Instruct/.cache/huggingface/.gitignore.lock (elapsed: 0.1 seconds)
+Fetching 18 files:   6%|▌         | 1/18 [00:05<01:26,  5.11s/it]Fetching 18 files:  39%|███▉      | 7/18 [04:22<07:08, 38.92s/it]Fetching 18 files:  44%|████▍     | 8/18 [05:28<07:16, 43.66s/it]Fetching 18 files:  50%|█████     | 9/18 [05:49<05:52, 39.12s/it]Fetching 18 files:  56%|█████▌    | 10/18 [06:00<04:23, 32.88s/it]Fetching 18 files: 100%|██████████| 18/18 [06:00<00:00, 20.02s/it]
+[32m✓ Downloaded[0m
+  path: /data/models/Qwen2.5-14B-Instruct
+28G	/data/models/Qwen2.5-14B-Instruct
+.gitattributes 1519 bytes
+LICENSE 11343 bytes
+README.md 6010 bytes
+config.json 663 bytes
+generation_config.json 242 bytes
+merges.txt 1671839 bytes
+model-00001-of-00008.safetensors 3885154816 bytes
+model-00002-of-00008.safetensors 3995327992 bytes
+model-00003-of-00008.safetensors 3995328080 bytes
+model-00004-of-00008.safetensors 3995338432 bytes
+model-00005-of-00008.safetensors 3979624824 bytes
+model-00006-of-00008.safetensors 3995328080 bytes
+model-00007-of-00008.safetensors 3995328080 bytes
+model-00008-of-00008.safetensors 1698703696 bytes
+model.safetensors.index.json 47472 bytes
+tokenizer.json 7031645 bytes
+tokenizer_config.json 7305 bytes
+vocab.json 2776833 bytes
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+INFO 08-12 08:10:57 [utils.py:238] non-default args: {'trust_remote_code': True, 'dtype': 'float16', 'max_model_len': 1024, 'enable_prefix_caching': True, 'gpu_memory_utilization': 0.95, 'disable_log_stats': True, 'model': '/data/models/Qwen2.5-14B-Instruct'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 08-12 08:10:57 [model.py:531] Resolved architecture: Qwen2ForCausalLM
+WARNING 08-12 08:10:57 [model.py:1902] Casting torch.bfloat16 to torch.float16.
+INFO 08-12 08:10:57 [model.py:1564] Using max model len 1024
+INFO 08-12 08:10:58 [scheduler.py:231] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 08-12 08:10:58 [vllm.py:747] Asynchronous scheduling is enabled.
+WARNING 08-12 08:10:58 [vllm.py:792] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+WARNING 08-12 08:10:59 [vllm.py:1100] No piecewise cudagraph for executing cascade attention. Will fall back to eager execution if a batch runs into cascade attentions.
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+(EngineCore_DP0 pid=41073) INFO 08-12 08:11:17 [core.py:101] Initializing a V1 LLM engine (v0.17.0) with config: model='/data/models/Qwen2.5-14B-Instruct', speculative_config=None, tokenizer='/data/models/Qwen2.5-14B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.float16, max_seq_len=1024, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=/data/models/Qwen2.5-14B-Instruct, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'splitting_ops': [], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_DECODE_ONLY: (2, 0)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore_DP0 pid=41073) INFO 08-12 08:11:19 [parallel_state.py:1418] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://172.23.0.5:47679 backend=nccl
+(EngineCore_DP0 pid=41073) INFO 08-12 08:11:19 [parallel_state.py:1740] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore_DP0 pid=41073) INFO 08-12 08:11:20 [base.py:106] Offloader set to NoopOffloader
+(EngineCore_DP0 pid=41073) INFO 08-12 08:11:20 [gpu_model_runner.py:4598] Starting to load model /data/models/Qwen2.5-14B-Instruct...
+(EngineCore_DP0 pid=41073) INFO 08-12 08:11:21 [cuda.py:405] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore_DP0 pid=41073) INFO 08-12 08:11:21 [flash_attn.py:698] Using FlashAttention version None
+(EngineCore_DP0 pid=41073) Loading safetensors checkpoint shards:   0% Completed | 0/8 [00:00<?, ?it/s]
+(EngineCore_DP0 pid=41073) Loading safetensors checkpoint shards:  12% Completed | 1/8 [00:04<00:31,  4.54s/it]
+(EngineCore_DP0 pid=41073) Loading safetensors checkpoint shards:  25% Completed | 2/8 [00:08<00:26,  4.34s/it]
+(EngineCore_DP0 pid=41073) Loading safetensors checkpoint shards:  38% Completed | 3/8 [00:13<00:21,  4.31s/it]
+(EngineCore_DP0 pid=41073) Loading safetensors checkpoint shards:  50% Completed | 4/8 [00:17<00:17,  4.40s/it]
+(EngineCore_DP0 pid=41073) Loading safetensors checkpoint shards:  62% Completed | 5/8 [00:22<00:13,  4.47s/it]
+(EngineCore_DP0 pid=41073) Loading safetensors checkpoint shards:  75% Completed | 6/8 [00:26<00:09,  4.54s/it]
+(EngineCore_DP0 pid=41073) Loading safetensors checkpoint shards:  88% Completed | 7/8 [00:31<00:04,  4.54s/it]
+(EngineCore_DP0 pid=41073) Loading safetensors checkpoint shards: 100% Completed | 8/8 [00:33<00:00,  3.83s/it]
+(EngineCore_DP0 pid=41073) Loading safetensors checkpoint shards: 100% Completed | 8/8 [00:33<00:00,  4.21s/it]
+(EngineCore_DP0 pid=41073) 
+(EngineCore_DP0 pid=41073) INFO 08-12 08:11:55 [default_loader.py:296] Loading weights took 33.74 seconds
+(EngineCore_DP0 pid=41073) INFO 08-12 08:11:56 [gpu_model_runner.py:4681] Model loading took 27.57 GiB memory and 34.187594 seconds
+(EngineCore_DP0 pid=41073) INFO 08-12 08:11:59 [gpu_worker.py:425] Available KV cache memory: 0.74 GiB
+(EngineCore_DP0 pid=41073) INFO 08-12 08:11:59 [kv_cache_utils.py:1351] GPU KV cache size: 4,016 tokens
+(EngineCore_DP0 pid=41073) INFO 08-12 08:11:59 [kv_cache_utils.py:1356] Maximum concurrency for 1,024 tokens per request: 3.92x
+(EngineCore_DP0 pid=41073) Capturing CUDA graphs (decode, FULL):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   3%|▎         | 1/35 [00:00<00:09,  3.44it/s]Capturing CUDA graphs (decode, FULL):   6%|▌         | 2/35 [00:00<00:08,  3.99it/s]Capturing CUDA graphs (decode, FULL):   9%|▊         | 3/35 [00:00<00:07,  4.56it/s]Capturing CUDA graphs (decode, FULL):  11%|█▏        | 4/35 [00:00<00:06,  4.87it/s]Capturing CUDA graphs (decode, FULL):  14%|█▍        | 5/35 [00:01<00:05,  5.12it/s]Capturing CUDA graphs (decode, FULL):  17%|█▋        | 6/35 [00:01<00:05,  5.29it/s]Capturing CUDA graphs (decode, FULL):  20%|██        | 7/35 [00:01<00:05,  5.43it/s]Capturing CUDA graphs (decode, FULL):  23%|██▎       | 8/35 [00:01<00:04,  5.53it/s]Capturing CUDA graphs (decode, FULL):  26%|██▌       | 9/35 [00:01<00:04,  5.65it/s]Capturing CUDA graphs (decode, FULL):  29%|██▊       | 10/35 [00:01<00:04,  5.74it/s]Capturing CUDA graphs (decode, FULL):  31%|███▏      | 11/35 [00:02<00:04,  5.81it/s]Capturing CUDA graphs (decode, FULL):  34%|███▍      | 12/35 [00:02<00:03,  5.87it/s]Capturing CUDA graphs (decode, FULL):  37%|███▋      | 13/35 [00:02<00:03,  5.96it/s]Capturing CUDA graphs (decode, FULL):  40%|████      | 14/35 [00:02<00:03,  6.01it/s]Capturing CUDA graphs (decode, FULL):  43%|████▎     | 15/35 [00:02<00:03,  6.07it/s]Capturing CUDA graphs (decode, FULL):  46%|████▌     | 16/35 [00:02<00:03,  6.11it/s]Capturing CUDA graphs (decode, FULL):  49%|████▊     | 17/35 [00:03<00:02,  6.80it/s]Capturing CUDA graphs (decode, FULL):  51%|█████▏    | 18/35 [00:03<00:02,  7.41it/s]Capturing CUDA graphs (decode, FULL):  54%|█████▍    | 19/35 [00:03<00:02,  7.91it/s]Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 20/35 [00:03<00:01,  8.34it/s]Capturing CUDA graphs (decode, FULL):  60%|██████    | 21/35 [00:03<00:01,  8.72it/s]Capturing CUDA graphs (decode, FULL):  63%|██████▎   | 22/35 [00:03<00:01,  9.03it/s]Capturing CUDA graphs (decode, FULL):  66%|██████▌   | 23/35 [00:03<00:01,  9.28it/s]Capturing CUDA graphs (decode, FULL):  71%|███████▏  | 25/35 [00:03<00:01,  8.92it/s]Capturing CUDA graphs (decode, FULL):  74%|███████▍  | 26/35 [00:03<00:00,  9.08it/s]Capturing CUDA graphs (decode, FULL):  77%|███████▋  | 27/35 [00:04<00:00,  9.24it/s]Capturing CUDA graphs (decode, FULL):  80%|████████  | 28/35 [00:04<00:00,  9.30it/s]Capturing CUDA graphs (decode, FULL):  86%|████████▌ | 30/35 [00:04<00:01,  4.93it/s]Capturing CUDA graphs (decode, FULL):  91%|█████████▏| 32/35 [00:04<00:00,  6.55it/s]Capturing CUDA graphs (decode, FULL):  97%|█████████▋| 34/35 [00:05<00:00,  8.09it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 35/35 [00:05<00:00,  6.75it/s]
+(EngineCore_DP0 pid=41073) INFO 08-12 08:12:05 [gpu_model_runner.py:5709] Graph capturing finished in 6 secs, took 0.16 GiB
+(EngineCore_DP0 pid=41073) INFO 08-12 08:12:05 [core.py:328] init engine (profile, create kv cache, warmup model) took 9.88 seconds
+(EngineCore_DP0 pid=41073) INFO 08-12 08:12:06 [core.py:206] Batch queue is enabled with size 2 (ilu_opt=False)
+(EngineCore_DP0 pid=41073) INFO 08-12 08:12:07 [vllm.py:747] Asynchronous scheduling is enabled.
+(EngineCore_DP0 pid=41073) WARNING 08-12 08:12:07 [vllm.py:792] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore_DP0 pid=41073) WARNING 08-12 08:12:07 [vllm.py:1100] No piecewise cudagraph for executing cascade attention. Will fall back to eager execution if a batch runs into cascade attentions.
+(EngineCore_DP0 pid=41073) /usr/lib/python3.12/contextlib.py:144: ResourceWarning: Unclosed context <zmq.Context() at 0x7f88a9053c50>
+(EngineCore_DP0 pid=41073)   next(self.gen)
+(EngineCore_DP0 pid=41073) ResourceWarning: Enable tracemalloc to get the object allocation traceback
+INFO 08-12 08:12:07 [llm.py:388] Supported tasks: ['generate']
+Rendering prompts:   0%|          | 0/1 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 1/1 [00:00<00:00, 17.82it/s]
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s, est. speed input: 31.88 toks/s, output: 19.12 toks/s]Processed prompts: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s, est. speed input: 31.88 toks/s, output: 19.12 toks/s]Processed prompts: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s, est. speed input: 31.88 toks/s, output: 19.12 toks/s]
+Rendering prompts:   0%|          | 0/1 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 1/1 [00:00<00:00, 625.83it/s]
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:00<00:00,  1.31it/s, est. speed input: 32.65 toks/s, output: 19.59 toks/s]Processed prompts: 100%|██████████| 1/1 [00:00<00:00,  1.31it/s, est. speed input: 32.65 toks/s, output: 19.59 toks/s]Processed prompts: 100%|██████████| 1/1 [00:00<00:00,  1.30it/s, est. speed input: 32.65 toks/s, output: 19.59 toks/s]
+
+
+--------------------------------------
+C++ Traceback (most recent call last):
+--------------------------------------
+No stack trace in paddle, may be caused by external reasons.
+
+----------------------
+Error Message Summary:
+----------------------
+FatalError: `Termination signal` is detected by the operating system.
+  [TimeInfo: *** Aborted at 1786493528 (unix time) try "date -d @1786493528" if you are using GNU date ***]
+  [SignalInfo: *** SIGTERM (@0x9fb8) received by PID 41073 (TID 0x7f8a8385f300) from PID 40888 ***]
+
+/usr/lib/python3.12/threading.py:1014: ResourceWarning: Unclosed context <zmq.Context() at 0x7ed2cea12210>
+  del self._target, self._args, self._kwargs
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+{
+  "model_id": "Qwen/Qwen2.5-14B-Instruct",
+  "model_dir": "/data/models/Qwen2.5-14B-Instruct",
+  "args": {
+    "model_dir": "/data/models/Qwen2.5-14B-Instruct",
+    "model_id": "Qwen/Qwen2.5-14B-Instruct",
+    "out": "/data/src/vllm-mrv100-probe/artifacts/09_extreme_Qwen2.5-14B-Instruct.json",
+    "max_model_len": 1024,
+    "gpu_memory_utilization": 0.95,
+    "cuda_graph": true,
+    "enforce_eager": false,
+    "max_tokens": 32,
+    "batch_size": 1
+  },
+  "env": {
+    "VLLM_TARGET_DEVICE": "cuda",
+    "VLLM_ATTENTION_BACKEND": null,
+    "VLLM_WORKER_MULTIPROC_METHOD": "spawn",
+    "VLLM_ENFORCE_CUDA_GRAPH": "1"
+  },
+  "model_config": {
+    "architectures": [
+      "Qwen2ForCausalLM"
+    ],
+    "model_type": "qwen2",
+    "hidden_size": 5120,
+    "intermediate_size": 13824,
+    "num_hidden_layers": 48,
+    "num_attention_heads": 40,
+    "num_key_value_heads": 8,
+    "vocab_size": 152064,
+    "max_position_embeddings": 32768,
+    "torch_dtype": "bfloat16"
+  },
+  "ixsmi_before": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Wed Aug 12 08:10:39 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  37C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n|  No running processes found                                                    |\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 68 MiB, 32700 MiB, 0 %, 1 %, 37 W, 37 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  },
+  "ok": true,
+  "timing_s": {
+    "import": 13.756393633782864,
+    "load": 73.50867277383804,
+    "generate_total": 1.6136053502559662,
+    "total": 88.87867175787687
+  },
+  "runs": {
+    "warm": {
+      "elapsed_s": 0.8437708765268326,
+      "input_tokens": 25,
+      "output_tokens": 15,
+      "output_tok_s": 17.777337921099708,
+      "sample": "5 tokens.\nReduce batch size to minimize latency. 0.5"
+    },
+    "repeat": {
+      "elapsed_s": 0.7695329636335373,
+      "input_tokens": 25,
+      "output_tokens": 15,
+      "output_tok_s": 19.492342380206622,
+      "sample": "5 tokens.\nReduce batch size to minimize latency. 0.5"
+    }
+  },
+  "ixsmi_after": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Wed Aug 12 08:12:09 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  41C   P0       73W / 150W   | 68MiB / 32768MiB     | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n|  No running processes found                                                    |\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 68 MiB, 32700 MiB, 0 %, 1 %, 73 W, 42 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  }
+}
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+Timestamp    Wed Aug 12 08:12:18 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  40C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
+|  No running processes found                                                    |
++--------------------------------------------------------------------------------+

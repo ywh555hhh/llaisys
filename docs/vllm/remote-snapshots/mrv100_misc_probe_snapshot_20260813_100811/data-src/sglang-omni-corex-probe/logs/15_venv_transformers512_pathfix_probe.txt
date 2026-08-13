@@ -1,0 +1,738 @@
+=== sys.path with .pth, no corex PYTHONPATH ===
+0 
+1 /data/src/sglang-omni-corex-probe/repo
+2 /usr/local/lib/python310.zip
+3 /usr/local/lib/python3.10
+4 /usr/local/lib/python3.10/lib-dynload
+5 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages
+6 __editable__.sglang_omni-0.1.1.finder.__path_hook__
+7 /usr/local/corex/lib64/python3/dist-packages
+=== venv import baseline path retry ===
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/__init__.py", line 2246, in <module>
+    from torch import quantization as quantization  # usort: skip
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/quantization/__init__.py", line 2, in <module>
+    from .fake_quantize import *  # noqa: F403
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/quantization/fake_quantize.py", line 10, in <module>
+    from torch.ao.quantization.fake_quantize import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/__init__.py", line 12, in <module>
+    from .pt2e._numeric_debugger import (  # noqa: F401
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/pt2e/_numeric_debugger.py", line 9, in <module>
+    from torch.ao.quantization.pt2e.graph_utils import bfs_trace_with_node_process
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/pt2e/graph_utils.py", line 9, in <module>
+    from torch.export import ExportedProgram
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/export/__init__.py", line 60, in <module>
+    from .decomp_utils import CustomDecompTable
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/export/decomp_utils.py", line 5, in <module>
+    from torch._export.utils import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_export/__init__.py", line 48, in <module>
+    from .wrappers import _wrap_submodules
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_export/wrappers.py", line 7, in <module>
+    from torch._higher_order_ops.strict_mode import strict_mode
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/__init__.py", line 1, in <module>
+    from torch._higher_order_ops._invoke_quant import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/_invoke_quant.py", line 8, in <module>
+    from torch._higher_order_ops.base_hop import BaseHOP, FunctionWithNoFreeVars
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/base_hop.py", line 12, in <module>
+    from torch._subclasses.functional_tensor import disable_functional_mode
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py", line 46, in <module>
+    class FunctionalTensor(torch.Tensor):
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py", line 276, in FunctionalTensor
+    cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: 
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+ (Triggered internally at /home/corex/sw_home/apps/pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+python /data/src/sglang-omni-corex-probe/venv-transformers512/bin/python
+torch OK 2.7.1 /usr/local/corex/lib64/python3/dist-packages/torch/__init__.py
+huggingface_hub OK 1.27.0 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/huggingface_hub/__init__.py
+transformers OK 5.12.1 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/__init__.py
+tokenizers OK 0.22.2 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/tokenizers/__init__.py
+pydantic OK 2.13.4 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic/__init__.py
+sglang OK 0.5.16 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/__init__.py
+sglang_omni OK 0.1.1 /data/src/sglang-omni-corex-probe/repo/sglang_omni/__init__.py
+triton OK 3.7.1 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/triton/__init__.py
+IPython OK 8.39.0 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/IPython/__init__.py
+=== targeted qwen3_asr registration path retry ===
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/__init__.py", line 29, in <module>
+    from sglang.srt.utils.hf_transformers_patches import apply_all as _apply_hf_patches
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/utils/__init__.py", line 2, in <module>
+    from sglang.srt.utils.common import *
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/utils/common.py", line 85, in <module>
+    import torch
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/__init__.py", line 2246, in <module>
+    from torch import quantization as quantization  # usort: skip
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/quantization/__init__.py", line 2, in <module>
+    from .fake_quantize import *  # noqa: F403
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/quantization/fake_quantize.py", line 10, in <module>
+    from torch.ao.quantization.fake_quantize import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/__init__.py", line 12, in <module>
+    from .pt2e._numeric_debugger import (  # noqa: F401
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/pt2e/_numeric_debugger.py", line 9, in <module>
+    from torch.ao.quantization.pt2e.graph_utils import bfs_trace_with_node_process
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/pt2e/graph_utils.py", line 9, in <module>
+    from torch.export import ExportedProgram
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/export/__init__.py", line 60, in <module>
+    from .decomp_utils import CustomDecompTable
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/export/decomp_utils.py", line 5, in <module>
+    from torch._export.utils import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_export/__init__.py", line 48, in <module>
+    from .wrappers import _wrap_submodules
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_export/wrappers.py", line 7, in <module>
+    from torch._higher_order_ops.strict_mode import strict_mode
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/__init__.py", line 1, in <module>
+    from torch._higher_order_ops._invoke_quant import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/_invoke_quant.py", line 8, in <module>
+    from torch._higher_order_ops.base_hop import BaseHOP, FunctionWithNoFreeVars
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/base_hop.py", line 12, in <module>
+    from torch._subclasses.functional_tensor import disable_functional_mode
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py", line 46, in <module>
+    class FunctionalTensor(torch.Tensor):
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py", line 276, in FunctionalTensor
+    cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: 
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+ (Triggered internally at /home/corex/sw_home/apps/pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/entrypoints/http_server.py", line 65, in <module>
+    from sglang.srt.disaggregation.utils import FAKE_BOOTSTRAP_HOST, DisaggregationMode
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/disaggregation/utils.py", line 14, in <module>
+    from sglang.srt.configs.model_config import get_dsa_index_topk
+ImportError: cannot import name '_cuda_beginAllocateCurrentThreadToPool' from 'torch.cuda.memory' (/usr/local/corex/lib64/python3/dist-packages/torch/cuda/memory.py)
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/models/qwen3_asr/engine_builder.py", line 9, in <module>
+    from sglang.srt.managers.mm_utils import init_mm_embedding_cache
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/managers/mm_utils.py", line 22, in <module>
+    from sglang.srt.managers.io_struct import (
+ImportError: cannot import name '_cuda_beginAllocateCurrentThreadToPool' from 'torch.cuda.memory' (/usr/local/corex/lib64/python3/dist-packages/torch/cuda/memory.py)
+sglang.srt.configs.qwen3_asr OK /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/configs/qwen3_asr.py
+sglang.srt.entrypoints.http_server FAIL ImportError cannot import name '_cuda_beginAllocateCurrentThreadToPool' from 'torch.cuda.memory' (/usr/local/corex/lib64/python3/dist-packages/torch/cuda/memory.py)
+sglang_omni.models.qwen3_asr.engine_builder FAIL ImportError cannot import name '_cuda_beginAllocateCurrentThreadToPool' from 'torch.cuda.memory' (/usr/local/corex/lib64/python3/dist-packages/torch/cuda/memory.py)
+=== venv sgl-omni check-gpu path retry ===
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/data/src/sglang-omni-corex-probe/venv-transformers512/bin/sgl-omni", line 3, in <module>
+    from sglang_omni.cli import app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/__init__.py", line 4, in <module>
+    from .config import config_app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/config.py", line 9, in <module>
+    from sglang_omni.config.manager import resolve_config_cls_for_model_path
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/manager.py", line 5, in <module>
+    from transformers import AutoConfig
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2262, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2494, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 23, in <module>
+    from ...configuration_utils import PreTrainedConfig
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/configuration_utils.py", line 32, in <module>
+    from .generation.configuration_utils import GenerationConfig
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/generation/configuration_utils.py", line 61, in <module>
+    from .logits_process import SynthIDTextWatermarkLogitsProcessor, WatermarkLogitsProcessor
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/generation/logits_process.py", line 21, in <module>
+    import torch
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/__init__.py", line 2246, in <module>
+    from torch import quantization as quantization  # usort: skip
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/quantization/__init__.py", line 2, in <module>
+    from .fake_quantize import *  # noqa: F403
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/quantization/fake_quantize.py", line 10, in <module>
+    from torch.ao.quantization.fake_quantize import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/__init__.py", line 12, in <module>
+    from .pt2e._numeric_debugger import (  # noqa: F401
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/pt2e/_numeric_debugger.py", line 9, in <module>
+    from torch.ao.quantization.pt2e.graph_utils import bfs_trace_with_node_process
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/pt2e/graph_utils.py", line 9, in <module>
+    from torch.export import ExportedProgram
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/export/__init__.py", line 60, in <module>
+    from .decomp_utils import CustomDecompTable
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/export/decomp_utils.py", line 5, in <module>
+    from torch._export.utils import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_export/__init__.py", line 48, in <module>
+    from .wrappers import _wrap_submodules
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_export/wrappers.py", line 7, in <module>
+    from torch._higher_order_ops.strict_mode import strict_mode
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/__init__.py", line 1, in <module>
+    from torch._higher_order_ops._invoke_quant import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/_invoke_quant.py", line 8, in <module>
+    from torch._higher_order_ops.base_hop import BaseHOP, FunctionWithNoFreeVars
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/base_hop.py", line 12, in <module>
+    from torch._subclasses.functional_tensor import disable_functional_mode
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py", line 46, in <module>
+    class FunctionalTensor(torch.Tensor):
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py", line 276, in FunctionalTensor
+    cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: 
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+ (Triggered internally at /home/corex/sw_home/apps/pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+SGLang-Omni GPU diagnostics (no model loaded)
+CUDA_VISIBLE_DEVICES: <unset>
+Driver: unavailable
+CUDA driver/runtime: unavailable / unavailable
+PyTorch/CUDA build: 2.7.1 / 10.2
+GPUs:
+  logical 0 -> physical None visible=0 name=Iluvatar MR-V100 cc=7.1 memory=None/32.00GiB uuid=75401a56-2224-5257-8e2c-8f6dac7c37bc pci=unknown
+Backends:
+  attention/flash-attn-4: not installed; version=-
+  attention/flashinfer: not installed; version=-
+  attention/triton: available; version=3.7.1
+  attention/torch-sdpa: available; version=2.7.1+corex.4.4.0
+  gemm/sgl-deep-gemm: not installed; version=-
+  gemm/sglang-kernel: not installed; version=-
+  moe/quack-kernels: not installed; version=-
+  quantization/torchao: not installed; version=-
+  quantization/compressed-tensors: not installed; version=-
+  communication/nixl: not installed; version=-
+  communication/mooncake: not installed; version=-
+Warnings:
+  NVML initialization failed: NVML Shared Library Not Found
+=== venv serve Qwen3-ASR path retry ===
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/data/src/sglang-omni-corex-probe/venv-transformers512/bin/sgl-omni", line 3, in <module>
+    from sglang_omni.cli import app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/__init__.py", line 4, in <module>
+    from .config import config_app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/config.py", line 9, in <module>
+    from sglang_omni.config.manager import resolve_config_cls_for_model_path
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/manager.py", line 5, in <module>
+    from transformers import AutoConfig
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2262, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2494, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 23, in <module>
+    from ...configuration_utils import PreTrainedConfig
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/configuration_utils.py", line 32, in <module>
+    from .generation.configuration_utils import GenerationConfig
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/generation/configuration_utils.py", line 61, in <module>
+    from .logits_process import SynthIDTextWatermarkLogitsProcessor, WatermarkLogitsProcessor
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/generation/logits_process.py", line 21, in <module>
+    import torch
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/__init__.py", line 2246, in <module>
+    from torch import quantization as quantization  # usort: skip
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/quantization/__init__.py", line 2, in <module>
+    from .fake_quantize import *  # noqa: F403
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/quantization/fake_quantize.py", line 10, in <module>
+    from torch.ao.quantization.fake_quantize import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/__init__.py", line 12, in <module>
+    from .pt2e._numeric_debugger import (  # noqa: F401
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/pt2e/_numeric_debugger.py", line 9, in <module>
+    from torch.ao.quantization.pt2e.graph_utils import bfs_trace_with_node_process
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/pt2e/graph_utils.py", line 9, in <module>
+    from torch.export import ExportedProgram
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/export/__init__.py", line 60, in <module>
+    from .decomp_utils import CustomDecompTable
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/export/decomp_utils.py", line 5, in <module>
+    from torch._export.utils import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_export/__init__.py", line 48, in <module>
+    from .wrappers import _wrap_submodules
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_export/wrappers.py", line 7, in <module>
+    from torch._higher_order_ops.strict_mode import strict_mode
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/__init__.py", line 1, in <module>
+    from torch._higher_order_ops._invoke_quant import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/_invoke_quant.py", line 8, in <module>
+    from torch._higher_order_ops.base_hop import BaseHOP, FunctionWithNoFreeVars
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/base_hop.py", line 12, in <module>
+    from torch._subclasses.functional_tensor import disable_functional_mode
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py", line 46, in <module>
+    class FunctionalTensor(torch.Tensor):
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py", line 276, in FunctionalTensor
+    cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: 
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+ (Triggered internally at /home/corex/sw_home/apps/pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+2026-08-11 08:31:57,539 [ERROR] sglang_omni.relay.mooncake: Failed to import mooncake: No module named 'mooncake'. MooncakeRelay will not work. Install with: pip install mooncake-transfer-engine
+2026-08-11 08:31:57,540 [ERROR] sglang_omni.relay.nixl: Failed to import nixl: No module named 'nixl'. NixlRelay will not work.
+2026-08-11 08:31:57,565 [DEBUG] sglang_omni.utils.gpu_compat: NVML device count query failed: NVML Shared Library Not Found
+2026-08-11 08:31:57,566 [DEBUG] sglang_omni.utils.gpu_compat: NVML compute capability query failed for gpu_id=0: NVML Shared Library Not Found
+2026-08-11 08:31:57,568 [DEBUG] asyncio: Using selector: EpollSelector
+2026-08-11 08:31:57,570 [DEBUG] sglang_omni.pipeline.control_plane: PULL socket bound to ipc:///tmp/sglang_omni/mnt-moark-models-qwen3-asr-1-7b-azjd7df4/completion.sock
+2026-08-11 08:31:57,671 [DEBUG] sglang_omni.pipeline.control_plane: PUB socket bound to ipc:///tmp/sglang_omni/mnt-moark-models-qwen3-asr-1-7b-azjd7df4/abort.sock
+2026-08-11 08:31:57,671 [INFO] sglang_omni.pipeline.control_plane: Coordinator control plane started
+2026-08-11 08:31:57,671 [INFO] sglang_omni.pipeline.coordinator: Coordinator started
+2026-08-11 08:31:57,679 [DEBUG] sglang_omni.utils.gpu_compat: NVML device count query failed: NVML Shared Library Not Found
+2026-08-11 08:31:57,680 [DEBUG] sglang_omni.utils.gpu_compat: NVML compute capability query failed for gpu_id=0: NVML Shared Library Not Found
+==================== Merged Configuration ====================
+model_path: /mnt/moark-models/Qwen3-ASR-1.7B
+stages:
+- name: asr
+  factory: sglang_omni.models.qwen3_asr.stages.create_sglang_qwen3_asr_executor
+  factory_args:
+    device: cuda:0
+    max_running_requests: 64
+    max_new_tokens: 128
+    enable_torch_compile: true
+    torch_compile_max_bs: 2
+    request_build_max_workers: 8
+    request_build_max_pending: 32
+    prefill_coalesce_requests: 16
+    prefill_coalesce_wait_ms: 40
+    prefill_coalesce_when_idle: true
+    prefill_coalesce_requires_pending_builds: true
+    prefill_coalesce_after_builds_during_decode: true
+    enable_pre_lm_encoder: true
+    pre_lm_cache_max_entries: 4096
+    pre_lm_cache_size_bytes: 2147483648
+    pre_lm_max_batch_size: 8
+    pre_lm_max_batch_wait_ms: 0
+  next: null
+  terminal: true
+  route_fn: null
+  gpu: 0
+  tp_size: 1
+  parallelism:
+    tp: 1
+  process: asr
+  runtime:
+    resources:
+      total_gpu_memory_fraction: null
+    max_seq_len: null
+    video_fps: null
+    sglang_server_args:
+      mem_fraction_static: null
+  runtime_arg_map: {}
+  env: {}
+  wait_for: null
+  wait_for_fn: null
+  merge_fn: null
+  stream_to: []
+  stream_done_to_fn: null
+  can_accept_stream_before_payload: false
+  disable_direct_cuda_ipc_payload: false
+  project_payload: {}
+  comm: null
+name: /mnt/moark-models/Qwen3-ASR-1.7B
+entry_stage: asr
+fused_stages: []
+runtime_overrides: {}
+env_defaults: {}
+placement:
+  max_total_gpu_memory_fraction_per_gpu: 1.0
+  require_memory_fraction_for_colocation: true
+placement_policy: null
+endpoints:
+  base_path: /tmp/sglang_omni
+terminal_stages_fn: null
+config_cls: Qwen3ASRPipelineConfig
+
+==================================================
+2026-08-11 08:31:57,684 [INFO] sglang_omni.pipeline.stage_workers: StageGroup asr: spawned 1 process(es) (pids=[42345])
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.10/multiprocessing/spawn.py", line 116, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/usr/local/lib/python3.10/multiprocessing/spawn.py", line 125, in _main
+    prepare(preparation_data)
+  File "/usr/local/lib/python3.10/multiprocessing/spawn.py", line 236, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/usr/local/lib/python3.10/multiprocessing/spawn.py", line 287, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+  File "/usr/local/lib/python3.10/runpy.py", line 289, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "/usr/local/lib/python3.10/runpy.py", line 96, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "/usr/local/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/bin/sgl-omni", line 3, in <module>
+    from sglang_omni.cli import app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/__init__.py", line 4, in <module>
+    from .config import config_app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/config.py", line 9, in <module>
+    from sglang_omni.config.manager import resolve_config_cls_for_model_path
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/manager.py", line 5, in <module>
+    from transformers import AutoConfig
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2262, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2494, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 23, in <module>
+    from ...configuration_utils import PreTrainedConfig
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/configuration_utils.py", line 32, in <module>
+    from .generation.configuration_utils import GenerationConfig
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/generation/configuration_utils.py", line 61, in <module>
+    from .logits_process import SynthIDTextWatermarkLogitsProcessor, WatermarkLogitsProcessor
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/generation/logits_process.py", line 21, in <module>
+    import torch
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/__init__.py", line 2246, in <module>
+    from torch import quantization as quantization  # usort: skip
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/quantization/__init__.py", line 2, in <module>
+    from .fake_quantize import *  # noqa: F403
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/quantization/fake_quantize.py", line 10, in <module>
+    from torch.ao.quantization.fake_quantize import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/__init__.py", line 12, in <module>
+    from .pt2e._numeric_debugger import (  # noqa: F401
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/pt2e/_numeric_debugger.py", line 9, in <module>
+    from torch.ao.quantization.pt2e.graph_utils import bfs_trace_with_node_process
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/ao/quantization/pt2e/graph_utils.py", line 9, in <module>
+    from torch.export import ExportedProgram
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/export/__init__.py", line 60, in <module>
+    from .decomp_utils import CustomDecompTable
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/export/decomp_utils.py", line 5, in <module>
+    from torch._export.utils import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_export/__init__.py", line 48, in <module>
+    from .wrappers import _wrap_submodules
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_export/wrappers.py", line 7, in <module>
+    from torch._higher_order_ops.strict_mode import strict_mode
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/__init__.py", line 1, in <module>
+    from torch._higher_order_ops._invoke_quant import (
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/_invoke_quant.py", line 8, in <module>
+    from torch._higher_order_ops.base_hop import BaseHOP, FunctionWithNoFreeVars
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_higher_order_ops/base_hop.py", line 12, in <module>
+    from torch._subclasses.functional_tensor import disable_functional_mode
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py", line 46, in <module>
+    class FunctionalTensor(torch.Tensor):
+  File "/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py", line 276, in FunctionalTensor
+    cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/local/corex/lib64/python3/dist-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: 
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+ (Triggered internally at /home/corex/sw_home/apps/pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Failed to import mooncake: No module named 'mooncake'. MooncakeRelay will not work. Install with: pip install mooncake-transfer-engine
+Failed to import nixl: No module named 'nixl'. NixlRelay will not work.
+2026-08-11 08:32:05,188 [INFO] stage_workers.asr: Set current device to 0 for stage asr
+2026-08-11 08:32:05,188 [INFO] stage_workers.asr: Building scheduler for asr (tp_rank=0/1) ...
+2026-08-11 08:32:05,189 [INFO] stage_workers.asr: Acquired GPU startup lock for stage asr: /tmp/sglang_omni_gpu_0_startup.lock
+2026-08-11 08:32:05,355 [ERROR] stage_workers.asr: Stage process asr failed
+Traceback (most recent call last):
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", line 378, in stage_process_main
+    _run_process(spec, ready_event, log)
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", line 454, in _run_process
+    _construct_stage(
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", line 591, in _construct_stage
+    scheduler = _construct_scheduler(spec, gpu_id, log)
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", line 786, in _construct_scheduler
+    return factory(**factory_args)
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/models/qwen3_asr/stages.py", line 37, in create_sglang_qwen3_asr_executor
+    from sglang_omni.models.qwen3_asr.engine_builder import Qwen3ASREngineBuilder
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/models/qwen3_asr/engine_builder.py", line 9, in <module>
+    from sglang.srt.managers.mm_utils import init_mm_embedding_cache
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/managers/mm_utils.py", line 22, in <module>
+    from sglang.srt.managers.io_struct import (
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/managers/io_struct.py", line 55, in <module>
+    from sglang.srt.managers.schedule_batch import Modality
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/managers/schedule_batch.py", line 3, in <module>
+    from sglang.srt.dllm.config import DllmConfig
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/dllm/config.py", line 3, in <module>
+    from sglang.srt.configs.model_config import ModelConfig
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/configs/model_config.py", line 30, in <module>
+    from sglang.srt.layers.quantization import QUANTIZATION_METHODS
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/layers/quantization/__init__.py", line 21, in <module>
+    from sglang.srt.layers.quantization.auto_round import AutoRoundConfig
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/layers/quantization/auto_round.py", line 12, in <module>
+    from sglang.srt.layers.quantization.utils import get_scalar_types
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/layers/quantization/utils.py", line 15, in <module>
+    from sglang.kernels.ops.quantization.fp8_kernel import scaled_fp8_quant
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/kernels/ops/quantization/fp8_kernel.py", line 33, in <module>
+    from sglang.srt.layers import deep_gemm_wrapper
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/layers/deep_gemm_wrapper/__init__.py", line 1, in <module>
+    from .entrypoint import *
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/layers/deep_gemm_wrapper/entrypoint.py", line 8, in <module>
+    from sglang.srt.layers.deep_gemm_wrapper import compile_utils
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/layers/deep_gemm_wrapper/compile_utils.py", line 12, in <module>
+    from sglang.srt.distributed.device_communicators.pynccl_allocator import (
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/distributed/device_communicators/pynccl_allocator.py", line 9, in <module>
+    from torch.cuda.memory import (
+ImportError: cannot import name '_cuda_beginAllocateCurrentThreadToPool' from 'torch.cuda.memory' (/usr/local/corex/lib64/python3/dist-packages/torch/cuda/memory.py)
+
+2026-08-11 08:32:05,574 [WARNING] stage_workers.asr: Reclaiming CUDA memory after stage process asr exit after failure on gpu_ids=[0]
+2026-08-11 08:32:05,762 [WARNING] stage_workers.asr: CUDA memory reclaim complete after stage process asr exit after failure on gpu_ids=[0]
+2026-08-11 08:32:08,695 [INFO] sglang_omni.pipeline.coordinator: Coordinator completion loop cancelled
+2026-08-11 08:32:08,696 [INFO] sglang_omni.pipeline.coordinator: Coordinator stopped
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/serve.py:1475 in      │
+│ serve                                                                        │
+│                                                                              │
+│   1472 │   if _should_print_merged_config(colocate=colocate,                 │
+│        log_level=log_level):                                                 │
+│   1473 │   │   _print_merged_config(merged_config)                           │
+│   1474 │                                                                     │
+│ ❱ 1475 │   launch_server(                                                    │
+│   1476 │   │   merged_config,                                                │
+│   1477 │   │   host=host,                                                    │
+│   1478 │   │   port=port,                                                    │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/serve.py:71 in        │
+│ launch_server                                                                │
+│                                                                              │
+│     68 def launch_server(*args: object, **kwargs: object) -> object:         │
+│     69 │   from sglang_omni.serve.launcher import launch_server as           │
+│        _launch_server                                                        │
+│     70 │                                                                     │
+│ ❱   71 │   return _launch_server(*args, **kwargs)                            │
+│     72                                                                       │
+│     73                                                                       │
+│     74 def _normalize_stage_toggle_mode(flag_name: str, value: str) ->       │
+│        _STAGE_TOGGLE_MODE:                                                   │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/serve/launcher.py:530 in  │
+│ launch_server                                                                │
+│                                                                              │
+│   527 │   │   │   ``/v1/audio/speech/batch``.                                │
+│   528 │   """                                                                │
+│   529 │   apply_gpu_compat_env_defaults()                                    │
+│ ❱ 530 │   asyncio.run(                                                       │
+│   531 │   │   _run_server(                                                   │
+│   532 │   │   │   pipeline_config,                                           │
+│   533 │   │   │   host=host,                                                 │
+│                                                                              │
+│ /usr/local/lib/python3.10/asyncio/runners.py:44 in run                       │
+│                                                                              │
+│   41 │   │   events.set_event_loop(loop)                                     │
+│   42 │   │   if debug is not None:                                           │
+│   43 │   │   │   loop.set_debug(debug)                                       │
+│ ❱ 44 │   │   return loop.run_until_complete(main)                            │
+│   45 │   finally:                                                            │
+│   46 │   │   try:                                                            │
+│   47 │   │   │   _cancel_all_tasks(loop)                                     │
+│                                                                              │
+│ /usr/local/lib/python3.10/asyncio/base_events.py:649 in run_until_complete   │
+│                                                                              │
+│    646 │   │   if not future.done():                                         │
+│    647 │   │   │   raise RuntimeError('Event loop stopped before Future      │
+│        completed.')                                                          │
+│    648 │   │                                                                 │
+│ ❱  649 │   │   return future.result()                                        │
+│    650 │                                                                     │
+│    651 │   def stop(self):                                                   │
+│    652 │   │   """Stop running the event loop.                               │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/serve/launcher.py:388 in  │
+│ _run_server                                                                  │
+│                                                                              │
+│   385 │                                                                      │
+│   386 │   mp_runner = MultiProcessPipelineRunner(pipeline_config)            │
+│   387 │   startup_timeout =                                                  │
+│       float(os.environ.get("SGLANG_OMNI_STARTUP_TIMEOUT", "600"))            │
+│ ❱ 388 │   await mp_runner.start(timeout=startup_timeout)                     │
+│   389 │   coordinator = mp_runner.coordinator                                │
+│   390 │                                                                      │
+│   391 │   # Plans are resolved once inside ``mp_runner.start()`` (which      │
+│       applies                                                                │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/mp_runner.py:466 │
+│ in start                                                                     │
+│                                                                              │
+│   463 │   │   │   for group in self._groups:                                 │
+│   464 │   │   │   │   group.spawn(ctx)                                       │
+│   465 │   │   │                                                              │
+│ ❱ 466 │   │   │   await asyncio.gather(*(g.wait_ready(timeout) for g in      │
+│       self._groups))                                                         │
+│   467 │   │   │                                                              │
+│   468 │   │   │   for group in self._groups:                                 │
+│   469 │   │   │   │   if group.any_dead():                                   │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py │
+│ :307 in wait_ready                                                           │
+│                                                                              │
+│   304 │   │   │   │   │   │   pass                                           │
+│   305 │   │   │   │   │   else:                                              │
+│   306 │   │   │   │   │   │   details = f"\nStartup failure                  │
+│       detail:\n{traceback_text}"                                             │
+│ ❱ 307 │   │   │   │   │   raise RuntimeError(                                │
+│   308 │   │   │   │   │   │   f"Process {process_label} died during startup  │
+│       "                                                                      │
+│   309 │   │   │   │   │   │   f"(exit code {proc.exitcode}){details}"        │
+│   310 │   │   │   │   │   )                                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RuntimeError: Process asr died during startup (exit code 1)
+Startup failure detail:
+Traceback (most recent call last):
+  File 
+"/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", 
+line 378, in stage_process_main
+    _run_process(spec, ready_event, log)
+  File 
+"/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", 
+line 454, in _run_process
+    _construct_stage(
+  File 
+"/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", 
+line 591, in _construct_stage
+    scheduler = _construct_scheduler(spec, gpu_id, log)
+  File 
+"/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", 
+line 786, in _construct_scheduler
+    return factory(**factory_args)
+  File 
+"/data/src/sglang-omni-corex-probe/repo/sglang_omni/models/qwen3_asr/stages.py",
+line 37, in create_sglang_qwen3_asr_executor
+    from sglang_omni.models.qwen3_asr.engine_builder import 
+Qwen3ASREngineBuilder
+  File 
+"/data/src/sglang-omni-corex-probe/repo/sglang_omni/models/qwen3_asr/engine_buil
+der.py", line 9, in <module>
+    from sglang.srt.managers.mm_utils import init_mm_embedding_cache
+  File 
+"/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-pack
+ages/sglang/srt/managers/mm_utils.py", line 22, in <module>
+    from sglang.srt.managers.io_struct import (
+  File 
+"/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-pack
+ages/sglang/srt/managers/io_struct.py", line 55, in <module>
+    from sglang.srt.managers.schedule_batch import Modality
+  File 
+"/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-pack
+ages/sglang/srt/managers/schedule_batch.py", line 3, in <module>
+    from sglang.srt.dllm.config import DllmConfig
+  File 
+"/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-pack
+ages/sglang/srt/dllm/config.py", line 3, in <module>
+    from sglang.srt.configs.model_config import ModelConfig
+  File 
+"/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-pack
+ages/sglang/srt/configs/model_config.py", line 30, in <module>
+    from sglang.srt.layers.quantization import QUANTIZATION_METHODS
+  File 
+"/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-pack
+ages/sglang/srt/layers/quantization/__init__.py", line 21, in <module>
+    from sglang.srt.layers.quantization.auto_round import AutoRoundConfig
+  File 
+"/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-pack
+ages/sglang/srt/layers/quantization/auto_round.py", line 12, in <module>
+    from sglang.srt.layers.quantization.utils import get_scalar_types
+  File 
+"/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-pack
+ages/sglang/srt/layers/quantization/utils.py", line 15, in <module>
+    from sglang.kernels.ops.quantization.fp8_kernel import scaled_fp8_quant
+  File 
+"/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-pack
+ages/sglang/kernels/ops/quantization/fp8_kernel.py", line 33, in <module>
+    from sglang.srt.layers import deep_gemm_wrapper
+  File 
+"/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-pack
+ages/sglang/srt/layers/deep_gemm_wrapper/__init__.py", line 1, in <module>
+    from .entrypoint import *
+  File 
+"/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-pack
+ages/sglang/srt/layers/deep_gemm_wrapper/entrypoint.py", line 8, in <module>
+    from sglang.srt.layers.deep_gemm_wrapper import compile_utils
+  File 
+"/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-pack
+ages/sglang/srt/layers/deep_gemm_wrapper/compile_utils.py", line 12, in <module>
+    from sglang.srt.distributed.device_communicators.pynccl_allocator import (
+  File 
+"/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-pack
+ages/sglang/srt/distributed/device_communicators/pynccl_allocator.py", line 9, 
+in <module>
+    from torch.cuda.memory import (
+ImportError: cannot import name '_cuda_beginAllocateCurrentThreadToPool' from 
+'torch.cuda.memory' 
+(/usr/local/corex/lib64/python3/dist-packages/torch/cuda/memory.py)
+

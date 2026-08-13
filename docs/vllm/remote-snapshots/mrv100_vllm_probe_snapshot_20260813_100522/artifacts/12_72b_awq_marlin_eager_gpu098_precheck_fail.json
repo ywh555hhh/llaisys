@@ -1,0 +1,80 @@
+{
+  "model_id": "Qwen/Qwen2.5-72B-Instruct-AWQ",
+  "model_dir": "/data/models/Qwen2.5-72B-Instruct-AWQ",
+  "args": {
+    "model_dir": "/data/models/Qwen2.5-72B-Instruct-AWQ",
+    "model_id": "Qwen/Qwen2.5-72B-Instruct-AWQ",
+    "out": "/data/src/vllm-mrv100-probe/artifacts/10_awq_marlin_eager_Qwen2.5-72B-Instruct-AWQ.json",
+    "max_model_len": 128,
+    "gpu_memory_utilization": 0.98,
+    "dtype": "float16",
+    "quantization": "awq_marlin",
+    "cuda_graph": false,
+    "enforce_eager": true,
+    "max_tokens": 8,
+    "batch_size": 1
+  },
+  "env": {
+    "VLLM_TARGET_DEVICE": "cuda",
+    "VLLM_ATTENTION_BACKEND": null,
+    "VLLM_WORKER_MULTIPROC_METHOD": "spawn",
+    "VLLM_ENFORCE_CUDA_GRAPH": null
+  },
+  "model_config": {
+    "architectures": [
+      "Qwen2ForCausalLM"
+    ],
+    "model_type": "qwen2",
+    "hidden_size": 8192,
+    "intermediate_size": 29696,
+    "num_hidden_layers": 80,
+    "num_attention_heads": 64,
+    "num_key_value_heads": 8,
+    "vocab_size": 152064,
+    "max_position_embeddings": 32768,
+    "torch_dtype": "float16"
+  },
+  "ixsmi_before": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Wed Aug 12 08:40:36 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  38C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n|  No running processes found                                                    |\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 68 MiB, 32700 MiB, 0 %, 1 %, 37 W, 38 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  },
+  "ok": false,
+  "error": "RuntimeError('Engine core initialization failed. See root cause above. Failed core proc(s): {}')",
+  "traceback": "Traceback (most recent call last):\n  File \"/data/src/vllm-mrv100-probe/scripts/run_model_scale_probe.py\", line 123, in main\n    llm = LLM(\n          ^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/llm.py\", line 379, in __init__\n    self.llm_engine = LLMEngine.from_engine_args(\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/llm_engine.py\", line 177, in from_engine_args\n    return cls(\n           ^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/llm_engine.py\", line 111, in __init__\n    self.engine_core = EngineCoreClient.make_client(\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 98, in make_client\n    return SyncMPClient(vllm_config, executor_class, log_stats)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py\", line 178, in sync_wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 734, in __init__\n    super().__init__(\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core_client.py\", line 569, in __init__\n    with launch_core_engines(\n  File \"/usr/lib/python3.12/contextlib.py\", line 144, in __exit__\n    next(self.gen)\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py\", line 951, in launch_core_engines\n    wait_for_engine_startup(\n  File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py\", line 1010, in wait_for_engine_startup\n    raise RuntimeError(\nRuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}\n",
+  "ixsmi_after": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Wed Aug 12 08:41:26 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  38C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n|  No running processes found                                                    |\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 68 MiB, 32700 MiB, 0 %, 1 %, 37 W, 38 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  }
+}

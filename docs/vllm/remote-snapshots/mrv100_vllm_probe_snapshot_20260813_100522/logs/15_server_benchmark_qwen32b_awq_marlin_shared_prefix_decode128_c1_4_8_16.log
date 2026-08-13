@@ -1,0 +1,677 @@
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+{
+  "label": "qwen32b_awq_marlin_shared_prefix_decode128_c1_4_8_16",
+  "model": "qwen32b-awq",
+  "base_url": "http://127.0.0.1:8000/v1",
+  "tokenizer_dir": "/data/models/Qwen2.5-32B-Instruct-AWQ",
+  "prompt_tokens_target": 256,
+  "prompt_mode": "shared",
+  "seed": 20260812,
+  "max_tokens": 128,
+  "concurrency_list": [
+    1,
+    4,
+    8,
+    16
+  ],
+  "requests_per_concurrency": 1,
+  "ixsmi_before": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Wed Aug 12 10:04:54 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  40C   P0       38W / 150W   | 31684MiB / 32768MiB  | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 31684 MiB, 1084 MiB, 0 %, 97 %, 38 W, 40 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  },
+  "workloads": [
+    {
+      "concurrency": 1,
+      "requests_total": 1,
+      "elapsed_s": 5.72651494294405,
+      "ok_count": 1,
+      "error_count": 0,
+      "aggregate_output_tok_s": 20.431274722187194,
+      "aggregate_total_tok_s": 67.75499651460368,
+      "ttft_s": {
+        "count": 1,
+        "mean": 0.6345532387495041,
+        "p50": 0.6345532387495041,
+        "p90": 0.6345532387495041,
+        "p95": 0.6345532387495041,
+        "p99": 0.6345532387495041,
+        "min": 0.6345532387495041,
+        "max": 0.6345532387495041
+      },
+      "total_s": {
+        "count": 1,
+        "mean": 5.721385516226292,
+        "p50": 5.721385516226292,
+        "p90": 5.721385516226292,
+        "p95": 5.721385516226292,
+        "p99": 5.721385516226292,
+        "min": 5.721385516226292,
+        "max": 5.721385516226292
+      },
+      "tpot_s": {
+        "count": 1,
+        "mean": 0.043852002392041275,
+        "p50": 0.043852002392041275,
+        "p90": 0.043852002392041275,
+        "p95": 0.043852002392041275,
+        "p99": 0.043852002392041275,
+        "min": 0.043852002392041275,
+        "max": 0.043852002392041275
+      },
+      "per_request": [
+        {
+          "request_id": 0,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 117,
+          "ttft_s": 0.6345532387495041,
+          "total_s": 5.721385516226292,
+          "decode_s": 5.086832277476788,
+          "tpot_s": 0.043852002392041275,
+          "output_tok_s": 20.449592090618427,
+          "raw_events": 118,
+          "sample": " On the Iluvatar MR-V100 accelerator, vLLM serving demonstrates high inference throughput with efficient use of the KV cache, significantly reducing memory overhead and accelerating sequential token generation. CUDA Graphs further enhance p"
+        }
+      ]
+    },
+    {
+      "concurrency": 4,
+      "requests_total": 4,
+      "elapsed_s": 6.644515387713909,
+      "ok_count": 4,
+      "error_count": 0,
+      "aggregate_output_tok_s": 75.40053273507016,
+      "aggregate_total_tok_s": 238.5426035630463,
+      "ttft_s": {
+        "count": 4,
+        "mean": 0.24893029406666756,
+        "p50": 0.26191558316349983,
+        "p90": 0.26238391548395157,
+        "p95": 0.2624307759106159,
+        "p99": 0.2624682642519474,
+        "min": 0.2094123736023903,
+        "max": 0.2624776363372803
+      },
+      "total_s": {
+        "count": 4,
+        "mean": 6.508719636127353,
+        "p50": 6.633919708430767,
+        "p90": 6.638523896783591,
+        "p95": 6.638973190262914,
+        "p99": 6.6393326250463724,
+        "min": 6.12761664390564,
+        "max": 6.639422483742237
+      },
+      "tpot_s": {
+        "count": 4,
+        "mean": 0.0503944220351869,
+        "p50": 0.05020160160548105,
+        "p90": 0.0507776888364538,
+        "p95": 0.05089834558332711,
+        "p99": 0.05099487098082576,
+        "min": 0.05015548259958508,
+        "max": 0.05101900233020042
+      },
+      "per_request": [
+        {
+          "request_id": 0,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 117,
+          "ttft_s": 0.2094123736023903,
+          "total_s": 6.12761664390564,
+          "decode_s": 5.918204270303249,
+          "tpot_s": 0.05101900233020042,
+          "output_tok_s": 19.09388377230893,
+          "raw_events": 118,
+          "sample": " On the Iluvatar MR-V100 accelerator, vLLM serving demonstrates high inference throughput with efficient use of the KV cache, significantly reducing memory overhead and accelerating sequential token generation. CUDA Graphs further enhance p"
+        },
+        {
+          "request_id": 1,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.2624776363372803,
+          "total_s": 6.636427193880081,
+          "decode_s": 6.373949557542801,
+          "tpot_s": 0.0501885791932504,
+          "output_tok_s": 19.287486513532137,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 2,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.26216523349285126,
+          "total_s": 6.639422483742237,
+          "decode_s": 6.377257250249386,
+          "tpot_s": 0.0502146240177117,
+          "output_tok_s": 19.27878521263407,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 3,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.2616659328341484,
+          "total_s": 6.631412222981453,
+          "decode_s": 6.3697462901473045,
+          "tpot_s": 0.05015548259958508,
+          "output_tok_s": 19.30207257458831,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        }
+      ]
+    },
+    {
+      "concurrency": 8,
+      "requests_total": 8,
+      "elapsed_s": 12.764627605676651,
+      "ok_count": 8,
+      "error_count": 0,
+      "aggregate_output_tok_s": 79.35993366148037,
+      "aggregate_total_tok_s": 249.2042931660109,
+      "ttft_s": {
+        "count": 8,
+        "mean": 0.521730113774538,
+        "p50": 0.5348009876906872,
+        "p90": 0.5352237924933434,
+        "p95": 0.5353135444223881,
+        "p99": 0.5353853459656238,
+        "min": 0.4299019053578377,
+        "max": 0.5354032963514328
+      },
+      "total_s": {
+        "count": 8,
+        "mean": 12.685861336067319,
+        "p50": 12.75044123083353,
+        "p90": 12.759560143202542,
+        "p95": 12.760092659667135,
+        "p99": 12.760518672838808,
+        "min": 12.224076867103577,
+        "max": 12.760625176131725
+      },
+      "tpot_s": {
+        "count": 8,
+        "mean": 0.09688136114297875,
+        "p50": 0.09621189473064864,
+        "p90": 0.09788914788676212,
+        "p95": 0.09978153498538855,
+        "p99": 0.1012954446642897,
+        "min": 0.09611626802466985,
+        "max": 0.10167392208401499
+      },
+      "per_request": [
+        {
+          "request_id": 0,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 117,
+          "ttft_s": 0.4299019053578377,
+          "total_s": 12.224076867103577,
+          "decode_s": 11.794174961745739,
+          "tpot_s": 0.10167392208401499,
+          "output_tok_s": 9.57127489232833,
+          "raw_events": 118,
+          "sample": " On the Iluvatar MR-V100 accelerator, vLLM serving demonstrates high inference throughput with efficient use of the KV cache, significantly reducing memory overhead and accelerating sequential token generation. CUDA Graphs further enhance p"
+        },
+        {
+          "request_id": 1,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.5354032963514328,
+          "total_s": 12.759103700518608,
+          "decode_s": 12.223700404167175,
+          "tpot_s": 0.0962496094816313,
+          "output_tok_s": 10.032052642913882,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 2,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.5351468622684479,
+          "total_s": 12.752442054450512,
+          "decode_s": 12.217295192182064,
+          "tpot_s": 0.09619917474159105,
+          "output_tok_s": 10.037293206545401,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 3,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.5349195301532745,
+          "total_s": 12.745571479201317,
+          "decode_s": 12.210651949048042,
+          "tpot_s": 0.09614686574053577,
+          "output_tok_s": 10.042703868467179,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 4,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.5348987281322479,
+          "total_s": 12.755424797534943,
+          "decode_s": 12.220526069402695,
+          "tpot_s": 0.09622461471970625,
+          "output_tok_s": 10.034946074452709,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 5,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.534440167248249,
+          "total_s": 12.741206206381321,
+          "decode_s": 12.206766039133072,
+          "tpot_s": 0.09611626802466985,
+          "output_tok_s": 10.046144605672604,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 6,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.5347032472491264,
+          "total_s": 12.760625176131725,
+          "decode_s": 12.225921928882599,
+          "tpot_s": 0.09626710180222518,
+          "output_tok_s": 10.03085650062187,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 7,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.534427173435688,
+          "total_s": 12.748440407216549,
+          "decode_s": 12.214013233780861,
+          "tpot_s": 0.09617333254945559,
+          "output_tok_s": 10.040443843432225,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        }
+      ]
+    },
+    {
+      "concurrency": 16,
+      "requests_total": 16,
+      "elapsed_s": 14.263040035963058,
+      "ok_count": 16,
+      "error_count": 0,
+      "aggregate_output_tok_s": 139.8720044934162,
+      "aggregate_total_tok_s": 444.29518419788394,
+      "ttft_s": {
+        "count": 16,
+        "mean": 0.5624868823215365,
+        "p50": 0.5694535672664642,
+        "p90": 0.5705982409417629,
+        "p95": 0.5706463102251291,
+        "p99": 0.5706501234322786,
+        "min": 0.454662449657917,
+        "max": 0.570651076734066
+      },
+      "total_s": {
+        "count": 16,
+        "mean": 13.932599609252065,
+        "p50": 14.244049444794655,
+        "p90": 14.256993509829044,
+        "p95": 14.25817514769733,
+        "p99": 14.258467325195669,
+        "min": 12.929232388734818,
+        "max": 14.258540369570255
+      },
+      "tpot_s": {
+        "count": 16,
+        "mean": 0.10813056834869139,
+        "p50": 0.10774221705404792,
+        "p90": 0.109429660879603,
+        "p95": 0.10944004624307288,
+        "p99": 0.10945035681474656,
+        "min": 0.10757603021118585,
+        "max": 0.10945293445766499
+      },
+      "per_request": [
+        {
+          "request_id": 0,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 117,
+          "ttft_s": 0.454662449657917,
+          "total_s": 13.149209469556808,
+          "decode_s": 12.694547019898891,
+          "tpot_s": 0.10943575017154217,
+          "output_tok_s": 8.897873311006236,
+          "raw_events": 118,
+          "sample": " On the Iluvatar MR-V100 accelerator, vLLM serving demonstrates high inference throughput with efficient use of the KV cache, significantly reducing memory overhead and accelerating sequential token generation. CUDA Graphs further enhance p"
+        },
+        {
+          "request_id": 1,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.5706447213888168,
+          "total_s": 14.246047616004944,
+          "decode_s": 13.675402894616127,
+          "tpot_s": 0.1076803377528829,
+          "output_tok_s": 8.98494820810485,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 2,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.570651076734066,
+          "total_s": 14.252915248274803,
+          "decode_s": 13.682264171540737,
+          "tpot_s": 0.10773436355543888,
+          "output_tok_s": 8.980618895877694,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 3,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.570551760494709,
+          "total_s": 14.254810720682144,
+          "decode_s": 13.684258960187435,
+          "tpot_s": 0.10775007055265697,
+          "output_tok_s": 8.979424736540784,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 4,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.5704895108938217,
+          "total_s": 14.258053407073021,
+          "decode_s": 13.6875638961792,
+          "tpot_s": 0.10777609367070236,
+          "output_tok_s": 8.9773825602661,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 5,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.5701492428779602,
+          "total_s": 14.247868321835995,
+          "decode_s": 13.677719078958035,
+          "tpot_s": 0.10769857542486641,
+          "output_tok_s": 8.983800040026324,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 6,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.569591760635376,
+          "total_s": 14.231747597455978,
+          "decode_s": 13.662155836820602,
+          "tpot_s": 0.10757603021118585,
+          "output_tok_s": 8.993976257903904,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 7,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.570103794336319,
+          "total_s": 14.255933612585068,
+          "decode_s": 13.685829818248749,
+          "tpot_s": 0.10776243951376968,
+          "output_tok_s": 8.978717457480458,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 8,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.5698940232396126,
+          "total_s": 14.24983824789524,
+          "decode_s": 13.679944224655628,
+          "tpot_s": 0.10771609625713092,
+          "output_tok_s": 8.982558101591513,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 9,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 271,
+          "output_tokens": 128,
+          "ttft_s": 0.5692280828952789,
+          "total_s": 14.235461182892323,
+          "decode_s": 13.666233099997044,
+          "tpot_s": 0.10760813464564602,
+          "output_tok_s": 8.991630011525437,
+          "raw_events": 128,
+          "sample": " When benchmarking vLLM serving on the Iluvatar MR-V100, high inference throughput is achieved through efficient utilization of the KV cache, which significantly reduces redundant computations. CUDA Graphs further enhance performance by min"
+        },
+        {
+          "request_id": 10,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 272,
+          "output_tokens": 128,
+          "ttft_s": 0.5691184625029564,
+          "total_s": 14.238743908703327,
+          "decode_s": 13.66962544620037,
+          "tpot_s": 0.10763484603307379,
+          "output_tok_s": 8.989557001707219,
+          "raw_events": 128,
+          "sample": " On the Iluvatar MR-V100, vLLM achieves high inference throughput by efficiently managing the KV cache, which significantly reduces memory access latency and improves overall performance. Utilizing CUDA Graphs further optimizes execution by"
+        },
+        {
+          "request_id": 11,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 272,
+          "output_tokens": 128,
+          "ttft_s": 0.5690266713500023,
+          "total_s": 14.242051273584366,
+          "decode_s": 13.673024602234364,
+          "tpot_s": 0.10766161104121547,
+          "output_tok_s": 8.987469398976938,
+          "raw_events": 128,
+          "sample": " On the Iluvatar MR-V100, vLLM achieves high inference throughput by efficiently managing the KV cache, which significantly reduces memory access latency and improves overall performance. Utilizing CUDA Graphs further optimizes execution by"
+        },
+        {
+          "request_id": 12,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 272,
+          "output_tokens": 114,
+          "ttft_s": 0.569254145026207,
+          "total_s": 12.937435738742352,
+          "decode_s": 12.368181593716145,
+          "tpot_s": 0.10945293445766499,
+          "output_tok_s": 8.811637970777813,
+          "raw_events": 115,
+          "sample": " On the Iluvatar MR-V100, vLLM achieves high inference throughput by efficiently managing the KV cache, which significantly reduces memory access latency and improves overall performance. Utilizing CUDA Graphs further optimizes execution by"
+        },
+        {
+          "request_id": 13,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 272,
+          "output_tokens": 128,
+          "ttft_s": 0.5693153738975525,
+          "total_s": 14.258540369570255,
+          "decode_s": 13.689224995672703,
+          "tpot_s": 0.10778917319427325,
+          "output_tok_s": 8.977075961658048,
+          "raw_events": 128,
+          "sample": " On the Iluvatar MR-V100, vLLM achieves high inference throughput by efficiently managing the KV cache, which significantly reduces memory access latency and improves overall performance. Utilizing CUDA Graphs further optimizes execution by"
+        },
+        {
+          "request_id": 14,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 272,
+          "output_tokens": 114,
+          "ttft_s": 0.5682679861783981,
+          "total_s": 12.929232388734818,
+          "decode_s": 12.36096440255642,
+          "tpot_s": 0.10938906550934885,
+          "output_tok_s": 8.817228786090014,
+          "raw_events": 115,
+          "sample": " On the Iluvatar MR-V100, vLLM achieves high inference throughput by efficiently managing the KV cache, which significantly reduces memory access latency and improves overall performance. Utilizing CUDA Graphs further optimizes execution by"
+        },
+        {
+          "request_id": 15,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 272,
+          "output_tokens": 114,
+          "ttft_s": 0.5688410550355911,
+          "total_s": 12.933704644441605,
+          "decode_s": 12.364863589406013,
+          "tpot_s": 0.10942357158766383,
+          "output_tok_s": 8.81417993791846,
+          "raw_events": 115,
+          "sample": " On the Iluvatar MR-V100, vLLM achieves high inference throughput by efficiently managing the KV cache, which significantly reduces memory access latency and improves overall performance. Utilizing CUDA Graphs further optimizes execution by"
+        }
+      ]
+    }
+  ],
+  "ixsmi_after": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Wed Aug 12 10:05:34 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  50C   P0       97W / 150W   | 31696MiB / 32768MiB  | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 31696 MiB, 1072 MiB, 0 %, 97 %, 96 W, 49 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  }
+}
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+Timestamp    Wed Aug 12 10:05:36 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  46C   P0       43W / 150W   | 31696MiB / 32768MiB  | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
++--------------------------------------------------------------------------------+

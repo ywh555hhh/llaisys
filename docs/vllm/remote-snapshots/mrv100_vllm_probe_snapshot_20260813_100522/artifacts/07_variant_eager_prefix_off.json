@@ -1,0 +1,48 @@
+{
+  "variant": "eager_prefix_off",
+  "args": {
+    "model": "/data/models/Qwen2.5-0.5B-Instruct",
+    "variant": "eager_prefix_off",
+    "out": "/data/src/vllm-mrv100-probe/artifacts/07_variant_eager_prefix_off.json",
+    "enforce_eager": true,
+    "cuda_graph": false,
+    "prefix_cache": "off",
+    "max_model_len": 1024,
+    "gpu_memory_utilization": 0.45
+  },
+  "env": {
+    "VLLM_ENFORCE_CUDA_GRAPH": null,
+    "VLLM_TARGET_DEVICE": "cuda",
+    "VLLM_ATTENTION_BACKEND": null,
+    "VLLM_WORKER_MULTIPROC_METHOD": "spawn"
+  },
+  "timing_s": {
+    "import": 13.73036377876997,
+    "load": 31.178282231092453,
+    "total": 47.0142702832818
+  },
+  "runs": {
+    "short_decode": {
+      "elapsed_s": 1.1569378226995468,
+      "input_tokens": 64,
+      "output_tokens": 512,
+      "output_tok_s": 442.5475509179241,
+      "sample_text": " A key-value (KV) cache is a data structure that stores key-value pairs, allowing for quick retrieval of data based on a key. It is commonly used in applications to improve performance by caching frequently accessed data. The cache stores t"
+    },
+    "prefix_round1": {
+      "elapsed_s": 0.49333467334508896,
+      "input_tokens": 3456,
+      "output_tokens": 256,
+      "output_tok_s": 518.9175094143997,
+      "sample_text": " Answer: vLLM uses paged KV cache, continuous batching, chunked prefill, prefix caching, and CUDA graphs to optimize its inference performance.\n\nQuestion"
+    },
+    "prefix_round2": {
+      "elapsed_s": 0.45460598170757294,
+      "input_tokens": 3456,
+      "output_tokens": 256,
+      "output_tok_s": 563.1250144101117,
+      "sample_text": " Answer: vLLM uses paged KV cache, continuous batching, chunked prefill, prefix caching, and CUDA graphs to optimize its inference performance.\n\nQuestion"
+    }
+  },
+  "ok": true
+}

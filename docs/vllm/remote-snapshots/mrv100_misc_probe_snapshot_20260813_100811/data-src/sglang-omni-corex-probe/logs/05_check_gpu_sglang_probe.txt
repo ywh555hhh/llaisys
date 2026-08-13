@@ -1,0 +1,85 @@
+=== sgl-omni check-gpu help ===
+Ignore import error when loading sglang_omni.models.qwen3_omni.config: No module named 'sglang'
+                                                                                
+ Usage: sgl-omni check-gpu [OPTIONS]                                            
+                                                                                
+ Report GPU mapping, runtime versions, and installed backends.                  
+                                                                                
+╭─ Options ────────────────────────────────────────────────────────────────────╮
+│ --json            Emit the diagnostic report as machine-readable JSON.       │
+│ --strict          Exit nonzero when warnings are present or no CUDA GPU is   │
+│                   visible.                                                   │
+│ --help            Show this message and exit.                                │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+=== sgl-omni check-gpu ===
+Ignore import error when loading sglang_omni.models.qwen3_omni.config: No module named 'sglang'
+SGLang-Omni GPU diagnostics (no model loaded)
+CUDA_VISIBLE_DEVICES: <unset>
+Driver: unavailable
+CUDA driver/runtime: unavailable / unavailable
+PyTorch/CUDA build: 2.7.1 / 10.2
+GPUs:
+  logical 0 -> physical None visible=0 name=Iluvatar MR-V100 cc=7.1 memory=None/32.00GiB uuid=75401a56-2224-5257-8e2c-8f6dac7c37bc pci=unknown
+Backends:
+  attention/flash-attn-4: not installed; version=-
+  attention/flashinfer: not installed; version=-
+  attention/triton: not installed; version=-
+  attention/torch-sdpa: available; version=2.7.1+corex.4.4.0
+  gemm/sgl-deep-gemm: not installed; version=-
+  gemm/sglang-kernel: not installed; version=-
+  moe/quack-kernels: not installed; version=-
+  quantization/torchao: not installed; version=-
+  quantization/compressed-tensors: not installed; version=-
+  communication/nixl: not installed; version=-
+  communication/mooncake: not installed; version=-
+=== install sglang no-deps probe ===
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Collecting sglang==0.5.16
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/1f/dd/49339ffac2a729df1daf9ab9799293b91087032282099e8e57f89bd40964/sglang-0.5.16-cp310-cp310-manylinux_2_34_x86_64.whl (14.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.6/14.6 MB 6.3 MB/s  0:00:02
+Installing collected packages: sglang
+Successfully installed sglang-0.5.16
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 25.2 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+=== sglang import probe ===
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+ModuleNotFoundError: No module named 'orjson'
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+KeyError: 'sglang'
+sglang FAIL ModuleNotFoundError No module named 'orjson'
+sglang.srt OK None
+sglang.srt.server_args FAIL KeyError 'sglang'
+=== sgl-omni check-gpu after sglang ===
+Ignore import error when loading sglang_omni.models.qwen3_omni.config: No module named 'orjson'
+SGLang-Omni GPU diagnostics (no model loaded)
+CUDA_VISIBLE_DEVICES: <unset>
+Driver: unavailable
+CUDA driver/runtime: unavailable / unavailable
+PyTorch/CUDA build: 2.7.1 / 10.2
+GPUs:
+  logical 0 -> physical None visible=0 name=Iluvatar MR-V100 cc=7.1 memory=None/32.00GiB uuid=75401a56-2224-5257-8e2c-8f6dac7c37bc pci=unknown
+Backends:
+  attention/flash-attn-4: not installed; version=-
+  attention/flashinfer: not installed; version=-
+  attention/triton: not installed; version=-
+  attention/torch-sdpa: available; version=2.7.1+corex.4.4.0
+  gemm/sgl-deep-gemm: not installed; version=-
+  gemm/sglang-kernel: not installed; version=-
+  moe/quack-kernels: not installed; version=-
+  quantization/torchao: not installed; version=-
+  quantization/compressed-tensors: not installed; version=-
+  communication/nixl: not installed; version=-
+  communication/mooncake: not installed; version=-

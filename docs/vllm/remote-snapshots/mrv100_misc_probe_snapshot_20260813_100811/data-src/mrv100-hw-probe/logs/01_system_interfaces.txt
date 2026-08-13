@@ -1,0 +1,578 @@
+=== timestamp ===
+Tue Aug 11 09:24:11 EDT 2026
+b4bc82272198
+Linux b4bc82272198 5.4.0-148-generic #165-Ubuntu SMP Tue Apr 18 08:53:12 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+=== corex bin ===
+total 2.3G
+-rwxr-xr-x 1 root root  43M Feb 11 10:48 add-soft
+-rwxr-xr-x 1 root root  557 Feb 11 10:48 analyze-build
+-rwxr-xr-x 1 root root  53M Feb 11 10:48 bugpoint
+-rwxr-xr-x 1 root root  47M Feb 11 10:48 c-index-test
+lrwxrwxrwx 1 root root    8 Feb 11 10:48 clang -> clang-18
+lrwxrwxrwx 1 root root    5 Feb 11 10:48 clang++ -> clang
+-rwxr-xr-x 1 root root 139M Feb 11 10:48 clang-18
+-rwxr-xr-x 1 root root  90M Feb 11 10:48 clang-check
+lrwxrwxrwx 1 root root    5 Feb 11 10:48 clang-cl -> clang
+lrwxrwxrwx 1 root root    5 Feb 11 10:48 clang-cpp -> clang
+-rwxr-xr-x 1 root root  48M Feb 11 10:48 clang-extdef-mapping
+-rwxr-xr-x 1 root root 4.1M Feb 11 10:48 clang-format
+-rwxr-xr-x 1 root root 5.3M Feb 11 10:48 clang-offload-bundler
+-rwxr-xr-x 1 root root  45M Feb 11 10:48 clang-refactor
+-rwxr-xr-x 1 root root  44M Feb 11 10:48 clang-rename
+-rwxr-xr-x 1 root root 140M Feb 11 10:48 clang-repl
+-rwxr-xr-x 1 root root  79M Feb 11 10:48 clang-scan-deps
+-rwxr-xr-x 1 root root 901K Feb 11 10:48 corex-uninstaller
+-rwxr-xr-x 1 root root  14M Feb 11 10:48 diagtool
+-rwxr-xr-x 1 root root  41M Feb 11 10:48 dsymutil
+-rwxr-xr-x 1 root root 1.6M Feb 11 10:48 fatbinary
+-rwxr-xr-x 1 root root 591K Feb 11 10:48 gdbserver
+-rwxr-xr-x 1 root root  25K Feb 11 10:48 git-clang-format
+-rwxr-xr-x 1 root root 9.8K Feb 11 10:48 hmaptool
+-rwxr-xr-x 1 root root  563 Feb 11 10:48 intercept-build
+-rwxr-xr-x 1 root root 261K Feb 11 10:48 io_demo
+-rwxr-xr-x 1 root root 983K Feb 11 10:48 ixAssembler
+-rwxr-xr-x 1 root root 8.3M Feb 11 10:48 ixgdb
+-rwxr-xr-x 1 root root 8.8M Feb 11 10:48 ixgdb_py_tui
+-rwxr-xr-x 1 root root 2.7M Feb 11 10:48 ixkn-cli
+-rwxr-xr-x 1 root root 5.2K Feb 11 10:48 ixlw_parseDump.py
+-rwxr-xr-x 1 root root  222 Feb 11 10:48 ixlw_run.sh
+-rwxr-xr-x 1 root root 1.7M Feb 11 10:48 ixobjdump
+-rwxr-xr-x 1 root root 2.0M Feb 11 10:48 ixsan
+-rwxr-xr-x 1 root root 956K Feb 11 10:48 ixsmi
+-rwxr-xr-x 1 root root  18M Feb 11 10:48 ixsys
+lrwxrwxrwx 1 root root    3 Feb 11 10:48 ld.lld -> lld
+lrwxrwxrwx 1 root root    3 Feb 11 10:48 ld64.lld -> lld
+-rwxr-xr-x 1 root root  66M Feb 11 10:48 llc
+-rwxr-xr-x 1 root root  73M Feb 11 10:48 lld
+lrwxrwxrwx 1 root root    3 Feb 11 10:48 lld-link -> lld
+-rwxr-xr-x 1 root root  47M Feb 11 10:48 lli
+lrwxrwxrwx 1 root root   15 Feb 11 10:48 llvm-addr2line -> llvm-symbolizer
+-rwxr-xr-x 1 root root  11M Feb 11 10:48 llvm-ar
+-rwxr-xr-x 1 root root 4.7M Feb 11 10:48 llvm-as
+-rwxr-xr-x 1 root root 689K Feb 11 10:48 llvm-bcanalyzer
+lrwxrwxrwx 1 root root   12 Feb 11 10:48 llvm-bitcode-strip -> llvm-objcopy
+-rwxr-xr-x 1 root root  39M Feb 11 10:48 llvm-c-test
+-rwxr-xr-x 1 root root 4.2M Feb 11 10:48 llvm-cat
+-rwxr-xr-x 1 root root  15M Feb 11 10:48 llvm-cfi-verify
+-rwxr-xr-x 1 root root 293K Feb 11 10:48 llvm-config
+-rwxr-xr-x 1 root root 6.3M Feb 11 10:48 llvm-cov
+-rwxr-xr-x 1 root root 689K Feb 11 10:48 llvm-cvtres
+-rwxr-xr-x 1 root root 5.2M Feb 11 10:48 llvm-cxxdump
+-rwxr-xr-x 1 root root 610K Feb 11 10:48 llvm-cxxfilt
+-rwxr-xr-x 1 root root 678K Feb 11 10:48 llvm-cxxmap
+-rwxr-xr-x 1 root root  15M Feb 11 10:48 llvm-debuginfo-analyzer
+-rwxr-xr-x 1 root root 5.2M Feb 11 10:48 llvm-debuginfod
+-rwxr-xr-x 1 root root 738K Feb 11 10:48 llvm-debuginfod-find
+-rwxr-xr-x 1 root root 3.9M Feb 11 10:48 llvm-diff
+-rwxr-xr-x 1 root root 3.6M Feb 11 10:48 llvm-dis
+lrwxrwxrwx 1 root root    7 Feb 11 10:48 llvm-dlltool -> llvm-ar
+-rwxr-xr-x 1 root root  10M Feb 11 10:48 llvm-dwarfdump
+-rwxr-xr-x 1 root root  41M Feb 11 10:48 llvm-dwarfutil
+-rwxr-xr-x 1 root root  39M Feb 11 10:48 llvm-dwp
+-rwxr-xr-x 1 root root  44M Feb 11 10:48 llvm-exegesis
+-rwxr-xr-x 1 root root  12M Feb 11 10:48 llvm-extract
+-rwxr-xr-x 1 root root  37M Feb 11 10:48 llvm-gsymutil
+-rwxr-xr-x 1 root root 5.4M Feb 11 10:48 llvm-ifs
+lrwxrwxrwx 1 root root   12 Feb 11 10:48 llvm-install-name-tool -> llvm-objcopy
+-rwxr-xr-x 1 root root  27M Feb 11 10:48 llvm-jitlink
+lrwxrwxrwx 1 root root    7 Feb 11 10:48 llvm-lib -> llvm-ar
+-rwxr-xr-x 1 root root  11M Feb 11 10:48 llvm-libtool-darwin
+-rwxr-xr-x 1 root root 5.5M Feb 11 10:48 llvm-link
+-rwxr-xr-x 1 root root  11M Feb 11 10:48 llvm-lipo
+-rwxr-xr-x 1 root root  57M Feb 11 10:48 llvm-lto
+-rwxr-xr-x 1 root root  65M Feb 11 10:48 llvm-lto2
+-rwxr-xr-x 1 root root 9.4M Feb 11 10:48 llvm-mc
+-rwxr-xr-x 1 root root 7.0M Feb 11 10:48 llvm-mca
+-rwxr-xr-x 1 root root 9.3M Feb 11 10:48 llvm-ml
+-rwxr-xr-x 1 root root 4.3M Feb 11 10:48 llvm-modextract
+-rwxr-xr-x 1 root root 441K Feb 11 10:48 llvm-mt
+-rwxr-xr-x 1 root root  12M Feb 11 10:48 llvm-nm
+-rwxr-xr-x 1 root root 6.1M Feb 11 10:48 llvm-objcopy
+-rwxr-xr-x 1 root root  15M Feb 11 10:48 llvm-objdump
+-rwxr-xr-x 1 root root 777K Feb 11 10:48 llvm-opt-report
+lrwxrwxrwx 1 root root   12 Feb 11 10:48 llvm-otool -> llvm-objdump
+-rwxr-xr-x 1 root root 8.0M Feb 11 10:48 llvm-pdbutil
+-rwxr-xr-x 1 root root 7.2M Feb 11 10:48 llvm-profdata
+-rwxr-xr-x 1 root root  15M Feb 11 10:48 llvm-profgen
+lrwxrwxrwx 1 root root    7 Feb 11 10:48 llvm-ranlib -> llvm-ar
+-rwxr-xr-x 1 root root 943K Feb 11 10:48 llvm-rc
+lrwxrwxrwx 1 root root   12 Feb 11 10:48 llvm-readelf -> llvm-readobj
+-rwxr-xr-x 1 root root 8.8M Feb 11 10:48 llvm-readobj
+-rwxr-xr-x 1 root root 5.4M Feb 11 10:48 llvm-readtapi
+-rwxr-xr-x 1 root root  56M Feb 11 10:48 llvm-reduce
+-rwxr-xr-x 1 root root 1.1M Feb 11 10:48 llvm-remarkutil
+-rwxr-xr-x 1 root root 9.3M Feb 11 10:48 llvm-rtdyld
+-rwxr-xr-x 1 root root 4.1M Feb 11 10:48 llvm-sim
+-rwxr-xr-x 1 root root 5.2M Feb 11 10:48 llvm-size
+-rwxr-xr-x 1 root root 5.0M Feb 11 10:48 llvm-split
+-rwxr-xr-x 1 root root 2.8M Feb 11 10:48 llvm-stress
+-rwxr-xr-x 1 root root 534K Feb 11 10:48 llvm-strings
+lrwxrwxrwx 1 root root   12 Feb 11 10:48 llvm-strip -> llvm-objcopy
+-rwxr-xr-x 1 root root 7.3M Feb 11 10:48 llvm-symbolizer
+-rwxr-xr-x 1 root root 4.7M Feb 11 10:48 llvm-tblgen
+-rwxr-xr-x 1 root root 5.3M Feb 11 10:48 llvm-tli-checker
+-rwxr-xr-x 1 root root 660K Feb 11 10:48 llvm-undname
+lrwxrwxrwx 1 root root    7 Feb 11 10:48 llvm-windres -> llvm-rc
+-rwxr-xr-x 1 root root 7.6M Feb 11 10:48 llvm-xray
+-rwxr-xr-x 1 root root 2.2M Feb 11 10:48 mlir-cat
+-rwxr-xr-x 1 root root 110M Feb 11 10:48 mlir-cpu-runner
+-rwxr-xr-x 1 root root 2.3M Feb 11 10:48 mlir-linalg-ods-yaml-gen
+-rwxr-xr-x 1 root root  68M Feb 11 10:48 mlir-lsp-server
+-rwxr-xr-x 1 root root 3.6M Feb 11 10:48 mlir-minimal-opt
+-rwxr-xr-x 1 root root 5.5M Feb 11 10:48 mlir-minimal-opt-canonicalize
+-rwxr-xr-x 1 root root 154M Feb 11 10:48 mlir-opt
+-rwxr-xr-x 1 root root 3.3M Feb 11 10:48 mlir-pdll
+-rwxr-xr-x 1 root root 3.7M Feb 11 10:48 mlir-pdll-lsp-server
+-rwxr-xr-x 1 root root  59M Feb 11 10:48 mlir-query
+-rwxr-xr-x 1 root root  73M Feb 11 10:48 mlir-reduce
+-rwxr-xr-x 1 root root 2.6M Feb 11 10:48 mlir-tblgen
+-rwxr-xr-x 1 root root  44M Feb 11 10:48 mlir-translate
+-rwxr-xr-x 1 root root  194 Feb 11 10:48 nvcc
+-rwxr-xr-x 1 root root  66M Feb 11 10:48 opt
+-rwxr-xr-x 1 root root  14M Feb 11 10:48 sancov
+-rwxr-xr-x 1 root root 7.0M Feb 11 10:48 sanstats
+-rwxr-xr-x 1 root root  56K Feb 11 10:48 scan-build
+-rwxr-xr-x 1 root root  551 Feb 11 10:48 scan-build-py
+-rwxr-xr-x 1 root root 4.6K Feb 11 10:48 scan-view
+-rwxr-xr-x 1 root root 328K Feb 11 10:48 split-file
+-rwxr-xr-x 1 root root 1.1M Feb 11 10:48 tblgen-lsp-server
+-rwxr-xr-x 1 root root 2.8M Feb 11 10:48 tblgen-to-irdl
+-rwxr-xr-x 1 root root  83K Feb 11 10:48 ucx_info
+-rwxr-xr-x 1 root root 846K Feb 11 10:48 ucx_perftest
+-rwxr-xr-x 1 root root  28K Feb 11 10:48 ucx_perftest_daemon
+-rwxr-xr-x 1 root root  27K Feb 11 10:48 ucx_read_profile
+-rwxr-xr-x 1 root root 5.1M Feb 11 10:48 verify-uselistorder
+lrwxrwxrwx 1 root root    3 Feb 11 10:48 wasm-ld -> lld
+=== ixsmi help variants ===
+Iluvatar System Management Interface, ixsmi
+Usage: /usr/local/corex/bin/ixsmi [OPTIONS] [SUBCOMMAND]
+
+Options:
+  -h,--help                   Print this help message and exit.
+                              
+  -i,--id TEXT                Target a specific GPU. Comma separated Enumeration index, PCI bus ID or UUID.
+                              
+  -L,--list-gpus              List each of the Iluvatar GPUs in the system, along with their UUIDs.
+                              
+  -q,--query                  Display GPU or Unit info. Displayed info includes all data listed in
+                              the (GPU ATTRIBUTES) or (UNIT ATTRIBUTES) sections of this document.
+                              Some devices and/or environments don't support all possible information.
+                              Any unsupported data is indicated by a "N/A" in the output.
+                              By default information for all available GPUs or Units is displayed.
+                              Use the -i option to restrict the output to a single GPU or Unit.
+                              
+  -f,--filename TEXT          Redirect query output to the specified file in place of the deault stdout.
+                              The specified file will be overwritten.
+                              
+  -x,--xml-format             Produce XML output in place of the default human-readable format. These are
+                              available via the --dtd flag.
+  --dtd                       Use with -x. Embed the DTD in the XML output.
+                              
+  -d,--display TEXT           Display only selected information: MEMORY, UTILIZATION, ECC,
+                              TEMPERATURE, POWER, CLOCK, COMPUTE, PIDS, PERFORMANCE.
+                              Flags can be combined with comma e.g. "MEMORY,ECC".
+                              
+  -l,--loop                   Probe until Ctrl+C at specified second interval.
+                              If no argument is specified for the -l form a default interval of 5 seconds is used.
+                              
+  --lms,--loop-ms             Probe until Ctrl+C at specified millisecond interval.
+                              If no argument is specified for the --lms form a default interval of 100 milliseconds is used.
+                              
+  --query-gpu TEXT            Information about GPU. Pass comma separated list of properties you want to query.
+                              e.g. --query-gpu=pci.bus_id,pci.device_id --format=csv. Call --help-query-gpu for more info.
+                              
+  --query-compute-apps TEXT   List of currently active compute processes. Pass comma separated list of properties you want to query.
+                              e.g. --query-compute-apps=pid,name --format=csv. Call --help-query-compute-apps for more info.
+                              
+  --format TEXT               Comma separated list of format options:
+                                csv - comma separated values (MANDATORY)
+                                noheader - skip the first line with column headers
+                                nounits - don't print units for numerical values
+                              
+  -r,--gpu-reset              Trigger a reset of the GPU. Can be used to clear GPU HW and SW state in situations that would
+                              otherwise require a machine reboot. Typically useful if a double bit ECC error has occurred.
+                              Requires -i switch to target specific device. Requires root. There can't be any applications using
+                              this particular device (e.g. CUDA application, graphics application like X server, monitoring
+                              application like other instance of ixsmi). There also can't be any compute applications running
+                              on any other GPU in the system.
+                              
+  --pl,--power-limit TEXT     Specifies maximum power management limit in watts.
+                              
+  --dm,--dvfs-mode TEXT       Set Dynamic Voltage and Frequency Scaling: 0/DISABLED, 1/ENABLED.
+                              
+  -c,--compute-mode TEXT      Set MODE for compute applications: 0/DEFAULT, 3/EXCLUSIVE_PROCESS.
+                              
+
+
+Device Monitoring:
+  dmon                        Displays device stats in scrolling format. "ixsmi dmon -h" for more information.
+
+Process Monitoring:
+  pmon                        Displays process stats in scrolling format. "ixsmi pmon -h" for more information.
+
+TOPOLOGY:
+  topo                        Displays device/system topology. "ixsmi topo -h" for more information.
+
+IXLINK:
+  ixlink                      Displays device ixlink information. "ixsmi ixlink -h" for more information.
+
+GRID vGPU:
+  vgpu                        Displays vGPU information. "ixsmi vgpu -h" for more information.
+
+Iluvatar System Management Interface, ixsmi
+Usage: /usr/local/corex/bin/ixsmi [OPTIONS] [SUBCOMMAND]
+
+Options:
+  -h,--help                   Print this help message and exit.
+                              
+  -i,--id TEXT                Target a specific GPU. Comma separated Enumeration index, PCI bus ID or UUID.
+                              
+  -L,--list-gpus              List each of the Iluvatar GPUs in the system, along with their UUIDs.
+                              
+  -q,--query                  Display GPU or Unit info. Displayed info includes all data listed in
+                              the (GPU ATTRIBUTES) or (UNIT ATTRIBUTES) sections of this document.
+                              Some devices and/or environments don't support all possible information.
+                              Any unsupported data is indicated by a "N/A" in the output.
+                              By default information for all available GPUs or Units is displayed.
+                              Use the -i option to restrict the output to a single GPU or Unit.
+                              
+  -f,--filename TEXT          Redirect query output to the specified file in place of the deault stdout.
+                              The specified file will be overwritten.
+                              
+  -x,--xml-format             Produce XML output in place of the default human-readable format. These are
+                              available via the --dtd flag.
+  --dtd                       Use with -x. Embed the DTD in the XML output.
+                              
+  -d,--display TEXT           Display only selected information: MEMORY, UTILIZATION, ECC,
+                              TEMPERATURE, POWER, CLOCK, COMPUTE, PIDS, PERFORMANCE.
+                              Flags can be combined with comma e.g. "MEMORY,ECC".
+                              
+  -l,--loop                   Probe until Ctrl+C at specified second interval.
+                              If no argument is specified for the -l form a default interval of 5 seconds is used.
+                              
+  --lms,--loop-ms             Probe until Ctrl+C at specified millisecond interval.
+                              If no argument is specified for the --lms form a default interval of 100 milliseconds is used.
+                              
+  --query-gpu TEXT            Information about GPU. Pass comma separated list of properties you want to query.
+                              e.g. --query-gpu=pci.bus_id,pci.device_id --format=csv. Call --help-query-gpu for more info.
+                              
+  --query-compute-apps TEXT   List of currently active compute processes. Pass comma separated list of properties you want to query.
+                              e.g. --query-compute-apps=pid,name --format=csv. Call --help-query-compute-apps for more info.
+                              
+  --format TEXT               Comma separated list of format options:
+                                csv - comma separated values (MANDATORY)
+                                noheader - skip the first line with column headers
+                                nounits - don't print units for numerical values
+                              
+  -r,--gpu-reset              Trigger a reset of the GPU. Can be used to clear GPU HW and SW state in situations that would
+                              otherwise require a machine reboot. Typically useful if a double bit ECC error has occurred.
+                              Requires -i switch to target specific device. Requires root. There can't be any applications using
+                              this particular device (e.g. CUDA application, graphics application like X server, monitoring
+                              application like other instance of ixsmi). There also can't be any compute applications running
+                              on any other GPU in the system.
+                              
+  --pl,--power-limit TEXT     Specifies maximum power management limit in watts.
+                              
+  --dm,--dvfs-mode TEXT       Set Dynamic Voltage and Frequency Scaling: 0/DISABLED, 1/ENABLED.
+                              
+  -c,--compute-mode TEXT      Set MODE for compute applications: 0/DEFAULT, 3/EXCLUSIVE_PROCESS.
+                              
+
+
+Device Monitoring:
+  dmon                        Displays device stats in scrolling format. "ixsmi dmon -h" for more information.
+
+Process Monitoring:
+  pmon                        Displays process stats in scrolling format. "ixsmi pmon -h" for more information.
+
+TOPOLOGY:
+  topo                        Displays device/system topology. "ixsmi topo -h" for more information.
+
+IXLINK:
+  ixlink                      Displays device ixlink information. "ixsmi ixlink -h" for more information.
+
+GRID vGPU:
+  vgpu                        Displays vGPU information. "ixsmi vgpu -h" for more information.
+
+=== ixsmi normal ===
+Timestamp    Tue Aug 11 09:24:11 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  35C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
+|  No running processes found                                                    |
++--------------------------------------------------------------------------------+
+=== ixsmi query attempts ===
+--- ixsmi -q
+
+==============IXSMI LOG==============
+Timestamp                                       : Tue Aug 11 09:24:12 2026
+Driver Version                                  : 4.4.0
+CUDA Version                                    : 10.2
+
+Attached GPU device count                       : 1
+GPU 00000000:15:00.0
+    Product Name                                : Iluvatar MR-V100
+    Serial Number                               : 23230261115496
+    GPU UUID                                    : GPU-75401a56-2224-5257-8e2c-8f6dac7c37bc
+    Minor Number                                : 3
+    VBIOS Version                               : 2.0.17
+    MultiGPU Board                              : No
+    Board ID                                    : 0x1400
+    Board Part Number                           : MR-V100-00
+    GPU Position                                : N/A
+    GPU Virtualization Mode
+        Virtualization Mode                     : None
+        Host VGPU Mode                          : N/A
+    PCI
+        Bus                                     : 0x15
+        Device                                  : 0x00
+        Domain                                  : 0x0000
+        Device Id                               : 0x00021E3E
+        Bus Id                                  : 00000000:15:00.0
+        Sub System Id                           : 0x00010000
+        GPU Link Info                           
+            PCIe Generation                     
+                Max                             : 4
+                Current                         : 4
+            Link Width                          
+                Max                             : 16x
+                Current                         : 16x
+        Tx Throughput                           : 0 KB/s
+        Rx Throughput                           : 0 KB/s
+    Fan Speed                                   : N/A
+    Memory Usage
+        Total                                   : 32768 MiB
+        Used                                    : 68 MiB
+        Free                                    : 32700 MiB
+    Utilization
+        Gpu                                     : 0 %
+        Memory                                  : 1 %
+        Encoder                                 : 0 %
+        Decoder                                 : 0 %
+    Ecc Mode
+        Current                                 : Enabled
+        Pending                                 : N/A
+    ECC Errors
+        Single Bit ECC                          : 0
+        Double Bit ECC                          : 0
+    Temperature
+        GPU Current Temp                        : 35 C
+        GPU Shutdown Temp                       : 105 C
+        GPU Slowdown Temp                       : 100 C
+        GPU Max Operating Temp                  : 95 C
+        Memory Current Temp                     : 34 C
+    Power Readings
+        GPU Power Draw                          : 37 W
+        Current GPU Power Limit                 : 150 W
+        Default GPU Power Limit                 : 150 W
+        Board Power Draw                        : N/A
+        Current Board Power Limit               : N/A
+        Default Board Power Limit               : N/A
+    Clocks
+        SM                                      : 1500 MHz
+        Memory                                  : 1600 MHz
+    Max Clocks
+        SM                                      : 1600 MHz
+        Memory                                  : 1600 MHz
+    Compute Mode                                : Default
+    Performance State                           : P0
+    Processes                                   : None
+
+--- ixsmi --query
+
+==============IXSMI LOG==============
+Timestamp                                       : Tue Aug 11 09:24:12 2026
+Driver Version                                  : 4.4.0
+CUDA Version                                    : 10.2
+
+Attached GPU device count                       : 1
+GPU 00000000:15:00.0
+    Product Name                                : Iluvatar MR-V100
+    Serial Number                               : 23230261115496
+    GPU UUID                                    : GPU-75401a56-2224-5257-8e2c-8f6dac7c37bc
+    Minor Number                                : 3
+    VBIOS Version                               : 2.0.17
+    MultiGPU Board                              : No
+    Board ID                                    : 0x1400
+    Board Part Number                           : MR-V100-00
+    GPU Position                                : N/A
+    GPU Virtualization Mode
+        Virtualization Mode                     : None
+        Host VGPU Mode                          : N/A
+    PCI
+        Bus                                     : 0x15
+        Device                                  : 0x00
+        Domain                                  : 0x0000
+        Device Id                               : 0x00021E3E
+        Bus Id                                  : 00000000:15:00.0
+        Sub System Id                           : 0x00010000
+        GPU Link Info                           
+            PCIe Generation                     
+                Max                             : 4
+                Current                         : 4
+            Link Width                          
+                Max                             : 16x
+                Current                         : 16x
+        Tx Throughput                           : 0 KB/s
+        Rx Throughput                           : 0 KB/s
+    Fan Speed                                   : N/A
+    Memory Usage
+        Total                                   : 32768 MiB
+        Used                                    : 68 MiB
+        Free                                    : 32700 MiB
+    Utilization
+        Gpu                                     : 0 %
+        Memory                                  : 1 %
+        Encoder                                 : 0 %
+        Decoder                                 : 0 %
+    Ecc Mode
+        Current                                 : Enabled
+        Pending                                 : N/A
+    ECC Errors
+        Single Bit ECC                          : 0
+        Double Bit ECC                          : 0
+    Temperature
+        GPU Current Temp                        : 35 C
+        GPU Shutdown Temp                       : 105 C
+        GPU Slowdown Temp                       : 100 C
+        GPU Max Operating Temp                  : 95 C
+        Memory Current Temp                     : 34 C
+    Power Readings
+        GPU Power Draw                          : 37 W
+        Current GPU Power Limit                 : 150 W
+        Default GPU Power Limit                 : 150 W
+        Board Power Draw                        : N/A
+        Current Board Power Limit               : N/A
+        Default Board Power Limit               : N/A
+    Clocks
+        SM                                      : 1500 MHz
+        Memory                                  : 1600 MHz
+    Max Clocks
+        SM                                      : 1600 MHz
+        Memory                                  : 1600 MHz
+    Compute Mode                                : Default
+    Performance State                           : P0
+    Processes                                   : None
+
+--- ixsmi --list-gpus
+GPU  0: Iluvatar MR-V100 (UUID: GPU-75401a56-2224-5257-8e2c-8f6dac7c37bc)
+--- ixsmi --display=MEMORY
+Invalid combination of input arguments: Specify -q/--query and -d/--display to run a filtered query
+Run with --help for more information.
+
+--- ixsmi --display=CLOCK
+Invalid combination of input arguments: Specify -q/--query and -d/--display to run a filtered query
+Run with --help for more information.
+
+--- ixsmi --display=PERFORMANCE
+Invalid combination of input arguments: Specify -q/--query and -d/--display to run a filtered query
+Run with --help for more information.
+
+--- ixsmi --display=PCI
+Invalid combination of input arguments: Specify -q/--query and -d/--display to run a filtered query
+Run with --help for more information.
+
+=== lspci gpu ===
+/usr/bin/lspci
+04:00.0 VGA compatible controller [0300]: ASPEED Technology, Inc. ASPEED Graphics Family [1a03:2000] (rev 41)
+15:00.0 Processing accelerators [1200]: Device [1e3e:0002]
+6a:00.0 Non-Volatile memory controller [0108]: Intel Corporation NVMe Datacenter SSD [3DNAND, Beta Rock Controller] [8086:0a54]
+=== lspci verbose 15:00 ===
+lspci: Unable to load libkmod resources: error -12
+15:00.0 Processing accelerators: Device 1e3e:0002
+	Physical Slot: 14
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr+ Stepping- SERR+ FastB2B- DisINTx+
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0, Cache Line Size: 32 bytes
+	Interrupt: pin A routed to IRQ 16
+	NUMA node: 0
+	Region 0: Memory at 214000000000 (64-bit, prefetchable) [size=32G]
+	Region 2: Memory at b0100000 (32-bit, non-prefetchable) [size=256K]
+	Capabilities: <access denied>
+	Kernel driver in use: iluvatar
+
+=== sysfs pci 0000:15:00.0 ===
+--- vendor
+0x1e3e
+--- device
+0x0002
+--- subsystem_vendor
+0x0000
+--- subsystem_device
+0x0001
+--- class
+0x120000
+--- numa_node
+0
+--- local_cpulist
+0-27,56-83
+--- current_link_speed
+16.0 GT/s PCIe
+--- current_link_width
+16
+--- max_link_speed
+16.0 GT/s PCIe
+--- max_link_width
+16
+--- enable
+1
+--- irq
+16
+--- driver_override
+(null)
+--- resource
+0x0000214000000000 0x00002147ffffffff 0x000000000014220c
+0x0000000000000000 0x0000000000000000 0x0000000000000000
+0x00000000b0100000 0x00000000b013ffff 0x0000000000040200
+0x0000000000000000 0x0000000000000000 0x0000000000000000
+0x0000000000000000 0x0000000000000000 0x0000000000000000
+0x0000000000000000 0x0000000000000000 0x0000000000000000
+0x0000000000000000 0x0000000000000000 0x0000000000000000
+0x0000000000000000 0x0000000000000000 0x0000000000000000
+0x0000000000000000 0x0000000000000000 0x0000000000000000
+0x0000000000000000 0x0000000000000000 0x0000000000000000
+0x0000000000000000 0x0000000000000000 0x0000000000000000
+0x0000000000000000 0x0000000000000000 0x0000000000000000
+0x0000000000000000 0x0000000000000000 0x0000000000000000
+--- driver
+/sys/bus/pci/drivers/iluvatar
+--- iommu_group
+/sys/devices/pci0000:07/0000:07:02.0/0000:08:00.0/0000:09:04.0/0000:0e:00.0/0000:0f:10.0/0000:11:00.0/0000:12:00.0/0000:13:00.0/0000:14:00.0/0000:15:00.0/iommu_group
+--- files
+=== /proc/driver-ish ===
+--- /proc/driver/mlx5_core/crdump/0000:ca:00.0
+--- /proc/driver/rtc
+rtc_time	: 13:24:12
+rtc_date	: 2026-08-11
+alrm_time	: 08:30:54
+alrm_date	: 2025-05-14
+alarm_IRQ	: no
+alrm_pending	: no
+update IRQ enabled	: no
+periodic IRQ enabled	: no
+periodic IRQ frequency	: 1024
+max user IRQ frequency	: 64
+24hr		: yes
+periodic_IRQ	: no
+update_IRQ	: no
+HPET_emulated	: yes
+BCD		: yes
+DST_enable	: no
+periodic_freq	: 1024
+batt_status	: okay
+=== /dev gpu-ish ===
+lrwxrwxrwx 1 root root     11 Aug 11 03:51 core -> /proc/kcore
+crw-rw-rw- 1 root root 237, 3 Aug 11 03:51 iluvatar3
+/dev/core
+=== corex env files ===

@@ -1,0 +1,137 @@
+=== install selected pure/control-plane deps, preserving CoreX torch ===
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Collecting pydantic<3,>=2.8
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/fd/7b/122376b1fd3c62c1ed9dc80c931ace4844b3c55407b6fb2d199377c9736f/pydantic-2.13.4-py3-none-any.whl (472 kB)
+Collecting fastapi>=0.110
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/cb/03/10388a42375ee7e4ac9b94eb2c5c569c8b5795e377e701c9ac3ad63de890/fastapi-0.141.1-py3-none-any.whl (131 kB)
+Collecting msgspec>=0.18
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/19/86/714feeaf3b84cf2027235681725593840153dedd2868578f9f2715e296bb/msgspec-0.21.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (222 kB)
+Requirement already satisfied: pyzmq>=25 in /usr/local/lib/python3.10/site-packages (27.1.0)
+Requirement already satisfied: typer>=0.9 in /usr/local/lib/python3.10/site-packages (0.27.1)
+Collecting pybase64>=1.4
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/1e/45/4cd44eacb152901c728eac25be8edaf261f2be7b07be690523fe9dc1b7c9/pybase64-1.5.0-cp310-cp310-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (91 kB)
+Collecting websockets>=12
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/f3/18/a17e2f0cde02dc10154c808deed7e1d8528afff93612f70d3f0a5b19b011/websockets-16.1.1-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (186 kB)
+Requirement already satisfied: httpx in /usr/local/lib/python3.10/site-packages (0.28.1)
+Collecting xxhash>=3
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/45/90/237eded9dd6ae638083294e5a9f77b317aaebd480a330806b39c192a0de1/xxhash-3.8.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (217 kB)
+Collecting tabulate
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/99/55/db07de81b5c630da5cbf5c7df646580ca26dfaefa593667fc6f2fe016d2e/tabulate-0.10.0-py3-none-any.whl (39 kB)
+Requirement already satisfied: PyYAML>=6 in /usr/local/lib/python3.10/site-packages (6.0.3)
+Collecting annotated-types>=0.6.0 (from pydantic<3,>=2.8)
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/99/91/8acff4f5e50511b911bbccb72b8628a49c68ce14148cd9f6431094859a90/annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Collecting pydantic-core==2.46.4 (from pydantic<3,>=2.8)
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/ba/1e/acc4d70f88a0a277e4a1fa77ebb985ceabaf900430f875bf9338e11c9420/pydantic_core-2.46.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 82.7 MB/s  0:00:00
+Requirement already satisfied: typing-extensions>=4.14.1 in /usr/local/lib/python3.10/site-packages (from pydantic<3,>=2.8) (4.16.0)
+Collecting typing-inspection>=0.4.2 (from pydantic<3,>=2.8)
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/42/f7/7a3935abdebd5cf18705a5f0335dd6a3a18bef3baa7cb9edc3b6b9922cc8/typing_inspection-0.4.3-py3-none-any.whl (14 kB)
+Collecting starlette>=0.46.0 (from fastapi>=0.110)
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/c8/cb/6a6a47d5b464bd08695d254f3da6e7986cc70c9fa5d778eda57538edfe56/starlette-1.6.0-py3-none-any.whl (75 kB)
+Requirement already satisfied: annotated-doc>=0.0.2 in /usr/local/lib/python3.10/site-packages (from fastapi>=0.110) (0.0.5)
+Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.10/site-packages (from typer>=0.9) (1.5.4)
+Requirement already satisfied: rich>=13.8.0 in /usr/local/lib/python3.10/site-packages (from typer>=0.9) (15.0.0)
+Requirement already satisfied: anyio in /usr/local/lib/python3.10/site-packages (from httpx) (4.12.1)
+Requirement already satisfied: certifi in /usr/local/lib/python3.10/site-packages (from httpx) (2026.2.25)
+Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.10/site-packages (from httpx) (1.0.9)
+Requirement already satisfied: idna in /usr/local/lib/python3.10/site-packages (from httpx) (3.11)
+Requirement already satisfied: h11>=0.16 in /usr/local/lib/python3.10/site-packages (from httpcore==1.*->httpx) (0.16.0)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer>=0.9)
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/b3/81/4da04ced5a082363ecfa159c010d200ecbd959ae410c10c0264a38cac0f5/markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.8.0->typer>=0.9)
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/f4/7e/a72dd26f3b0f4f2bf1dd8923c85f7ceb43172af56d63c7383eb62b332364/pygments-2.20.0-py3-none-any.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 70.2 MB/s  0:00:00
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer>=0.9)
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Requirement already satisfied: exceptiongroup>=1.0.2 in /usr/local/lib/python3.10/site-packages (from anyio->httpx) (1.2.2)
+Installing collected packages: xxhash, websockets, typing-inspection, tabulate, pygments, pydantic-core, pybase64, msgspec, mdurl, annotated-types, starlette, pydantic, markdown-it-py, fastapi
+  Attempting uninstall: starlette
+    Found existing installation: starlette 0.27.0
+    Uninstalling starlette-0.27.0:
+      Successfully uninstalled starlette-0.27.0
+  Attempting uninstall: pydantic
+    Found existing installation: pydantic 1.10.26
+    Uninstalling pydantic-1.10.26:
+      Successfully uninstalled pydantic-1.10.26
+  Attempting uninstall: fastapi
+    Found existing installation: fastapi 0.95.2
+    Uninstalling fastapi-0.95.2:
+      Successfully uninstalled fastapi-0.95.2
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+sglang-omni 0.1.1 requires av>=16.1.0, which is not installed.
+sglang-omni 0.1.1 requires datasets>=2.14.0, which is not installed.
+sglang-omni 0.1.1 requires diffusers==0.37.0, which is not installed.
+sglang-omni 0.1.1 requires dots.tts==0.2.1, which is not installed.
+sglang-omni 0.1.1 requires flash-attn-4>=4.0.0b18, which is not installed.
+sglang-omni 0.1.1 requires gradio>=4.0.0, which is not installed.
+sglang-omni 0.1.1 requires hydra-core, which is not installed.
+sglang-omni 0.1.1 requires jiwer, which is not installed.
+sglang-omni 0.1.1 requires kernels<0.15,>=0.14.1, which is not installed.
+sglang-omni 0.1.1 requires librosa>=0.11.0, which is not installed.
+sglang-omni 0.1.1 requires logger, which is not installed.
+sglang-omni 0.1.1 requires mistral_common[audio]>=1.11.0, which is not installed.
+sglang-omni 0.1.1 requires mooncake-transfer-engine-cuda13>=0.3.10, which is not installed.
+sglang-omni 0.1.1 requires msgpack>=1.0.0, which is not installed.
+sglang-omni 0.1.1 requires nemo_text_processing==1.2.0, which is not installed.
+sglang-omni 0.1.1 requires nixl-cu13>=1.1.0, which is not installed.
+sglang-omni 0.1.1 requires numba==0.65.1, which is not installed.
+sglang-omni 0.1.1 requires omegaconf, which is not installed.
+sglang-omni 0.1.1 requires onnxruntime>=1.17, which is not installed.
+sglang-omni 0.1.1 requires openai==2.6.1, which is not installed.
+sglang-omni 0.1.1 requires openai-harmony==0.0.4, which is not installed.
+sglang-omni 0.1.1 requires openai-whisper==20250625, which is not installed.
+sglang-omni 0.1.1 requires pytest-asyncio>=0.21.0, which is not installed.
+sglang-omni 0.1.1 requires qwen-vl-utils==0.0.11, which is not installed.
+sglang-omni 0.1.1 requires s3prl>=0.4.18, which is not installed.
+sglang-omni 0.1.1 requires sglang==0.5.16, which is not installed.
+sglang-omni 0.1.1 requires silero-vad>=5.1, which is not installed.
+sglang-omni 0.1.1 requires soundfile>=0.12.0, which is not installed.
+sglang-omni 0.1.1 requires tiktoken, which is not installed.
+sglang-omni 0.1.1 requires torch==2.11.0, which is not installed.
+sglang-omni 0.1.1 requires torchaudio==2.11.0, which is not installed.
+sglang-omni 0.1.1 requires torchcodec==0.11.1, which is not installed.
+sglang-omni 0.1.1 requires torchvision==0.26.0, which is not installed.
+sglang-omni 0.1.1 requires x-transformers, which is not installed.
+sglang-omni 0.1.1 requires zhon>=2.0.2, which is not installed.
+sagemaker 2.199.0 requires fastapi==0.95.2, but you have fastapi 0.141.1 which is incompatible.
+sglang-omni 0.1.1 requires transformers==5.12.1, but you have transformers 5.15.0 which is incompatible.
+sglang-omni 0.1.1 requires uvicorn>=0.23.0, but you have uvicorn 0.22.0 which is incompatible.
+Successfully installed annotated-types-0.8.0 fastapi-0.141.1 markdown-it-py-4.2.0 mdurl-0.1.2 msgspec-0.21.1 pybase64-1.5.0 pydantic-2.13.4 pydantic-core-2.46.4 pygments-2.20.0 starlette-1.6.0 tabulate-0.10.0 typing-inspection-0.4.3 websockets-16.1.1 xxhash-3.8.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 25.2 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+=== versions after selected deps ===
+torch OK 2.7.1
+pydantic OK 2.13.4
+fastapi OK 0.141.1
+msgspec OK 0.21.1
+zmq OK 27.1.0
+typer OK 0.27.1
+pybase64 OK 1.5.0
+websockets OK 16.1.1
+httpx OK 0.28.1
+xxhash OK 3.8.1
+yaml OK 6.0.3
+=== import and help after selected deps ===
+Ignore import error when loading sglang_omni.models.qwen3_omni.config: No module named 'sglang'
+sglang_omni.cli OK /data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/__init__.py
+sglang_omni_router.serve OK /data/src/sglang-omni-corex-probe/repo/sglang_omni_router/serve.py
+=== sgl-omni help ===
+Ignore import error when loading sglang_omni.models.qwen3_omni.config: No module named 'sglang'
+                                                                                
+ Usage: sgl-omni [OPTIONS] COMMAND [ARGS]...                                    
+                                                                                
+╭─ Options ────────────────────────────────────────────────────────────────────╮
+│ --install-completion          Install completion for the current shell.      │
+│ --show-completion             Show completion for the current shell, to copy │
+│                               it or customize the installation.              │
+│ --help                        Show this message and exit.                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ Commands ───────────────────────────────────────────────────────────────────╮
+│ check-gpu  Report GPU mapping, runtime versions, and installed backends.     │
+│ serve      Serve the pipeline.                                               │
+│ config     View and export the pipeline configuration for local editing      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+

@@ -1,0 +1,677 @@
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+{
+  "label": "qwen32b_awq_marlin_random_prefix_decode128_c1_4_8_16",
+  "model": "qwen32b-awq",
+  "base_url": "http://127.0.0.1:8000/v1",
+  "tokenizer_dir": "/data/models/Qwen2.5-32B-Instruct-AWQ",
+  "prompt_tokens_target": 256,
+  "prompt_mode": "random",
+  "seed": 20260812,
+  "max_tokens": 128,
+  "concurrency_list": [
+    1,
+    4,
+    8,
+    16
+  ],
+  "requests_per_concurrency": 1,
+  "ixsmi_before": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Wed Aug 12 10:02:20 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  39C   P0       38W / 150W   | 31684MiB / 32768MiB  | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 31684 MiB, 1084 MiB, 0 %, 97 %, 38 W, 39 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  },
+  "workloads": [
+    {
+      "concurrency": 1,
+      "requests_total": 1,
+      "elapsed_s": 6.110532820224762,
+      "ok_count": 1,
+      "error_count": 0,
+      "aggregate_output_tok_s": 20.947436789201603,
+      "aggregate_total_tok_s": 73.3160287622056,
+      "ttft_s": {
+        "count": 1,
+        "mean": 0.6325302049517632,
+        "p50": 0.6325302049517632,
+        "p90": 0.6325302049517632,
+        "p95": 0.6325302049517632,
+        "p99": 0.6325302049517632,
+        "min": 0.6325302049517632,
+        "max": 0.6325302049517632
+      },
+      "total_s": {
+        "count": 1,
+        "mean": 6.105852916836739,
+        "p50": 6.105852916836739,
+        "p90": 6.105852916836739,
+        "p95": 6.105852916836739,
+        "p99": 6.105852916836739,
+        "min": 6.105852916836739,
+        "max": 6.105852916836739
+      },
+      "tpot_s": {
+        "count": 1,
+        "mean": 0.04309702922744075,
+        "p50": 0.04309702922744075,
+        "p90": 0.04309702922744075,
+        "p95": 0.04309702922744075,
+        "p99": 0.04309702922744075,
+        "min": 0.04309702922744075,
+        "max": 0.04309702922744075
+      },
+      "per_request": [
+        {
+          "request_id": 0,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 320,
+          "output_tokens": 128,
+          "ttft_s": 0.6325302049517632,
+          "total_s": 6.105852916836739,
+          "decode_s": 5.473322711884975,
+          "tpot_s": 0.04309702922744075,
+          "output_tok_s": 20.963492200580717,
+          "raw_events": 128,
+          "sample": " The benchmarked request with the unique workload fingerprint 34f5e452025a82fc98b216c305eb11caa1f41e730850ab774e3d886392740de9 exhibits moderate scheduler pressure due to its resource-intensive nature, leading to increased prefill costs as "
+        }
+      ]
+    },
+    {
+      "concurrency": 4,
+      "requests_total": 4,
+      "elapsed_s": 7.47014956921339,
+      "ok_count": 4,
+      "error_count": 0,
+      "aggregate_output_tok_s": 68.53945764487736,
+      "aggregate_total_tok_s": 238.6833066031569,
+      "ttft_s": {
+        "count": 4,
+        "mean": 1.0448586158454418,
+        "p50": 1.0579795874655247,
+        "p90": 1.058375322818756,
+        "p95": 1.0584380820393562,
+        "p99": 1.0584882894158363,
+        "min": 1.0049744471907616,
+        "max": 1.0585008412599564
+      },
+      "total_s": {
+        "count": 4,
+        "mean": 7.460406754165888,
+        "p50": 7.460612662136555,
+        "p90": 7.464289577305317,
+        "p95": 7.464772001653909,
+        "p99": 7.465157941132784,
+        "min": 7.4551472663879395,
+        "max": 7.465254426002502
+      },
+      "tpot_s": {
+        "count": 4,
+        "mean": 0.05051612707338934,
+        "p50": 0.05043832092421262,
+        "p90": 0.05068767151729329,
+        "p95": 0.05073821693658829,
+        "p99": 0.050778653272024285,
+        "min": 0.05039910408924884,
+        "max": 0.05078876235588329
+      },
+      "per_request": [
+        {
+          "request_id": 0,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 320,
+          "output_tokens": 128,
+          "ttft_s": 1.0049744471907616,
+          "total_s": 7.4551472663879395,
+          "decode_s": 6.450172819197178,
+          "tpot_s": 0.05078876235588329,
+          "output_tok_s": 17.169345611333135,
+          "raw_events": 128,
+          "sample": " The benchmarked request with the unique workload fingerprint 34f5e452025a82fc98b216c305eb11caa1f41e730850ab774e3d886392740de9 exhibits moderate scheduler pressure due to its resource-intensive nature, leading to increased prefill costs as "
+        },
+        {
+          "request_id": 1,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 1.0585008412599564,
+          "total_s": 7.459187060594559,
+          "decode_s": 6.400686219334602,
+          "tpot_s": 0.05039910408924884,
+          "output_tok_s": 17.16004692739229,
+          "raw_events": 128,
+          "sample": " For the unique workload fingerprint be876e077345d079592e04240362396f320a2cb99fcdb8ec9865b139c3b7fe56, the scheduler experienced moderate pressure due to the high number of concurrent requests, leading to increased prefill costs as resource"
+        },
+        {
+          "request_id": 2,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 1.0580824464559555,
+          "total_s": 7.462038263678551,
+          "decode_s": 6.403955817222595,
+          "tpot_s": 0.050424848954508626,
+          "output_tok_s": 17.15349016944065,
+          "raw_events": 128,
+          "sample": " For request id 2, the scheduler experienced moderate pressure due to the high volume of concurrent tasks, impacting the efficiency of task allocation. The prefill cost was notably high, primarily due to the extensive data retrieval require"
+        },
+        {
+          "request_id": 3,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 1.0578767284750938,
+          "total_s": 7.465254426002502,
+          "decode_s": 6.407377697527409,
+          "tpot_s": 0.0504517928939166,
+          "output_tok_s": 17.146100145516606,
+          "raw_events": 128,
+          "sample": " For the unique workload fingerprint ca0db6a32e2290b2df237e41a52bc7f73163d6ae433bee3ad2532719d668e6d4, the scheduler experienced moderate pressure due to the high volume of requests, leading to slightly increased latency. The prefill cost w"
+        }
+      ]
+    },
+    {
+      "concurrency": 8,
+      "requests_total": 8,
+      "elapsed_s": 7.844714842736721,
+      "ok_count": 8,
+      "error_count": 0,
+      "aggregate_output_tok_s": 130.53374412303884,
+      "aggregate_total_tok_s": 455.8483095546747,
+      "ttft_s": {
+        "count": 8,
+        "mean": 1.2901840852573514,
+        "p50": 1.2972906157374382,
+        "p90": 1.2976022079586982,
+        "p95": 1.2977165140211582,
+        "p99": 1.297807958871126,
+        "min": 1.2402196452021599,
+        "max": 1.2978308200836182
+      },
+      "total_s": {
+        "count": 8,
+        "mean": 7.831364882178605,
+        "p50": 7.832938924431801,
+        "p90": 7.839038231223822,
+        "p95": 7.839924972876906,
+        "p99": 7.840634366199374,
+        "min": 7.817765347659588,
+        "max": 7.840811714529991
+      },
+      "tpot_s": {
+        "count": 8,
+        "mean": 0.05150536060567916,
+        "p50": 0.05148008272169143,
+        "p90": 0.05160317012644189,
+        "p95": 0.05169743428549428,
+        "p99": 0.05177284561273619,
+        "min": 0.05139166750307158,
+        "max": 0.051791698444546674
+      },
+      "per_request": [
+        {
+          "request_id": 0,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 320,
+          "output_tokens": 128,
+          "ttft_s": 1.2402196452021599,
+          "total_s": 7.817765347659588,
+          "decode_s": 6.577545702457428,
+          "tpot_s": 0.051791698444546674,
+          "output_tok_s": 16.372965202686657,
+          "raw_events": 128,
+          "sample": " The benchmarked request with the unique workload fingerprint 34f5e452025a82fc98b216c305eb11caa1f41e730850ab774e3d886392740de9 exhibits moderate scheduler pressure due to its resource-intensive nature, leading to increased prefill costs as "
+        },
+        {
+          "request_id": 1,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 1.2978308200836182,
+          "total_s": 7.8345562517642975,
+          "decode_s": 6.536725431680679,
+          "tpot_s": 0.05147027898961165,
+          "output_tok_s": 16.337874907870518,
+          "raw_events": 128,
+          "sample": " For the unique workload fingerprint be876e077345d079592e04240362396f320a2cb99fcdb8ec9865b139c3b7fe56, the scheduler experienced moderate pressure due to the high number of concurrent requests, leading to increased prefill costs as resource"
+        },
+        {
+          "request_id": 2,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 1.2975042313337326,
+          "total_s": 7.831321597099304,
+          "decode_s": 6.533817365765572,
+          "tpot_s": 0.051447380832799774,
+          "output_tok_s": 16.344623115389716,
+          "raw_events": 128,
+          "sample": " For request id 2, the scheduler experienced moderate pressure due to the high volume of concurrent tasks, impacting the efficiency of task allocation. The prefill cost was notably high, primarily due to the extensive data retrieval require"
+        },
+        {
+          "request_id": 3,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 1.2973128482699394,
+          "total_s": 7.828109681606293,
+          "decode_s": 6.530796833336353,
+          "tpot_s": 0.05142359711288467,
+          "output_tok_s": 16.35132940213671,
+          "raw_events": 128,
+          "sample": " For the unique workload fingerprint ca0db6a32e2290b2df237e41a52bc7f73163d6ae433bee3ad2532719d668e6d4, the scheduler experienced moderate pressure due to the high volume of requests, leading to slightly increased latency. The prefill cost w"
+        },
+        {
+          "request_id": 4,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 311,
+          "output_tokens": 128,
+          "ttft_s": 1.297470435500145,
+          "total_s": 7.840811714529991,
+          "decode_s": 6.543341279029846,
+          "tpot_s": 0.05152237227582556,
+          "output_tok_s": 16.324840419621378,
+          "raw_events": 128,
+          "sample": " Scheduler pressure was moderate during the benchmark of request 4, leading to some delays but not causing significant bottlenecks. The prefill cost was relatively high due to the unique nature of the request, which required additional reso"
+        },
+        {
+          "request_id": 5,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 335,
+          "output_tokens": 128,
+          "ttft_s": 1.297268383204937,
+          "total_s": 7.836483962833881,
+          "decode_s": 6.539215579628944,
+          "tpot_s": 0.051489886453771214,
+          "output_tok_s": 16.333855924042723,
+          "raw_events": 128,
+          "sample": " For the unique workload fingerprint 6a90a6693703151d33df2e92568e2219e2d0729152e520170f4962ee1d247d9f, the benchmark reveals moderate scheduler pressure due to resource contention, with a prefill cost of approximately 15ms. Decode throughpu"
+        },
+        {
+          "request_id": 6,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 324,
+          "output_tokens": 128,
+          "ttft_s": 1.296850562095642,
+          "total_s": 7.823592334985733,
+          "decode_s": 6.526741772890091,
+          "tpot_s": 0.05139166750307158,
+          "output_tok_s": 16.360770668942763,
+          "raw_events": 128,
+          "sample": " For request id 6, the scheduler experienced moderate pressure due to the high volume of concurrent tasks, impacting the timely allocation of resources for prefill operations. The prefill cost was notably high, primarily due to the complex "
+        },
+        {
+          "request_id": 7,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 311,
+          "output_tokens": 128,
+          "ttft_s": 1.297015756368637,
+          "total_s": 7.838278166949749,
+          "decode_s": 6.541262410581112,
+          "tpot_s": 0.05150600323292214,
+          "output_tok_s": 16.330117058069522,
+          "raw_events": 128,
+          "sample": " For the unique workload fingerprint dd8eea26f285635171c9621e364170b636c5e6577cc171eb5797b625b6faee50, the scheduler experienced moderate pressure due to the high volume of requests, leading to increased prefill costs. The decode throughput"
+        }
+      ]
+    },
+    {
+      "concurrency": 16,
+      "requests_total": 16,
+      "elapsed_s": 9.300744123756886,
+      "ok_count": 16,
+      "error_count": 0,
+      "aggregate_output_tok_s": 220.19743503842824,
+      "aggregate_total_tok_s": 767.4654742696781,
+      "ttft_s": {
+        "count": 16,
+        "mean": 2.410515893250704,
+        "p50": 2.4142421074211597,
+        "p90": 2.415264844894409,
+        "p95": 2.415402179583907,
+        "p99": 2.4156543027609585,
+        "min": 2.3511696085333824,
+        "max": 2.4157173335552216
+      },
+      "total_s": {
+        "count": 16,
+        "mean": 9.282626118510962,
+        "p50": 9.284098647534847,
+        "p90": 9.295578841120005,
+        "p95": 9.295903129503131,
+        "p99": 9.296438315138221,
+        "min": 9.260144457221031,
+        "max": 9.296572111546993
+      },
+      "tpot_s": {
+        "count": 16,
+        "mean": 0.05411110413590754,
+        "p50": 0.054109684770970834,
+        "p90": 0.054188929468862654,
+        "p95": 0.05424556206530473,
+        "p99": 0.05437021382211701,
+        "min": 0.053953752508313635,
+        "max": 0.05440137676132007
+      },
+      "per_request": [
+        {
+          "request_id": 0,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 320,
+          "output_tokens": 128,
+          "ttft_s": 2.3511696085333824,
+          "total_s": 9.260144457221031,
+          "decode_s": 6.908974848687649,
+          "tpot_s": 0.05440137676132007,
+          "output_tok_s": 13.82267853285874,
+          "raw_events": 128,
+          "sample": " The benchmarked request with the unique workload fingerprint 34f5e452025a82fc98b216c305eb11caa1f41e730850ab774e3d886392740de9 exhibits moderate scheduler pressure due to its resource-intensive nature, leading to increased prefill costs as "
+        },
+        {
+          "request_id": 1,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 2.4157173335552216,
+          "total_s": 9.29568013548851,
+          "decode_s": 6.879962801933289,
+          "tpot_s": 0.05417293544829361,
+          "output_tok_s": 13.769836970974184,
+          "raw_events": 128,
+          "sample": " For the unique workload fingerprint be876e077345d079592e04240362396f320a2cb99fcdb8ec9865b139c3b7fe56, the scheduler experienced moderate pressure due to the high number of concurrent requests, leading to increased prefill costs as resource"
+        },
+        {
+          "request_id": 2,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 2.4152971282601357,
+          "total_s": 9.281649954617023,
+          "decode_s": 6.866352826356888,
+          "tpot_s": 0.054065770286274704,
+          "output_tok_s": 13.790651514101567,
+          "raw_events": 128,
+          "sample": " For request id 2, the scheduler experienced moderate pressure due to the high volume of concurrent tasks, impacting the efficiency of task allocation. The prefill cost was notably high, primarily due to the extensive data retrieval require"
+        },
+        {
+          "request_id": 3,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 2.4147027730941772,
+          "total_s": 9.273628897964954,
+          "decode_s": 6.858926124870777,
+          "tpot_s": 0.05400729232181714,
+          "output_tok_s": 13.802579487312553,
+          "raw_events": 128,
+          "sample": " For the unique workload fingerprint ca0db6a32e2290b2df237e41a52bc7f73163d6ae433bee3ad2532719d668e6d4, the scheduler experienced moderate pressure due to the high volume of requests, leading to slightly increased latency. The prefill cost w"
+        },
+        {
+          "request_id": 4,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 311,
+          "output_tokens": 128,
+          "ttft_s": 2.4152325615286827,
+          "total_s": 9.293454945087433,
+          "decode_s": 6.87822238355875,
+          "tpot_s": 0.05415923136660433,
+          "output_tok_s": 13.773133969693525,
+          "raw_events": 128,
+          "sample": " Scheduler pressure was moderate during the benchmark of request 4, leading to some delays but not causing significant bottlenecks. The prefill cost was relatively high due to the unique nature of the request, which required additional reso"
+        },
+        {
+          "request_id": 5,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 335,
+          "output_tokens": 128,
+          "ttft_s": 2.4145476147532463,
+          "total_s": 9.270325511693954,
+          "decode_s": 6.855777896940708,
+          "tpot_s": 0.05398250312551739,
+          "output_tok_s": 13.8074978962212,
+          "raw_events": 128,
+          "sample": " For the unique workload fingerprint 6a90a6693703151d33df2e92568e2219e2d0729152e520170f4962ee1d247d9f, the benchmark reveals moderate scheduler pressure due to resource contention, with a prefill cost of approximately 15ms. Decode throughpu"
+        },
+        {
+          "request_id": 6,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 324,
+          "output_tokens": 128,
+          "ttft_s": 2.4149525612592697,
+          "total_s": 9.291455715894699,
+          "decode_s": 6.876503154635429,
+          "tpot_s": 0.05414569413098763,
+          "output_tok_s": 13.77609751516472,
+          "raw_events": 128,
+          "sample": " For request id 6, the scheduler experienced moderate pressure due to the high volume of concurrent tasks, impacting the timely allocation of resources for prefill operations. The prefill cost was notably high, primarily due to the complex "
+        },
+        {
+          "request_id": 7,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 311,
+          "output_tokens": 128,
+          "ttft_s": 2.41399148106575,
+          "total_s": 9.266118049621582,
+          "decode_s": 6.852126568555832,
+          "tpot_s": 0.053953752508313635,
+          "output_tok_s": 13.813767460606373,
+          "raw_events": 128,
+          "sample": " For the unique workload fingerprint dd8eea26f285635171c9621e364170b636c5e6577cc171eb5797b625b6faee50, the scheduler experienced moderate pressure due to the high volume of requests, leading to increased prefill costs. The decode throughput"
+        },
+        {
+          "request_id": 8,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 312,
+          "output_tokens": 128,
+          "ttft_s": 2.414503149688244,
+          "total_s": 9.278540775179863,
+          "decode_s": 6.864037625491619,
+          "tpot_s": 0.05404754035820172,
+          "output_tok_s": 13.79527267287552,
+          "raw_events": 128,
+          "sample": " For the unique workload fingerprint 032b31bbe7c63783901d53f054ddb12aacfbfbc13be1ba8d57ee11b0a2fa19b7, the scheduler experienced moderate pressure due to the high volume of requests, leading to increased prefill costs as resources were stre"
+        },
+        {
+          "request_id": 9,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 321,
+          "output_tokens": 128,
+          "ttft_s": 2.4144008830189705,
+          "total_s": 9.2854013890028,
+          "decode_s": 6.8710005059838295,
+          "tpot_s": 0.05410236618884905,
+          "output_tok_s": 13.785079894510245,
+          "raw_events": 128,
+          "sample": " Scheduler pressure was moderate during the benchmark of request 9, leading to some delays in task allocation but not significantly impacting overall performance. The prefill cost was relatively high due to the unique nature of the request,"
+        },
+        {
+          "request_id": 10,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 317,
+          "output_tokens": 128,
+          "ttft_s": 2.413851261138916,
+          "total_s": 9.27549473196268,
+          "decode_s": 6.861643470823765,
+          "tpot_s": 0.054028688746643815,
+          "output_tok_s": 13.79980299691415,
+          "raw_events": 128,
+          "sample": " For request id 10, the scheduler experienced moderate pressure due to the high volume of concurrent tasks, impacting the efficiency of task allocation. The prefill cost was notably high, primarily due to the extensive data retrieval requir"
+        },
+        {
+          "request_id": 11,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 325,
+          "output_tokens": 128,
+          "ttft_s": 2.414083331823349,
+          "total_s": 9.282795906066895,
+          "decode_s": 6.8687125742435455,
+          "tpot_s": 0.054084350978295635,
+          "output_tok_s": 13.788949072589638,
+          "raw_events": 128,
+          "sample": " For request id 11, the scheduler experienced moderate pressure due to concurrent tasks, slightly impacting performance. The prefill cost was relatively high, indicating significant initial resource allocation for the request. Decode throug"
+        },
+        {
+          "request_id": 12,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 319,
+          "output_tokens": 128,
+          "ttft_s": 2.414046421647072,
+          "total_s": 9.286905847489834,
+          "decode_s": 6.872859425842762,
+          "tpot_s": 0.054117003353092615,
+          "output_tok_s": 13.782846741640784,
+          "raw_events": 128,
+          "sample": " For request id 12, the scheduler experienced moderate pressure due to the unique workload fingerprint, leading to slight delays in resource allocation. The prefill cost was notably high, attributed to the unique prefix requiring extensive "
+        },
+        {
+          "request_id": 13,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 314,
+          "output_tokens": 128,
+          "ttft_s": 2.414079688489437,
+          "total_s": 9.2954775467515,
+          "decode_s": 6.881397858262062,
+          "tpot_s": 0.05418423510442569,
+          "output_tok_s": 13.770137075392356,
+          "raw_events": 128,
+          "sample": " For request id 13, the scheduler experienced moderate pressure due to the high volume of concurrent tasks, impacting the efficiency of task allocation. The prefill cost was notably high, primarily due to the extensive data retrieval requir"
+        },
+        {
+          "request_id": 14,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 316,
+          "output_tokens": 128,
+          "ttft_s": 2.4139818847179413,
+          "total_s": 9.296572111546993,
+          "decode_s": 6.882590226829052,
+          "tpot_s": 0.05419362383329962,
+          "output_tok_s": 13.768515799604785,
+          "raw_events": 128,
+          "sample": " For request id 14, the scheduler experienced moderate pressure due to concurrent tasks, slightly impacting performance. The prefill cost was relatively high, indicating significant initial processing overhead. Decode throughput was satisfa"
+        },
+        {
+          "request_id": 15,
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "input_tokens": 314,
+          "output_tokens": 128,
+          "ttft_s": 2.4136966094374657,
+          "total_s": 9.288371920585632,
+          "decode_s": 6.874675311148167,
+          "tpot_s": 0.05413130166258399,
+          "output_tok_s": 13.780671262346436,
+          "raw_events": 128,
+          "sample": " For request id 15, the scheduler experienced moderate pressure due to concurrent tasks, slightly impacting performance. The prefill cost was notably high, indicating significant initial resource allocation for the request. Decode throughpu"
+        }
+      ]
+    }
+  ],
+  "ixsmi_after": {
+    "summary": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi"
+      ],
+      "returncode": 0,
+      "stdout": "Timestamp    Wed Aug 12 10:02:51 2026\n+--------------------------------------------------------------------------------+\n|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |\n|----------------------------------+----------------------+----------------------|\n| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |\n| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |\n|==================================+======================+======================|\n| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |\n| N/A  56C   P0       137W / 150W  | 32240MiB / 32768MiB  | 0%        Default    |\n+----------------------------------+----------------------+----------------------+\n\n+--------------------------------------------------------------------------------+\n| Processes:                                                          GPU Memory |\n|  GPU        PID      Process name                                   Usage(MiB) |\n|================================================================================|\n+--------------------------------------------------------------------------------+\n",
+      "stderr": ""
+    },
+    "csv": {
+      "cmd": [
+        "/usr/local/corex/bin/ixsmi",
+        "--query-gpu=index,name,memory.total,memory.used,memory.free,utilization.gpu,utilization.memory,gpu.power.draw,temperature.gpu,clocks.current.sm,clocks.current.memory",
+        "--format=csv"
+      ],
+      "returncode": 0,
+      "stdout": "index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%], utilization.memory [%], gpu.power.draw [W], temperature.gpu [C], clocks.current.sm [MHz], clocks.current.memory [MHz]\n0, Iluvatar MR-V100, 32768 MiB, 32240 MiB, 528 MiB, 0 %, 99 %, 136 W, 54 C, 1500 MHz, 1600 MHz\n",
+      "stderr": ""
+    }
+  }
+}
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+Timestamp    Wed Aug 12 10:02:54 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  48C   P0       39W / 150W   | 32240MiB / 32768MiB  | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
++--------------------------------------------------------------------------------+

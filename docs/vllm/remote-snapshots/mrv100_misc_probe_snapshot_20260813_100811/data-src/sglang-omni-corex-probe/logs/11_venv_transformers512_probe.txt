@@ -1,0 +1,253 @@
+=== create isolated venv ===
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Requirement already satisfied: pip in ./src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages (23.0.1)
+Collecting pip
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/f3/6e/1736e5b4ae2b778ef2f81c47d797de9f891d4d8acb047a24ca37a60294dd/pip-26.2.1-py3-none-any.whl (1.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 16.7 MB/s eta 0:00:00
+Requirement already satisfied: setuptools in ./src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages (65.5.0)
+Collecting setuptools
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl (818 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 94.4 MB/s eta 0:00:00
+Collecting wheel
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/87/1b/9e33c09813d65e248f7f773119148a612516a4bea93e9c6f545f78455b7c/wheel-0.47.0-py3-none-any.whl (32 kB)
+Collecting packaging>=24.0
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl (129 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.0/130.0 kB 43.7 MB/s eta 0:00:00
+Installing collected packages: setuptools, pip, packaging, wheel
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 65.5.0
+    Uninstalling setuptools-65.5.0:
+      Successfully uninstalled setuptools-65.5.0
+  Attempting uninstall: pip
+    Found existing installation: pip 23.0.1
+    Uninstalling pip-23.0.1:
+      Successfully uninstalled pip-23.0.1
+Successfully installed packaging-26.3 pip-26.2.1 setuptools-84.0.0 wheel-0.47.0
+=== install exact/selected deps without torch replacement ===
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Obtaining file:///data/src/sglang-omni-corex-probe/repo
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: sglang-omni
+  Building editable for sglang-omni (pyproject.toml): started
+  Building editable for sglang-omni (pyproject.toml): finished with status 'done'
+  Created wheel for sglang-omni: filename=sglang_omni-0.1.1-0.editable-py3-none-any.whl size=10576 sha256=40937e52055bb1660b10db489f448a4afa625f675dd788b497caa9c815eac2d2
+  Stored in directory: /tmp/pip-ephem-wheel-cache-dxux5ea9/wheels/d2/49/52/2a04711d13c01e3071594817030f83521fd081355de90149eb
+Successfully built sglang-omni
+Installing collected packages: sglang-omni
+Successfully installed sglang-omni-0.1.1
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Collecting sglang==0.5.16
+  Using cached sglang-0.5.16-cp310-cp310-manylinux_2_34_x86_64.whl (14.6 MB)
+Installing collected packages: sglang
+Successfully installed sglang-0.5.16
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Collecting transformers==5.12.1
+  Downloading transformers-5.12.1-py3-none-any.whl (11.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.2/11.2 MB 14.5 MB/s  0:00:00
+Collecting tokenizers>=0.22
+  Downloading tokenizers-0.23.1-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 53.6 MB/s  0:00:00
+Collecting huggingface-hub>=0.36.0
+  Downloading huggingface_hub-1.27.0-py3-none-any.whl (784 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 784.9/784.9 kB 50.5 MB/s  0:00:00
+Collecting safetensors>=0.4.3
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+Collecting pydantic<3,>=2.8
+  Using cached pydantic-2.13.4-py3-none-any.whl (472 kB)
+Collecting fastapi>=0.110
+  Using cached fastapi-0.141.1-py3-none-any.whl (131 kB)
+Collecting uvicorn>=0.23
+  Using cached uvicorn-0.52.1-py3-none-any.whl (79 kB)
+Collecting msgspec>=0.18
+  Using cached msgspec-0.21.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (222 kB)
+Collecting pyzmq>=25
+  Downloading pyzmq-27.1.0-cp310-cp310-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (854 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 854.1/854.1 kB 62.4 MB/s  0:00:00
+Collecting typer>=0.9
+  Downloading typer-0.27.1-py3-none-any.whl (122 kB)
+Collecting pybase64>=1.4
+  Using cached pybase64-1.5.0-cp310-cp310-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (91 kB)
+Collecting websockets>=12
+  Using cached websockets-16.1.1-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (186 kB)
+Collecting httpx
+  Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Collecting xxhash>=3
+  Using cached xxhash-3.8.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (217 kB)
+Collecting tabulate
+  Using cached tabulate-0.10.0-py3-none-any.whl (39 kB)
+Collecting PyYAML>=6
+  Downloading pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (770 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 770.3/770.3 kB 59.8 MB/s  0:00:00
+Collecting orjson
+  Using cached orjson-3.11.9-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (134 kB)
+Collecting aiohttp
+  Using cached aiohttp-3.14.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.7 MB)
+Collecting aiofiles
+  Using cached aiofiles-25.1.0-py3-none-any.whl (14 kB)
+Collecting psutil
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+Collecting requests
+  Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+Collecting tqdm
+  Using cached tqdm-4.70.0-py3-none-any.whl (80 kB)
+Requirement already satisfied: packaging in /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages (26.3)
+Collecting setproctitle
+  Using cached setproctitle-1.3.7-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (31 kB)
+Collecting uvloop
+  Using cached uvloop-0.22.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.7 MB)
+Collecting lark
+  Downloading lark-1.3.1-py3-none-any.whl (113 kB)
+Collecting cloudpickle
+  Using cached cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Collecting cachetools
+  Using cached cachetools-7.1.7-py3-none-any.whl (16 kB)
+Collecting prometheus-client
+  Using cached prometheus_client-0.26.0-py3-none-any.whl (64 kB)
+Collecting python-multipart
+  Using cached python_multipart-0.0.32-py3-none-any.whl (30 kB)
+Collecting partial-json-parser
+  Using cached partial_json_parser-0.2.1.1.post7-py3-none-any.whl (10 kB)
+Collecting py-cpuinfo
+  Using cached py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+Collecting einops
+  Using cached einops-0.8.2-py3-none-any.whl (65 kB)
+Collecting decord
+  Using cached decord-0.6.0-py3-none-manylinux2010_x86_64.whl (13.6 MB)
+Collecting msgpack
+  Using cached msgpack-1.2.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (407 kB)
+Collecting soundfile
+  Using cached soundfile-0.14.0-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+Collecting tiktoken
+  Using cached tiktoken-0.13.0-cp310-cp310-manylinux_2_28_x86_64.whl (1.1 MB)
+Collecting omegaconf
+  Using cached omegaconf-2.3.1-py3-none-any.whl (79 kB)
+Collecting hydra-core
+  Using cached hydra_core-1.3.5-py3-none-any.whl (155 kB)
+Collecting easydict
+  Using cached easydict-1.13-py3-none-any.whl (6.8 kB)
+Collecting distro
+  Using cached distro-1.9.0-py3-none-any.whl (20 kB)
+Collecting interegular
+  Using cached interegular-0.3.3-py37-none-any.whl (23 kB)
+Collecting sentencepiece
+  Using cached sentencepiece-0.2.2-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
+Collecting gguf
+  Using cached gguf-0.19.0-py3-none-any.whl (118 kB)
+Collecting triton
+  Using cached triton-3.7.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (197.6 MB)
+Installing collected packages: py-cpuinfo, hydra-core, easydict, decord, xxhash, websockets, uvloop, uvicorn, typer, triton, transformers, tqdm, tokenizers, tiktoken, tabulate, soundfile, setproctitle, sentencepiece, safetensors, requests, pyzmq, PyYAML, python-multipart, pydantic, pybase64, psutil, prometheus-client, partial-json-parser, orjson, omegaconf, msgspec, msgpack, lark, interegular, huggingface-hub, httpx, gguf, fastapi, einops, distro, cloudpickle, cachetools, aiohttp, aiofiles
+
+Successfully installed PyYAML-6.0.3 aiofiles-25.1.0 aiohttp-3.14.3 cachetools-7.1.7 cloudpickle-3.1.2 decord-0.6.0 distro-1.9.0 easydict-1.13 einops-0.8.2 fastapi-0.141.1 gguf-0.19.0 httpx-0.28.1 huggingface-hub-1.27.0 hydra-core-1.3.5 interegular-0.3.3 lark-1.3.1 msgpack-1.2.1 msgspec-0.21.1 omegaconf-2.3.1 orjson-3.11.9 partial-json-parser-0.2.1.1.post7 prometheus-client-0.26.0 psutil-7.2.2 py-cpuinfo-9.0.0 pybase64-1.5.0 pydantic-2.13.4 python-multipart-0.0.32 pyzmq-27.1.0 requests-2.34.2 safetensors-0.8.0 sentencepiece-0.2.2 setproctitle-1.3.7 soundfile-0.14.0 tabulate-0.10.0 tiktoken-0.13.0 tokenizers-0.23.1 tqdm-4.70.0 transformers-5.12.1 triton-3.7.1 typer-0.27.1 uvicorn-0.52.1 uvloop-0.22.1 websockets-16.1.1 xxhash-3.8.1
+=== venv import baseline ===
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+ModuleNotFoundError: No module named 'regex'
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+ModuleNotFoundError: No module named 'urllib3'
+python /data/src/sglang-omni-corex-probe/venv-transformers512/bin/python
+torch OK 2.7.1 /usr/local/corex/lib64/python3/dist-packages/torch/__init__.py
+transformers FAIL ModuleNotFoundError No module named 'regex'
+sglang FAIL ModuleNotFoundError No module named 'urllib3'
+sglang_omni OK 0.1.1 /data/src/sglang-omni-corex-probe/repo/sglang_omni/__init__.py
+triton OK 3.7.1 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/triton/__init__.py
+=== targeted qwen3_asr registration check ===
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+ModuleNotFoundError: No module named 'urllib3'
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+KeyError: 'sglang'
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+ModuleNotFoundError: No module named 'pydantic_core'
+sglang.srt.configs.qwen3_asr FAIL ModuleNotFoundError No module named 'urllib3'
+sglang.srt.entrypoints.http_server FAIL KeyError 'sglang'
+sglang_omni.models.qwen3_asr.engine_builder FAIL ModuleNotFoundError No module named 'pydantic_core'
+=== venv sgl-omni check-gpu ===
+Traceback (most recent call last):
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/bin/sgl-omni", line 3, in <module>
+    from sglang_omni.cli import app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/__init__.py", line 4, in <module>
+    from .config import config_app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/config.py", line 9, in <module>
+    from sglang_omni.config.manager import resolve_config_cls_for_model_path
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/__init__.py", line 2, in <module>
+    from sglang_omni.config.placement import (
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/placement.py", line 11, in <module>
+    from sglang_omni.config.runtime import reject_untyped_total_gpu_memory_fraction
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/runtime.py", line 10, in <module>
+    from sglang_omni.config.schema import PipelineConfig, StageConfig
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/schema.py", line 8, in <module>
+    from pydantic import BaseModel, ConfigDict, Field
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic/__init__.py", line 5, in <module>
+    from ._migration import getattr_migration
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic/_migration.py", line 4, in <module>
+    from pydantic.warnings import PydanticDeprecatedSince20
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic/warnings.py", line 5, in <module>
+    from .version import version_short
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic/version.py", line 7, in <module>
+    from pydantic_core import __version__ as __pydantic_core_version__
+ModuleNotFoundError: No module named 'pydantic_core'
+=== venv serve Qwen3-ASR attempt ===
+Traceback (most recent call last):
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/bin/sgl-omni", line 3, in <module>
+    from sglang_omni.cli import app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/__init__.py", line 4, in <module>
+    from .config import config_app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/config.py", line 9, in <module>
+    from sglang_omni.config.manager import resolve_config_cls_for_model_path
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/__init__.py", line 2, in <module>
+    from sglang_omni.config.placement import (
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/placement.py", line 11, in <module>
+    from sglang_omni.config.runtime import reject_untyped_total_gpu_memory_fraction
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/runtime.py", line 10, in <module>
+    from sglang_omni.config.schema import PipelineConfig, StageConfig
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/schema.py", line 8, in <module>
+    from pydantic import BaseModel, ConfigDict, Field
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic/__init__.py", line 5, in <module>
+    from ._migration import getattr_migration
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic/_migration.py", line 4, in <module>
+    from pydantic.warnings import PydanticDeprecatedSince20
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic/warnings.py", line 5, in <module>
+    from .version import version_short
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic/version.py", line 7, in <module>
+    from pydantic_core import __version__ as __pydantic_core_version__
+ModuleNotFoundError: No module named 'pydantic_core'

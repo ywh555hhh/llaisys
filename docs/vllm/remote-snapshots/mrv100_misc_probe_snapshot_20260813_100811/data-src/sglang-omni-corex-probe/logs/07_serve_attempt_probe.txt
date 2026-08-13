@@ -1,0 +1,411 @@
+=== available local models ===
+/mnt/moark-models/IndexTTS-2
+/mnt/moark-models/IndexTTS-2/models--funasr--campplus
+/mnt/moark-models/IndexTTS-2/qwen0.6bemo4-merge
+/mnt/moark-models/Qwen3-0.6B
+/mnt/moark-models/Qwen3-8B
+/mnt/moark-models/Qwen3-ASR-1.7B
+/mnt/moark-models/Qwen3-Embedding-8B
+/mnt/moark-models/Qwen3-TTS-12Hz-1.7B-Base
+/mnt/moark-models/Qwen3.5-9B
+/mnt/moark-models/github/index-tts
+=== configs ===
+examples/configs/audar_tts_turbo.yaml
+examples/configs/dots_tts.yaml
+examples/configs/dots_tts_soar.yaml
+examples/configs/ming_omni_tts.yaml
+examples/configs/moss_tts.yaml
+examples/configs/moss_tts_local.yaml
+examples/configs/qwen3_asr_router.yaml
+examples/configs/qwen3_asr_rtx4090.yaml
+examples/configs/qwen3_omni_colocated_h100_bf16.yaml
+examples/configs/qwen3_omni_colocated_h100_fp8.yaml
+examples/configs/qwen3_omni_colocated_h20.yaml
+examples/configs/qwen3_omni_colocated_h200.yaml
+examples/configs/qwen3_omni_fp8_colocated.yaml
+examples/configs/qwen3_omni_mmmu.yaml
+examples/configs/qwen3_omni_mmmu_h100.yaml
+examples/configs/qwen3_omni_mmsu.yaml
+examples/configs/qwen3_omni_router.yaml
+examples/configs/qwen3_tts_0_6b.yaml
+examples/configs/qwen3_tts_0_6b_customvoice.yaml
+examples/configs/qwen3_tts_1_7b.yaml
+examples/configs/qwen3_tts_1_7b_voicedesign.yaml
+examples/configs/s2pro_tts.yaml
+examples/configs/voxtral_tts.yaml
+=== qwen/asr config grep ===
+docs/basic_usage/omni_router.md:4:fronts multiple complete Omni V1 API servers and exposes one OpenAI-compatible
+docs/basic_usage/omni_router.md:7:Use the router when you launch more than one `sgl-omni serve` process and want
+docs/basic_usage/omni_router.md:21:  +-- sgl-omni serve worker A
+docs/basic_usage/omni_router.md:22:  +-- sgl-omni serve worker B
+docs/basic_usage/omni_router.md:25:Each worker is a complete Omni V1 HTTP server. The router does not load model
+docs/basic_usage/omni_router.md:52:  model_path: Qwen/Qwen3-Omni-30B-A3B-Instruct
+docs/basic_usage/omni_router.md:64:servers started with `sgl-omni serve`; they are not partial
+docs/basic_usage/omni_router.md:85:Use `worker_extra_args` for public Omni V1 serve options that are specific to
+docs/basic_usage/omni_router.md:87:`--text-only`. These arguments are passed to `sgl-omni serve`
+docs/basic_usage/omni_router.md:98:  model_path: Qwen/Qwen3-Omni-30B-A3B-Instruct
+docs/basic_usage/omni_router.md:121:  model_path: Qwen/Qwen3-Omni-30B-A3B-Instruct
+docs/basic_usage/omni_router.md:131:## Launch Worker Servers Manually
+docs/basic_usage/omni_router.md:137:CUDA_VISIBLE_DEVICES=0 sgl-omni serve \
+docs/basic_usage/omni_router.md:147:CUDA_VISIBLE_DEVICES=1 sgl-omni serve \
+docs/basic_usage/omni_router.md:182:| `--host` | `0.0.0.0` | Host interface for the router HTTP server. |
+docs/basic_usage/omni_router.md:183:| `--port` | `8000` | Port for the router HTTP server. |
+docs/basic_usage/omni_router.md:213:`--worker-config`. Use `--worker-config` when workers serve different models or
+docs/basic_usage/omni_router.md:272:is the same OpenAI-compatible schema used by each worker server.
+docs/basic_usage/omni_router.md:305:The router preserves the original request body. For ordinary JSON requests, it
+docs/basic_usage/omni_router.md:385:Register narrower worker capabilities only when a worker cannot serve one of
+docs/basic_usage/omni_router.md:501:Request Timeout`, and `500 Internal Server Error`, are counted as per-request
+docs/basic_usage/omni_router.md:520:python -m sglang_omni_router.serve --help
+docs/basic_usage/omni_router.md:569:  python -m sglang_omni_router.serve \
+docs/basic_usage/omni_router.md:627:  `degraded` while some DPs are missing and `503` only when nothing can serve.
+docs/basic_usage/qwen3_omni.md:13:### Launch the Server
+docs/basic_usage/qwen3_omni.md:16:sgl-omni serve \
+docs/basic_usage/qwen3_omni.md:27:sgl-omni serve \
+docs/basic_usage/qwen3_omni.md:163:### Launch the Server
+docs/basic_usage/qwen3_omni.md:168:sgl-omni serve \
+docs/basic_usage/qwen3_omni.md:201:python examples/run_omni.py qwen3-speech-server \
+docs/basic_usage/qwen3_omni.md:213:sgl-omni serve \
+docs/basic_usage/qwen3_omni.md:223:sgl-omni serve \
+docs/basic_usage/qwen3_omni.md:232:sgl-omni serve \
+docs/basic_usage/qwen3_omni.md:239:The speech server launcher exposes the same per-stage controls:
+docs/basic_usage/qwen3_omni.md:242:python examples/run_omni.py qwen3-speech-server \
+docs/basic_usage/qwen3_omni.md:262:sgl-omni serve \
+docs/basic_usage/qwen3_omni.md:274:    server_args_overrides:
+docs/basic_usage/qwen3_omni.md:278:### Realtime Speech with Server VAD
+docs/basic_usage/qwen3_omni.md:284:sgl-omni serve \
+docs/basic_usage/qwen3_omni.md:304:Stream mono 16 kHz PCM16 input with `input_audio_buffer.append`. Server VAD
+docs/basic_usage/qwen3_omni.md:311:requested. A thinker-only server rejects audio negotiation because it has no
+docs/basic_usage/qwen3_omni.md:320:SGLang-Omni can also serve native FP8 Qwen3-Omni checkpoints. Native FP8 uses
+docs/basic_usage/qwen3_omni.md:327:sgl-omni serve \
+docs/basic_usage/qwen3_omni.md:347:SGLANG_JIT_DEEPGEMM_PRECOMPILE=1 sgl-omni serve \
+docs/basic_usage/qwen3_omni.md:366:sgl-omni serve \
+docs/basic_usage/tts.md:3:This guide uses [Fish Speech S2-Pro](https://huggingface.co/fishaudio/s2-pro) as the example. The same `/v1/audio/speech` endpoint also serves Higgs TTS, Voxtral TTS, Qwen3-TTS, Ming-Omni-TTS, MOSS-TTS, MOSS-TTS Local, dots.tts, and ZONOS2.
+docs/basic_usage/tts.md:15:before starting the server.
+docs/basic_usage/tts.md:51:## Launch the Server
+docs/basic_usage/tts.md:62:sgl-omni serve \
+docs/basic_usage/tts.md:71:`--tts-batch-max-items` to change the server-side request envelope limit:
+docs/basic_usage/tts.md:74:sgl-omni serve \
+docs/basic_usage/tts.md:86:sgl-omni serve \
+docs/basic_usage/tts.md:97:sgl-omni serve \
+docs/basic_usage/tts.md:108:sgl-omni serve \
+docs/basic_usage/tts.md:119:sgl-omni serve \
+docs/basic_usage/tts.md:130:sgl-omni serve \
+docs/basic_usage/tts.md:141:sgl-omni serve \
+docs/basic_usage/tts.md:153:sgl-omni serve \
+docs/basic_usage/tts.md:172:sgl-omni serve \
+docs/basic_usage/tts.md:319:The response preserves item order. Successful items contain base64-encoded
+docs/basic_usage/tts.md:328:messages and finish with `input.done`. The server acknowledges the initial
+docs/basic_usage/tts.md:333:For `stream_audio=true`, `response_format` must be `pcm`, and the server sends
+docs/basic_usage/tts.md:392:server restarts. If `SPEAKER_SAMPLES_DIR` is not set, the server uses
+docs/basic_usage/tts.md:464:the SGLang-Omni server:
+docs/basic_usage/tts.md:552:| `model` | string | served model | Served model identifier |
+docs/basic_usage/tts.md:596:Run EN and ZH after launching the target server on port 8000. Do not add benchmark results to docs until the full H200 runs complete.
+docs/basic_usage/tts_process_topology.md:4:CLI placement option preserves the topology declared by the selected model or
+docs/basic_usage/tts_process_topology.md:30:python -m sglang_omni.cli serve \
+docs/basic_usage/tts_process_topology.md:41:python -m sglang_omni.cli serve \
+docs/basic_usage/mps_dp.md:44:Identical `--mem-fraction-static` flags do **not** mean identical KV capacity. `--mem-fraction-static` budgets model weights and the KV pool against the GPU memory available when each replica starts. Roughly, the profiled KV memory is the requested fraction of free memory measured before model loading, minus model and fixed runtime allocations. It is a per-replica budget, not an additive share of the card. Because replicas start sequentially, earlier ones have already reserved memory, so later ones see a smaller free pool and allocate fewer KV tokens even when every flag is the same (in one run, three sequential `mf=0.27` replicas received 97,503 / 53,149 / 20,961 KV tokens).
+docs/basic_usage/mps_dp.md:60:MPS should be verified carefully. Four things are easy to conflate: environment variables set, daemon running, an MPS server exists, and the replica processes you launched are actually attached as clients. Only the last makes the comparison valid, and a replica that missed the pipe directory falls back to time-slicing without any error. The launcher verifies every replica against the MPS client list, writes the server-to-client PID mapping to `mps_attach.txt`, and fails startup if any replica is not attached.
+docs/basic_usage/mps_dp.md:94:A model is either **supported** or **not supported**; there is no intermediate tier. Supported means all of the following passed at the current revision, with commands and logs recorded in the PR: the documented `launch.sh` command boots `N=2` with `WEIGHT_SHARE=1` under a private MPS daemon, every replica passes its health check and MPS attach verification, the follower attaches the leader's weights over CUDA IPC and holds no second resident copy of the shared weights after boot, concurrent requests across replicas return correct outputs (byte-identical audio to the single-replica baseline for TTS; word-identical transcripts for ASR, where timestamp fields may jitter under batching), and teardown leaves no replica process or MPS client behind. This is one-H100 end-to-end smoke validation — executable support evidence at the current revision, not a long-term stability or CI claim.
+docs/basic_usage/mps_dp.md:103:| Qwen3-ASR (`Qwen3ASRForConditionalGeneration`) | Supported | `qwen3_asr_h100_dp2.yaml` | none identified | all registered tensors (3.83 GiB) |
+docs/basic_usage/mps_dp.md:104:| FunASR Nano (`FunAsrNanoForConditionalGeneration`) | Supported | `fun_asr_h100_dp2.yaml` | none identified | all registered tensors (1.57 GiB) |
+docs/basic_usage/mps_dp.md:115:* Voxtral TTS (`VoxtralSGLangTTSModel`), Fish S2-Pro (`S2ProSGLangTextModel`), Qwen3-TTS (`Qwen3TTSTalker`): audit complete; shared boots were observed in exploratory runs, but concurrent-request correctness needs each model's own client, which this validation does not have yet.
+docs/basic_usage/mps_dp.md:131:| Qwen3-ASR 1.7B | DP3 (40k cap) | DP3 | 28.2 GB | 20.2 GB | 3.83 GiB | parity: agg 67.5 vs 64.5 (per replica 22.5 vs 21.5) |
+docs/basic_usage/mps_dp.md:132:| FunASR Nano | DP2 (30k cap) | DP2 | 11.8 GB | 10.2 GB | 1.57 GiB | parity: agg 40.6 vs 42.5 cold qps (per replica 20.3 vs 21.3) |
+docs/basic_usage/mps_dp.md:134:The validated-DP columns show the highest configuration each mode booted and served in these runs, not proven ceilings: Whisper kept scaling to DP6 and its knee is still unfound, so treat the small models' DP as CPU-core-limited, not VRAM-limited. For the ASR models the ceiling is host-bound, not VRAM-bound, so sharing does not move it; sharing moves the ceiling exactly where weights bind: MOSS delay (DP1 to DP2) and MOSS local (edge DP3 to operable DP3). Fixed-N parity is the mechanism-level expectation (same kernels over the same weight values either way); the single-run ASR pairs differ by under 7% with no consistent direction and MOSS local's repeated rounds match, but treat single-pass cells as observations pending repetition. The throughput gains come from the extra replicas or KV the freed memory funds (delay DP2 +32% over its single replica, local DP3 +29% over DP2, Higgs DP4 +10% to +40% over DP3).
+docs/basic_usage/mps_dp.md:136:Correctness scope for the smoke validation: TTS byte-identity holds for a replica serving the seeded sequence as its first traffic, for both leader and follower and with the peer under concurrent load; the MOSS samplers are additionally sensitive to their own serving history, at identical rates with sharing off and on (measured controls), so byte comparisons require aligned histories, and no evidence points at cross-replica sharing pollution. FunASR: 63/63 admissible clips exact; the 64th corpus clip exceeds the model's own 30-second VAD limit and is rejected identically by the baseline and both shared replicas.
+docs/basic_usage/mps_dp.md:138:VRAM saved per follower is the byte count the leader exports and each follower aliases instead of allocating; the off and on columns differ by roughly (N-1) times this value. ASR throughput used 64 unique synthesized clips per replica with the cold round reported (a warm rerun is cache-inflated). Sharing leaves throughput at parity at a fixed N everywhere it was paired; the wins are fit (MOSS delay DP2, previously impossible), margin (MOSS local DP3: 13.3 GB headroom and full graphs versus 0.33 GB and graph fallback), and follower memory.
+docs/basic_usage/mps_dp.md:142:This recipe grew out of the serving profiling in [#907](https://github.com/sgl-project/sglang-omni/issues/907). Our profiling found substantial unused GPU capacity across several omni serving workloads, with strong host-dispatch-bound evidence in the tested ASR setup. From there we ran same-GPU DP experiments on [Higgs](https://sgl-project.github.io/sglang-omni/cookbook/higgs_tts.html) and [Moss](https://sgl-project.github.io/sglang-omni/cookbook/moss_tts_local.html) TTS models.
+docs/basic_usage/mps_dp.md:148:| ASR single replica | GPU timeline 94.3% idle | throughput 0.90x at SM clock 0.455x; 0.31x at host CPU near 0.25x | sensitive to CPU, not to GPU compute | strong host-dispatch-bound causal evidence in this ASR setup |
+docs/basic_usage/mps_dp.md:149:| Higgs tuned single | SM Active about 29%, GPU idle about 71% | throughput plateaued, worker fully driven | 1.00x normalized | clear reclaimable GPU headroom, but not the full ASR causal closure |
+docs/basic_usage/mps_dp.md:150:| Higgs DP2 without MPS | SM Active about 37 to 38%, GPU idle about 62 to 63% | added a second same-card server process | about 1.24x normalized | the second process reclaims part of the idle gap; host scheduling and long-tail batching can both contribute |
+docs/basic_usage/mps_dp.md:151:| Higgs DP with MPS | see the pinned case study in Evaluate | each replica saturated, MPS attachment confirmed | 1.4 to 2.1x nominal, repeated | MPS-enabled saturated runs produced the largest gains observed in the later pinned tests. |
+docs/basic_usage/mps_dp.md:153:ASR is the strongest host-bound evidence. Higgs started as a gray zone but clearly leaves GPU headroom at a tuned single replica. Running several replicas as separate processes changes host execution, scheduling, and long-tail behavior, and it is not the same as enlarging one replica's batch. Without MPS the CUDA contexts mostly time-slice and recover only part of the idle; MPS lets kernels from different processes run concurrently when resources permit, and the later MPS-enabled saturated runs produced the largest gains observed in the pinned tests.
+docs/basic_usage/mps_dp.md:183:* **Know the admission limit.** Higgs serves with `max_running_requests=64` and `cuda_graph_max_bs=64` by default; both can be raised via `sgl-omni serve --max_running_requests N --cuda_graph_max_bs N` (the CUDA-graph capture range must cover the admission limit, and raising it costs capture memory). Whether the default cap binds depends on the runtime, so check the queue, do not assume.
+docs/basic_usage/mps_dp.md:184:* **Separate client from server.** Client concurrency is not the active generation batch: requests beyond the admission limit wait in the scheduler queue, and requests also spend time in the other pipeline stages.
+docs/basic_usage/mps_dp.md:203:One H100 80 GB (driver 580.126.20 / CUDA 13), sglang-omni `a78de4cb`, sglang `0.5.12.post1`, `bosonai/higgs-tts-3-4b` (snapshot `7556c17e`), `/v1/audio/speech`, seed-tts-eval EN, 300 samples per client, default `max_running_requests=64` / `cuda_graph_max_bs=64`, 32 server cores of the GPU's NUMA node split per replica, one client per replica on the SMT-sibling cores, fresh servers per run, interleaved on a shared host. Every attempted run is reported.
+docs/basic_usage/mps_dp.md:217:> A separate reviewer verification on the same pinned software revision measured 29.9, 59.7, and 64.5 qps for single, DP2, and DP3. Absolute throughput differed between the two runtime environments, including different observed admission behavior, so the two series should not be combined. Both nevertheless showed a clear DP gain once every configuration was saturated.
+docs/basic_usage/mps_dp.md:231:1. **Generality is not fully validated.** Beyond the pinned H100 Higgs case study, we also ran related experiments on H200 and used SGLang to serve Qwen3-4B directly; both lines of work largely confirmed the same-GPU DP gains. Space and time limit how completely we can present those results here, and the measurements are not yet as polished as we would like. We believe same-GPU DP is a promising direction for smaller models on GPUs with ample memory and compute headroom, but the experimental coverage is still incomplete.
+docs/_static/js/ming_omni_server_generator.js:1:// Server command generator for Ming-flash-omni-2.0, mounting into
+docs/_static/js/ming_omni_server_generator.js:2:// #sgl-ming-server-gen-mount. Sibling of qwen3_omni_server_generator.js.
+docs/_static/js/ming_omni_server_generator.js:6:  var MODEL_PATH = 'inclusionAI/Ming-flash-omni-2.0';
+docs/_static/js/ming_omni_server_generator.js:76:      '--model-path ' + MODEL_PATH,
+docs/_static/js/ming_omni_server_generator.js:92:    var cmd = prefix + ' sgl-omni serve';
+docs/_static/js/ming_omni_server_generator.js:303:    new MutationObserver(function() {
+docs/_static/js/ming_omni_server_generator.js:306:    }).observe(document.documentElement, {
+docs/_static/js/ming_omni_server_generator.js:315:    var mount = document.getElementById('sgl-ming-server-gen-mount');
+docs/_static/js/qwen3_omni_server_generator.js:1:// Server command generator for Qwen3-Omni deployment docs.
+docs/_static/js/qwen3_omni_server_generator.js:2:// Mounts into #sgl-server-gen-mount when the page contains that element.
+docs/_static/js/qwen3_omni_server_generator.js:89:  // by the thinker/talker workers from the checkpoint config, so no server-side flag needed.
+docs/_static/js/qwen3_omni_server_generator.js:195:    var cmd = (prefix ? prefix + ' ' : '') + 'sgl-omni serve';
+docs/_static/js/qwen3_omni_server_generator.js:402:    new MutationObserver(function() {
+docs/_static/js/qwen3_omni_server_generator.js:405:    }).observe(document.documentElement, {
+docs/_static/js/qwen3_omni_server_generator.js:414:    var mount = document.getElementById('sgl-server-gen-mount');
+docs/_static/image/moss-td-optimization.svg:46:  <text x="430" y="188" text-anchor="middle" font-size="10" fill="#999">ASR Inference Optimization Overview</text>
+Binary file docs/_static/image/llada2.0_uni_architecture.png matches
+docs/README.md:22:bash serve.sh
+docs/README.md:25:PORT=8080 make serve
+docs/index.rst:15:- **OpenAI-Compatible Server**: Drop-in ``/v1/audio/speech``, ``/v1/audio/transcriptions``, and ``/v1/chat/completions`` endpoints with real-time streaming support.
+docs/index.rst:16:- **Broad Model Support**: TTS (Higgs, Fish S2-Pro, Voxtral, Qwen3-TTS, MOSS-TTS / Local, Ming-Omni-TTS, dots.tts, ZONOS2), ASR (Qwen3-ASR, Fun-ASR, ARK-ASR, Whisper, MOSS-Transcribe-Diarize), Omni (Qwen3-Omni, Ming-Omni), and LLaDA2.0-Uni.
+docs/index.rst:55:   * - `Qwen/Qwen3-ASR-1.7B <https://huggingface.co/Qwen/Qwen3-ASR-1.7B>`_
+docs/index.rst:56:     - ASR
+docs/index.rst:58:   * - `FunAudioLLM/Fun-ASR-Nano-2512-hf <https://huggingface.co/FunAudioLLM/Fun-ASR-Nano-2512-hf>`_
+docs/index.rst:59:     - ASR
+docs/index.rst:60:     - Multilingual Fun-ASR-Nano
+docs/index.rst:61:   * - `AutoArk-AI/ARK-ASR-3B <https://huggingface.co/AutoArk-AI/ARK-ASR-3B>`_
+docs/index.rst:62:     - ASR
+docs/index.rst:63:     - Multilingual ARK-ASR
+docs/index.rst:65:     - ASR
+docs/index.rst:68:     - ASR
+docs/index.rst:69:     - Experimental Whisper route; schema served, correctness not yet validated
+docs/index.rst:102:   cookbook/qwen3_asr.md
+docs/index.rst:103:   cookbook/fun_asr.md
+docs/index.rst:104:   cookbook/arkasr.md
+docs/index.rst:106:   cookbook/whisper_asr.md
+docs/index.rst:134:   developer_reference/apiserver_design.md
+docs/index.rst:140:   developer_reference/qwen3_asr_concurrency_profile.md
+docs/Makefile:13:	@echo "  serve       to build and serve documentation with auto-build and live reload"
+docs/Makefile:41:# Serve documentation with auto-build and live reload
+docs/Makefile:42:serve:
+docs/Makefile:43:	@echo "Starting auto-build server at http://0.0.0.0:$(PORT)"
+docs/Makefile:50:.PHONY: help Makefile compile clean serve
+docs/developer_reference/main.md:16:| [HTTP API](./apiserver_design.md) | OpenAI-compatible request and response schemas, SSE framing, HTTP errors               |
+docs/developer_reference/main.md:17:| [Client](./apiserver_design.md)   | `GenerateRequest` to `OmniRequest`, result aggregation, audio encoding                 |
+docs/developer_reference/main.md:37:|-- serve/          # HTTP server and OpenAI-compatible API adapter
+docs/developer_reference/config.md:76:| `factory_args` | `dict[str, Any]` | `{}` | Explicit arguments forwarded to the factory after runtime overrides and typed runtime fields are merged. Signature-dependent defaults such as `model_path`, `gpu_id`, and `total_gpu_memory_fraction` are not written here during runtime prep; the worker injects them after importing the factory. `gpu_id` is owned by placement and is **rejected** here (set the device via `gpu` instead). |
+docs/developer_reference/config.md:116:| `model_path` | `str` | required | Hugging Face model id or local checkpoint path. |
+docs/developer_reference/config.md:118:| `name` | `str` or `None` | `model_path` | Pipeline name. Used for reporting and runtime identification. |
+docs/developer_reference/config.md:166:- prepare signature-dependent defaults such as `model_path`, `gpu_id`, and
+docs/developer_reference/rl_admin_control.md:29:The worker server supports:
+docs/developer_reference/rl_admin_control.md:60:`/update_weights_from_tensor` is still reserved for a future tensor data-plane
+docs/developer_reference/qwen3_asr_concurrency_profile.md:1:# Qwen3-ASR High-Concurrency Benchmark and Bottleneck Profile
+docs/developer_reference/qwen3_asr_concurrency_profile.md:4:benchmark of Qwen3-ASR serving at concurrency 1–64, compared against a fixed
+docs/developer_reference/qwen3_asr_concurrency_profile.md:11:- Model: `Qwen/Qwen3-ASR-1.7B`, bf16, one 80 GB GPU per server (DP=1).
+docs/developer_reference/qwen3_asr_concurrency_profile.md:14:  the same client (`benchmarks/eval/benchmark_asr_seedtts.py`).
+docs/developer_reference/qwen3_asr_concurrency_profile.md:17:- Current is SGLang-Omni at the commit under review, served with the default
+docs/developer_reference/qwen3_asr_concurrency_profile.md:18:  Qwen3-ASR pipeline (`max_running_requests=32`,
+docs/developer_reference/qwen3_asr_concurrency_profile.md:33:sgl-omni serve --model-path Qwen/Qwen3-ASR-1.7B --port 8511
+docs/developer_reference/qwen3_asr_concurrency_profile.md:35:python -m benchmarks.eval.benchmark_asr_seedtts \
+docs/developer_reference/qwen3_asr_concurrency_profile.md:37:  --profile-events --profile-event-dir /tmp/asr_profile \
+docs/developer_reference/qwen3_asr_concurrency_profile.md:39:  --save-raw-dir raw-current --output asr_en_current.json
+docs/developer_reference/qwen3_asr_concurrency_profile.md:41:# baseline: point the same client at the baseline server's port
+docs/developer_reference/qwen3_asr_concurrency_profile.md:42:python -m benchmarks.eval.benchmark_asr_seedtts \
+docs/developer_reference/qwen3_asr_concurrency_profile.md:45:  --output asr_en_baseline.json
+docs/developer_reference/qwen3_asr_concurrency_profile.md:179:GPU, cached model revision — describing the benchmark process) and a server
+docs/developer_reference/qwen3_asr_concurrency_profile.md:180:block (what the target server reports about itself). In the runs above,
+docs/developer_reference/qwen3_asr_concurrency_profile.md:181:client and server shared one host and checkout, so the client git state also
+docs/developer_reference/qwen3_asr_concurrency_profile.md:182:identifies the server code. Raw per-request records and profiler event JSONL
+docs/developer_reference/communication.md:196:reserve several contiguous slots, but those slots remain one logical transfer.
+docs/developer_reference/apiserver_design.md:1:# API Server Design
+docs/developer_reference/apiserver_design.md:3:This page explains the API server at the level that is most useful for maintenance: where it sits in the system, which files matter, and how requests are mapped into the runtime.
+docs/developer_reference/apiserver_design.md:5:If you only want to launch the server and call it, start with [API Server Quickstart](../get_started/apiserver_quickstart.md).
+docs/developer_reference/apiserver_design.md:9:The API server is the outer protocol layer on top of the `sglang-omni` pipeline runtime.
+docs/developer_reference/apiserver_design.md:11:At a high level, the built-in server startup path is:
+docs/developer_reference/apiserver_design.md:23:- the API server translates between HTTP/OpenAI-style payloads and those internal abstractions
+docs/developer_reference/apiserver_design.md:27:For the current server implementation, these are the files that matter most.
+docs/developer_reference/apiserver_design.md:31:| `sglang_omni/serve/openai_api.py` | Defines the FastAPI app, routes, request conversion, and response formatting |
+docs/developer_reference/apiserver_design.md:32:| `sglang_omni/serve/protocol.py` | Defines request and response schemas |
+docs/developer_reference/apiserver_design.md:33:| `sglang_omni/serve/launcher.py` | Compiles the pipeline, starts the runtime, mounts the app, and runs Uvicorn |
+docs/developer_reference/apiserver_design.md:35:| `sglang_omni/cli/serve.py` | Defines the current CLI surface for `sgl-omni serve` |
+docs/developer_reference/apiserver_design.md:39:## `create_app()` vs `launch_server()`
+docs/developer_reference/apiserver_design.md:57:### `launch_server(pipeline_config, ...)`
+docs/developer_reference/apiserver_design.md:59:`launch_server()` is the full built-in server lifecycle.
+docs/developer_reference/apiserver_design.md:71:Use it when you want the standard out-of-the-box server path.
+docs/developer_reference/apiserver_design.md:75:The current server exposes these main routes:
+docs/developer_reference/apiserver_design.md:88:The profiling routes are mounted by the single-process `launch_server()` path. The
+docs/developer_reference/apiserver_design.md:113:The server does not pass OpenAI-style request bodies straight into the runtime. It first converts them into internal request objects.
+docs/developer_reference/apiserver_design.md:176:For streaming chat, the server emits SSE events.
+docs/developer_reference/reference_encode_service.md:170:- preserve M4a ordering: normalize input, compute cache key, check cache,
+docs/developer_reference/tts_model_integration.md:24:   server args via `build_sglang_server_args`, hands them to
+docs/developer_reference/tts_model_integration.md:66:   to leave the server before generation finishes.
+docs/developer_reference/tts_model_integration.md:88:point `sgl-omni serve --config` at.
+docs/developer_reference/tts_model_integration.md:95:- `build_sglang_server_args(checkpoint_dir, ...)` from
+docs/developer_reference/tts_model_integration.md:97:- `create_sglang_infrastructure(server_args, gpu_id, *, model_arch_override=...)`
+docs/developer_reference/tts_model_integration.md:115:`sglang_omni/serve/speech_service.py::SpeechRequestValidator`, then lowers it
+docs/conf.py:126:    "js/qwen3_omni_server_generator.js",
+docs/conf.py:127:    "js/ming_omni_server_generator.js",
+docs/conf.py:164:autodoc_preserve_defaults = True
+docs/serve.sh:1:# Clean and serve documentation with auto-build
+docs/serve.sh:3:make serve
+docs/get_started/release_notes.md:10:- **ASR**: Fun-ASR, ARK-ASR; shared transcription serving; Qwen3-ASR pre-LM encoder and multilingual support
+docs/get_started/apiserver_quickstart.md:1:# API Server Quickstart
+docs/get_started/apiserver_quickstart.md:3:This page is the shortest path from “I have the repo” to “the API server responds to a request”.
+docs/get_started/apiserver_quickstart.md:5:`sglang-omni` exposes an OpenAI-compatible API server on top of its multi-stage pipeline runtime. That server is the main HTTP entry point for:
+docs/get_started/apiserver_quickstart.md:13:If you want the internal design rather than the usage flow, see [API Server Design](../developer_reference/apiserver_design.md).
+docs/get_started/apiserver_quickstart.md:15:## What This Server Is
+docs/get_started/apiserver_quickstart.md:17:The API server is an adapter between HTTP clients and the internal pipeline runtime:
+docs/get_started/apiserver_quickstart.md:23:## Start the Server
+docs/get_started/apiserver_quickstart.md:27:The simplest way to start the server is to provide a model path and let `sglang-omni` build the pipeline config for you:
+docs/get_started/apiserver_quickstart.md:30:sgl-omni serve \
+docs/get_started/apiserver_quickstart.md:42:- `--log-level`: logging level for the server process
+docs/get_started/apiserver_quickstart.md:44:If you already have a pipeline config file, you can also pass `--config path/to/config.yaml`. When the config file contains `model_path`, `--model-path` is optional and can be used as an override.
+docs/get_started/apiserver_quickstart.md:63:The server returns:
+docs/get_started/apiserver_quickstart.md:66:- `503` when the HTTP server is up but the underlying runtime reports unhealthy status
+docs/get_started/apiserver_quickstart.md:68:### List the served model
+docs/get_started/apiserver_quickstart.md:108:Set `stream` to `true` to receive Server-Sent Events (SSE):
+docs/get_started/apiserver_quickstart.md:162:The server also exposes `POST /v1/audio/speech`.
+docs/get_started/apiserver_quickstart.md:183:When requests fail, the server returns standard HTTP error codes:
+docs/get_started/apiserver_quickstart.md:186:- `500 Internal Server Error`: runtime error during generation (check server logs for details)
+docs/get_started/apiserver_quickstart.md:189:If you see a 500 error, check the server logs for the full traceback. Common issues include:
+docs/get_started/apiserver_quickstart.md:196:- [API Server Design](../developer_reference/apiserver_design.md)
+docs/design/refactor_rfc.md:76:├── serve/              # HTTP server, OpenAI API
+docs/design/refactor_rfc.md:183:HTTP covers the request/response endpoints; the WebSocket endpoint (`/v1/realtime`, see [Design Decision History § PR #385](#2026-05-04--pr-385-openai-realtime-websocket-endpoint-v1-feature)) is full-duplex for streaming audio in and server events out. There is no application-level HTTPS/TLS layer: the server binds plain HTTP via uvicorn, and TLS is expected to terminate at a reverse proxy or load balancer in front of it.
+docs/design/refactor_rfc.md:612:| factory_args | dict             | {}         | Args forwarded to factory (model_path, gpu_id auto-injected)                       |
+docs/design/refactor_rfc.md:696:The main process resolves all dotted strings, injects `model_path` / `gpu_id` into factory args, allocates ZMQ endpoints, and computes stream targets and relay config. Each launch config captures everything needed to construct one logical stage instance; `StageWorkerProcessSpec` is the OS-process payload that groups the launch configs sharing a process.
+docs/design/refactor_rfc.md:801:Following the suggestion in [#188 (comment)](https://github.com/sgl-project/sglang-omni/issues/188#issuecomment-4161198732), we should also track how many files need to be touched and the upper bound of the cost of integrating a new model. Boson's upcoming model will serve as the first concrete data point.
+docs/design/refactor_rfc.md:803:[^q-realtime-streaming]: **Realtime streaming-input semantics.** The `/realtime` endpoint shipped in PR [#385](#2026-05-04--pr-385-openai-realtime-websocket-endpoint-v1-feature) (merged 2026-05-18) — WebSocket-backed streaming-in audio with SSE-style server events, aligned with OpenAI's realtime interface. Detailed protocol — chunk framing, partial-result emission, cancellation semantics — is documented in #385's session-state-machine implementation rather than mirrored here.
+docs/design/refactor_rfc.md:822:**Why it matters:** This is the canonical statement of refactor intent. The PR closed without merging, but the side-by-side migration discipline it established — every intermediate state has a working server — is the rule every subsequent PR in this history followed.
+=== serve no-model expected validation ===
+Ignore import error when loading sglang_omni.models.qwen3_omni.config: No module named 'triton'
+Usage: sgl-omni serve [OPTIONS]
+Try 'sgl-omni serve --help' for help.
+╭─ Error ──────────────────────────────────────────────────────────────────────╮
+│ Invalid value: --model-path is required unless --config is set               │
+╰──────────────────────────────────────────────────────────────────────────────╯
+=== serve Qwen3-ASR local attempt ===
+Ignore import error when loading sglang_omni.models.qwen3_omni.config: No module named 'triton'
+==================== Merged Configuration ====================
+model_path: /mnt/moark-models/Qwen3-ASR-1.7B
+stages:
+- name: asr
+  factory: sglang_omni.models.qwen3_asr.stages.create_sglang_qwen3_asr_executor
+  factory_args:
+    device: cuda:0
+    max_running_requests: 64
+    max_new_tokens: 128
+    enable_torch_compile: true
+    torch_compile_max_bs: 2
+    request_build_max_workers: 8
+    request_build_max_pending: 32
+    prefill_coalesce_requests: 16
+    prefill_coalesce_wait_ms: 40
+    prefill_coalesce_when_idle: true
+    prefill_coalesce_requires_pending_builds: true
+    prefill_coalesce_after_builds_during_decode: true
+    enable_pre_lm_encoder: true
+    pre_lm_cache_max_entries: 4096
+    pre_lm_cache_size_bytes: 2147483648
+    pre_lm_max_batch_size: 8
+    pre_lm_max_batch_wait_ms: 0
+  next: null
+  terminal: true
+  route_fn: null
+  gpu: 0
+  tp_size: 1
+  parallelism:
+    tp: 1
+  process: asr
+  runtime:
+    resources:
+      total_gpu_memory_fraction: null
+    max_seq_len: null
+    video_fps: null
+    sglang_server_args:
+      mem_fraction_static: null
+  runtime_arg_map: {}
+  env: {}
+  wait_for: null
+  wait_for_fn: null
+  merge_fn: null
+  stream_to: []
+  stream_done_to_fn: null
+  can_accept_stream_before_payload: false
+  disable_direct_cuda_ipc_payload: false
+  project_payload: {}
+  comm: null
+name: /mnt/moark-models/Qwen3-ASR-1.7B
+entry_stage: asr
+fused_stages: []
+runtime_overrides: {}
+env_defaults: {}
+placement:
+  max_total_gpu_memory_fraction_per_gpu: 1.0
+  require_memory_fraction_for_colocation: true
+placement_policy: null
+endpoints:
+  base_path: /tmp/sglang_omni
+terminal_stages_fn: null
+config_cls: Qwen3ASRPipelineConfig
+
+==================================================
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/serve.py:1475 in      │
+│ serve                                                                        │
+│                                                                              │
+│   1472 │   if _should_print_merged_config(colocate=colocate,                 │
+│        log_level=log_level):                                                 │
+│   1473 │   │   _print_merged_config(merged_config)                           │
+│   1474 │                                                                     │
+│ ❱ 1475 │   launch_server(                                                    │
+│   1476 │   │   merged_config,                                                │
+│   1477 │   │   host=host,                                                    │
+│   1478 │   │   port=port,                                                    │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/serve.py:69 in        │
+│ launch_server                                                                │
+│                                                                              │
+│     66                                                                       │
+│     67                                                                       │
+│     68 def launch_server(*args: object, **kwargs: object) -> object:         │
+│ ❱   69 │   from sglang_omni.serve.launcher import launch_server as           │
+│        _launch_server                                                        │
+│     70 │                                                                     │
+│     71 │   return _launch_server(*args, **kwargs)                            │
+│     72                                                                       │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/serve/launcher.py:42 in   │
+│ <module>                                                                     │
+│                                                                              │
+│    39 from fastapi import APIRouter, HTTPException                           │
+│    40 from pydantic import BaseModel                                         │
+│    41                                                                        │
+│ ❱  42 from sglang_omni.client import Client                                  │
+│    43 from sglang_omni.config import PipelineConfig                          │
+│    44 from sglang_omni.models.model_capabilities import                      │
+│       get_model_capabilities                                                 │
+│    45 from sglang_omni.pipeline.mp_runner import MultiProcessPipelineRunner  │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/client/__init__.py:4 in   │
+│ <module>                                                                     │
+│                                                                              │
+│    1 # SPDX-License-Identifier: Apache-2.0                                   │
+│    2 """Client package."""                                                   │
+│    3                                                                         │
+│ ❱  4 from sglang_omni.client.client import Client                            │
+│    5 from sglang_omni.client.types import (                                  │
+│    6 │   AbortLevel,                                                         │
+│    7 │   AbortResult,                                                        │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/client/client.py:33 in    │
+│ <module>                                                                     │
+│                                                                              │
+│    30 │   SpeechResult,                                                      │
+│    31 │   UsageInfo,                                                         │
+│    32 )                                                                      │
+│ ❱  33 from sglang_omni.pipeline.coordinator import Coordinator               │
+│    34 from sglang_omni.proto import OmniRequest, RequestState, StreamMessage │
+│    35                                                                        │
+│    36                                                                        │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/coordinator.py:1 │
+│ 1 in <module>                                                                │
+│                                                                              │
+│     8 from dataclasses import dataclass, field                               │
+│     9 from typing import Any, AsyncIterator                                  │
+│    10                                                                        │
+│ ❱  11 from sglang_omni.pipeline.control_plane import CoordinatorControlPlane │
+│    12 from sglang_omni.profiler.event_recorder import emit as _emit_event    │
+│    13 from sglang_omni.proto import (                                        │
+│    14 │   AbortMessage,                                                      │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/control_plane.py │
+│ :7 in <module>                                                               │
+│                                                                              │
+│     4 import asyncio                                                         │
+│     5 import logging                                                         │
+│     6                                                                        │
+│ ❱   7 import msgpack                                                         │
+│     8 import zmq                                                             │
+│     9 import zmq.asyncio                                                     │
+│    10                                                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ModuleNotFoundError: No module named 'msgpack'

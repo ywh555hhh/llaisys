@@ -1,0 +1,56 @@
+=== corrected ixsmi csv query ===
+index, name, uuid, serial, pci.bus_id, pci.device_id, pci.sub_device_id, driver_version, cuda_version, memory.total [MiB], memory.used [MiB], memory.free [MiB], temperature.gpu [C], temperature.memory [C], gpu.power.draw [W], gpu.current.power.limit [W], gpu.default.power.limit [W], clocks.current.sm [MHz], clocks.current.memory [MHz], clocks.max.sm [MHz], clocks.max.memory [MHz], pcie.link.gen.current, pcie.link.gen.max, pcie.link.width.current, pcie.link.width.max, pcie.tx.throughput [KB/s], pcie.rx.throughput [KB/s], utilization.gpu [%], utilization.memory [%], compute_mode, pstate
+0, Iluvatar MR-V100, GPU-75401a56-2224-5257-8e2c-8f6dac7c37bc, 23230261115496, 00000000:15:00.0, 0x00021E3E, 0x00010000, 4.4.0, 10.2, 32768 MiB, 68 MiB, 32700 MiB, 35 C, 34 C, 37 W, 150 W, 150 W, 1500 MHz, 1600 MHz, 1600 MHz, 1600 MHz, 4, 4, 16, 16, 0 KB/s, 0 KB/s, 0 %, 1 %, Default, P0
+=== microbench torch bandwidth/flops ===
+torch 2.7.1 cuda 10.2 available True
+device Iluvatar MR-V100 total_memory 34359738368 sm 16 cc 7 1
+--- transfer size 64 MiB ---
+H2D pageable 64MiB: best_s=0.004456 median_s=0.004468 best_GBps=15.06 median_GBps=15.02
+D2H pageable 64MiB: best_s=0.004412 median_s=0.004431 best_GBps=15.21 median_GBps=15.15
+H2D pinned 64MiB: best_s=0.002437 median_s=0.002442 best_GBps=27.54 median_GBps=27.48
+D2H pinned 64MiB: best_s=0.002394 median_s=0.002395 best_GBps=28.03 median_GBps=28.02
+--- transfer size 256 MiB ---
+H2D pageable 256MiB: best_s=0.017514 median_s=0.017538 best_GBps=15.33 median_GBps=15.31
+D2H pageable 256MiB: best_s=0.017433 median_s=0.017501 best_GBps=15.40 median_GBps=15.34
+H2D pinned 256MiB: best_s=0.009702 median_s=0.009704 best_GBps=27.67 median_GBps=27.66
+D2H pinned 256MiB: best_s=0.009455 median_s=0.009469 best_GBps=28.39 median_GBps=28.35
+--- transfer size 512 MiB ---
+H2D pageable 512MiB: best_s=0.038950 median_s=0.040510 best_GBps=13.78 median_GBps=13.25
+D2H pageable 512MiB: best_s=0.037381 median_s=0.039338 best_GBps=14.36 median_GBps=13.65
+H2D pinned 512MiB: best_s=0.019267 median_s=0.019342 best_GBps=27.86 median_GBps=27.76
+D2H pinned 512MiB: best_s=0.018884 median_s=0.018894 best_GBps=28.43 median_GBps=28.41
+--- transfer size 1024 MiB ---
+H2D pageable 1024MiB: best_s=0.088079 median_s=0.090676 best_GBps=12.19 median_GBps=11.84
+D2H pageable 1024MiB: best_s=0.083902 median_s=0.086990 best_GBps=12.80 median_GBps=12.34
+H2D pinned 1024MiB: best_s=0.038340 median_s=0.038358 best_GBps=28.01 median_GBps=27.99
+D2H pinned 1024MiB: best_s=0.037660 median_s=0.037666 best_GBps=28.51 median_GBps=28.51
+--- device memory size 256 MiB ---
+D2D copy 256MiB: best_s=0.000952 median_s=0.000954 best_GBps=282.12 median_GBps=281.51
+vector add read2write1 256MiB: best_s=0.001406 median_s=0.001411 best_GBps=572.72 median_GBps=570.91
+--- device memory size 512 MiB ---
+D2D copy 512MiB: best_s=0.001857 median_s=0.001861 best_GBps=289.16 median_GBps=288.42
+vector add read2write1 512MiB: best_s=0.002775 median_s=0.002783 best_GBps=580.39 median_GBps=578.63
+--- device memory size 1024 MiB ---
+D2D copy 1024MiB: best_s=0.003700 median_s=0.003709 best_GBps=290.18 median_GBps=289.48
+vector add read2write1 1024MiB: best_s=0.005501 median_s=0.005513 best_GBps=585.59 median_GBps=584.27
+--- device memory size 2048 MiB ---
+D2D copy 2048MiB: best_s=0.007352 median_s=0.007361 best_GBps=292.11 median_GBps=291.74
+vector add read2write1 2048MiB: best_s=0.011006 median_s=0.011033 best_GBps=585.37 median_GBps=583.94
+--- matmul dtype torch.float32 ---
+matmul n=1024 dtype=torch.float32 best_s=0.000147 median_s=0.000149 best_TFLOPS=14.58 median_TFLOPS=14.45
+matmul n=2048 dtype=torch.float32 best_s=0.000771 median_s=0.000774 best_TFLOPS=22.29 median_TFLOPS=22.18
+matmul n=4096 dtype=torch.float32 best_s=0.005729 median_s=0.005733 best_TFLOPS=23.99 median_TFLOPS=23.97
+matmul n=6144 dtype=torch.float32 best_s=0.019117 median_s=0.019141 best_TFLOPS=24.26 median_TFLOPS=24.23
+matmul n=8192 dtype=torch.float32 best_s=0.045132 median_s=0.045141 best_TFLOPS=24.36 median_TFLOPS=24.36
+--- matmul dtype torch.float16 ---
+matmul n=1024 dtype=torch.float16 best_s=0.000081 median_s=0.000083 best_TFLOPS=26.40 median_TFLOPS=25.83
+matmul n=2048 dtype=torch.float16 best_s=0.000240 median_s=0.000242 best_TFLOPS=71.48 median_TFLOPS=71.13
+matmul n=4096 dtype=torch.float16 best_s=0.001498 median_s=0.001503 best_TFLOPS=91.74 median_TFLOPS=91.46
+matmul n=6144 dtype=torch.float16 best_s=0.004887 median_s=0.004888 best_TFLOPS=94.91 median_TFLOPS=94.90
+matmul n=8192 dtype=torch.float16 best_s=0.011441 median_s=0.011449 best_TFLOPS=96.10 median_TFLOPS=96.04
+--- matmul dtype torch.bfloat16 ---
+matmul n=1024 dtype=torch.bfloat16 best_s=0.000081 median_s=0.000082 best_TFLOPS=26.41 median_TFLOPS=26.31
+matmul n=2048 dtype=torch.bfloat16 best_s=0.000239 median_s=0.000240 best_TFLOPS=71.88 median_TFLOPS=71.49
+matmul n=4096 dtype=torch.bfloat16 best_s=0.001497 median_s=0.001505 best_TFLOPS=91.78 median_TFLOPS=91.32
+matmul n=6144 dtype=torch.bfloat16 best_s=0.004881 median_s=0.004890 best_TFLOPS=95.03 median_TFLOPS=94.85
+matmul n=8192 dtype=torch.bfloat16 best_s=0.011445 median_s=0.011450 best_TFLOPS=96.07 median_TFLOPS=96.03

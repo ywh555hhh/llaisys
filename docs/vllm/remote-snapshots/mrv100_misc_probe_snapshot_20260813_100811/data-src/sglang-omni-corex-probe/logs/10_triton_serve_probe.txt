@@ -1,0 +1,298 @@
+=== install triton import-only probe ===
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Collecting triton
+  Downloading https://mirrors.ustc.edu.cn/pypi/packages/15/76/c79c34311625227a288df3e483fc5cdf3d596624cbd4b4758c4cbdc14af3/triton-3.7.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (197.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 197.6/197.6 MB 43.9 MB/s  0:00:04
+Installing collected packages: triton
+Successfully installed triton-3.7.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 25.2 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+=== import sglang platform after triton ===
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+ValueError: 'qwen3_asr' is already used by a Transformers config, pick another name.
+triton OK /usr/local/lib/python3.10/site-packages/triton/__init__.py 3.7.1
+sglang OK /usr/local/lib/python3.10/site-packages/sglang/__init__.py 0.5.16
+sglang.srt.platforms OK /usr/local/lib/python3.10/site-packages/sglang/srt/platforms/__init__.py 
+sglang.srt.platforms.interface OK /usr/local/lib/python3.10/site-packages/sglang/srt/platforms/interface.py 
+sglang.srt.entrypoints.http_server FAIL ValueError 'qwen3_asr' is already used by a Transformers config, pick another name.
+=== serve Qwen3-ASR local attempt 3 ===
+2026-08-11 08:25:23,777 [ERROR] sglang_omni.relay.mooncake: Failed to import mooncake: No module named 'mooncake'. MooncakeRelay will not work. Install with: pip install mooncake-transfer-engine
+2026-08-11 08:25:23,778 [ERROR] sglang_omni.relay.nixl: Failed to import nixl: No module named 'nixl'. NixlRelay will not work.
+2026-08-11 08:25:23,843 [DEBUG] asyncio: Using selector: EpollSelector
+2026-08-11 08:25:23,847 [DEBUG] sglang_omni.pipeline.control_plane: PULL socket bound to ipc:///tmp/sglang_omni/mnt-moark-models-qwen3-asr-1-7b-p188cdih/completion.sock
+2026-08-11 08:25:23,947 [DEBUG] sglang_omni.pipeline.control_plane: PUB socket bound to ipc:///tmp/sglang_omni/mnt-moark-models-qwen3-asr-1-7b-p188cdih/abort.sock
+2026-08-11 08:25:23,947 [INFO] sglang_omni.pipeline.control_plane: Coordinator control plane started
+2026-08-11 08:25:23,948 [INFO] sglang_omni.pipeline.coordinator: Coordinator started
+==================== Merged Configuration ====================
+model_path: /mnt/moark-models/Qwen3-ASR-1.7B
+stages:
+- name: asr
+  factory: sglang_omni.models.qwen3_asr.stages.create_sglang_qwen3_asr_executor
+  factory_args:
+    device: cuda:0
+    max_running_requests: 64
+    max_new_tokens: 128
+    enable_torch_compile: true
+    torch_compile_max_bs: 2
+    request_build_max_workers: 8
+    request_build_max_pending: 32
+    prefill_coalesce_requests: 16
+    prefill_coalesce_wait_ms: 40
+    prefill_coalesce_when_idle: true
+    prefill_coalesce_requires_pending_builds: true
+    prefill_coalesce_after_builds_during_decode: true
+    enable_pre_lm_encoder: true
+    pre_lm_cache_max_entries: 4096
+    pre_lm_cache_size_bytes: 2147483648
+    pre_lm_max_batch_size: 8
+    pre_lm_max_batch_wait_ms: 0
+  next: null
+  terminal: true
+  route_fn: null
+  gpu: 0
+  tp_size: 1
+  parallelism:
+    tp: 1
+  process: asr
+  runtime:
+    resources:
+      total_gpu_memory_fraction: null
+    max_seq_len: null
+    video_fps: null
+    sglang_server_args:
+      mem_fraction_static: null
+  runtime_arg_map: {}
+  env: {}
+  wait_for: null
+  wait_for_fn: null
+  merge_fn: null
+  stream_to: []
+  stream_done_to_fn: null
+  can_accept_stream_before_payload: false
+  disable_direct_cuda_ipc_payload: false
+  project_payload: {}
+  comm: null
+name: /mnt/moark-models/Qwen3-ASR-1.7B
+entry_stage: asr
+fused_stages: []
+runtime_overrides: {}
+env_defaults: {}
+placement:
+  max_total_gpu_memory_fraction_per_gpu: 1.0
+  require_memory_fraction_for_colocation: true
+placement_policy: null
+endpoints:
+  base_path: /tmp/sglang_omni
+terminal_stages_fn: null
+config_cls: Qwen3ASRPipelineConfig
+
+==================================================
+2026-08-11 08:25:23,957 [INFO] sglang_omni.pipeline.stage_workers: StageGroup asr: spawned 1 process(es) (pids=[40391])
+Failed to import mooncake: No module named 'mooncake'. MooncakeRelay will not work. Install with: pip install mooncake-transfer-engine
+Failed to import nixl: No module named 'nixl'. NixlRelay will not work.
+2026-08-11 08:25:31,740 [INFO] stage_workers.asr: Set current device to 0 for stage asr
+2026-08-11 08:25:31,740 [INFO] stage_workers.asr: Building scheduler for asr (tp_rank=0/1) ...
+2026-08-11 08:25:31,741 [INFO] stage_workers.asr: Acquired GPU startup lock for stage asr: /tmp/sglang_omni_gpu_0_startup.lock
+2026-08-11 08:25:31,888 [ERROR] stage_workers.asr: Stage process asr failed
+Traceback (most recent call last):
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", line 378, in stage_process_main
+    _run_process(spec, ready_event, log)
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", line 454, in _run_process
+    _construct_stage(
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", line 591, in _construct_stage
+    scheduler = _construct_scheduler(spec, gpu_id, log)
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", line 786, in _construct_scheduler
+    return factory(**factory_args)
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/models/qwen3_asr/stages.py", line 37, in create_sglang_qwen3_asr_executor
+    from sglang_omni.models.qwen3_asr.engine_builder import Qwen3ASREngineBuilder
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/models/qwen3_asr/engine_builder.py", line 9, in <module>
+    from sglang.srt.managers.mm_utils import init_mm_embedding_cache
+  File "/usr/local/lib/python3.10/site-packages/sglang/srt/managers/mm_utils.py", line 22, in <module>
+    from sglang.srt.managers.io_struct import (
+  File "/usr/local/lib/python3.10/site-packages/sglang/srt/managers/io_struct.py", line 55, in <module>
+    from sglang.srt.managers.schedule_batch import Modality
+  File "/usr/local/lib/python3.10/site-packages/sglang/srt/managers/schedule_batch.py", line 3, in <module>
+    from sglang.srt.dllm.config import DllmConfig
+  File "/usr/local/lib/python3.10/site-packages/sglang/srt/dllm/config.py", line 3, in <module>
+    from sglang.srt.configs.model_config import ModelConfig
+  File "/usr/local/lib/python3.10/site-packages/sglang/srt/configs/__init__.py", line 41, in <module>
+    from sglang.srt.configs.qwen3_asr import Qwen3ASRConfig
+  File "/usr/local/lib/python3.10/site-packages/sglang/srt/configs/qwen3_asr.py", line 167, in <module>
+    AutoConfig.register("qwen3_asr", Qwen3ASRConfig)
+  File "/usr/local/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 453, in register
+    CONFIG_MAPPING.register(model_type, config, exist_ok=exist_ok)
+  File "/usr/local/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 140, in register
+    raise ValueError(f"'{key}' is already used by a Transformers config, pick another name.")
+ValueError: 'qwen3_asr' is already used by a Transformers config, pick another name.
+
+2026-08-11 08:25:32,073 [WARNING] stage_workers.asr: Reclaiming CUDA memory after stage process asr exit after failure on gpu_ids=[0]
+2026-08-11 08:25:32,271 [WARNING] stage_workers.asr: CUDA memory reclaim complete after stage process asr exit after failure on gpu_ids=[0]
+2026-08-11 08:25:35,969 [INFO] sglang_omni.pipeline.coordinator: Coordinator completion loop cancelled
+2026-08-11 08:25:35,970 [INFO] sglang_omni.pipeline.coordinator: Coordinator stopped
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/serve.py:1475 in      │
+│ serve                                                                        │
+│                                                                              │
+│   1472 │   if _should_print_merged_config(colocate=colocate,                 │
+│        log_level=log_level):                                                 │
+│   1473 │   │   _print_merged_config(merged_config)                           │
+│   1474 │                                                                     │
+│ ❱ 1475 │   launch_server(                                                    │
+│   1476 │   │   merged_config,                                                │
+│   1477 │   │   host=host,                                                    │
+│   1478 │   │   port=port,                                                    │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/serve.py:71 in        │
+│ launch_server                                                                │
+│                                                                              │
+│     68 def launch_server(*args: object, **kwargs: object) -> object:         │
+│     69 │   from sglang_omni.serve.launcher import launch_server as           │
+│        _launch_server                                                        │
+│     70 │                                                                     │
+│ ❱   71 │   return _launch_server(*args, **kwargs)                            │
+│     72                                                                       │
+│     73                                                                       │
+│     74 def _normalize_stage_toggle_mode(flag_name: str, value: str) ->       │
+│        _STAGE_TOGGLE_MODE:                                                   │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/serve/launcher.py:530 in  │
+│ launch_server                                                                │
+│                                                                              │
+│   527 │   │   │   ``/v1/audio/speech/batch``.                                │
+│   528 │   """                                                                │
+│   529 │   apply_gpu_compat_env_defaults()                                    │
+│ ❱ 530 │   asyncio.run(                                                       │
+│   531 │   │   _run_server(                                                   │
+│   532 │   │   │   pipeline_config,                                           │
+│   533 │   │   │   host=host,                                                 │
+│                                                                              │
+│ /usr/local/lib/python3.10/asyncio/runners.py:44 in run                       │
+│                                                                              │
+│   41 │   │   events.set_event_loop(loop)                                     │
+│   42 │   │   if debug is not None:                                           │
+│   43 │   │   │   loop.set_debug(debug)                                       │
+│ ❱ 44 │   │   return loop.run_until_complete(main)                            │
+│   45 │   finally:                                                            │
+│   46 │   │   try:                                                            │
+│   47 │   │   │   _cancel_all_tasks(loop)                                     │
+│                                                                              │
+│ /usr/local/lib/python3.10/asyncio/base_events.py:649 in run_until_complete   │
+│                                                                              │
+│    646 │   │   if not future.done():                                         │
+│    647 │   │   │   raise RuntimeError('Event loop stopped before Future      │
+│        completed.')                                                          │
+│    648 │   │                                                                 │
+│ ❱  649 │   │   return future.result()                                        │
+│    650 │                                                                     │
+│    651 │   def stop(self):                                                   │
+│    652 │   │   """Stop running the event loop.                               │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/serve/launcher.py:388 in  │
+│ _run_server                                                                  │
+│                                                                              │
+│   385 │                                                                      │
+│   386 │   mp_runner = MultiProcessPipelineRunner(pipeline_config)            │
+│   387 │   startup_timeout =                                                  │
+│       float(os.environ.get("SGLANG_OMNI_STARTUP_TIMEOUT", "600"))            │
+│ ❱ 388 │   await mp_runner.start(timeout=startup_timeout)                     │
+│   389 │   coordinator = mp_runner.coordinator                                │
+│   390 │                                                                      │
+│   391 │   # Plans are resolved once inside ``mp_runner.start()`` (which      │
+│       applies                                                                │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/mp_runner.py:466 │
+│ in start                                                                     │
+│                                                                              │
+│   463 │   │   │   for group in self._groups:                                 │
+│   464 │   │   │   │   group.spawn(ctx)                                       │
+│   465 │   │   │                                                              │
+│ ❱ 466 │   │   │   await asyncio.gather(*(g.wait_ready(timeout) for g in      │
+│       self._groups))                                                         │
+│   467 │   │   │                                                              │
+│   468 │   │   │   for group in self._groups:                                 │
+│   469 │   │   │   │   if group.any_dead():                                   │
+│                                                                              │
+│ /data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py │
+│ :307 in wait_ready                                                           │
+│                                                                              │
+│   304 │   │   │   │   │   │   pass                                           │
+│   305 │   │   │   │   │   else:                                              │
+│   306 │   │   │   │   │   │   details = f"\nStartup failure                  │
+│       detail:\n{traceback_text}"                                             │
+│ ❱ 307 │   │   │   │   │   raise RuntimeError(                                │
+│   308 │   │   │   │   │   │   f"Process {process_label} died during startup  │
+│       "                                                                      │
+│   309 │   │   │   │   │   │   f"(exit code {proc.exitcode}){details}"        │
+│   310 │   │   │   │   │   )                                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RuntimeError: Process asr died during startup (exit code 1)
+Startup failure detail:
+Traceback (most recent call last):
+  File 
+"/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", 
+line 378, in stage_process_main
+    _run_process(spec, ready_event, log)
+  File 
+"/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", 
+line 454, in _run_process
+    _construct_stage(
+  File 
+"/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", 
+line 591, in _construct_stage
+    scheduler = _construct_scheduler(spec, gpu_id, log)
+  File 
+"/data/src/sglang-omni-corex-probe/repo/sglang_omni/pipeline/stage_workers.py", 
+line 786, in _construct_scheduler
+    return factory(**factory_args)
+  File 
+"/data/src/sglang-omni-corex-probe/repo/sglang_omni/models/qwen3_asr/stages.py",
+line 37, in create_sglang_qwen3_asr_executor
+    from sglang_omni.models.qwen3_asr.engine_builder import 
+Qwen3ASREngineBuilder
+  File 
+"/data/src/sglang-omni-corex-probe/repo/sglang_omni/models/qwen3_asr/engine_buil
+der.py", line 9, in <module>
+    from sglang.srt.managers.mm_utils import init_mm_embedding_cache
+  File 
+"/usr/local/lib/python3.10/site-packages/sglang/srt/managers/mm_utils.py", line 
+22, in <module>
+    from sglang.srt.managers.io_struct import (
+  File 
+"/usr/local/lib/python3.10/site-packages/sglang/srt/managers/io_struct.py", line
+55, in <module>
+    from sglang.srt.managers.schedule_batch import Modality
+  File 
+"/usr/local/lib/python3.10/site-packages/sglang/srt/managers/schedule_batch.py",
+line 3, in <module>
+    from sglang.srt.dllm.config import DllmConfig
+  File "/usr/local/lib/python3.10/site-packages/sglang/srt/dllm/config.py", line
+3, in <module>
+    from sglang.srt.configs.model_config import ModelConfig
+  File "/usr/local/lib/python3.10/site-packages/sglang/srt/configs/__init__.py",
+line 41, in <module>
+    from sglang.srt.configs.qwen3_asr import Qwen3ASRConfig
+  File 
+"/usr/local/lib/python3.10/site-packages/sglang/srt/configs/qwen3_asr.py", line 
+167, in <module>
+    AutoConfig.register("qwen3_asr", Qwen3ASRConfig)
+  File 
+"/usr/local/lib/python3.10/site-packages/transformers/models/auto/configuration_
+auto.py", line 453, in register
+    CONFIG_MAPPING.register(model_type, config, exist_ok=exist_ok)
+  File 
+"/usr/local/lib/python3.10/site-packages/transformers/models/auto/configuration_
+auto.py", line 140, in register
+    raise ValueError(f"'{key}' is already used by a Transformers config, pick 
+another name.")
+ValueError: 'qwen3_asr' is already used by a Transformers config, pick another 
+name.
+

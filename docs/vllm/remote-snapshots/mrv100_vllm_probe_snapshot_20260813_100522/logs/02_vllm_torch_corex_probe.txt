@@ -1,0 +1,161 @@
+## env
+2026-08-11T22:08:45+08:00
+PATH=/usr/local/corex/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LD_LIBRARY_PATH=/usr/local/corex/lib64:/usr/local/cuda/lib64:
+
+## gpu snapshot
+Timestamp    Tue Aug 11 22:08:45 2026
++--------------------------------------------------------------------------------+
+|  IX-ML: 4.4.0            Driver Version: 4.4.0          CUDA Version: 10.2     |
+|----------------------------------+----------------------+----------------------|
+| GPU  Name                        | Bus-Id               | Clock-SM  Clock-Mem  |
+| Fan  Temp  Perf    Pwr:Usage/Cap |      Memory-Usage    | GPU-Util  Compute M. |
+|==================================+======================+======================|
+| 0    Iluvatar MR-V100            | 00000000:15:00.0     | 1500MHz   1600MHz    |
+| N/A  34C   P0       37W / 150W   | 68MiB / 32768MiB     | 0%        Default    |
++----------------------------------+----------------------+----------------------+
+
++--------------------------------------------------------------------------------+
+| Processes:                                                          GPU Memory |
+|  GPU        PID      Process name                                   Usage(MiB) |
+|================================================================================|
+|  No running processes found                                                    |
++--------------------------------------------------------------------------------+
+
+==============IXSMI LOG==============
+Timestamp                                       : Tue Aug 11 22:08:45 2026
+Driver Version                                  : 4.4.0
+CUDA Version                                    : 10.2
+
+Attached GPU device count                       : 1
+GPU 00000000:15:00.0
+    Product Name                                : Iluvatar MR-V100
+    Serial Number                               : 23230261115496
+    GPU UUID                                    : GPU-75401a56-2224-5257-8e2c-8f6dac7c37bc
+    Minor Number                                : 3
+    VBIOS Version                               : 2.0.17
+    MultiGPU Board                              : No
+    Board ID                                    : 0x1400
+    Board Part Number                           : MR-V100-00
+    GPU Position                                : N/A
+    GPU Virtualization Mode
+        Virtualization Mode                     : None
+        Host VGPU Mode                          : N/A
+    PCI
+        Bus                                     : 0x15
+        Device                                  : 0x00
+        Domain                                  : 0x0000
+        Device Id                               : 0x00021E3E
+        Bus Id                                  : 00000000:15:00.0
+        Sub System Id                           : 0x00010000
+        GPU Link Info                           
+            PCIe Generation                     
+                Max                             : 4
+                Current                         : 4
+            Link Width                          
+                Max                             : 16x
+                Current                         : 16x
+        Tx Throughput                           : 0 KB/s
+        Rx Throughput                           : 0 KB/s
+    Fan Speed                                   : N/A
+    Memory Usage
+        Total                                   : 32768 MiB
+        Used                                    : 68 MiB
+        Free                                    : 32700 MiB
+    Utilization
+        Gpu                                     : 0 %
+        Memory                                  : 1 %
+        Encoder                                 : 0 %
+        Decoder                                 : 0 %
+    Ecc Mode
+        Current                                 : Enabled
+        Pending                                 : N/A
+    ECC Errors
+        Single Bit ECC                          : 0
+        Double Bit ECC                          : 0
+    Temperature
+        GPU Current Temp                        : 34 C
+        GPU Shutdown Temp                       : 105 C
+        GPU Slowdown Temp                       : 100 C
+        GPU Max Operating Temp                  : 95 C
+        Memory Current Temp                     : 33 C
+    Power Readings
+        GPU Power Draw                          : 37 W
+        Current GPU Power Limit                 : 150 W
+        Default GPU Power Limit                 : 150 W
+        Board Power Draw                        : N/A
+        Current Board Power Limit               : N/A
+        Default Board Power Limit               : N/A
+    Clocks
+        SM                                      : 1500 MHz
+        Memory                                  : 1600 MHz
+    Max Clocks
+        SM                                      : 1600 MHz
+        Memory                                  : 1600 MHz
+    Compute Mode                                : Default
+    Performance State                           : P0
+    Processes                                   : None
+
+
+## versions/imports
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+python 3.12.3 (main, Mar  3 2026, 12:15:18) [GCC 13.3.0]
+torch version= 2.7.1 file= /usr/local/lib/python3.12/dist-packages/torch/__init__.py
+vllm version= 0.17.0 file= /usr/local/lib/python3.12/dist-packages/vllm/__init__.py
+transformers version= 5.0.0 file= /usr/local/lib/python3.12/dist-packages/transformers/__init__.py
+cuda version= 4.3.0 file= /usr/local/lib/python3.12/dist-packages/cuda/__init__.py
+triton version= 3.1.0 file= /usr/local/lib/python3.12/dist-packages/triton/__init__.py
+flash_attn version= 2.6.3 file= /usr/local/lib/python3.12/dist-packages/flash_attn/__init__.py
+xformers version= 0.0.26.post1 file= /usr/local/lib/python3.12/dist-packages/xformers/__init__.py
+ray version= 2.52.1 file= /usr/local/lib/python3.12/dist-packages/ray/__init__.py
+ixrt version= 1.1.0 file= /usr/local/lib/python3.12/dist-packages/ixrt/__init__.py
+tensorrt version= 1.1.0 file= /usr/local/lib/python3.12/dist-packages/ixrt/__init__.py
+
+## torch cuda
+torch.version.cuda 10.2
+is_available True
+device_count 1
+device_name Iluvatar MR-V100
+props {
+  "L2_cache_size": 16777216,
+  "async_engine_count": 1,
+  "gcnArchName": "Iluvatar MR-V100",
+  "is_integrated": 0,
+  "is_multi_gpu_board": 0,
+  "major": 7,
+  "max_threads_per_multi_processor": 8192,
+  "minor": 1,
+  "multi_processor_count": 16,
+  "name": "Iluvatar MR-V100",
+  "regs_per_multiprocessor": 262144,
+  "shared_memory_per_block": 131072,
+  "shared_memory_per_block_optin": 0,
+  "shared_memory_per_multiprocessor": 131072,
+  "total_memory": 34359738368,
+  "warp_size": 64
+}
+matmul_sum -32683.31640625
+
+## vllm env
+vllm path /usr/local/lib/python3.12/dist-packages/vllm/__init__.py
+VLLM_TARGET_DEVICE None
+VLLM_ATTENTION_BACKEND None
+VLLM_USE_V1 None
+VLLM_WORKER_MULTIPROC_METHOD None
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+## vllm cli
+/usr/bin/python3: No module named vllm.__main__; 'vllm' is a package and cannot be directly executed
+
+## vllm package files around platform/backends
+PATTERN platforms/*.py
+/usr/local/lib/python3.12/dist-packages/vllm/platforms/__init__.py
+/usr/local/lib/python3.12/dist-packages/vllm/platforms/cpu.py
+/usr/local/lib/python3.12/dist-packages/vllm/platforms/cuda.py
+/usr/local/lib/python3.12/dist-packages/vllm/platforms/interface.py
+/usr/local/lib/python3.12/dist-packages/vllm/platforms/rocm.py
+/usr/local/lib/python3.12/dist-packages/vllm/platforms/tpu.py
+/usr/local/lib/python3.12/dist-packages/vllm/platforms/xpu.py
+PATTERN attention/backends/*.py
+PATTERN worker/*.py

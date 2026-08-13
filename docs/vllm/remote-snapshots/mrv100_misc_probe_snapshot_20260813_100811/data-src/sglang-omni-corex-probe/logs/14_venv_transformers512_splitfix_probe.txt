@@ -1,0 +1,529 @@
+=== split pin fixes ===
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Collecting pydantic-core==2.46.4
+  Using cached pydantic_core-2.46.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+Collecting typing-extensions>=4.14.1 (from pydantic-core==2.46.4)
+  Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Installing collected packages: typing-extensions, pydantic-core
+  Attempting uninstall: typing-extensions
+    Found existing installation: typing_extensions 4.16.0
+    Uninstalling typing_extensions-4.16.0:
+      Successfully uninstalled typing_extensions-4.16.0
+  Attempting uninstall: pydantic-core
+    Found existing installation: pydantic_core 2.48.0
+    Uninstalling pydantic_core-2.48.0:
+      Successfully uninstalled pydantic_core-2.48.0
+
+Successfully installed pydantic-core-2.46.4 typing-extensions-4.16.0
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Collecting tokenizers==0.22.2
+  Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 29.2 MB/s  0:00:00
+Collecting huggingface-hub<2.0,>=0.16.4 (from tokenizers==0.22.2)
+  Using cached huggingface_hub-1.27.0-py3-none-any.whl (784 kB)
+Collecting click<9.0.0,>=8.4.2 (from huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached click-8.4.2-py3-none-any.whl (119 kB)
+Collecting filelock>=3.10.0 (from huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached filelock-3.32.2-py3-none-any.whl (98 kB)
+Collecting fsspec>=2023.5.0 (from huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached fsspec-2026.7.0-py3-none-any.whl (206 kB)
+Collecting hf-xet<2.0.0,>=1.5.2 (from huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+Collecting httpx<1,>=0.23.0 (from huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached httpx-0.28.1-py3-none-any.whl (73 kB)
+Collecting packaging>=20.9 (from huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Collecting pyyaml>=5.1 (from huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (770 kB)
+Collecting tqdm>=4.42.1 (from huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached tqdm-4.70.0-py3-none-any.whl (80 kB)
+Collecting typing-extensions>=4.1.0 (from huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Collecting anyio (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached anyio-4.14.2-py3-none-any.whl (125 kB)
+Collecting certifi (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached certifi-2026.7.22-py3-none-any.whl (136 kB)
+Collecting httpcore==1.* (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached httpcore-1.0.9-py3-none-any.whl (78 kB)
+Collecting idna (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached idna-3.18-py3-none-any.whl (65 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Collecting exceptiongroup>=1.0.2 (from anyio->httpx<1,>=0.23.0->huggingface-hub<2.0,>=0.16.4->tokenizers==0.22.2)
+  Using cached exceptiongroup-1.3.1-py3-none-any.whl (16 kB)
+Installing collected packages: typing-extensions, tqdm, pyyaml, packaging, idna, hf-xet, h11, fsspec, filelock, click, certifi, httpcore, exceptiongroup, anyio, httpx, huggingface-hub, tokenizers
+  Attempting uninstall: typing-extensions
+    Found existing installation: typing_extensions 4.16.0
+    Uninstalling typing_extensions-4.16.0:
+      Successfully uninstalled typing_extensions-4.16.0
+  Attempting uninstall: tqdm
+    Found existing installation: tqdm 4.70.0
+    Uninstalling tqdm-4.70.0:
+      Successfully uninstalled tqdm-4.70.0
+  Attempting uninstall: pyyaml
+    Found existing installation: PyYAML 6.0.3
+    Uninstalling PyYAML-6.0.3:
+      Successfully uninstalled PyYAML-6.0.3
+  Attempting uninstall: packaging
+    Found existing installation: packaging 26.3
+    Uninstalling packaging-26.3:
+      Successfully uninstalled packaging-26.3
+  Attempting uninstall: idna
+    Found existing installation: idna 3.18
+    Uninstalling idna-3.18:
+      Successfully uninstalled idna-3.18
+  Attempting uninstall: hf-xet
+    Found existing installation: hf-xet 1.6.0
+    Uninstalling hf-xet-1.6.0:
+      Successfully uninstalled hf-xet-1.6.0
+  Attempting uninstall: h11
+    Found existing installation: h11 0.16.0
+    Uninstalling h11-0.16.0:
+      Successfully uninstalled h11-0.16.0
+  Attempting uninstall: fsspec
+    Found existing installation: fsspec 2026.7.0
+    Uninstalling fsspec-2026.7.0:
+      Successfully uninstalled fsspec-2026.7.0
+  Attempting uninstall: filelock
+    Found existing installation: filelock 3.32.2
+    Uninstalling filelock-3.32.2:
+      Successfully uninstalled filelock-3.32.2
+  Attempting uninstall: click
+    Found existing installation: click 8.4.2
+    Uninstalling click-8.4.2:
+      Successfully uninstalled click-8.4.2
+  Attempting uninstall: certifi
+    Found existing installation: certifi 2026.7.22
+    Uninstalling certifi-2026.7.22:
+      Successfully uninstalled certifi-2026.7.22
+  Attempting uninstall: httpcore
+    Found existing installation: httpcore 1.0.9
+    Uninstalling httpcore-1.0.9:
+      Successfully uninstalled httpcore-1.0.9
+  Attempting uninstall: exceptiongroup
+    Found existing installation: exceptiongroup 1.3.1
+    Uninstalling exceptiongroup-1.3.1:
+      Successfully uninstalled exceptiongroup-1.3.1
+  Attempting uninstall: anyio
+    Found existing installation: anyio 4.14.2
+    Uninstalling anyio-4.14.2:
+      Successfully uninstalled anyio-4.14.2
+  Attempting uninstall: httpx
+    Found existing installation: httpx 0.28.1
+    Uninstalling httpx-0.28.1:
+      Successfully uninstalled httpx-0.28.1
+  Attempting uninstall: huggingface-hub
+    Found existing installation: huggingface_hub 1.27.0
+    Uninstalling huggingface_hub-1.27.0:
+      Successfully uninstalled huggingface_hub-1.27.0
+  Attempting uninstall: tokenizers
+    Found existing installation: tokenizers 0.23.1
+    Uninstalling tokenizers-0.23.1:
+      Successfully uninstalled tokenizers-0.23.1
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+sglang 0.5.16 requires anthropic>=0.20.0, which is not installed.
+sglang 0.5.16 requires apache-tvm-ffi==0.1.11, which is not installed.
+sglang 0.5.16 requires blobfile==3.0.0, which is not installed.
+sglang 0.5.16 requires build, which is not installed.
+sglang 0.5.16 requires compressed-tensors, which is not installed.
+sglang 0.5.16 requires cuda-python>=13.0, which is not installed.
+sglang 0.5.16 requires datasets, which is not installed.
+sglang 0.5.16 requires flash-attn-4>=4.0.0b18, which is not installed.
+sglang 0.5.16 requires flashinfer_python[cu13]==0.6.14, which is not installed.
+sglang 0.5.16 requires helion==0.2.6, which is not installed.
+sglang 0.5.16 requires humming-kernels[cu13]==0.1.10, which is not installed.
+sglang 0.5.16 requires IPython, which is not installed.
+sglang 0.5.16 requires kernels<0.15,>=0.14.1, which is not installed.
+sglang 0.5.16 requires llguidance<2.0.0,>=1.7.6, which is not installed.
+sglang 0.5.16 requires mistral_common>=1.11.5, which is not installed.
+sglang 0.5.16 requires modelscope, which is not installed.
+sglang 0.5.16 requires ninja, which is not installed.
+sglang 0.5.16 requires numba==0.65.1, which is not installed.
+sglang 0.5.16 requires nvidia-cutlass-dsl[cu13]==4.6.0, which is not installed.
+sglang 0.5.16 requires nvidia-mathdx==25.6.0, which is not installed.
+sglang 0.5.16 requires nvidia-ml-py, which is not installed.
+sglang 0.5.16 requires openai==2.6.1, which is not installed.
+sglang 0.5.16 requires openai-harmony==0.0.4, which is not installed.
+sglang 0.5.16 requires outlines==0.1.11, which is not installed.
+sglang 0.5.16 requires py-spy, which is not installed.
+sglang 0.5.16 requires quack-kernels>=0.6.1, which is not installed.
+sglang 0.5.16 requires sgl-deep-gemm==0.1.4.post1, which is not installed.
+sglang 0.5.16 requires sglang-kernel==0.4.5, which is not installed.
+sglang 0.5.16 requires smg-grpc-servicer>=0.5.0, which is not installed.
+sglang 0.5.16 requires tilelang==0.1.11, which is not installed.
+sglang 0.5.16 requires timm==1.0.16, which is not installed.
+sglang 0.5.16 requires tokenspeed_mla==0.1.8, which is not installed.
+sglang 0.5.16 requires torch==2.11.0, which is not installed.
+sglang 0.5.16 requires torch_memory_saver>=0.0.9.post1, which is not installed.
+sglang 0.5.16 requires torchao==0.17.0, which is not installed.
+sglang 0.5.16 requires torchaudio==2.11.0, which is not installed.
+sglang 0.5.16 requires torchcodec==0.11.1; sys_platform != "linux" or (sys_platform == "linux" and platform_machine != "aarch64" and platform_machine != "arm64" and platform_machine != "armv7l"), which is not installed.
+sglang 0.5.16 requires torchvision, which is not installed.
+sglang 0.5.16 requires watchfiles, which is not installed.
+sglang 0.5.16 requires xgrammar==0.2.1, which is not installed.
+sglang 0.5.16 requires zstandard, which is not installed.
+sglang-omni 0.1.1 requires accelerate>=0.27.0, which is not installed.
+sglang-omni 0.1.1 requires av>=16.1.0, which is not installed.
+sglang-omni 0.1.1 requires datasets>=2.14.0, which is not installed.
+sglang-omni 0.1.1 requires diffusers==0.37.0, which is not installed.
+sglang-omni 0.1.1 requires dots.tts==0.2.1, which is not installed.
+sglang-omni 0.1.1 requires flash-attn-4>=4.0.0b18, which is not installed.
+sglang-omni 0.1.1 requires gradio>=4.0.0, which is not installed.
+sglang-omni 0.1.1 requires jiwer, which is not installed.
+sglang-omni 0.1.1 requires kernels<0.15,>=0.14.1, which is not installed.
+sglang-omni 0.1.1 requires librosa>=0.11.0, which is not installed.
+sglang-omni 0.1.1 requires logger, which is not installed.
+sglang-omni 0.1.1 requires mistral_common[audio]>=1.11.0, which is not installed.
+sglang-omni 0.1.1 requires mooncake-transfer-engine-cuda13>=0.3.10, which is not installed.
+sglang-omni 0.1.1 requires nemo_text_processing==1.2.0, which is not installed.
+sglang-omni 0.1.1 requires nixl-cu13>=1.1.0, which is not installed.
+sglang-omni 0.1.1 requires numba==0.65.1, which is not installed.
+sglang-omni 0.1.1 requires onnxruntime>=1.17, which is not installed.
+sglang-omni 0.1.1 requires openai==2.6.1, which is not installed.
+sglang-omni 0.1.1 requires openai-harmony==0.0.4, which is not installed.
+sglang-omni 0.1.1 requires openai-whisper==20250625, which is not installed.
+sglang-omni 0.1.1 requires pandas, which is not installed.
+sglang-omni 0.1.1 requires pytest>=7.0.0, which is not installed.
+sglang-omni 0.1.1 requires pytest-asyncio>=0.21.0, which is not installed.
+sglang-omni 0.1.1 requires qwen-vl-utils==0.0.11, which is not installed.
+sglang-omni 0.1.1 requires s3prl>=0.4.18, which is not installed.
+sglang-omni 0.1.1 requires silero-vad>=5.1, which is not installed.
+sglang-omni 0.1.1 requires torch==2.11.0, which is not installed.
+sglang-omni 0.1.1 requires torchaudio==2.11.0, which is not installed.
+sglang-omni 0.1.1 requires torchcodec==0.11.1, which is not installed.
+sglang-omni 0.1.1 requires torchvision==0.26.0, which is not installed.
+sglang-omni 0.1.1 requires x-transformers, which is not installed.
+sglang-omni 0.1.1 requires zhon>=2.0.2, which is not installed.
+hydra-core 1.3.5 requires antlr4-python3-runtime==4.9.*, but you have antlr4-python3-runtime 4.13.2 which is incompatible.
+omegaconf 2.3.1 requires antlr4-python3-runtime==4.9.*, but you have antlr4-python3-runtime 4.13.2 which is incompatible.
+sglang 0.5.16 requires soundfile==0.13.1, but you have soundfile 0.14.0 which is incompatible.
+Successfully installed anyio-4.14.2 certifi-2026.7.22 click-8.4.2 exceptiongroup-1.3.1 filelock-3.32.2 fsspec-2026.7.0 h11-0.16.0 hf-xet-1.6.0 httpcore-1.0.9 httpx-0.28.1 huggingface-hub-1.27.0 idna-3.18 packaging-26.3 pyyaml-6.0.3 tokenizers-0.22.2 tqdm-4.70.0 typing-extensions-4.16.0
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Collecting antlr4-python3-runtime==4.9.3
+  Using cached antlr4_python3_runtime-4.9.3-py3-none-any.whl
+Installing collected packages: antlr4-python3-runtime
+  Attempting uninstall: antlr4-python3-runtime
+    Found existing installation: antlr4-python3-runtime 4.13.2
+    Uninstalling antlr4-python3-runtime-4.13.2:
+      Successfully uninstalled antlr4-python3-runtime-4.13.2
+Successfully installed antlr4-python3-runtime-4.9.3
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Collecting soundfile==0.13.1
+  Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 18.4 MB/s  0:00:00
+Collecting cffi>=1.0 (from soundfile==0.13.1)
+  Using cached cffi-2.1.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (218 kB)
+Collecting numpy (from soundfile==0.13.1)
+  Using cached numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+Collecting pycparser (from cffi>=1.0->soundfile==0.13.1)
+  Using cached pycparser-3.0-py3-none-any.whl (48 kB)
+Installing collected packages: pycparser, numpy, cffi, soundfile
+  Attempting uninstall: pycparser
+    Found existing installation: pycparser 3.0
+    Uninstalling pycparser-3.0:
+      Successfully uninstalled pycparser-3.0
+  Attempting uninstall: numpy
+    Found existing installation: numpy 2.2.6
+    Uninstalling numpy-2.2.6:
+      Successfully uninstalled numpy-2.2.6
+  Attempting uninstall: cffi
+    Found existing installation: cffi 2.1.1
+    Uninstalling cffi-2.1.1:
+      Successfully uninstalled cffi-2.1.1
+  Attempting uninstall: soundfile
+    Found existing installation: soundfile 0.14.0
+    Uninstalling soundfile-0.14.0:
+      Successfully uninstalled soundfile-0.14.0
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+sglang 0.5.16 requires anthropic>=0.20.0, which is not installed.
+sglang 0.5.16 requires apache-tvm-ffi==0.1.11, which is not installed.
+sglang 0.5.16 requires blobfile==3.0.0, which is not installed.
+sglang 0.5.16 requires build, which is not installed.
+sglang 0.5.16 requires compressed-tensors, which is not installed.
+sglang 0.5.16 requires cuda-python>=13.0, which is not installed.
+sglang 0.5.16 requires datasets, which is not installed.
+sglang 0.5.16 requires flash-attn-4>=4.0.0b18, which is not installed.
+sglang 0.5.16 requires flashinfer_python[cu13]==0.6.14, which is not installed.
+sglang 0.5.16 requires helion==0.2.6, which is not installed.
+sglang 0.5.16 requires humming-kernels[cu13]==0.1.10, which is not installed.
+sglang 0.5.16 requires IPython, which is not installed.
+sglang 0.5.16 requires kernels<0.15,>=0.14.1, which is not installed.
+sglang 0.5.16 requires llguidance<2.0.0,>=1.7.6, which is not installed.
+sglang 0.5.16 requires mistral_common>=1.11.5, which is not installed.
+sglang 0.5.16 requires modelscope, which is not installed.
+sglang 0.5.16 requires ninja, which is not installed.
+sglang 0.5.16 requires numba==0.65.1, which is not installed.
+sglang 0.5.16 requires nvidia-cutlass-dsl[cu13]==4.6.0, which is not installed.
+sglang 0.5.16 requires nvidia-mathdx==25.6.0, which is not installed.
+sglang 0.5.16 requires nvidia-ml-py, which is not installed.
+sglang 0.5.16 requires openai==2.6.1, which is not installed.
+sglang 0.5.16 requires openai-harmony==0.0.4, which is not installed.
+sglang 0.5.16 requires outlines==0.1.11, which is not installed.
+sglang 0.5.16 requires py-spy, which is not installed.
+sglang 0.5.16 requires quack-kernels>=0.6.1, which is not installed.
+sglang 0.5.16 requires sgl-deep-gemm==0.1.4.post1, which is not installed.
+sglang 0.5.16 requires sglang-kernel==0.4.5, which is not installed.
+sglang 0.5.16 requires smg-grpc-servicer>=0.5.0, which is not installed.
+sglang 0.5.16 requires tilelang==0.1.11, which is not installed.
+sglang 0.5.16 requires timm==1.0.16, which is not installed.
+sglang 0.5.16 requires tokenspeed_mla==0.1.8, which is not installed.
+sglang 0.5.16 requires torch==2.11.0, which is not installed.
+sglang 0.5.16 requires torch_memory_saver>=0.0.9.post1, which is not installed.
+sglang 0.5.16 requires torchao==0.17.0, which is not installed.
+sglang 0.5.16 requires torchaudio==2.11.0, which is not installed.
+sglang 0.5.16 requires torchcodec==0.11.1; sys_platform != "linux" or (sys_platform == "linux" and platform_machine != "aarch64" and platform_machine != "arm64" and platform_machine != "armv7l"), which is not installed.
+sglang 0.5.16 requires torchvision, which is not installed.
+sglang 0.5.16 requires watchfiles, which is not installed.
+sglang 0.5.16 requires xgrammar==0.2.1, which is not installed.
+sglang 0.5.16 requires zstandard, which is not installed.
+sglang-omni 0.1.1 requires accelerate>=0.27.0, which is not installed.
+sglang-omni 0.1.1 requires av>=16.1.0, which is not installed.
+sglang-omni 0.1.1 requires datasets>=2.14.0, which is not installed.
+sglang-omni 0.1.1 requires diffusers==0.37.0, which is not installed.
+sglang-omni 0.1.1 requires dots.tts==0.2.1, which is not installed.
+sglang-omni 0.1.1 requires flash-attn-4>=4.0.0b18, which is not installed.
+sglang-omni 0.1.1 requires gradio>=4.0.0, which is not installed.
+sglang-omni 0.1.1 requires jiwer, which is not installed.
+sglang-omni 0.1.1 requires kernels<0.15,>=0.14.1, which is not installed.
+sglang-omni 0.1.1 requires librosa>=0.11.0, which is not installed.
+sglang-omni 0.1.1 requires logger, which is not installed.
+sglang-omni 0.1.1 requires mistral_common[audio]>=1.11.0, which is not installed.
+sglang-omni 0.1.1 requires mooncake-transfer-engine-cuda13>=0.3.10, which is not installed.
+sglang-omni 0.1.1 requires nemo_text_processing==1.2.0, which is not installed.
+sglang-omni 0.1.1 requires nixl-cu13>=1.1.0, which is not installed.
+sglang-omni 0.1.1 requires numba==0.65.1, which is not installed.
+sglang-omni 0.1.1 requires onnxruntime>=1.17, which is not installed.
+sglang-omni 0.1.1 requires openai==2.6.1, which is not installed.
+sglang-omni 0.1.1 requires openai-harmony==0.0.4, which is not installed.
+sglang-omni 0.1.1 requires openai-whisper==20250625, which is not installed.
+sglang-omni 0.1.1 requires pandas, which is not installed.
+sglang-omni 0.1.1 requires pytest>=7.0.0, which is not installed.
+sglang-omni 0.1.1 requires pytest-asyncio>=0.21.0, which is not installed.
+sglang-omni 0.1.1 requires qwen-vl-utils==0.0.11, which is not installed.
+sglang-omni 0.1.1 requires s3prl>=0.4.18, which is not installed.
+sglang-omni 0.1.1 requires silero-vad>=5.1, which is not installed.
+sglang-omni 0.1.1 requires torch==2.11.0, which is not installed.
+sglang-omni 0.1.1 requires torchaudio==2.11.0, which is not installed.
+sglang-omni 0.1.1 requires torchcodec==0.11.1, which is not installed.
+sglang-omni 0.1.1 requires torchvision==0.26.0, which is not installed.
+sglang-omni 0.1.1 requires x-transformers, which is not installed.
+sglang-omni 0.1.1 requires zhon>=2.0.2, which is not installed.
+Successfully installed cffi-2.1.1 numpy-2.2.6 pycparser-3.0 soundfile-0.13.1
+Looking in indexes: https://mirrors.ustc.edu.cn/pypi/simple/
+Collecting IPython
+  Downloading ipython-8.39.0-py3-none-any.whl (831 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 831.8/831.8 kB 14.4 MB/s  0:00:00
+Collecting zstandard
+  Downloading zstandard-0.25.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.6/5.6 MB 23.9 MB/s  0:00:00
+Collecting ninja
+  Downloading ninja-1.13.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (180 kB)
+Collecting nvidia-ml-py
+  Downloading nvidia_ml_py-13.610.43-py3-none-any.whl (53 kB)
+Collecting build
+  Downloading build-1.5.0-py3-none-any.whl (26 kB)
+Collecting blobfile
+  Downloading blobfile-3.2.0-py3-none-any.whl (76 kB)
+Collecting decorator (from IPython)
+  Downloading decorator-5.3.1-py3-none-any.whl (10 kB)
+Requirement already satisfied: exceptiongroup in /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages (from IPython) (1.3.1)
+Collecting jedi>=0.16 (from IPython)
+  Downloading jedi-0.20.0-py2.py3-none-any.whl (4.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 85.1 MB/s  0:00:00
+Collecting matplotlib-inline (from IPython)
+  Downloading matplotlib_inline-0.2.2-py3-none-any.whl (9.5 kB)
+Collecting pexpect>4.3 (from IPython)
+  Downloading pexpect-4.9.0-py2.py3-none-any.whl (63 kB)
+Collecting prompt_toolkit<3.1.0,>=3.0.41 (from IPython)
+  Downloading prompt_toolkit-3.0.53-py3-none-any.whl (392 kB)
+Requirement already satisfied: pygments>=2.4.0 in /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages (from IPython) (2.20.0)
+Collecting stack_data (from IPython)
+  Downloading stack_data-0.6.3-py3-none-any.whl (24 kB)
+Collecting traitlets>=5.13.0 (from IPython)
+  Downloading traitlets-5.16.1-py3-none-any.whl (86 kB)
+Requirement already satisfied: typing_extensions>=4.6 in /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages (from IPython) (4.16.0)
+Collecting wcwidth>=0.1.4 (from prompt_toolkit<3.1.0,>=3.0.41->IPython)
+  Downloading wcwidth-0.8.2-py3-none-any.whl (323 kB)
+Requirement already satisfied: packaging>=24.0 in /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages (from build) (26.3)
+Collecting pyproject_hooks (from build)
+  Downloading pyproject_hooks-1.2.0-py3-none-any.whl (10 kB)
+Collecting tomli>=1.1.0 (from build)
+  Downloading tomli-2.4.1-py3-none-any.whl (14 kB)
+Collecting pycryptodomex>=3.8 (from blobfile)
+  Downloading pycryptodomex-3.23.0-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 94.9 MB/s  0:00:00
+Requirement already satisfied: urllib3>=2 in /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages (from blobfile) (2.7.0)
+Collecting lxml>=4.9 (from blobfile)
+  Downloading lxml-6.1.1-cp310-cp310-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.3/5.3 MB 12.2 MB/s  0:00:00
+Requirement already satisfied: filelock>=3.0 in /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages (from blobfile) (3.32.2)
+Collecting parso<0.9.0,>=0.8.6 (from jedi>=0.16->IPython)
+  Downloading parso-0.8.7-py2.py3-none-any.whl (107 kB)
+Collecting ptyprocess>=0.5 (from pexpect>4.3->IPython)
+  Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+Collecting executing>=1.2.0 (from stack_data->IPython)
+  Downloading executing-2.2.1-py2.py3-none-any.whl (28 kB)
+Collecting asttokens>=2.1.0 (from stack_data->IPython)
+  Downloading asttokens-3.0.2-py3-none-any.whl (28 kB)
+Collecting pure-eval (from stack_data->IPython)
+  Downloading pure_eval-0.2.3-py3-none-any.whl (11 kB)
+Installing collected packages: pure-eval, ptyprocess, nvidia-ml-py, zstandard, wcwidth, traitlets, tomli, pyproject_hooks, pycryptodomex, pexpect, parso, ninja, lxml, executing, decorator, asttokens, stack_data, prompt_toolkit, matplotlib-inline, jedi, build, blobfile, IPython
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+sglang 0.5.16 requires anthropic>=0.20.0, which is not installed.
+sglang 0.5.16 requires apache-tvm-ffi==0.1.11, which is not installed.
+sglang 0.5.16 requires compressed-tensors, which is not installed.
+sglang 0.5.16 requires cuda-python>=13.0, which is not installed.
+sglang 0.5.16 requires datasets, which is not installed.
+sglang 0.5.16 requires flash-attn-4>=4.0.0b18, which is not installed.
+sglang 0.5.16 requires flashinfer_python[cu13]==0.6.14, which is not installed.
+sglang 0.5.16 requires helion==0.2.6, which is not installed.
+sglang 0.5.16 requires humming-kernels[cu13]==0.1.10, which is not installed.
+sglang 0.5.16 requires kernels<0.15,>=0.14.1, which is not installed.
+sglang 0.5.16 requires llguidance<2.0.0,>=1.7.6, which is not installed.
+sglang 0.5.16 requires mistral_common>=1.11.5, which is not installed.
+sglang 0.5.16 requires modelscope, which is not installed.
+sglang 0.5.16 requires numba==0.65.1, which is not installed.
+sglang 0.5.16 requires nvidia-cutlass-dsl[cu13]==4.6.0, which is not installed.
+sglang 0.5.16 requires nvidia-mathdx==25.6.0, which is not installed.
+sglang 0.5.16 requires openai==2.6.1, which is not installed.
+sglang 0.5.16 requires openai-harmony==0.0.4, which is not installed.
+sglang 0.5.16 requires outlines==0.1.11, which is not installed.
+sglang 0.5.16 requires py-spy, which is not installed.
+sglang 0.5.16 requires quack-kernels>=0.6.1, which is not installed.
+sglang 0.5.16 requires sgl-deep-gemm==0.1.4.post1, which is not installed.
+sglang 0.5.16 requires sglang-kernel==0.4.5, which is not installed.
+sglang 0.5.16 requires smg-grpc-servicer>=0.5.0, which is not installed.
+sglang 0.5.16 requires tilelang==0.1.11, which is not installed.
+sglang 0.5.16 requires timm==1.0.16, which is not installed.
+sglang 0.5.16 requires tokenspeed_mla==0.1.8, which is not installed.
+sglang 0.5.16 requires torch==2.11.0, which is not installed.
+sglang 0.5.16 requires torch_memory_saver>=0.0.9.post1, which is not installed.
+sglang 0.5.16 requires torchao==0.17.0, which is not installed.
+sglang 0.5.16 requires torchaudio==2.11.0, which is not installed.
+sglang 0.5.16 requires torchcodec==0.11.1; sys_platform != "linux" or (sys_platform == "linux" and platform_machine != "aarch64" and platform_machine != "arm64" and platform_machine != "armv7l"), which is not installed.
+sglang 0.5.16 requires torchvision, which is not installed.
+sglang 0.5.16 requires watchfiles, which is not installed.
+sglang 0.5.16 requires xgrammar==0.2.1, which is not installed.
+sglang 0.5.16 requires blobfile==3.0.0, but you have blobfile 3.2.0 which is incompatible.
+Successfully installed IPython-8.39.0 asttokens-3.0.2 blobfile-3.2.0 build-1.5.0 decorator-5.3.1 executing-2.2.1 jedi-0.20.0 lxml-6.1.1 matplotlib-inline-0.2.2 ninja-1.13.0 nvidia-ml-py-13.610.43 parso-0.8.7 pexpect-4.9.0 prompt_toolkit-3.0.53 ptyprocess-0.7.0 pure-eval-0.2.3 pycryptodomex-3.23.0 pyproject_hooks-1.2.0 stack_data-0.6.3 tomli-2.4.1 traitlets-5.16.1 wcwidth-0.8.2 zstandard-0.25.0
+=== venv import baseline split retry ===
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+ImportError: huggingface-hub>=1.5.0,<2.0 is required for a normal functioning of this module, but found huggingface-hub==1.4.1.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+python /data/src/sglang-omni-corex-probe/venv-transformers512/bin/python
+torch OK 2.7.1 /usr/local/corex/lib64/python3/dist-packages/torch/__init__.py
+transformers FAIL ImportError huggingface-hub>=1.5.0,<2.0 is required for a normal functioning of this module, but found huggingface-hub==1.4.1.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+tokenizers OK 0.22.2 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/tokenizers/__init__.py
+pydantic OK 2.13.4 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic/__init__.py
+pydantic_core OK 2.46.4 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/pydantic_core/__init__.py
+sglang OK 0.5.16 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/__init__.py
+sglang_omni OK 0.1.1 /data/src/sglang-omni-corex-probe/repo/sglang_omni/__init__.py
+triton OK 3.7.1 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/triton/__init__.py
+IPython OK 8.39.0 /data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/IPython/__init__.py
+=== targeted qwen3_asr registration split retry ===
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+ImportError: huggingface-hub>=1.5.0,<2.0 is required for a normal functioning of this module, but found huggingface-hub==1.4.1.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/entrypoints/http_server.py", line 65, in <module>
+    from sglang.srt.disaggregation.utils import FAKE_BOOTSTRAP_HOST, DisaggregationMode
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/disaggregation/utils.py", line 14, in <module>
+    from sglang.srt.configs.model_config import get_dsa_index_topk
+ImportError: huggingface-hub>=1.5.0,<2.0 is required for a normal functioning of this module, but found huggingface-hub==1.4.1.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/models/qwen3_asr/engine_builder.py", line 9, in <module>
+    from sglang.srt.managers.mm_utils import init_mm_embedding_cache
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/sglang/srt/managers/mm_utils.py", line 22, in <module>
+    from sglang.srt.managers.io_struct import (
+ImportError: huggingface-hub>=1.5.0,<2.0 is required for a normal functioning of this module, but found huggingface-hub==1.4.1.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+sglang.srt.configs.qwen3_asr FAIL ImportError huggingface-hub>=1.5.0,<2.0 is required for a normal functioning of this module, but found huggingface-hub==1.4.1.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+sglang.srt.entrypoints.http_server FAIL ImportError huggingface-hub>=1.5.0,<2.0 is required for a normal functioning of this module, but found huggingface-hub==1.4.1.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+sglang_omni.models.qwen3_asr.engine_builder FAIL ImportError huggingface-hub>=1.5.0,<2.0 is required for a normal functioning of this module, but found huggingface-hub==1.4.1.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+=== venv sgl-omni check-gpu split retry ===
+Traceback (most recent call last):
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/bin/sgl-omni", line 3, in <module>
+    from sglang_omni.cli import app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/__init__.py", line 4, in <module>
+    from .config import config_app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/config.py", line 9, in <module>
+    from sglang_omni.config.manager import resolve_config_cls_for_model_path
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/manager.py", line 5, in <module>
+    from transformers import AutoConfig
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/__init__.py", line 30, in <module>
+    from . import dependency_versions_check
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/dependency_versions_check.py", line 56, in <module>
+    require_version_core(deps[pkg])
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/utils/versions.py", line 116, in require_version_core
+    return require_version(requirement, hint)
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/utils/versions.py", line 110, in require_version
+    _compare_versions(op, got_ver, want_ver, requirement, pkg, hint)
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/utils/versions.py", line 43, in _compare_versions
+    raise ImportError(
+ImportError: huggingface-hub>=1.5.0,<2.0 is required for a normal functioning of this module, but found huggingface-hub==1.4.1.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+=== venv serve Qwen3-ASR split retry ===
+Traceback (most recent call last):
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/bin/sgl-omni", line 3, in <module>
+    from sglang_omni.cli import app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/__init__.py", line 4, in <module>
+    from .config import config_app
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/cli/config.py", line 9, in <module>
+    from sglang_omni.config.manager import resolve_config_cls_for_model_path
+  File "/data/src/sglang-omni-corex-probe/repo/sglang_omni/config/manager.py", line 5, in <module>
+    from transformers import AutoConfig
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/__init__.py", line 30, in <module>
+    from . import dependency_versions_check
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/dependency_versions_check.py", line 56, in <module>
+    require_version_core(deps[pkg])
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/utils/versions.py", line 116, in require_version_core
+    return require_version(requirement, hint)
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/utils/versions.py", line 110, in require_version
+    _compare_versions(op, got_ver, want_ver, requirement, pkg, hint)
+  File "/data/src/sglang-omni-corex-probe/venv-transformers512/lib/python3.10/site-packages/transformers/utils/versions.py", line 43, in _compare_versions
+    raise ImportError(
+ImportError: huggingface-hub>=1.5.0,<2.0 is required for a normal functioning of this module, but found huggingface-hub==1.4.1.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
